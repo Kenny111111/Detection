@@ -62,7 +62,6 @@ public class DissolveController : MonoBehaviour
         }
     }
 
-    //-1 showing --- 1 invisible
     private IEnumerator FadeIn(Material mat)
     {
         float amt = mat.GetFloat("_dissolveAmount");

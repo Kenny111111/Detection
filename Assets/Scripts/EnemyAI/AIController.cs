@@ -69,7 +69,6 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        // temporary way to keep the enemy speed but increase the animation speed so the enemy doesnt look like they are sliding
         if (!navMeshAgent.isStopped)
         {
             float speedOffset = 1f;
@@ -95,8 +94,6 @@ public class AIController : MonoBehaviour
 
     private void Patrolling()
     {
-       
-
         if (playerIsNear)
         {
             if (rotate <= 0)
@@ -177,7 +174,6 @@ public class AIController : MonoBehaviour
             if (dist < useConditions.maxRange)
                 weaponInverseKinematics.SetTargetTransform(playerObject.transform);
 
-            //float idealAttackRange;
             if (dist < useConditions.idealRange)
             {
                 // enemy slows down to try attack
