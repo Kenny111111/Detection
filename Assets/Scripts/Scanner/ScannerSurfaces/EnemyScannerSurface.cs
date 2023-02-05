@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Detection
 {
-    public class EnemySurface : MonoBehaviour, IScannable, IRevealable
+    public class EnemyScannerSurface : MonoBehaviour, IScannable, IRevealable
     {
         public int hitCount = 0;
         private int hitThreshold = 40;

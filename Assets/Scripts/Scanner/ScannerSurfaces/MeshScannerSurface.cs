@@ -3,14 +3,14 @@ using UnityEngine;
 namespace Detection
 {
     [RequireComponent(typeof(MeshRenderer), typeof(MeshCollider))]
-    public class MeshSurface : MonoBehaviour, IScannable
+    public class MeshScannerSurface : MonoBehaviour, IScannable
     {
+        [SerializeField] private Color color = new Color(255, 255, 255);
+        [SerializeField] private float lifetime = 3f;
+        [SerializeField] private float size = 0.015f;
+
         void IScannable.EmitParticle(RaycastHit hit, VFXEmitArgs overrideArgs)
         {
-            Color color = new Color(255, 255, 255);
-            float lifetime = 5f;
-            float size = 0.015f;
-
             Renderer renderer;
             Texture2D texture2D;
             Vector2 pCoord;

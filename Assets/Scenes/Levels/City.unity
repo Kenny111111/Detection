@@ -2768,6 +2768,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &215589861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,6 +4234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &285599126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5236,6 +5242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &379866195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 117208, guid: c149960d9485b394e8d52ae30578e3f3,
@@ -6224,6 +6233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &436185177
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6724,6 +6736,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &497603663 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 179172, guid: e4e5d2f7f155681449aca26cbdb2b635,
@@ -6909,6 +6924,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &512712198
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7020,6 +7038,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &554286503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7804,6 +7825,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &601033002
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8733,6 +8757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &646160049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9219,6 +9246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &748708210
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9872,6 +9902,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &797537104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9964,6 +9997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &805231342
 GameObject:
   m_ObjectHideFlags: 0
@@ -10547,6 +10583,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &843785565
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11655,6 +11694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &941903525
 GameObject:
   m_ObjectHideFlags: 0
@@ -12936,6 +12978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1037029407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13200,6 +13245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1045694476
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13301,6 +13349,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1057549311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13536,6 +13587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1083237278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14632,6 +14686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1166912104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14828,6 +14885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1195121700
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15571,6 +15631,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1245159117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15659,6 +15722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1249194566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16431,7 +16497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5214dbd7942d40b44922781223ec9e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timertext: {fileID: 1238392591}
+  timerText: {fileID: 0}
 --- !u!4 &1255715305
 Transform:
   m_ObjectHideFlags: 0
@@ -16718,8 +16784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1271486274}
-  tempOffsetX: 910
-  tempOffsetY: 305
+  tempOffsetX: 500
+  tempOffsetY: 250
 --- !u!114 &1271486270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16733,10 +16799,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1271486274}
-  numParticlesPerScan: 1200
-  sprayAngleX: 150
-  sprayAngleY: 150
-  maxRayDistance: 40
+  numParticlesPerSecond: 50000
+  sprayAngleX: 100
+  sprayAngleY: 80
+  maxRayDistance: 30
 --- !u!114 &1271486271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17702,6 +17768,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1312554281
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17919,6 +17988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1345658122
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18143,6 +18215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1358557205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 189404, guid: fbd2941af06c48e4cbb32be48b18d045,
@@ -18161,6 +18236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1365842630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18446,6 +18524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1394734320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18918,6 +18999,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1423069496
 GameObject:
   m_ObjectHideFlags: 0
@@ -19555,6 +19639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1464483146
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19758,6 +19845,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1473782290
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19790,6 +19880,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1480453480
 GameObject:
   m_ObjectHideFlags: 0
@@ -19840,6 +19933,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1487510967
 GameObject:
   m_ObjectHideFlags: 0
@@ -19958,6 +20054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1493911668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20176,6 +20275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1521556458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 195910, guid: ae7b8255185ace64ca379cb1ca3b24e6,
@@ -20194,6 +20296,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1521556463
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20729,6 +20834,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1571068821 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 194954, guid: 015249c005381134e896458eb3ed0bb1,
@@ -20747,6 +20855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1571470753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20841,6 +20952,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1574069446 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 189930, guid: f539f0390d17a9f4a922b722e47998fe,
@@ -20859,6 +20973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1578314045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20946,6 +21063,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1585863477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 190556, guid: 33b36afb51822b442b3a3f8accf3c199,
@@ -20964,6 +21084,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1594326729
 GameObject:
   m_ObjectHideFlags: 0
@@ -21167,6 +21290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1596138455
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21284,6 +21410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1610035021
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21431,6 +21560,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1618588816
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21727,6 +21859,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1651038021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21890,6 +22025,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1669578562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21987,6 +22125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1685373013
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22447,6 +22588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1731400434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22594,6 +22738,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1738906723
 GameObject:
   m_ObjectHideFlags: 0
@@ -22721,6 +22868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1743954682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23296,6 +23446,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1779012382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23986,6 +24139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1845591258
 GameObject:
   m_ObjectHideFlags: 0
@@ -24271,6 +24427,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1884262245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24389,6 +24548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1885771656
 GameObject:
   m_ObjectHideFlags: 0
@@ -24578,6 +24740,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1893360947
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24680,6 +24845,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1919367793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24768,6 +24936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &1923116148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24880,6 +25051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1955804006
 GameObject:
   m_ObjectHideFlags: 0
@@ -24926,6 +25100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &1955804009
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25000,6 +25177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1961527461
 GameObject:
   m_ObjectHideFlags: 0
@@ -25214,6 +25394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &1975187541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 194954, guid: 015249c005381134e896458eb3ed0bb1,
@@ -25232,6 +25415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!4 &1979535543 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6492723908682279807, guid: c32b02d24139a084f90b79151aaaf0d5,
@@ -25477,6 +25663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &2006698702
 GameObject:
   m_ObjectHideFlags: 0
@@ -25681,6 +25870,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &2010043901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 157676, guid: fcd06c9319e99cc4bbee7ce7730d9422,
@@ -25699,6 +25891,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!4 &2018213328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5092688273724174215, guid: c9e6ab58b19acd74e94e93be1c9f0b7b,
@@ -25877,6 +26072,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &2040692891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26138,6 +26336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &2069670857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26234,6 +26435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &2086536052
 GameObject:
   m_ObjectHideFlags: 0
@@ -26488,6 +26692,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1 &2111613577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 195910, guid: ae7b8255185ace64ca379cb1ca3b24e6,
@@ -26506,6 +26713,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &2111613582
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26616,6 +26826,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &2120250208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26861,6 +27074,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!64 &2122983503
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26968,6 +27184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 255, g: 255, b: 255, a: 1}
+  lifetime: 3
+  size: 0.015
 --- !u!1001 &2132678648
 PrefabInstance:
   m_ObjectHideFlags: 0

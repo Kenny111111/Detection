@@ -12,8 +12,4 @@ public class MenuManager : MonoBehaviour
     {
         Canvas.SetActive(false);
     }
-
-  
-
-    // Update is called once per frame
 }

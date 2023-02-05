@@ -7,21 +7,30 @@ namespace Detection
         [Header("Settings")]
         public Camera cam;
 
-        [SerializeField] private int numParticlesPerScan;
+        [SerializeField] private int numParticlesPerSecond;
         [SerializeField] private float sprayAngleX;
         [SerializeField] private float sprayAngleY;
         [SerializeField] private float maxRayDistance;
+        private float timeSinceLastSpawn;
 
         public void Scan(Vector3 direction)
         {
-            for (int i = 0; i < numParticlesPerScan; i++)
-            {
-                float offsetXCoord = direction.x + Random.Range(-sprayAngleX, sprayAngleX);
-                float offsetYCoord = direction.y + Random.Range(-sprayAngleY, sprayAngleY);
-                Vector2 aimDir = new Vector2(offsetXCoord, offsetYCoord);
-                Ray directionRay = cam.ScreenPointToRay(aimDir);
+            float intervalPerSpawn = 1 / (float)numParticlesPerSecond;
+            timeSinceLastSpawn += Time.deltaTime;
 
-                ShootAndEmitParticle(directionRay);
+            if (timeSinceLastSpawn > intervalPerSpawn)
+            {
+                int numToSpawn = (int)Mathf.Floor(timeSinceLastSpawn / intervalPerSpawn);
+                for (; numToSpawn > 0; numToSpawn--)
+                {
+                    timeSinceLastSpawn -= intervalPerSpawn;
+
+                    float offsetXCoord = direction.x + Random.Range(-sprayAngleX, sprayAngleX);
+                    float offsetYCoord = direction.y + Random.Range(-sprayAngleY, sprayAngleY);
+                    Vector2 aimDir = new Vector2(offsetXCoord, offsetYCoord);
+                    Ray directionRay = cam.ScreenPointToRay(aimDir);
+                    ShootAndEmitParticle(directionRay);
+                }
             }
         }
 

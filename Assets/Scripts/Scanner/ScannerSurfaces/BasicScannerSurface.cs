@@ -2,15 +2,15 @@ using UnityEngine;
 
 namespace Detection
 {
-    public class BasicSurface : MonoBehaviour, IScannable
+    public class BasicScannerSurface : MonoBehaviour, IScannable
     {
-        [SerializeField] private Color defaultColor;
+        [SerializeField] private Color defaultColor = new Color(255, 255, 255);
+        [SerializeField] private float lifetime = 3f;
+        [SerializeField] private float size = 0.015f;
 
         void IScannable.EmitParticle(RaycastHit hit, VFXEmitArgs overrideArgs)
         {
             Color color = defaultColor;
-            float lifetime = 5f;
-            float size = 0.015f;
 
             if (overrideArgs.color != null) color = (Color)overrideArgs.color;
             if (overrideArgs.lifetime != null) lifetime = (float)overrideArgs.lifetime;
