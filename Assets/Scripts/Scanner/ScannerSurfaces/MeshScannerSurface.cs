@@ -17,7 +17,6 @@ namespace Detection
 
             try
             {
-
                 if (overrideArgs.color != null) color = (Color)overrideArgs.color;
                 else
                 {
