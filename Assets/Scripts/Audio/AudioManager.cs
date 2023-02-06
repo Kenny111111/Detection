@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
 
 	public void Play(string sound)
 	{
-
 		Sound mySound = soundsList.Find(item => item.name == sound);
 		if (mySound == null)
 		{

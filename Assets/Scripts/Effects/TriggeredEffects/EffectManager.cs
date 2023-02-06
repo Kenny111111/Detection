@@ -12,6 +12,7 @@ namespace Detection
         [Range(0, 1)]
         [SerializeField] private float loudnessTolerance = 0.8f;
         private MusicAnalyzer musicAnalyzer;
+        [SerializeField] private GameObject playerObj;
 
         [Range(0.01f, float.MaxValue)]
         [SerializeField] double minEffectDuration = 0.5;
@@ -38,7 +39,10 @@ namespace Detection
             List<KeyValuePair<IEffect, double>> effectList = new List<KeyValuePair<IEffect, double>>();
 
             gameObject.AddComponent<ParticleSizeBeatEffect>().Initialize(musicAnalyzer);
-            effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<ParticleSizeBeatEffect>(), 10));
+            gameObject.AddComponent<WorldOutlineEffect>().Initialize(musicAnalyzer, playerObj, 5000, 10);
+
+            effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<ParticleSizeBeatEffect>(), 0));
+            effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<WorldOutlineEffect>(), 5));
 
             // populate the weightedRandom effects bag we can pick from
             weightedEffectsBag = new WeightedRandom<IEffect>();

@@ -17668,6 +17668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loudnessTolerance: 0.8
+  playerObj: {fileID: 541364385}
   minEffectDuration: 1
   maxEffectDuration: 14.399999618530273
   allowMultipleEffectsAtOnce: 0
