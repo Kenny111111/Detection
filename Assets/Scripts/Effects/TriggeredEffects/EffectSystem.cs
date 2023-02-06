@@ -4,15 +4,20 @@ using UnityEngine;
 
 namespace Detection
 {
-    public class EffectSystem : MonoBehaviour
+    public class EffectManager : MonoBehaviour
     {
-        public static EffectSystem effectSystem;
+        public static EffectManager effectManager;
         public VFXEmitArgs effectEmitArgs;
 
         [Range(0, 1)]
         [SerializeField] private float loudnessTolerance = 0.8f;
         private MusicAnalyzer musicAnalyzer;
         [SerializeField] private GameObject playerObj;
+
+        [Range(0.01f, float.MaxValue)]
+        [SerializeField] double minEffectDuration = 0.5;
+        [Range(0.01f, 30)]
+        [SerializeField] double maxEffectDuration = 15;
 
         public bool allowMultipleEffectsAtOnce = false;
         private bool isApplyingEffect = false;
@@ -22,16 +27,11 @@ namespace Detection
 
         private void Awake()
         {
-            if (effectSystem != null && effectSystem != this) Destroy(this);
-            else effectSystem = this;
+            if (effectManager != null && effectManager != this) Destroy(this);
+            else effectManager = this;
         }
 
         private void Start()
-        {
-            Initialize();
-        }
-
-        public void Initialize()
         {
             musicAnalyzer = MusicManager.musicManager.GetComponent<MusicAnalyzer>();
             effectEmitArgs = new VFXEmitArgs(null, null, null);
@@ -39,8 +39,10 @@ namespace Detection
             List<KeyValuePair<IEffect, double>> effectList = new List<KeyValuePair<IEffect, double>>();
 
             gameObject.AddComponent<ParticleSizeBeatEffect>().Initialize(musicAnalyzer);
+            gameObject.AddComponent<WorldOutlineEffect>().Initialize(musicAnalyzer, playerObj, 5000, 10);
 
-            effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<ParticleSizeBeatEffect>(), 10));
+            effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<ParticleSizeBeatEffect>(), 0));
+            effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<WorldOutlineEffect>(), 5));
 
             // populate the weightedRandom effects bag we can pick from
             weightedEffectsBag = new WeightedRandom<IEffect>();
@@ -49,9 +51,6 @@ namespace Detection
                 weightedEffectsBag.Add(x.Key, x.Value);
             }
         }
-
-
-
         // Update is called once per frame
         void Update()
         {
@@ -64,7 +63,12 @@ namespace Detection
 
                     // randomly decide an event and some duration
                     var chosenEffect = weightedEffectsBag.GetRandomWeighted();
-                    chosenEffect.DoEffect(OnFinishedEffect);
+
+                    // generate a random duration within defined min/max values
+                    System.Random rand = new System.Random();
+                    double randomDuration = rand.NextDouble() * (maxEffectDuration - minEffectDuration) + minEffectDuration;
+
+                    chosenEffect.DoEffect(randomDuration, OnFinishedEffect);
                 }
             }
         }
