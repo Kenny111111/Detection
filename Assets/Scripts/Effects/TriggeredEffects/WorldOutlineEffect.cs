@@ -61,47 +61,40 @@ namespace Detection
 
 		void IEffect.DoEffect(double duration, Action callback)
 		{
+			// Shoot rays 360 degrees around the player and set point data
+			float angle = 0;
+			for (int i = 0; i < numPoints; i++)
+			{
+				if (!pointList[i].GetHasHitWall())
+				{
+					float x = Mathf.Sin(angle);
+					float y = Mathf.Cos(angle);
+					angle += 2 * Mathf.PI / numPoints;
+
+					Vector3 dir = new Vector3(playerObj.transform.position.x * x, playerObj.transform.position.y * y, 0);
+					//Vector3 fwd = transform.TransformDirection(dir); // is this necessary? maybe just use dir?
+					RaycastHit rayHit;
+
+					if (Physics.Raycast(playerObj.transform.position, dir, out rayHit, maxDistance))
+					{
+						pointList[i].SetLocation(rayHit.point);
+						pointList[i].SetHasHitWall(true);
+					}
+					else pointList[i].SetHasHitWall(false);
+				}
+			}
+
 			Color startColor = new Color(255, 255, 255, 255);
 			Color endColor = new Color(0, 0, 0, 0);
-
-			StartCoroutine(DoWorldOutlineEffect(startColor, endColor, 1f, maxDistance, duration, callback));
+			StartCoroutine(DoWorldOutlineEffect(startColor, endColor, duration, callback));
 		}
 
-		public IEnumerator DoWorldOutlineEffect(Color startColor, Color endColor, float startRadius, float endRadius, double duration, Action callback)
+		public IEnumerator DoWorldOutlineEffect(Color startColor, Color endColor, double duration, Action callback)
 		{
-			//pointList[0].SetHasHitWall(true);
-			//pointList[0].SetLocation(new Vector3(1, 1, 1));
-			//pointList[0].SetHasHitWall(false);
-			//pointList[0].SetLocation(new Vector3(-1, 0, -1));
-
 			for (float t = 0f; t < duration; t += Time.deltaTime)
 			{
 				float normalizedTime = t / (float)duration;
-				float radius = Mathf.Lerp(startRadius, endRadius, normalizedTime);
 				curColor = Color.Lerp(startColor, endColor, normalizedTime);
-
-				// Shoot rays 360 degrees around the player and set point data
-				float angle = 0;
-				for (int i = 0; i < numPoints; i++)
-				{
-					if (!pointList[i].GetHasHitWall())
-                    {
-						float x = Mathf.Sin(angle);
-						float y = Mathf.Cos(angle);
-						angle += 2 * Mathf.PI / numPoints;
-
-						Vector3 dir = new Vector3(playerObj.transform.position.x * x, playerObj.transform.position.y * y, 0);
-						//Vector3 fwd = transform.TransformDirection(dir); // is this necessary? maybe just use dir?
-						RaycastHit rayHit;
-
-						if (Physics.Raycast(playerObj.transform.position, dir, out rayHit, radius))
-						{
-							pointList[i].SetLocation(rayHit.point);
-							pointList[i].SetHasHitWall(true);
-						}
-						else pointList[i].SetHasHitWall(false);
-					}
-				}
 
 				// Draw all the points
 				for (int i = 0; i < numPoints; i++)
