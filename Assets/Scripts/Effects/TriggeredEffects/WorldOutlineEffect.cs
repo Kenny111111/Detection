@@ -7,10 +7,10 @@ namespace Detection
 {
 	public class WorldOutlineEffect : MonoBehaviour, IEffect
 	{
-		public struct OutlinePoint
+		public class OutlinePoint
 		{
-			private bool hasHitWall;
-			private Vector3 location;
+			public bool hasHitWall;
+			public Vector3 location;
 
 			public OutlinePoint(bool newHitWall, Vector3 newLocation)
 			{
@@ -42,18 +42,22 @@ namespace Detection
 		private GameObject playerObj;
 		private int numPoints;
 		private float maxDistance;
-		private int layerMask;
+		private LayerMask layerMask;
+		private float diffDistanceTolerance;
 
 		private Color curColor;
 
-		public void Initialize(MusicAnalyzer mAnalyzer, GameObject player, int newNumPoints, float newMaxDistance)
+		public void Initialize(MusicAnalyzer mAnalyzer, GameObject player, int newNumPoints, float newMaxDistance, float newDiffDistanceTolerance)
 		{
 			musicAnalyzer = mAnalyzer;
 			numPoints = newNumPoints;
 			maxDistance = newMaxDistance;
 			playerObj = player;
+			diffDistanceTolerance = newDiffDistanceTolerance;
 
 			pointList = new List<OutlinePoint>();
+
+			layerMask = LayerMask.GetMask("Environment", "Enemies");
 
 			for (int i = 0; i < numPoints; i++)
 				pointList.Add(new OutlinePoint(false, new Vector3(0, 0, 0)));
@@ -96,11 +100,17 @@ namespace Detection
 				float normalizedTime = t / (float)duration;
 				curColor = Color.Lerp(startColor, endColor, normalizedTime);
 
-				// Draw all the points
-				for (int i = 0; i < numPoints; i++)
+				// Draw points
+				for (int i = 0; i < numPoints - 1; i++)
 				{
-					if (i + 1 < numPoints)
+					// Draw a line between the points in question, as long as
+					// 1. both points have hit something.
+					// 2. the distance in between two points are less than the tolerance.
+					if ((pointList[i].GetHasHitWall() && pointList[i + 1].GetHasHitWall()) 
+						&& (Vector3.Distance(pointList[i].GetLocation(), pointList[i + 1].GetLocation()) < diffDistanceTolerance))
+					{
 						Debug.DrawLine(pointList[i].GetLocation(), pointList[i + 1].GetLocation(), curColor);
+					}
 				}
 
 				yield return null;
@@ -110,22 +120,5 @@ namespace Detection
 
 			callback();
 		}
-
-		/*
-
-		IEnumerator ChangePointColorOverTime(Color start, Color end, float duration)
-		{
-			for (float t = 0f; t < duration; t += Time.deltaTime)
-			{
-				float normalizedTime = t / duration;
-				//right here, you can now use normalizedTime as the third parameter in any Lerp from start to end
-				someColorValue = Color.Lerp(start, end, normalizedTime);
-				yield return null;
-			}
-			someColorValue = end; //without this, the value will end at something like 0.9992367
-		}
-
-		*/
-
 	}
 }
