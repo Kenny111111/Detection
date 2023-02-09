@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DissolveController : MonoBehaviour
 {
+    public bool revealed = false;
     [SerializeField] private List<SkinnedMeshRenderer> skinnedMeshRenderers;
     [SerializeField] private List<MeshRenderer> meshRenderers;
     private List<Material> materials;
