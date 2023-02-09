@@ -1,28 +1,26 @@
 using System.Collections;
 using UnityEngine;
-using Detection;
 
-public class EnemySurfaceManager : MonoBehaviour, IRevealable
+public class EnemySurfaceManager : MonoBehaviour
 {
     public int hitCount = 0;
-    public int maxHit = 200;
-    private int hitThreshold = 40;
-    private DissolveController dissolveController;
-    private bool runningReduceHitCount = false;
+    public int maxHit { private set; get; } = 200;
+    public int hitThreshold { private set; get; } = 40;
+    public DissolveController dissolveController { private set; get; }
+    public bool runningReduceHitCount { private set; get; } = false;
     private WaitForSeconds reduceHitInterval = new WaitForSeconds(0.1f);
-
-    private void Update()
-    {
-        if (hitCount > hitThreshold && !dissolveController.revealed) Reveal();
-        if (!runningReduceHitCount) StartCoroutine(ReduceHitCount());
-    }
 
     private void Awake()
     {
         dissolveController = GetComponent<DissolveController>();
     }
 
-    private IEnumerator ReduceHitCount()
+    private void Update()
+    {
+        if (hitCount >= hitThreshold && !runningReduceHitCount) StartCoroutine(ReduceHitCount());
+    }
+
+    public IEnumerator ReduceHitCount()
     {
         runningReduceHitCount = true;
         while(hitCount > 0)
@@ -32,10 +30,5 @@ public class EnemySurfaceManager : MonoBehaviour, IRevealable
         }
         dissolveController.Disappear();
         runningReduceHitCount = false;
-    }
-
-    public void Reveal()
-    {
-        dissolveController.Appear();
     }
 }
