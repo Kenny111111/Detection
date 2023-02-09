@@ -29,6 +29,12 @@ public class AIWeaponManager : MonoBehaviour
         SpawnWeaponToDrop();
     }
 
+    private void Start()
+    {
+        // Stop weapons from colliding with AI
+        currentWeapon.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
     public NecessaryUseConditions GetWeaponNecessaryUseConditions()
     {
         return currentWeaponNecessaryUseConditions;
