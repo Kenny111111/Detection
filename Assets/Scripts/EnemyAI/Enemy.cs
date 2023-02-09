@@ -22,7 +22,10 @@ public class Enemy : Combatant
             rb.gameObject.AddComponent<Hitbox>();
             rb.gameObject.AddComponent<EnemyScannerSurface>();
         }
+    }
 
+    private void Start()
+    {
         ToggleRagdoll(false);
     }
 
@@ -41,7 +44,7 @@ public class Enemy : Combatant
     {
         foreach(Rigidbody rb in rigidbodies)
         {
-            rb.isKinematic = state;
+            rb.isKinematic = !state;
         }
     }
 }

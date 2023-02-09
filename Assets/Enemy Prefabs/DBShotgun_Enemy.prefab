@@ -1122,8 +1122,8 @@ GameObject:
   - component: {fileID: 2971048920018297390}
   - component: {fileID: 2971048920018297391}
   - component: {fileID: 8850683722138291141}
-  - component: {fileID: 15279368248131341}
   - component: {fileID: 5424814530389490901}
+  - component: {fileID: 4392037170181404240}
   m_Layer: 7
   m_Name: DBShotgun_Enemy
   m_TagString: Untagged
@@ -1310,25 +1310,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584a8b5c844824649957f7c6a67f3796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  revealed: 0
   skinnedMeshRenderers:
   - {fileID: 3389607401727499384}
   - {fileID: 1393660360980103751}
   meshRenderers:
   - {fileID: 6391874675671292631}
---- !u!114 &15279368248131341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2481652636882827422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace109220d8308e4fb23e6e604abcd7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitCount: 0
-  dissolveController: {fileID: 8850683722138291141}
 --- !u!114 &5424814530389490901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1345,6 +1332,20 @@ MonoBehaviour:
     minRange: 0
     maxRange: 6
     idealRange: 3
+--- !u!114 &4392037170181404240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481652636882827422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78cc19b9a92bbe246880c7c6fa8d05e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitCount: 0
+  maxHit: 200
 --- !u!1 &3102643276034436591
 GameObject:
   m_ObjectHideFlags: 0
