@@ -1,4 +1,5 @@
 using UnityEngine;
+using Detection;
 
 public class Enemy : Combatant
 {
@@ -9,17 +10,20 @@ public class Enemy : Combatant
 
     private void Awake()
     {
+        health = 100f;
+        maxHealth = health;
         animator = GetComponent<Animator>();
         colliders = GetComponentsInChildren<Collider>();
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         weaponManager = GetComponent<AIWeaponManager>();
-    }
 
-    private void Start()
-    {
-        health = 100f;
-        maxHealth = health;
-        EnableRagDoll(false);
+        foreach(Rigidbody rb in rigidbodies)
+        {
+            rb.gameObject.AddComponent<Hitbox>();
+            rb.gameObject.AddComponent<EnemyScannerSurface>();
+        }
+
+        ToggleRagdoll(false);
     }
 
     public override void Die()
@@ -28,34 +32,16 @@ public class Enemy : Combatant
         weaponManager.LaunchWeapon();
 
         animator.enabled = false;
-        EnableRagDoll(true);
+        ToggleRagdoll(true);
 
         Destroy(gameObject, 1f);
     }
 
-    private void EnableRagDoll(bool state)
+    private void ToggleRagdoll(bool state)
     {
-        SetRigidBodyKinematic(!state);
-        SetColliders(state);
-    }
-
-    private void SetRigidBodyKinematic(bool newState)
-    {
-        foreach(Rigidbody rigidbody in rigidbodies)
+        foreach(Rigidbody rb in rigidbodies)
         {
-            rigidbody.isKinematic = newState;
+            rb.isKinematic = state;
         }
-        // main rigidbody opposite value
-        GetComponent<Rigidbody>().isKinematic = !newState;
-    }
-
-    private void SetColliders(bool newState)
-    {
-        foreach (Collider collider in colliders)
-        {
-            collider.enabled = newState;
-        }
-        // main collider opposite value
-        GetComponent<Collider>().enabled = !newState;
     }
 }

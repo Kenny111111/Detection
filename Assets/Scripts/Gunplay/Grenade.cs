@@ -1,7 +1,7 @@
-using UnityEngine.XR.Interaction.Toolkit;
+using Detection;
 using System.Collections;
 using UnityEngine;
-using Detection;
+using UnityEngine.XR.Interaction.Toolkit;
 using static Detection.IDealsDamage;
 
 public class Grenade : XRGrabInteractable, IHasAIBehavior, IDealsDamage
@@ -120,9 +120,9 @@ public class Grenade : XRGrabInteractable, IHasAIBehavior, IDealsDamage
         Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
         foreach (Collider collider in colliders)
         {
-            ITakeDamage damageTaker = collider.GetComponent<ITakeDamage>();
-            if (damageTaker == null) continue;
-            damageTaker.TakeDamage(damage);
+            Hitbox hitbox = collider.GetComponent<Hitbox>();
+            if (hitbox == null) continue;
+            hitbox.Damage(damage);
         }
 
         Instantiate(explosionPrefab, transform.position, transform.rotation, transform);

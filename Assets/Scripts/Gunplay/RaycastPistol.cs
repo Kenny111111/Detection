@@ -10,7 +10,6 @@ public class RaycastPistol : TwoHandInteractable, IShootable, IShootsParticle, I
 
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform bulletSpawn;
-    [SerializeField] private ParticleSystem _particleSystem;
     private int currentAmmo;
 
     private float fireRate = 0.25f;
@@ -76,10 +75,10 @@ public class RaycastPistol : TwoHandInteractable, IShootable, IShootsParticle, I
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit, gunData.range))
         {
-            ITakeDamage damageTaker = hit.collider.GetComponent<ITakeDamage>();
-            if(damageTaker != null)
+            Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
+            if(hitbox != null)
             {
-                damageTaker.TakeDamage(gunData.damage);
+                hitbox.Damage(gunData.damage);
             }
 
             var scannableObject = hit.collider.GetComponent<IScannable>();

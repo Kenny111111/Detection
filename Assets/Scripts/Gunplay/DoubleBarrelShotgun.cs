@@ -94,10 +94,10 @@ public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDa
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit, gunData.range))
         {
-            ITakeDamage damageTaker = hit.collider.GetComponent<ITakeDamage>();
-            if(damageTaker != null)
+            Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
+            if(hitbox != null)
             {
-                damageTaker.TakeDamage(gunData.damage);
+                hitbox.Damage(gunData.damage);
             }
 
             var scannableObject = hit.collider.GetComponent<IScannable>();
