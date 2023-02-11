@@ -59,6 +59,14 @@ namespace Detection
 
 			layerMask = LayerMask.GetMask("Environment", "Enemies");
 
+			InitPointList();
+		}
+
+
+		void InitPointList()
+        {
+			pointList.Clear();
+
 			for (int i = 0; i < numPoints; i++)
 				pointList.Add(new OutlinePoint(false, new Vector3(0, 0, 0)));
 		}
@@ -71,15 +79,19 @@ namespace Detection
 			{
 				if (!pointList[i].GetHasHitWall())
 				{
-					float x = Mathf.Sin(angle);
-					float y = Mathf.Cos(angle);
+					float x = Mathf.Cos(angle);
+					float z = Mathf.Sin(angle);
 					angle += 2 * Mathf.PI / numPoints;
 
-					Vector3 dir = new Vector3(playerObj.transform.position.x * x, playerObj.transform.position.y * y, 0);
-					//Vector3 fwd = transform.TransformDirection(dir); // is this necessary? maybe just use dir?
+					Vector3 dir = new Vector3(playerObj.transform.position.x * x, 0, playerObj.transform.position.z * z);
+					Vector3 fwd = transform.TransformDirection(dir); // is this necessary? maybe just use dir?
+
 					RaycastHit rayHit;
 
-					if (Physics.Raycast(playerObj.transform.position, dir, out rayHit, maxDistance))
+					Vector3 playerPosOffset = playerObj.transform.position;
+					playerPosOffset.y += 0.15f;
+
+					if (Physics.Raycast(playerPosOffset, dir, out rayHit, maxDistance))
 					{
 						pointList[i].SetLocation(rayHit.point);
 						pointList[i].SetHasHitWall(true);
@@ -95,6 +107,8 @@ namespace Detection
 
 		public IEnumerator DoWorldOutlineEffect(Color startColor, Color endColor, double duration, Action callback)
 		{
+			duration = 1f;
+
 			for (float t = 0f; t < duration; t += Time.deltaTime)
 			{
 				float normalizedTime = t / (float)duration;
@@ -117,6 +131,7 @@ namespace Detection
 			}
 
 			curColor = endColor;
+			InitPointList();
 
 			callback();
 		}

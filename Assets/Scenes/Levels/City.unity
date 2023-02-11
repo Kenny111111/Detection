@@ -3479,10 +3479,10 @@ MonoBehaviour:
   m_DirectionalAnchorRotationAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Directional Anchor Rotation
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 07b73b06-91b3-4e7c-a6a4-da09ef1d42b3
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -4709,7 +4709,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302959402}
   m_LocalRotation: {x: -0, y: -0.9853109, z: -0, w: 0.17077023}
-  m_LocalPosition: {x: 12.06, y: 7.43, z: 38.07}
+  m_LocalPosition: {x: 11.59, y: 7.43, z: 4.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16894,7 +16894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1271486274}
-  numParticlesPerSecond: 50000
+  numParticlesPerSecond: 25000
   sprayAngleX: 100
   sprayAngleY: 80
   maxRayDistance: 30

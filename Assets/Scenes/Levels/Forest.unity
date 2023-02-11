@@ -11636,7 +11636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1000806218}
-  numParticlesPerSecond: 50000
+  numParticlesPerSecond: 25000
   sprayAngleX: 100
   sprayAngleY: 80
   maxRayDistance: 30
