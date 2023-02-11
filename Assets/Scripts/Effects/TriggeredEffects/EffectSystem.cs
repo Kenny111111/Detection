@@ -39,7 +39,7 @@ namespace Detection
             List<KeyValuePair<IEffect, double>> effectList = new List<KeyValuePair<IEffect, double>>();
 
             gameObject.AddComponent<ParticleSizeBeatEffect>().Initialize(musicAnalyzer);
-            gameObject.AddComponent<WorldOutlineEffect>().Initialize(musicAnalyzer, playerObj, 5000, 10, 1);
+            gameObject.AddComponent<WorldOutlineEffect>().Initialize(musicAnalyzer, playerObj, 5000, 20, 2);
 
             effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<ParticleSizeBeatEffect>(), 0));
             effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<WorldOutlineEffect>(), 5));
