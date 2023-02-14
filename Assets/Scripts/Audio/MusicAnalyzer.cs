@@ -31,6 +31,7 @@ namespace Detection
 
         public void UpdateSongPlaying()
         {
+            songPlaying = new AudioSource();
             songPlaying = musicManager.GetCurrentSong().source;
             Debug.Log("update song analyzer");
         }

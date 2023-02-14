@@ -5,7 +5,7 @@ namespace Detection
     [RequireComponent(typeof(MeshRenderer), typeof(MeshCollider))]
     public class MeshScannerSurface : MonoBehaviour, IScannable
     {
-        [SerializeField] private Color defaultColor = new Color(255, 0, 0);
+        private Color defaultColor = new Color(255, 0, 0);
         [SerializeField] private float defaultLifetime = 3f;
         [SerializeField] private float defaultSize = 0.015f;
 

@@ -2,11 +2,12 @@ using System;
 using UnityEngine.Audio;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
-// Usage example; FindObjectOfType<AudioManager>();
-public class AudioManager : MonoBehaviour
+// Usage example; FindObjectOfType<AudioSystem>();
+public class AudioSystem : MonoBehaviour
 {
-	public static AudioManager manager;
+	public static AudioSystem manager;
 	public AudioMixerGroup audioMxrGroup;
 	public List<Sound> soundsList;
 
@@ -16,7 +17,6 @@ public class AudioManager : MonoBehaviour
 		if (manager == null)
         {
 			manager = this;
-			DontDestroyOnLoad(gameObject);
 		}
 		else Destroy(gameObject);
 
@@ -25,17 +25,16 @@ public class AudioManager : MonoBehaviour
 			sound.source = gameObject.AddComponent<AudioSource>();
 			sound.source.clip = sound.clip;
 			sound.source.loop = sound.loop;
-
 			sound.source.outputAudioMixerGroup = audioMxrGroup;
 		}
 	}
 
-	public void Play(string sound)
+	public void Play(string soundName)
 	{
-		Sound mySound = soundsList.Find(item => item.name == sound);
+		Sound mySound = TryGetSound(soundName);
 		if (mySound == null)
 		{
-			Debug.LogError("Sound " + name + " not found");
+			Debug.LogError("Sound " + soundName + " not found");
 			return;
 		}
 
@@ -47,4 +46,34 @@ public class AudioManager : MonoBehaviour
 		mySound.source.Play();
 	}
 
+	public void FadeOut(string soundName, float duration)
+    {
+		StartCoroutine(FadeOutSound(TryGetSound(soundName), duration));
+    }
+
+	private static IEnumerator FadeOutSound(Sound sound, float duration)
+	{
+		float startVolume = sound.volume;
+
+		while (sound.volume > 0)
+		{
+			sound.volume -= startVolume * Time.deltaTime / duration;
+
+			yield return null;
+		}
+
+		sound.source.Stop();
+		sound.volume = startVolume;
+	}
+
+	public Sound TryGetSound(string soundName)
+    {
+		Sound sound = soundsList.Find(item => item.name == soundName);
+		if (sound == null)
+		{
+			Debug.Log("Couldnt find sound " + soundName + " in audioSystem");
+			return null;
+		}
+		else return sound;
+	}
 }

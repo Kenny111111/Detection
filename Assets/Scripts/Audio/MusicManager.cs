@@ -2,97 +2,68 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
-// Usage example; FindObjectOfType<MusicManager>();
 namespace Detection
 {
 	public class MusicManager : MonoBehaviour
 	{
 		public static MusicManager musicManager;
-		public AudioMixerGroup audioMxrGroup;
-		public List<Sound> musicList;
-		public bool randomize = false;
+		public List<String> songList;
+		private List<String> haventPlayedList;
+
+		private AudioSystem audioSystem;
 
 		private int currentSongIndex = 0;
-		private List<Sound> haventPlayedList;
 
 		void Awake()
 		{
-			haventPlayedList = new List<Sound>();
-
 			// Ensure only one manager exists
-			if (musicManager == null)
-			{
-				musicManager = this;
-				DontDestroyOnLoad(gameObject);
-			}
+			if (musicManager == null) musicManager = this;
 			else Destroy(gameObject);
 
-			foreach (Sound sound in musicList)
+			haventPlayedList = new List<String>();
+			foreach (String songName in songList)
 			{
-				sound.source = gameObject.AddComponent<AudioSource>();
-				sound.source.clip = sound.clip;
-				sound.source.loop = sound.loop;
-				sound.source.outputAudioMixerGroup = audioMxrGroup;
-
-				haventPlayedList.Add(sound);
+				haventPlayedList.Add(songName);
 			}
+
+			audioSystem = FindObjectOfType<AudioSystem>();
+		}
+
+		public string GetCurrentSongName()
+		{
+			if (songList.Count == 0)
+			{
+				Debug.LogError("songList is empty. There is no current song name");
+				return null;
+			}
+			else return songList[currentSongIndex];
 		}
 
 		public Sound GetCurrentSong()
-		{
-			if (musicList.Count == 0) return null;
-			else return musicList[currentSongIndex];
-		}
-
-		public static IEnumerator FadeOut(Sound sound, float FadeTime)
-		{
-			float startVolume = sound.volume;
-
-			while (sound.volume > 0)
-			{
-				sound.volume -= startVolume * Time.deltaTime / FadeTime;
-
-				yield return null;
-			}
-
-			sound.source.Stop();
-			sound.volume = startVolume;
+        {
+			return audioSystem.TryGetSound(GetCurrentSongName());
 		}
 
 		public bool PlayNextSongInOrder()
 		{
-			if (currentSongIndex + 1 > musicList.Count) return false;
+			if (currentSongIndex + 1 > songList.Count) return false;
 
 			if (currentSongIndex == 0)
 			{
-				musicList[currentSongIndex].source.Play();
+				audioSystem.Play(songList[currentSongIndex]);
 				StartCoroutine(VerifyPlaying());
 				return true;
 			}
 
-			FadeOut(musicList[currentSongIndex], 1);
-			musicList[++currentSongIndex].source.Play();
+			audioSystem.FadeOut(songList[currentSongIndex], 1);
+			audioSystem.Play(songList[++currentSongIndex]);
+
 			gameObject.GetComponent<MusicAnalyzer>().UpdateSongPlaying();
-			Debug.Log("played song " + musicList[currentSongIndex].source.name);
+
+			Debug.Log("played song " + songList[currentSongIndex]);
 
 			StartCoroutine(VerifyPlaying());
-			return true;
-		}
-
-		public bool PlayNextSongRandom()
-		{
-			if (haventPlayedList.Count == 0) return false;
-
-			var random = new System.Random();
-			int index = random.Next(haventPlayedList.Count);
-			haventPlayedList[index].source.Play();
-			gameObject.GetComponent<MusicAnalyzer>().UpdateSongPlaying();
-			Debug.Log("played song " + haventPlayedList[index].source.name);
-			haventPlayedList.RemoveAt(index);
-
-			gameObject.GetComponent<MusicAnalyzer>().UpdateSongPlaying();
 			return true;
 		}
 
@@ -101,18 +72,10 @@ namespace Detection
 			while (true)
 			{
 				yield return new WaitForSeconds(1f);
-				if (!musicList[currentSongIndex].source.isPlaying)
+				if (!GetCurrentSong().source.isPlaying)
 				{
-					if (randomize)
-					{
-						if (PlayNextSongRandom()) Debug.Log("switched to next random song");
-						else Debug.Log("no songs left to play");
-					}
-					else
-					{
-						if (PlayNextSongInOrder()) Debug.Log("switched to next song");
-						else Debug.Log("no songs left to play for this level");
-					}
+					if (PlayNextSongInOrder()) Debug.Log("switched to next song");
+					else Debug.Log("no songs left to play for this level");
 				}
 			}
 		}
