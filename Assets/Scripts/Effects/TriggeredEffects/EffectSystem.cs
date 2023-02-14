@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Detection
 {
-    public class EffectManager : MonoBehaviour
+    public class EffectSystem : MonoBehaviour
     {
-        public static EffectManager effectManager;
+        public static EffectSystem effectSystem;
         public VFXEmitArgs effectEmitArgs;
 
         [Range(0, 1)]
@@ -27,11 +27,16 @@ namespace Detection
 
         private void Awake()
         {
-            if (effectManager != null && effectManager != this) Destroy(this);
-            else effectManager = this;
+            if (effectSystem != null && effectSystem != this) Destroy(this);
+            else effectSystem = this;
         }
 
         private void Start()
+        {
+            Initialize();
+        }
+
+        public void Initialize()
         {
             musicAnalyzer = MusicManager.musicManager.GetComponent<MusicAnalyzer>();
             effectEmitArgs = new VFXEmitArgs(null, null, null);
@@ -39,7 +44,7 @@ namespace Detection
             List<KeyValuePair<IEffect, double>> effectList = new List<KeyValuePair<IEffect, double>>();
 
             gameObject.AddComponent<ParticleSizeBeatEffect>().Initialize(musicAnalyzer);
-            gameObject.AddComponent<WorldOutlineEffect>().Initialize(musicAnalyzer, playerObj, 5000, 20, 2);
+            gameObject.AddComponent<WorldOutlineEffect>().Initialize(musicAnalyzer, playerObj, 5000, 20, 1);
 
             effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<ParticleSizeBeatEffect>(), 0));
             effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<WorldOutlineEffect>(), 5));
@@ -51,6 +56,9 @@ namespace Detection
                 weightedEffectsBag.Add(x.Key, x.Value);
             }
         }
+
+
+
         // Update is called once per frame
         void Update()
         {
