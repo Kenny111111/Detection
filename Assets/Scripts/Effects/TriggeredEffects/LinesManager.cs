@@ -1,73 +1,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Line
-{
-    public Vector3 startPoint;
-    public Vector3 endPoint;
-
-    public Line(Vector3 start, Vector3 end)
-    {
-        startPoint = start;
-        endPoint = end;
-    }
-}
-
-// Usage example; FindObjectOfType<LinesManager>();
+// Recommended to attach this script to the Main Camera instance.
+// Will not render in play mode if not attached to Camera.
+[ExecuteInEditMode]
 public class LinesManager : MonoBehaviour
 {
-    public static LinesManager manager;
-    public Material material;
-    public List<KeyValuePair<Vector3, Vector3>> lines;
     private Color defaultColor = new Color(255, 255, 255, 255);
-    public Color color;
-    //public Camera camera;
+    public Color baseColor;
+    public Material material;
+
+    //public Transform origin;
+    public List<KeyValuePair<Vector3, Vector3>> lines;
 
     private void Awake()
     {
-        // Ensure only one manager exists
-        if (manager == null)
-        {
-            manager = this;
-        }
-        else Destroy(gameObject);
-
-        color = defaultColor;
         lines = new List<KeyValuePair<Vector3, Vector3>>();
+    }
+
+    //void OnPreRender()
+    //{
+    //    RenderLines(lines);
+    //}
+
+    void OnDrawGizmos()
+    {
+        RenderLines(lines);
+    }
+
+    void RenderLines(List<KeyValuePair<Vector3, Vector3>> lines)
+    {
+        if (!ValidateInput(lines))
+        {
+            return;
+        }
+
+        GL.Begin(GL.LINES);
+        material.SetPass(0);
+        for (int i = 0; i < lines.Count; i++)
+        {
+            GL.Color(baseColor);
+            GL.Vertex(lines[i].Key);
+            GL.Color(baseColor);
+            GL.Vertex(lines[i].Value);
+        }
+        GL.End();
+    }
+
+    private bool ValidateInput(List<KeyValuePair<Vector3, Vector3>> lines)
+    {
+        return lines != null;
     }
 
     public void Reset()
     {
-        if (lines != null) lines.Clear();
-        color = defaultColor;
+        lines.Clear();
+        baseColor = defaultColor;
     }
-    void OnRenderObject()
-    {
-        RenderLines();
-    }
-
-    private void RenderLines()
-    {
-        //Matrix4x4 mat = new Matrix4x4();
-        //mat.SetTRS(camera.transform.position, camera.transform.rotation, camera.transform.localScale);
-        //GL.PushMatrix();
-        //GL.MultMatrix(mat);
-        GL.Begin(GL.LINES);
-        material.SetPass(0);
-        RenderLineList(lines, color);
-        GL.End();
-        //GL.PopMatrix();
-    }
-
-    private void RenderLineList(List<KeyValuePair<Vector3, Vector3>> lineList, Color color)
-    {
-        for (int i = 0; i < lineList.Count; i++)
-        {
-            GL.Color(color);
-            GL.Vertex(lineList[i].Key);
-            GL.Color(color);
-            GL.Vertex(lineList[i].Value);
-        }
-    }
-
 }
+
+

@@ -74,6 +74,7 @@ namespace Detection
 
 		void IEffect.DoEffect(double duration, Action callback)
 		{
+			if (linesManager == null) return;
 			linesManager.Reset();
 
 			int numPointsHit = 0;
@@ -114,6 +115,7 @@ namespace Detection
 					&& (Vector3.Distance(pointList[i].GetLocation(), pointList[i - 1].GetLocation()) < diffDistanceTolerance))
 				{
 					linesManager.lines.Add(new KeyValuePair<Vector3, Vector3>(pointList[i - 1].location, pointList[i].location));
+					//linesManager.lines.Add(new KeyValuePair<Vector3, Vector3>(start, end));
 				}
 			}
 
@@ -129,11 +131,11 @@ namespace Detection
 			for (float t = 0f; t < duration; t += Time.deltaTime)
 			{
 				float normalizedTime = t / (float)duration;
-				linesManager.color = Color.Lerp(startColor, endColor, normalizedTime);
+				linesManager.baseColor = Color.Lerp(startColor, endColor, normalizedTime);
 				yield return null;
 			}
 
-			linesManager.color = endColor;
+			linesManager.baseColor = endColor;
 			InitPointList();
 
 			callback();
