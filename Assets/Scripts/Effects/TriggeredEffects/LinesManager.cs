@@ -34,7 +34,7 @@ public class LinesManager : MonoBehaviour
         // When I uncomment(only) this line, DoRenderLines is called, but nothing is drawn in scene or game
         //RenderPipelineManager.beginFrameRendering += DoRenderLines;
 
-        // VERY HOPEFUL
+        // When I uncomment(only) this line, bug + cant see in headset, but can see in game view
         //RenderPipelineManager.endFrameRendering += DoRenderLines;
     }
 
@@ -48,7 +48,7 @@ public class LinesManager : MonoBehaviour
 
         //RenderPipelineManager.beginFrameRendering -= DoRenderLines;
 
-        // VERY HOPEFUL
+        // When I uncomment(only) this line, bug + cant see in headset, but can see in game view
         //RenderPipelineManager.endFrameRendering -= DoRenderLines;
     }
 
