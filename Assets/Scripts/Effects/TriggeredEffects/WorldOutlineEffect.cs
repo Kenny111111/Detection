@@ -60,11 +60,11 @@ namespace Detection
 
 			layerMask = LayerMask.GetMask("Environment");
 
-			InitPointList();
+			InitializePointList();
 		}
 
 
-		void InitPointList()
+		void InitializePointList()
         {
 			pointList.Clear();
 
@@ -72,8 +72,10 @@ namespace Detection
 				pointList.Add(new OutlinePoint(false, new Vector3(0, 0, 0)));
 		}
 
-		void IEffect.DoEffect(double duration, Action callback)
+		void IEffect.DoEffect(Action callback)
 		{
+			float duration = 1f;
+
 			if (linesManager == null) return;
 			linesManager.Reset();
 
@@ -115,19 +117,16 @@ namespace Detection
 					&& (Vector3.Distance(pointList[i].GetLocation(), pointList[i - 1].GetLocation()) < diffDistanceTolerance))
 				{
 					linesManager.lines.Add(new KeyValuePair<Vector3, Vector3>(pointList[i - 1].location, pointList[i].location));
-					//linesManager.lines.Add(new KeyValuePair<Vector3, Vector3>(start, end));
 				}
 			}
 
 			Color startColor = new Color(255, 255, 255, 255);
 			Color endColor = new Color(0, 0, 0, 0);
-			StartCoroutine(FadeLineColor(startColor, startColor, duration, callback));
+			StartCoroutine(FadeLineColor(startColor, endColor, duration, callback));
 		}
 
 		public IEnumerator FadeLineColor(Color startColor, Color endColor, double duration, Action callback)
 		{
-			duration = 1f;
-
 			for (float t = 0f; t < duration; t += Time.deltaTime)
 			{
 				float normalizedTime = t / (float)duration;
@@ -136,7 +135,7 @@ namespace Detection
 			}
 
 			linesManager.baseColor = endColor;
-			InitPointList();
+			InitializePointList();
 
 			callback();
 		}

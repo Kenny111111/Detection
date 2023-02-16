@@ -14,11 +14,6 @@ namespace Detection
         private MusicAnalyzer musicAnalyzer;
         [SerializeField] private GameObject playerObj;
 
-        [Range(0.01f, float.MaxValue)]
-        [SerializeField] double minEffectDuration = 0.5;
-        [Range(0.01f, 30)]
-        [SerializeField] double maxEffectDuration = 15;
-
         public bool allowMultipleEffectsAtOnce = false;
         private bool isApplyingEffect = false;
         private bool waitFlag = false;
@@ -71,12 +66,7 @@ namespace Detection
 
                     // randomly decide an event and some duration
                     var chosenEffect = weightedEffectsBag.GetRandomWeighted();
-
-                    // generate a random duration within defined min/max values
-                    System.Random rand = new System.Random();
-                    double randomDuration = rand.NextDouble() * (maxEffectDuration - minEffectDuration) + minEffectDuration;
-
-                    chosenEffect.DoEffect(randomDuration, OnFinishedEffect);
+                    chosenEffect.DoEffect(OnFinishedEffect);
                 }
             }
         }

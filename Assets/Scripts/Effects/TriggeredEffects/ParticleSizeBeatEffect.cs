@@ -8,18 +8,27 @@ namespace Detection
 	{
 		public MusicAnalyzer musicAnalyzer;
 
+		[Range(0.01f, float.MaxValue)]
+		[SerializeField] double minEffectDuration = 0.5;
+		[Range(0.01f, 30)]
+		[SerializeField] double maxEffectDuration = 15;
+
 		public void Initialize(MusicAnalyzer mAnalyzer) 
 		{ 
 			musicAnalyzer = mAnalyzer;
 		}
 
-		void IEffect.DoEffect(double duration, Action callback) => StartCoroutine(DoParticleSizeBeatEffect(duration, callback));
+		void IEffect.DoEffect(Action callback) => StartCoroutine(DoParticleSizeBeatEffect(callback));
 
-        public IEnumerator DoParticleSizeBeatEffect(double duration, Action callback)
+        public IEnumerator DoParticleSizeBeatEffect(Action callback)
 		{
+			// generate a random duration within defined min/max values
+			System.Random rand = new System.Random();
+			double randomDuration = rand.NextDouble() * (maxEffectDuration - minEffectDuration) + minEffectDuration;
+
 			double currentTimeCount = 0;
 
-			while (currentTimeCount < duration)
+			while (currentTimeCount < randomDuration)
 			{
 				EffectSystem.effectSystem.effectEmitArgs.size = musicAnalyzer.currentLoudness;
 				yield return null;
