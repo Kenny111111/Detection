@@ -14,23 +14,42 @@ public class LinesManager : MonoBehaviour
     //public Transform origin;
     public List<KeyValuePair<Vector3, Vector3>> lines;
 
-    private void Awake()
+    private void Start()
     {
         lines = new List<KeyValuePair<Vector3, Vector3>>();
+        //Vector3 start = new Vector3(0, 0, 0);
+        //Vector3 end = new Vector3(5, 5, 5);
+        //lines.Add(new KeyValuePair<Vector3, Vector3>(start, end));
     }
 
     // Unity calls this method automatically when it enables this component
     private void OnEnable()
     {
-        // Add DoRenderLines as a delegate of the RenderPipelineManager.beginCameraRendering event
-        RenderPipelineManager.beginCameraRendering += DoRenderLines;
+        // When I uncomment(only) this line, DoRenderLines is called, but nothing is drawn in scene or game
+        //RenderPipelineManager.beginCameraRendering += DoRenderLines;
+
+        // VERY HOPEFUL
+        RenderPipelineManager.endCameraRendering += DoRenderLines;
+
+        // When I uncomment(only) this line, DoRenderLines is called, but nothing is drawn in scene or game
+        //RenderPipelineManager.beginFrameRendering += DoRenderLines;
+
+        // VERY HOPEFUL
+        //RenderPipelineManager.endFrameRendering += DoRenderLines;
     }
 
     // Unity calls this method automatically when it disables this component
     private void OnDisable()
     {
-        // Remove DoRenderLines as a delegate of the RenderPipelineManager.beginCameraRendering event
-        RenderPipelineManager.beginCameraRendering -= DoRenderLines;
+        //RenderPipelineManager.beginCameraRendering -= DoRenderLines;
+
+        // VERY HOPEFUL
+        RenderPipelineManager.endCameraRendering -= DoRenderLines;
+
+        //RenderPipelineManager.beginFrameRendering -= DoRenderLines;
+
+        // VERY HOPEFUL
+        //RenderPipelineManager.endFrameRendering -= DoRenderLines;
     }
 
     void DoRenderLines(ScriptableRenderContext context, Camera camera)
@@ -38,11 +57,35 @@ public class LinesManager : MonoBehaviour
         RenderLines(lines);
     }
 
+    // When I uncomment (only) this function, it draws multiple instances of the same line in local space on all objects
+    // in both scene and game (regardless of if my VR headset is connected)
+    //void OnRenderObject()
+    //{
+    //    RenderLines(lines);
+    //}
 
-    void OnDrawGizmos()
-    {
-        RenderLines(lines);
-    }
+    // When I uncomment (only) this function,
+    // (if my VR headset is not connected) it draws properly in scene and game
+    // (if my VR headset is connected) it draws properly in scene and doesnt draw anything in game
+    //void OnDrawGizmos()
+    //{
+    //    RenderLines(lines);
+    //}
+
+
+    // When I uncomment (only) this function, nothing draws (in scene and in game)
+    // this function is never hit when I breakpoint.
+    //private void OnPostRender()
+    //{
+    //    RenderLines(lines);
+    //}
+
+    // When I uncomment (only) this function, nothing draws (in scene and in game)
+    // this function is never hit when I breakpoint.
+    //private void OnPreRender()
+    //{
+    //    RenderLines(lines);
+    //}
 
     void RenderLines(List<KeyValuePair<Vector3, Vector3>> lines)
     {
@@ -50,7 +93,6 @@ public class LinesManager : MonoBehaviour
         {
             return;
         }
-
         GL.Begin(GL.LINES);
         material.SetPass(0);
         for (int i = 0; i < lines.Count; i++)
