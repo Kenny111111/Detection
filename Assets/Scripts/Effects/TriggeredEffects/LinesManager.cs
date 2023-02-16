@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 // Recommended to attach this script to the Main Camera instance.
 // Will not render in play mode if not attached to Camera.
@@ -18,10 +19,25 @@ public class LinesManager : MonoBehaviour
         lines = new List<KeyValuePair<Vector3, Vector3>>();
     }
 
-    //void OnPreRender()
-    //{
-    //    RenderLines(lines);
-    //}
+    // Unity calls this method automatically when it enables this component
+    private void OnEnable()
+    {
+        // Add DoRenderLines as a delegate of the RenderPipelineManager.beginCameraRendering event
+        RenderPipelineManager.beginCameraRendering += DoRenderLines;
+    }
+
+    // Unity calls this method automatically when it disables this component
+    private void OnDisable()
+    {
+        // Remove DoRenderLines as a delegate of the RenderPipelineManager.beginCameraRendering event
+        RenderPipelineManager.beginCameraRendering -= DoRenderLines;
+    }
+
+    void DoRenderLines(ScriptableRenderContext context, Camera camera)
+    {
+        RenderLines(lines);
+    }
+
 
     void OnDrawGizmos()
     {
