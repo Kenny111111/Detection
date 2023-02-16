@@ -17355,9 +17355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e407db94180387438f09587b419a54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 1, g: 1, b: 1, a: 0}
-  material: {fileID: 2100000, guid: 187cf4ab7b7df9c43b06409e57b0fda1, type: 2}
-  origin: {fileID: 1631209690}
+  baseColor: {r: 255, g: 255, b: 255, a: 255}
+  material: {fileID: 2100000, guid: 391479e2e2d5e6c42851e70bea3f2964, type: 2}
 --- !u!1001 &1278759394
 PrefabInstance:
   m_ObjectHideFlags: 0
