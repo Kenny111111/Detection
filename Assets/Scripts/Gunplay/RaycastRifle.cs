@@ -18,6 +18,22 @@ public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, ID
     private float fireRate = 0.175f;
     private float nextShot = 0f;
 
+    // bullet trail created
+    public LineRenderer bulletTrail;
+    
+    private void SpawnBulletTrail(Vector3 hitPoint)
+    {
+        GameObject bulletTrailEffect = Instantiate(bulletTrail.gameObject, bulletSpawn.position, Quaternion.identity);
+
+        LineRenderer lineR = bulletTrailEffect.GetComponent<LineRenderer>();
+
+        lineR.SetPosition(0, bulletSpawn.position);
+        lineR.SetPosition(1, hitPoint);
+
+        Destroy(bulletTrailEffect, 1f);
+    }
+    //end of bullet trail - being called by ShootAndEmitParticle function
+
     private void Start()
     {
         waitTime = new WaitForSeconds(1f / gunData.fireRate);
@@ -85,6 +101,8 @@ public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, ID
             {
                 damageTaker.TakeDamage(gunData.damage);
             }
+
+            SpawnBulletTrail(hit.point);
 
             var scannableObject = hit.collider.GetComponent<IScannable>();
             if (scannableObject == null) return;

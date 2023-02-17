@@ -22116,6 +22116,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3667148160077364168, guid: b0504efda6f0c9d4ab59a445f9d9c697,
         type: 3}
+      propertyPath: bulletTrail
+      value: 
+      objectReference: {fileID: 120648884187509030, guid: d2ec70c814159504cb3e12e99b00b151,
+        type: 3}
+    - target: {fileID: 3667148160077364168, guid: b0504efda6f0c9d4ab59a445f9d9c697,
+        type: 3}
       propertyPath: bulletColor.b
       value: 0
       objectReference: {fileID: 0}
