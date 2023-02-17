@@ -7278,6 +7278,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5961702562182255550, guid: 749d5984427412e40ac0ba5c79a86821,
         type: 3}
+      propertyPath: bulletTrail
+      value: 
+      objectReference: {fileID: 120648884187509030, guid: d2ec70c814159504cb3e12e99b00b151,
+        type: 3}
+    - target: {fileID: 5961702562182255550, guid: 749d5984427412e40ac0ba5c79a86821,
+        type: 3}
       propertyPath: bulletColor.b
       value: 0
       objectReference: {fileID: 0}

@@ -17,6 +17,22 @@ public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDa
     private float fireRate = 0.50f;
     private float nextShot = 0f;
 
+    // bullet trail created
+    public LineRenderer bulletTrail;
+
+    private void SpawnBulletTrail(Vector3 hitPoint)
+    {
+        GameObject bulletTrailEffect = Instantiate(bulletTrail.gameObject, bulletSpawn.position, Quaternion.identity);
+
+        LineRenderer lineR = bulletTrailEffect.GetComponent<LineRenderer>();
+
+        lineR.SetPosition(0, bulletSpawn.position);
+        lineR.SetPosition(1, hitPoint);
+
+        Destroy(bulletTrailEffect, 1f);
+    }
+    //end of bullet trail - being called by ShootAndEmitParticle function
+
     private void Start()
     {
         currentAmmo = gunData.startingAmmo;
@@ -89,6 +105,8 @@ public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDa
 
             VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
             scannableObject.EmitParticle(hit, overrideArgs);
+
+            SpawnBulletTrail(hit.point);
         }
     }
 }

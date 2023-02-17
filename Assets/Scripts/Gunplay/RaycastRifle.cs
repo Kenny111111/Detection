@@ -102,13 +102,13 @@ public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, ID
                 damageTaker.TakeDamage(gunData.damage);
             }
 
-            SpawnBulletTrail(hit.point);
-
             var scannableObject = hit.collider.GetComponent<IScannable>();
             if (scannableObject == null) return;
 
             VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
             scannableObject.EmitParticle(hit, overrideArgs);
+
+            SpawnBulletTrail(hit.point);
         }
     }
 }
