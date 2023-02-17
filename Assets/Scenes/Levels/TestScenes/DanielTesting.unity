@@ -2144,7 +2144,7 @@ Transform:
   - {fileID: 253495185}
   - {fileID: 2006698703}
   m_Father: {fileID: 1631209690}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &232708020
 Rigidbody:
@@ -3157,6 +3157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songList:
+  - song_bloodline
   - song_boss_at_nova
 --- !u!4 &282002217
 Transform:
@@ -4668,7 +4669,7 @@ Transform:
   m_Children:
   - {fileID: 215589862}
   m_Father: {fileID: 1631209690}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &402558263
 Rigidbody:
@@ -8833,7 +8834,7 @@ Transform:
   - {fileID: 1487510969}
   - {fileID: 989308575}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &731088883
 PrefabInstance:
@@ -12970,8 +12971,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loudnessTolerance: 0.8
   playerObj: {fileID: 302959402}
-  minEffectDuration: 1
-  maxEffectDuration: 7
   allowMultipleEffectsAtOnce: 0
 --- !u!4 &989308575
 Transform:
@@ -16183,7 +16182,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1232795163
 PrefabInstance:
@@ -16758,7 +16757,7 @@ GameObject:
   - component: {fileID: 1271486275}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16770,13 +16769,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271486265}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.99866307, z: -0, w: -0.051691983}
+  m_LocalPosition: {x: 11.808, y: 8.06, z: 0.141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1631209690}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1271486267
 MonoBehaviour:
@@ -20506,52 +20505,61 @@ MonoBehaviour:
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
-    volumeDeviation: 0.125
+    volume: 0.5
+    volumeDeviation: 0
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0
   - name: song_implant
     clip: {fileID: 8300000, guid: 0f496e67621d0964cba9ec98f4d52028, type: 3}
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
-    volumeDeviation: 0.125
+    volume: 0.5
+    volumeDeviation: 0
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0
+  - name: song_bloodline
+    clip: {fileID: 8300000, guid: 6ad99ae2b9b6feb46bf49f488ad6c54c, type: 3}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.5
+    volumeDeviation: 0
+    pitch: 1
+    pitchDeviation: 0
   - name: song_le_perv
     clip: {fileID: 8300000, guid: c333d5351b45a814e9542e152ff25e9a, type: 3}
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
-    volumeDeviation: 0.125
+    volume: 0.5
+    volumeDeviation: 0
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0
   - name: song_roller_mobster
     clip: {fileID: 8300000, guid: 47bf5e15ce152f54c9d6bf4a6bd82a01, type: 3}
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
-    volumeDeviation: 0.125
+    volume: 0.5
+    volumeDeviation: 0
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0
   - name: song_test_pilot
     clip: {fileID: 8300000, guid: 4585c56b2820c32418294e0d6c0b8d1e, type: 3}
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
-    volumeDeviation: 0.125
+    volume: 0.5
+    volumeDeviation: 0
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0
   - name: beretta_shot
     clip: {fileID: 8300000, guid: ec3453fe547cfa64d88b54a121b8bcc4, type: 3}
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
+    volume: 0.5
     volumeDeviation: 0.125
     pitch: 1
     pitchDeviation: 0.125
@@ -20560,7 +20568,7 @@ MonoBehaviour:
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.837
+    volume: 0.5
     volumeDeviation: 0.125
     pitch: 1
     pitchDeviation: 0.125
@@ -20569,7 +20577,7 @@ MonoBehaviour:
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
+    volume: 0.5
     volumeDeviation: 0.125
     pitch: 1
     pitchDeviation: 0.125
@@ -20578,7 +20586,7 @@ MonoBehaviour:
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
+    volume: 0.5
     volumeDeviation: 0.125
     pitch: 1
     pitchDeviation: 0.125
@@ -20587,7 +20595,7 @@ MonoBehaviour:
     audioMxrGroup: {fileID: 0}
     loop: 0
     source: {fileID: 0}
-    volume: 0.75
+    volume: 0.5
     volumeDeviation: 0.125
     pitch: 1
     pitchDeviation: 0.125
@@ -22143,7 +22151,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1271486266}
   - {fileID: 232708019}
   - {fileID: 402558262}
   m_Father: {fileID: 302959413}
@@ -23454,7 +23461,7 @@ Transform:
   m_Children:
   - {fileID: 302959413}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1717796194
 PrefabInstance:
@@ -23893,7 +23900,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1806455619
 PrefabInstance:
@@ -24239,7 +24246,7 @@ Transform:
   - {fileID: 1205631801}
   - {fileID: 192615008}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1814312938
 PrefabInstance:
@@ -27596,5 +27603,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
