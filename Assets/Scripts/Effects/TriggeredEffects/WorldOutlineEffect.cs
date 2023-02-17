@@ -39,7 +39,7 @@ namespace Detection
 
 		public MusicAnalyzer musicAnalyzer;
 		private List<OutlinePoint> pointList;
-		private GameObject playerObj;
+		private Transform playerTransform;
 		private int numPoints;
 		private float maxDistance;
 		private LayerMask layerMask;
@@ -51,7 +51,7 @@ namespace Detection
 			musicAnalyzer = mAnalyzer;
 			numPoints = newNumPoints;
 			maxDistance = newMaxDistance;
-			playerObj = player;
+			playerTransform = player.transform;
 			diffDistanceTolerance = newDiffDistanceTolerance;
 
 			linesManager = FindObjectOfType<LinesManager>();
@@ -62,7 +62,6 @@ namespace Detection
 
 			InitializePointList();
 		}
-
 
 		void InitializePointList()
         {
@@ -90,12 +89,12 @@ namespace Detection
 					float z = Mathf.Sin(angle);
 					angle += 2 * Mathf.PI / numPoints;
 
-					Vector3 dir = new Vector3(playerObj.transform.position.x * x, 0, playerObj.transform.position.z * z);
+					Vector3 dir = new Vector3(playerTransform.position.x * x, 0, playerTransform.position.z * z);
 					Vector3 fwd = transform.TransformDirection(dir); // is this necessary? maybe just use dir?
 
 					RaycastHit rayHit;
 
-					Vector3 playerPosOffset = playerObj.transform.position;
+					Vector3 playerPosOffset = playerTransform.position;
 					playerPosOffset.y += 0.15f;
 
 					if (Physics.Raycast(playerPosOffset, dir, out rayHit, maxDistance, layerMask))
