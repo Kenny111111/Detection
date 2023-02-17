@@ -32,7 +32,7 @@ public class AIController : MonoBehaviour
     private readonly int speedHash = Animator.StringToHash("Speed");
 
     private WeaponInverseKinematics weaponInverseKinematics;
-    [SerializeField] private GameObject playerObject;
+    [SerializeField] private Transform playerTransform;
 
     private float delayTime;
     private float rotate;
@@ -64,7 +64,7 @@ public class AIController : MonoBehaviour
 
         weaponInverseKinematics = GetComponent<WeaponInverseKinematics>();
         animator = GetComponent<Animator>();
-        playerObject = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
@@ -143,7 +143,7 @@ public class AIController : MonoBehaviour
         }
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
-            if (delayTime <= 0 && !playerCaught && Vector3.Distance(transform.position, playerObject.transform.position) >= 6f)
+            if (delayTime <= 0 && !playerCaught && Vector3.Distance(transform.position, playerTransform.position) >= 6f)
             {
                 patrolling = true;
                 playerIsNear = false;
@@ -155,8 +155,8 @@ public class AIController : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(transform.position, playerObject.transform.position) >= 2.5f) Stop();
-                if (Vector3.Distance(transform.position, playerObject.transform.position) >= 2.5f) Stop();
+                if (Vector3.Distance(transform.position, playerTransform.position) >= 2.5f) Stop();
+                if (Vector3.Distance(transform.position, playerTransform.position) >= 2.5f) Stop();
                 delayTime -= Time.deltaTime;
             }
         }
@@ -172,7 +172,7 @@ public class AIController : MonoBehaviour
         {
             navMeshAgent.SetDestination(playerPosition);
             if (dist < useConditions.maxRange)
-                weaponInverseKinematics.SetTargetTransform(playerObject.transform);
+                weaponInverseKinematics.SetTargetTransform(playerTransform);
 
             if (dist < useConditions.idealRange)
             {
@@ -265,7 +265,7 @@ public class AIController : MonoBehaviour
                 else playerIsInRange = false;
             }
             if (Vector3.Distance(transform.position, player.position) > enemyRadius) playerIsInRange = false;
-            if (playerIsInRange) playerPosition = player.transform.position;
+            if (playerIsInRange) playerPosition = player.position;
         }
     }
 }
