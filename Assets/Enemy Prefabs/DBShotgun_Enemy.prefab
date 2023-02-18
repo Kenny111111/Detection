@@ -5734,6 +5734,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 7106604859698476062}
   pelletsPerShot: 10
   spread: 2
+  bulletTrail: {fileID: 120648884187509030, guid: d2ec70c814159504cb3e12e99b00b151,
+    type: 3}
 --- !u!114 &7106604860335259126
 MonoBehaviour:
   m_ObjectHideFlags: 0
