@@ -6,20 +6,20 @@ public class PlayAudioOnTriggerEnter : MonoBehaviour
 {
 
     public Sound clip;
-    private AudioManager audioManager;
+    private AudioSystem audioSystem;
     public string targetTag;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioSystem = FindObjectOfType<AudioSystem>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(targetTag))
         {
-            audioManager.Play("Music Test Pilot");
+            audioSystem.Play("Music Test Pilot");
         }
     }
 }

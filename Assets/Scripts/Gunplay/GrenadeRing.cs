@@ -21,7 +21,7 @@ public class GrenadeRing : XRGrabInteractable
         if (args.interactorObject is XRSocketInteractor) return;
 
         isConnected = false;
-        AudioManager.manager.Play("grenade_pin");
+        AudioSystem.manager.Play("grenade_pin");
     }
 
     private void DropPin(SelectExitEventArgs args)

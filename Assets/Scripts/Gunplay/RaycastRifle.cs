@@ -53,13 +53,13 @@ public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, ID
                 nextShot = Time.time + fireRate;
                 Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                 ShootAndEmitParticle(ray);
-                AudioManager.manager.Play("ak47_shot");
+                AudioSystem.manager.Play("ak47_shot");
                 --currentAmmo;
             }
         }
         else
         {
-            AudioManager.manager.Play("gun_empty");
+            AudioSystem.manager.Play("gun_empty");
         }
     }
 

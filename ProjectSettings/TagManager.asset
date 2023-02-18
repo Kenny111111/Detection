@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Path
   - Enemy
+  - Camera
   layers:
   - Default
   - TransparentFX

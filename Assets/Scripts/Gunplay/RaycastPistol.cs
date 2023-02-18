@@ -45,13 +45,13 @@ public class RaycastPistol : TwoHandInteractable, IShootable, IShootsParticle, I
                 nextShot = Time.time + fireRate;
                 Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                 ShootAndEmitParticle(ray);
-                AudioManager.manager.Play("beretta_shot");
+                AudioSystem.manager.Play("beretta_shot");
                 --currentAmmo;
             }
         }
         else
         {
-            AudioManager.manager.Play("gun_empty");
+            AudioSystem.manager.Play("gun_empty");
         }
     }
 

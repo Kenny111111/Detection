@@ -7,6 +7,6 @@ namespace Detection
 {
     public interface IEffect
     {
-        public void DoEffect(double duration, Action callback);
+        public void DoEffect(Action callback);
     }
 }

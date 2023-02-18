@@ -20,6 +20,8 @@ namespace Detection
         {
             mainScanner = gameObject.GetComponent(typeof(LookScanner)) as LookScanner;
             FindObjectOfType<MusicManager>().PlayNextSongInOrder();
+
+            StartCoroutine(ConstantMainScanner());
         }
 
         // Update is called once per frame
@@ -29,8 +31,15 @@ namespace Detection
             Ray eyePos = cam.ScreenPointToRay(new Vector3((Screen.width / 2), (Screen.height / 2), 0));
             aimPos.x = eyePos.direction.x + tempOffsetX;
             aimPos.y = eyePos.direction.y + tempOffsetY;
+        }
 
-            mainScanner.Scan(aimPos);
+        IEnumerator ConstantMainScanner()
+        {
+            while (true)
+            {
+                mainScanner.Scan(aimPos);
+                yield return null;
+            }
         }
     }
 }
