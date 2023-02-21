@@ -13921,71 +13921,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &532477055
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 532477058}
-  - component: {fileID: 532477057}
-  - component: {fileID: 532477056}
-  m_Layer: 0
-  m_Name: MusicManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &532477056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532477055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minLoudness: 0.019
-  maxLoudness: 0.04
-  updateStep: 0.01
-  sampleDataLength: 512
-  sizeFactor: 0.07
-  currentLoudness: 0
---- !u!114 &532477057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532477055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150fedd9b47a2fd4699e657a8b629096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  songList:
-  - song_boss_at_nova
---- !u!4 &532477058
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532477055}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 939330713}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &535056456
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25707,7 +25642,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 532477058}
   - {fileID: 998853372}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -26737,7 +26671,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 939330713}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &999858069
 PrefabInstance:
@@ -31295,6 +31229,91 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154778114}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1155875047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155875048}
+  - component: {fileID: 1155875050}
+  - component: {fileID: 1155875049}
+  m_Layer: 0
+  m_Name: Level Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155875048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155875047}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1475374399}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155875049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155875047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLoudness: 0.005
+  maxLoudness: 0.04
+  updateStep: 0.01
+  sampleDataLength: 512
+  sizeFactor: 0.07
+  songPlaying: {fileID: 0}
+  currentLoudness: 0
+--- !u!114 &1155875050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155875047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150fedd9b47a2fd4699e657a8b629096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songList:
+  - name: Boss at Nova
+    clip: {fileID: 8300000, guid: f7804525fa5b137418ff216f1da1edf5, type: 3}
+    audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
+      type: 2}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.25
+    volumeDeviation: 0
+    pitch: 1
+    pitchDeviation: 0
+  - name: Test Pilot
+    clip: {fileID: 8300000, guid: 4585c56b2820c32418294e0d6c0b8d1e, type: 3}
+    audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
+      type: 2}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.25
+    volumeDeviation: 0
+    pitch: 1
+    pitchDeviation: 0
 --- !u!64 &1172549541
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40197,6 +40216,7 @@ Transform:
   - {fileID: 1768542395}
   - {fileID: 1617132177}
   - {fileID: 1459932515}
+  - {fileID: 1155875048}
   - {fileID: 1711005556}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -47088,7 +47108,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1475374399}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1713694733
 MeshCollider:

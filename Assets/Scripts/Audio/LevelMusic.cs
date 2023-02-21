@@ -19,14 +19,6 @@ namespace Detection
 
 			musicSystem = FindObjectOfType<MusicSystem>();
 
-			foreach (Sound song in songList)
-			{
-				song.source = gameObject.AddComponent<AudioSource>();
-				song.source.clip = song.clip;
-				song.source.loop = song.loop;
-				song.source.outputAudioMixerGroup = musicSystem.audioMxrGroup;
-			}
-
 			AddSongsToQueue();
 		}
 

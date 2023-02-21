@@ -54,7 +54,18 @@ public class MusicSystem : MonoBehaviour
 		// If we arent able to find the current song in the queue, add it.
 		if (musicQueue.ToList().Find(item => item.name == songToAdd.name) == null)
 		{
+			songToAdd.source = gameObject.AddComponent<AudioSource>();
+			songToAdd.source.clip = songToAdd.clip;
+			songToAdd.source.loop = songToAdd.loop;
+			songToAdd.source.outputAudioMixerGroup = audioMxrGroup;
+
+			float volumeVariance = UnityEngine.Random.Range(-songToAdd.volumeDeviation / 2f, songToAdd.volumeDeviation / 2f) + 1f;
+			float pitchVariance = UnityEngine.Random.Range(-songToAdd.pitchDeviation / 2f, songToAdd.pitchDeviation / 2f) + 1f;
+			songToAdd.source.volume = songToAdd.volume * volumeVariance;
+			songToAdd.source.pitch = songToAdd.pitch * pitchVariance;
+
 			musicQueue.Enqueue(songToAdd);
+
 			return true;
 		}
 		else return false;

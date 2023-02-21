@@ -16,7 +16,7 @@ namespace Detection
         private float curTimeCount = 0.0f;
         private float[] audioSamples;
 
-        private AudioSource songPlaying;
+        public AudioSource songPlaying;
 
         // This represents the current song Loudness at any point in the game.
         public float currentLoudness = 0.0f;
@@ -25,14 +25,22 @@ namespace Detection
         {
             musicSystem = FindObjectOfType<MusicSystem>();
             audioSamples = new float[sampleDataLength];
+
+            StartCoroutine(UpdateSongPlaying(this, musicSystem));
         }
 
-        private static IEnumerator UpdateSongPlaying(MusicSystem musicSystem)
+        private static IEnumerator UpdateSongPlaying(MusicAnalyzer analyzer, MusicSystem musicSystem)
         {
-            Sound soundPlaying;
-            musicSystem.musicQueue.TryPeek(out soundPlaying);
+            while (true)
+            {
+                Sound soundPlaying;
+                if (musicSystem.musicQueue.TryPeek(out soundPlaying))
+                {
+                    analyzer.songPlaying = soundPlaying.source;
+                }
 
-            yield return null;
+                yield return new WaitForSeconds(1);
+            }
         }
 
         private void Update()
