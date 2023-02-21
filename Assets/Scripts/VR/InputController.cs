@@ -19,8 +19,6 @@ namespace Detection
         void Start()
         {
             mainScanner = gameObject.GetComponent(typeof(LookScanner)) as LookScanner;
-            FindObjectOfType<MusicManager>().PlayNextSongInOrder();
-
             StartCoroutine(ConstantMainScanner());
         }
 

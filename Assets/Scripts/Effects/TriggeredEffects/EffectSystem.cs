@@ -28,12 +28,7 @@ namespace Detection
 
         private void Start()
         {
-            Initialize();
-        }
-
-        public void Initialize()
-        {
-            musicAnalyzer = MusicManager.musicManager.GetComponent<MusicAnalyzer>();
+            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             effectEmitArgs = new VFXEmitArgs(null, null, null);
 
             List<KeyValuePair<IEffect, double>> effectList = new List<KeyValuePair<IEffect, double>>();
@@ -49,8 +44,6 @@ namespace Detection
                 weightedEffectsBag.Add(x.Key, x.Value);
             }
         }
-
-
 
         // Update is called once per frame
         void Update()

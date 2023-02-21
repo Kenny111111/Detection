@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-// Usage example; FindObjectOfType<AudioSystem>();
+// Usage example: FindObjectOfType<AudioSystem>();
 public class AudioSystem : MonoBehaviour
 {
 	public static AudioSystem manager;
@@ -27,6 +27,8 @@ public class AudioSystem : MonoBehaviour
 			sound.source.loop = sound.loop;
 			sound.source.outputAudioMixerGroup = audioMxrGroup;
 		}
+
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	public void Play(string soundName)
