@@ -6,34 +6,33 @@ namespace Detection
 {
     public class MusicAnalyzer : MonoBehaviour
     {
-        private MusicManager musicManager;
+        // dependency
+        private MusicSystem musicSystem;
         [SerializeField] public float minLoudness = 0.0f;
         [SerializeField] public float maxLoudness = 250;
         [SerializeField] public float updateStep = 0.01f;
         [SerializeField] public int sampleDataLength = 512;
         [SerializeField] public float sizeFactor = 1.0f;
-        private AudioSource songPlaying;
         private float curTimeCount = 0.0f;
         private float[] audioSamples;
+
+        private AudioSource songPlaying;
 
         // This represents the current song Loudness at any point in the game.
         public float currentLoudness = 0.0f;
 
         private void Start()
         {
-            musicManager = FindObjectOfType<MusicManager>();
-
-            // Get the current musicManager object and set the current audioSamples
-            UpdateSongPlaying();
-
+            musicSystem = FindObjectOfType<MusicSystem>();
             audioSamples = new float[sampleDataLength];
         }
 
-        public void UpdateSongPlaying()
+        private static IEnumerator UpdateSongPlaying(MusicSystem musicSystem)
         {
-            songPlaying = new AudioSource();
-            songPlaying = musicManager.GetCurrentSong().source;
-            Debug.Log("update song analyzer");
+            Sound soundPlaying;
+            musicSystem.musicQueue.TryPeek(out soundPlaying);
+
+            yield return null;
         }
 
         private void Update()
