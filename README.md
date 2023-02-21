@@ -12,11 +12,11 @@ Background: Set in an alternative reality in 2078, you assume the role of a kill
 Inspired by Hotline Miami and LIDAR.exe
 
 ## Contributors
-**Lead Developer** - Daniel Currey
-**Developer** - Cameron Batchelor
-**Developer** - Jeric Baquiran
-**Developer** - Kenny Dang
-**Developer** - Michael Khuri
+- **Lead Developer** - Daniel Currey
+- **Developer** - Cameron Batchelor
+- **Developer** - Jeric Baquiran
+- **Developer** - Kenny Dang
+- **Developer** - Michael Khuri
 
 ## Use Requirements
 
