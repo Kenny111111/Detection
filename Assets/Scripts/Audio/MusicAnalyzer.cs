@@ -45,7 +45,7 @@ namespace Detection
 
         private void Update()
         {
-            if (songPlaying == null) return;
+            if (songPlaying == null || songPlaying.clip == null) return;
 
             curTimeCount += Time.deltaTime;
             if (curTimeCount >= updateStep)
