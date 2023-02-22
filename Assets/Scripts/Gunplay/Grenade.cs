@@ -126,7 +126,7 @@ public class Grenade : XRGrabInteractable, IHasAIBehavior, IDealsDamage
         }
 
         Instantiate(explosionPrefab, transform.position, transform.rotation, transform);
-        AudioSystem.manager.Play("small_explosion");
+        AudioSystem.instance.Play("small_explosion");
 
         Destroy(gameObject, 0.1f);
     }

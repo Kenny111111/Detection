@@ -18108,7 +18108,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1399336575}
   - component: {fileID: 1399336577}
-  - component: {fileID: 1399336576}
   m_Layer: 0
   m_Name: Level Music
   m_TagString: Untagged
@@ -18131,25 +18130,6 @@ Transform:
   m_Father: {fileID: 1813396718}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1399336576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399336574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minLoudness: 0.005
-  maxLoudness: 0.04
-  updateStep: 0.01
-  sampleDataLength: 512
-  sizeFactor: 0.07
-  songPlaying: {fileID: 0}
-  currentLoudness: 0
 --- !u!114 &1399336577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18163,6 +18143,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songList:
+  - name: Aftershock
+    clip: {fileID: 8300000, guid: 6289dc202a543094994cbbd3ae6279f2, type: 3}
+    audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
+      type: 2}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.25
+    volumeDeviation: 0
+    pitch: 1
+    pitchDeviation: 0
   - name: Bloodline
     clip: {fileID: 8300000, guid: 6ad99ae2b9b6feb46bf49f488ad6c54c, type: 3}
     audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
@@ -24113,6 +24103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1858101052}
   - component: {fileID: 1858101053}
+  - component: {fileID: 1858101054}
   m_Layer: 0
   m_Name: MusicSystem
   m_TagString: Untagged
@@ -24149,6 +24140,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
     type: 2}
+--- !u!114 &1858101054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858101051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLoudness: 0.005
+  maxLoudness: 0.04
+  updateStep: 0.01
+  sampleDataLength: 512
+  sizeFactor: 0.07
+  songPlaying: {fileID: 0}
+  currentLoudness: 0
 --- !u!1001 &1864201871
 PrefabInstance:
   m_ObjectHideFlags: 0
