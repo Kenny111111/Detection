@@ -7,16 +7,16 @@ using System.Collections;
 // Usage example: FindObjectOfType<AudioSystem>();
 public class AudioSystem : MonoBehaviour
 {
-	public static AudioSystem instance;
+	public static AudioSystem manager;
 	public AudioMixerGroup audioMxrGroup;
 	public List<Sound> soundsList;
 
 	void Awake()
 	{
-		// Ensure only one instance exists
-		if (instance == null)
+		// Ensure only one manager exists
+		if (manager == null)
         {
-			instance = this;
+			manager = this;
 		}
 		else Destroy(gameObject);
 
