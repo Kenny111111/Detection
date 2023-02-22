@@ -2387,7 +2387,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   weaponManager: {fileID: 1286597278075322582}
-  playerObject: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!195 &6492723908682279800
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2528,7 +2528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitCount: 0
-  maxHit: 200
 --- !u!1 &5950785763223327390
 GameObject:
   m_ObjectHideFlags: 0
@@ -7100,6 +7099,8 @@ MonoBehaviour:
   bulletSize: 0.15
   gunData: {fileID: 11400000, guid: 39d6ca67c1d338646a6b3627047f3d76, type: 2}
   bulletSpawn: {fileID: 6596416752087642360}
+  bulletTrail: {fileID: 120648884187509030, guid: d2ec70c814159504cb3e12e99b00b151,
+    type: 3}
 --- !u!114 &6596416752960260376
 MonoBehaviour:
   m_ObjectHideFlags: 0
