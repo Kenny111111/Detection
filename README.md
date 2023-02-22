@@ -14,7 +14,7 @@ Inspired by Hotline Miami and LIDAR.exe
 ## Contributors
 - **Lead Developer** - Daniel Currey
 - **Developer** - Cameron Batchelor
-- **Developer** - Jeric Baquiran
+- **Developer/UI Artist** - Jeric Baquiran
 - **Developer** - Kenny Dang
 - **Developer** - Michael Khuri
 
