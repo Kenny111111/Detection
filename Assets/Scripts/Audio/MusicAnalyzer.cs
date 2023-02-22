@@ -26,21 +26,17 @@ namespace Detection
             musicSystem = FindObjectOfType<MusicSystem>();
             audioSamples = new float[sampleDataLength];
 
-            StartCoroutine(UpdateSongPlaying(this, musicSystem));
+            MusicSystem.OnSongChanged += MusicSystemOnSongChanged;
         }
 
-        private static IEnumerator UpdateSongPlaying(MusicAnalyzer analyzer, MusicSystem musicSystem)
+        private void OnDestroy()
         {
-            while (true)
-            {
-                Sound soundPlaying;
-                if (musicSystem.musicQueue.TryPeek(out soundPlaying))
-                {
-                    analyzer.songPlaying = soundPlaying.source;
-                }
+            MusicSystem.OnSongChanged -= MusicSystemOnSongChanged;
+        }
 
-                yield return new WaitForSeconds(1);
-            }
+        private void MusicSystemOnSongChanged(Sound newSong)
+        {
+            songPlaying = newSong.source;
         }
 
         private void Update()

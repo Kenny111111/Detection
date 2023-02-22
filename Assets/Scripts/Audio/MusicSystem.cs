@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +8,18 @@ using UnityEngine.Audio;
 // Usage example: FindObjectOfType<MusicSystem>();
 public class MusicSystem : MonoBehaviour
 {
-	public static MusicSystem musicSystem;
+	public static MusicSystem instance;
 	public AudioMixerGroup audioMxrGroup;
 	public Queue<Sound> musicQueue;
 
+	public static event Action<Sound> OnSongChanged;
+
 	void Awake()
 	{
-		// Ensure only one musicSystem exists
-		if (musicSystem == null)
+		// Ensure only one instance exists
+		if (instance == null)
 		{
-			musicSystem = this;
+			instance = this;
 			DontDestroyOnLoad(this.gameObject);
 		}
 		else Destroy(gameObject);
@@ -32,16 +35,17 @@ public class MusicSystem : MonoBehaviour
 
 		while (true)
         {
-			if (musicSystem.musicQueue.Count > 0)
+			if (instance.musicQueue.Count > 0)
 			{
 				// Start playing the next song
-				musicSystem.musicQueue.Peek().source.Play();
+				instance.musicQueue.Peek().source.Play();
+				OnSongChanged?.Invoke(instance.musicQueue.Peek());
 
-				float currentSongLength = musicSystem.TryGetCurrentSong().source.clip.length;
+				float currentSongLength = instance.TryGetCurrentSong().source.clip.length;
 				yield return new WaitForSeconds(currentSongLength + waitAmount);
 				// remove it from the list since it has completed playing
 
-				musicSystem.musicQueue.Dequeue();
+				instance.musicQueue.Dequeue();
 			}
 
 			yield return new WaitForSeconds(waitAmount);
@@ -76,7 +80,7 @@ public class MusicSystem : MonoBehaviour
 		if (musicQueue.Count > 0) return musicQueue.Peek();
 		else return null;
 	}
-
+	
 	private Sound TryGetSongInQueue(string soundName)
 	{
 		Sound sound = musicQueue.ToList().Find(item => item.name == soundName);
@@ -103,7 +107,9 @@ public class MusicSystem : MonoBehaviour
 		song.source.pitch = song.pitch * pitchVariance;
 
 		FadeOut(TryGetCurrentSong(), 2);
+
 		song.source.Play();
+		OnSongChanged?.Invoke(song);
 	}
 
 	private void FadeOut(Sound song, float duration)
