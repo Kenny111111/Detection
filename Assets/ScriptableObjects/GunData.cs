@@ -11,8 +11,11 @@ public class GunData : ScriptableObject
     public float range;
     public float fireRate;
     public float recoilForce;
+    [Range(0,1)]
+    public float hapticIntensity;
+    public float hapticDuration;
 
-    [Header("Reloading")]
+    [Header("Ammo")]
     public int      startingAmmo;
     public int      maxAmmo;
 }
