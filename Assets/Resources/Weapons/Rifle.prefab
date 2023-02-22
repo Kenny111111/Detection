@@ -4781,6 +4781,8 @@ MonoBehaviour:
   gunData: {fileID: 11400000, guid: cb55a76c62207084c919708e1ebb50f5, type: 2}
   bulletSpawn: {fileID: 3667148159653066748}
   _particleSystem: {fileID: 0}
+  bulletTrail: {fileID: 120648884187509030, guid: d2ec70c814159504cb3e12e99b00b151,
+    type: 3}
 --- !u!114 &3667148160077364171
 MonoBehaviour:
   m_ObjectHideFlags: 0
