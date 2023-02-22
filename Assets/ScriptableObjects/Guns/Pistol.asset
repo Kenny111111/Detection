@@ -17,5 +17,7 @@ MonoBehaviour:
   range: 50
   fireRate: 5
   recoilForce: 0
+  hapticIntensity: 0.5
+  hapticDuration: 0.15
   startingAmmo: 9999
   maxAmmo: 30
