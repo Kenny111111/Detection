@@ -37,6 +37,7 @@ public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, ID
     {
         waitTime = new WaitForSeconds(1f / gunData.fireRate);
         currentAmmo = gunData.startingAmmo;
+        SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
     }
 
     public override void StartObjectAction()
@@ -69,6 +70,7 @@ public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, ID
                 Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                 ShootAndEmitParticle(ray);
                 AudioSystem.manager.Play("ak47_shot");
+                ActivateHapticFeedback();
                 --currentAmmo;
             }
         }

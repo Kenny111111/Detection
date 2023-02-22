@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6f6d7125d4a034ba6dd2d0989ea1ef, type: 3}
   m_Name: Sawed-Off-Shotty
   m_EditorClassIdentifier: 
-  name: 
+  name: DoubleBarrelShotty
   damage: 20
   range: 20
   fireRate: 0
   recoilForce: 0
+  hapticIntensity: 0.5
+  hapticDuration: 0.25
   startingAmmo: 9999
   maxAmmo: 2
