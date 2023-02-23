@@ -34,6 +34,7 @@ public class RaycastPistol : TwoHandInteractable, IShootable, IShootsParticle, I
     private void Start()
     {
         currentAmmo = gunData.startingAmmo;
+        SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
     }
 
     public override void StartObjectAction()
@@ -60,13 +61,14 @@ public class RaycastPistol : TwoHandInteractable, IShootable, IShootsParticle, I
                 nextShot = Time.time + fireRate;
                 Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                 ShootAndEmitParticle(ray);
-                AudioSystem.instance.Play("beretta_shot");
+                AudioSystem.manager.Play("beretta_shot");
+                ActivateHapticFeedback();
                 --currentAmmo;
             }
         }
         else
         {
-            AudioSystem.instance.Play("gun_empty");
+            AudioSystem.manager.Play("gun_empty");
         }
     }
 

@@ -36,6 +36,7 @@ public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDa
     private void Start()
     {
         currentAmmo = gunData.startingAmmo;
+        SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
     }
 
     protected override void StartAttacking(ActivateEventArgs args)
@@ -66,13 +67,14 @@ public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDa
                     ShootAndEmitParticle(ray);
                 }
 
-                AudioSystem.instance.Play("shotgun_shot");
+                AudioSystem.manager.Play("shotgun_shot");
+                ActivateHapticFeedback();
                 --currentAmmo;
             }
         }
         else
         {
-            AudioSystem.instance.Play("gun_empty");
+            AudioSystem.manager.Play("gun_empty");
         }
     }
 
