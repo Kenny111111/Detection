@@ -67,14 +67,14 @@ public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDa
                     ShootAndEmitParticle(ray);
                 }
 
-                AudioSystem.manager.Play("shotgun_shot");
+                AudioSystem.instance.Play("shotgun_shot");
                 ActivateHapticFeedback();
                 --currentAmmo;
             }
         }
         else
         {
-            AudioSystem.manager.Play("gun_empty");
+            AudioSystem.instance.Play("gun_empty");
         }
     }
 
