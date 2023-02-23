@@ -23,9 +23,6 @@ Inspired by Hotline Miami and LIDAR.exe
 *   A Virtual Reality headset
 
 ## License
-> Copyright (c) 2023-2024 Daniel Currey
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/mit-license.php) - see the [LICENSE](https://github.com/spicy/Detection/LICENSE) file for details.
-
+> Copyright (c) Daniel Currey
 
 
