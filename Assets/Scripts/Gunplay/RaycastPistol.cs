@@ -12,7 +12,7 @@ public class RaycastPistol : TwoHandInteractable, IShootable, IShootsParticle, I
     [SerializeField] private Transform bulletSpawn;
     private int currentAmmo;
 
-    private float fireRate = 0.25f;
+    private float fireRate = 0.1f;
     private float nextShot = 0f;
 
     // bullet trail created

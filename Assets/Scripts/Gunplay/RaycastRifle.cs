@@ -14,7 +14,7 @@ public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, ID
     private int currentAmmo;
     private WaitForSeconds waitTime;
 
-    private float fireRate = 0.175f;
+    private float fireRate = 0.095f;
     private float nextShot = 0f;
 
     // bullet trail created

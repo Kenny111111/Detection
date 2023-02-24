@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelSelectButton : MonoBehaviour
 {
@@ -10,9 +7,10 @@ public class LevelSelectButton : MonoBehaviour
         Debug.Log(message: "button clicked");
     }
 
-    public void LevelSelected(string scene_name)
+    public void LevelSelected(string sceneName)
     {
-        SceneManager.LoadScene(scene_name);
+        GameManager.instance.SwitchToScene(sceneName);
+        GameManager.instance.UpdateGameState(GameState.LEVELSTARTING);
     }
 
 }
