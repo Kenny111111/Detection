@@ -141,12 +141,13 @@ public class AIController : MonoBehaviour
             Move(RunningSpeed);
             navMeshAgent.SetDestination(playerPosition);
         }
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance || Vector3.Distance(transform.position, playerTransform.position) > enemyRadius)
         {
             if (delayTime <= 0 && !playerCaught && Vector3.Distance(transform.position, playerTransform.position) >= 6f)
             {
                 patrolling = true;
                 playerIsNear = false;
+                playerIsInRange = false;
 
                 Move(walkingSpeed);
                 rotate = rotationTime;
@@ -267,5 +268,39 @@ public class AIController : MonoBehaviour
             if (Vector3.Distance(transform.position, player.position) > enemyRadius) playerIsInRange = false;
             if (playerIsInRange) playerPosition = player.position;
         }
+
+        Collider[] targetsInRadius = Physics.OverlapSphere(transform.position, enemyRadius, player);
+
+        foreach (Collider targetCollider in targetsInRadius)
+        {
+            Vector3 targetPosition = targetCollider.transform.position;
+            Vector3 targetDirection = targetPosition - transform.position;
+            float angle = Vector3.Angle(targetDirection, transform.forward);
+
+            if (angle < enemyViewAngle / 2)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, targetDirection, out hit, enemyRadius, obstacle))
+                {
+                    if (hit.collider.CompareTag("Player"))
+                    {
+                        playerIsInRange = true;
+                        playerPosition = targetPosition;
+                        playerCaught = false;
+                        patrolling = false;
+                        tryAttack = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (!playerIsInRange)
+        {
+            playerCaught = false;
+            tryAttack = false;
+        }
+
     }
 }
