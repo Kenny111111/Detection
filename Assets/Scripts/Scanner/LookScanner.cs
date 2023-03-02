@@ -14,9 +14,12 @@ namespace Detection
         private float timeSinceLastSpawn;
         private float intervalPerSpawn;
 
+        private LayerMask layerMask;
+
         public void Start()
         {
             intervalPerSpawn = 1 / (float)numParticlesPerSecond;
+            layerMask = LayerMask.GetMask("Environment", "Weapons", "Enemies", "MiscVisible");
         }
 
         public void Scan(Vector3 direction)
@@ -43,7 +46,7 @@ namespace Detection
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, maxRayDistance))
+            if (Physics.Raycast(ray, out hit, maxRayDistance, layerMask))
             {
                 // if the object we collide with is scannable, then emit a particle at that location
                 var scannableObject = hit.transform.gameObject.GetComponent<IScannable>();

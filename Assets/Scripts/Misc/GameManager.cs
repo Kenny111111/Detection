@@ -29,8 +29,8 @@ namespace Detection
         public GameState gameState;
         private int currentSceneNum = 0;
         private int totalNumberOfScenes = 5;
-        public GameObject playerObject;
-        public GameObject cameraObject;
+        private GameObject playerObject;
+        private GameObject cameraObject;
 
         public static event Action<GameState> OnGameStateChanged;
 
