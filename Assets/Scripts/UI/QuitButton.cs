@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitButton : MonoBehaviour
+namespace Detection
 {
- public void Quit()
-   {
-        Application.Quit();
-        Debug.Log(message: "Quit Game");
-   }
+    public class QuitButton : MonoBehaviour
+    {
+        public void Quit()
+        {
+            Application.Quit();
+            Debug.Log(message: "Quit Game");
+        }
+    }
 }

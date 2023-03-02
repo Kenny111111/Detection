@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StopWeaponCollisionWithPlayer : MonoBehaviour
+namespace Detection
 {
-    // Start is called before the first frame update
-    void Start()
+    public class StopWeaponCollisionWithPlayer : MonoBehaviour
     {
-        //Ignore the collisions between layer 11 (weapons) and layer 10 (player)
-        Physics.IgnoreLayerCollision(11, 10);
+        // Start is called before the first frame update
+        void Start()
+        {
+            //Ignore the collisions between layer 11 (weapons) and layer 10 (player)
+            Physics.IgnoreLayerCollision(11, 10);
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace Detection
     public class BasicScannerSurface : MonoBehaviour, IScannable
     {
         [SerializeField] private Color defaultColor = new Color(255, 255, 255);
-        [SerializeField] private float defaultLifetime = 3f;
+        [SerializeField] private float defaultLifetime = 6f;
         [SerializeField] private float defaultSize = 0.015f;
 
         void IScannable.EmitParticle(RaycastHit hit, VFXEmitArgs overrideArgs)

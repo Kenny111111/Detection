@@ -1,30 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+namespace Detection
 {
-    public float maxHealth;
-    public float currentHealth;
-    public Image healthBar;
-
-    void Start()
+    public class Health : MonoBehaviour
     {
-        maxHealth = currentHealth;
-    }
+        public float maxHealth;
+        public float currentHealth;
+        public Image healthBar;
 
-    void Update()
-    {
-        healthBar.fillAmount = Mathf.Clamp(currentHealth / maxHealth, 0, 1);
-
-        if (currentHealth == 0)
+        void Start()
         {
-            //display game over menu
-
+            maxHealth = currentHealth;
         }
 
+        void Update()
+        {
+            healthBar.fillAmount = Mathf.Clamp(currentHealth / maxHealth, 0, 1);
+
+            if (currentHealth == 0)
+            {
+                //display game over menu
+
+            }
+
+        }
     }
-
-
 }

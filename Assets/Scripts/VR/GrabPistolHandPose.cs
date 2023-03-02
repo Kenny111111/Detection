@@ -7,179 +7,182 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 
-public struct StartAndEndHandData
+namespace Detection
 {
-    public Vector3 startingPosition;
-    public Vector3 endingPosition;
-    public Quaternion startingRotation;
-    public Quaternion endingRotation;
-    public Quaternion[] startingFingersRotation;
-    public Quaternion[] endingFingersRotation;
-}
-
-public class GrabPistolHandPose : MonoBehaviour
-{
-    [SerializeField] private HandBoneData primaryLeftHandPose;
-    [SerializeField] private HandBoneData primaryRightHandPose;
-    [SerializeField] private HandBoneData secondaryLeftHandPose;
-    [SerializeField] private HandBoneData secondaryRightHandPose;
-
-    [SerializeField] private float poseInterpDuration;
-
-    private StartAndEndHandData leftStartAndEndHandData; 
-    private StartAndEndHandData rightStartAndEndHandData;
-
-    // Start is called before the first frame update
-    void Start()
+    public struct StartAndEndHandData
     {
-        XRGrabInteractable grabInteractable = GetComponent<XRGrabInteractable>();
-        grabInteractable.selectEntered.AddListener(SetupPoseOnInteraction);
-        grabInteractable.selectExited.AddListener(UnsetPoseOnInteraction);
-
-        leftStartAndEndHandData = new StartAndEndHandData();
-        rightStartAndEndHandData = new StartAndEndHandData();
-
-        primaryLeftHandPose.gameObject.SetActive(false);
-        secondaryLeftHandPose.gameObject.SetActive(false);
-        primaryRightHandPose.gameObject.SetActive(false);
-        secondaryRightHandPose.gameObject.SetActive(false);
+        public Vector3 startingPosition;
+        public Vector3 endingPosition;
+        public Quaternion startingRotation;
+        public Quaternion endingRotation;
+        public Quaternion[] startingFingersRotation;
+        public Quaternion[] endingFingersRotation;
     }
 
-    public void SetupPoseOnInteraction(BaseInteractionEventArgs arg)
+    public class GrabPistolHandPose : MonoBehaviour
     {
-        SetupPose(arg.interactableObject, arg.interactorObject);
-    }
+        [SerializeField] private HandBoneData primaryLeftHandPose;
+        [SerializeField] private HandBoneData primaryRightHandPose;
+        [SerializeField] private HandBoneData secondaryLeftHandPose;
+        [SerializeField] private HandBoneData secondaryRightHandPose;
 
-    public void UnsetPoseOnInteraction(BaseInteractionEventArgs arg)
-    {
-        UnsetPose(arg.interactableObject, arg.interactorObject);
-    }
+        [SerializeField] private float poseInterpDuration;
 
-    public void SetupPose(IXRInteractable gun, IXRInteractor hand)
-    {
-        if (gun is XRGrabInteractable)
+        private StartAndEndHandData leftStartAndEndHandData;
+        private StartAndEndHandData rightStartAndEndHandData;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            HandBoneData handBoneData = hand.transform.GetComponentInChildren<HandBoneData>();
-            handBoneData.animator.enabled = false;
+            XRGrabInteractable grabInteractable = GetComponent<XRGrabInteractable>();
+            grabInteractable.selectEntered.AddListener(SetupPoseOnInteraction);
+            grabInteractable.selectExited.AddListener(UnsetPoseOnInteraction);
 
-            if (handBoneData.handSide == HandBoneData.HandModelSide.Left)
-            {
-                if (handBoneData.poseType == HandBoneData.HandModelPose.Primary) 
-                    SetHandBoneDataValues(handBoneData, primaryLeftHandPose, out leftStartAndEndHandData);
-                else SetHandBoneDataValues(handBoneData, secondaryLeftHandPose, out leftStartAndEndHandData);
-                StartCoroutine(SetHandBoneDataRoutine(handBoneData, leftStartAndEndHandData.startingPosition, leftStartAndEndHandData.startingRotation, leftStartAndEndHandData.startingFingersRotation, leftStartAndEndHandData.endingPosition, leftStartAndEndHandData.endingRotation, leftStartAndEndHandData.endingFingersRotation));
-            }
-            else
-            {
-                if (handBoneData.poseType == HandBoneData.HandModelPose.Primary)
-                    SetHandBoneDataValues(handBoneData, primaryRightHandPose, out rightStartAndEndHandData);
-                else SetHandBoneDataValues(handBoneData, secondaryRightHandPose, out rightStartAndEndHandData);
-                StartCoroutine(SetHandBoneDataRoutine(handBoneData, rightStartAndEndHandData.startingPosition, rightStartAndEndHandData.startingRotation, rightStartAndEndHandData.startingFingersRotation, rightStartAndEndHandData.endingPosition, rightStartAndEndHandData.endingRotation, rightStartAndEndHandData.endingFingersRotation));
-            }
+            leftStartAndEndHandData = new StartAndEndHandData();
+            rightStartAndEndHandData = new StartAndEndHandData();
+
+            primaryLeftHandPose.gameObject.SetActive(false);
+            secondaryLeftHandPose.gameObject.SetActive(false);
+            primaryRightHandPose.gameObject.SetActive(false);
+            secondaryRightHandPose.gameObject.SetActive(false);
         }
-    }
 
-    public void UnsetPose(IXRInteractable gun, IXRInteractor hand)
-    {
-        if (gun is XRGrabInteractable)
+        public void SetupPoseOnInteraction(BaseInteractionEventArgs arg)
         {
-            HandBoneData handBoneData = hand.transform.GetComponentInChildren<HandBoneData>();
-            handBoneData.animator.enabled = true;
+            SetupPose(arg.interactableObject, arg.interactorObject);
+        }
 
-            if (handBoneData.handSide == HandBoneData.HandModelSide.Left)
+        public void UnsetPoseOnInteraction(BaseInteractionEventArgs arg)
+        {
+            UnsetPose(arg.interactableObject, arg.interactorObject);
+        }
+
+        public void SetupPose(IXRInteractable gun, IXRInteractor hand)
+        {
+            if (gun is XRGrabInteractable)
             {
-                StartCoroutine(SetHandBoneDataRoutine(handBoneData, leftStartAndEndHandData.endingPosition, leftStartAndEndHandData.endingRotation, leftStartAndEndHandData.endingFingersRotation, leftStartAndEndHandData.startingPosition, leftStartAndEndHandData.startingRotation, leftStartAndEndHandData.startingFingersRotation));
-            }
-            else
-            {
-                StartCoroutine(SetHandBoneDataRoutine(handBoneData, rightStartAndEndHandData.endingPosition, rightStartAndEndHandData.endingRotation, rightStartAndEndHandData.endingFingersRotation, rightStartAndEndHandData.startingPosition, rightStartAndEndHandData.startingRotation, rightStartAndEndHandData.startingFingersRotation));
+                HandBoneData handBoneData = hand.transform.GetComponentInChildren<HandBoneData>();
+                handBoneData.animator.enabled = false;
+
+                if (handBoneData.handSide == HandBoneData.HandModelSide.Left)
+                {
+                    if (handBoneData.poseType == HandBoneData.HandModelPose.Primary)
+                        SetHandBoneDataValues(handBoneData, primaryLeftHandPose, out leftStartAndEndHandData);
+                    else SetHandBoneDataValues(handBoneData, secondaryLeftHandPose, out leftStartAndEndHandData);
+                    StartCoroutine(SetHandBoneDataRoutine(handBoneData, leftStartAndEndHandData.startingPosition, leftStartAndEndHandData.startingRotation, leftStartAndEndHandData.startingFingersRotation, leftStartAndEndHandData.endingPosition, leftStartAndEndHandData.endingRotation, leftStartAndEndHandData.endingFingersRotation));
+                }
+                else
+                {
+                    if (handBoneData.poseType == HandBoneData.HandModelPose.Primary)
+                        SetHandBoneDataValues(handBoneData, primaryRightHandPose, out rightStartAndEndHandData);
+                    else SetHandBoneDataValues(handBoneData, secondaryRightHandPose, out rightStartAndEndHandData);
+                    StartCoroutine(SetHandBoneDataRoutine(handBoneData, rightStartAndEndHandData.startingPosition, rightStartAndEndHandData.startingRotation, rightStartAndEndHandData.startingFingersRotation, rightStartAndEndHandData.endingPosition, rightStartAndEndHandData.endingRotation, rightStartAndEndHandData.endingFingersRotation));
+                }
             }
         }
-    }
 
-    public void SetHandBoneDataValues(HandBoneData h1, HandBoneData h2, out StartAndEndHandData currentHand)
-    {
-        currentHand.startingPosition = new Vector3(h1.root.localPosition.x / h1.root.localScale.x,
-            h1.root.localPosition.y / h1.root.localScale.y, h1.root.localPosition.z / h1.root.localScale.z);
-        currentHand.endingPosition = new Vector3(h2.root.localPosition.x / h2.root.localScale.x,
-            h2.root.localPosition.y / h2.root.localScale.y, h2.root.localPosition.z / h2.root.localScale.z);
-
-        currentHand.startingRotation = h1.root.localRotation;
-        currentHand.endingRotation = h2.root.localRotation;
-
-        currentHand.startingFingersRotation = new Quaternion[h1.fingerBones.Length];
-        currentHand.endingFingersRotation = new Quaternion[h2.fingerBones.Length];
-
-        for (int i = 0; i < h1.fingerBones.Length; i++)
+        public void UnsetPose(IXRInteractable gun, IXRInteractor hand)
         {
-            currentHand.startingFingersRotation[i] = h1.fingerBones[i].localRotation;
-            currentHand.endingFingersRotation[i] = h2.fingerBones[i].localRotation;
+            if (gun is XRGrabInteractable)
+            {
+                HandBoneData handBoneData = hand.transform.GetComponentInChildren<HandBoneData>();
+                handBoneData.animator.enabled = true;
+
+                if (handBoneData.handSide == HandBoneData.HandModelSide.Left)
+                {
+                    StartCoroutine(SetHandBoneDataRoutine(handBoneData, leftStartAndEndHandData.endingPosition, leftStartAndEndHandData.endingRotation, leftStartAndEndHandData.endingFingersRotation, leftStartAndEndHandData.startingPosition, leftStartAndEndHandData.startingRotation, leftStartAndEndHandData.startingFingersRotation));
+                }
+                else
+                {
+                    StartCoroutine(SetHandBoneDataRoutine(handBoneData, rightStartAndEndHandData.endingPosition, rightStartAndEndHandData.endingRotation, rightStartAndEndHandData.endingFingersRotation, rightStartAndEndHandData.startingPosition, rightStartAndEndHandData.startingRotation, rightStartAndEndHandData.startingFingersRotation));
+                }
+            }
         }
-    }
 
-    // Snap version
-    public void SetHandBoneData(HandBoneData hand, Vector3 newPos, Quaternion newRot, Quaternion[] newFingersRot)
-    {
-        hand.root.localPosition = newPos;
-        hand.root.localRotation = newRot;
-
-        for (int i = 0; i < newFingersRot.Length; i++)
+        public void SetHandBoneDataValues(HandBoneData h1, HandBoneData h2, out StartAndEndHandData currentHand)
         {
-            hand.fingerBones[i].localRotation = newFingersRot[i];
+            currentHand.startingPosition = new Vector3(h1.root.localPosition.x / h1.root.localScale.x,
+                h1.root.localPosition.y / h1.root.localScale.y, h1.root.localPosition.z / h1.root.localScale.z);
+            currentHand.endingPosition = new Vector3(h2.root.localPosition.x / h2.root.localScale.x,
+                h2.root.localPosition.y / h2.root.localScale.y, h2.root.localPosition.z / h2.root.localScale.z);
+
+            currentHand.startingRotation = h1.root.localRotation;
+            currentHand.endingRotation = h2.root.localRotation;
+
+            currentHand.startingFingersRotation = new Quaternion[h1.fingerBones.Length];
+            currentHand.endingFingersRotation = new Quaternion[h2.fingerBones.Length];
+
+            for (int i = 0; i < h1.fingerBones.Length; i++)
+            {
+                currentHand.startingFingersRotation[i] = h1.fingerBones[i].localRotation;
+                currentHand.endingFingersRotation[i] = h2.fingerBones[i].localRotation;
+            }
         }
-    }
 
-
-    // Smooth interpolation version
-    public IEnumerator SetHandBoneDataRoutine(HandBoneData hand, Vector3 startingPos, Quaternion startingRot, Quaternion[] startingFingersRot, Vector3 newPos, Quaternion newRot, Quaternion[] newFingersRot)
-    {
-        float totalTimeElapsed = 0;
-
-        while (totalTimeElapsed < poseInterpDuration)
+        // Snap version
+        public void SetHandBoneData(HandBoneData hand, Vector3 newPos, Quaternion newRot, Quaternion[] newFingersRot)
         {
-            Vector3 interpPos = Vector3.Lerp(startingPos, newPos, totalTimeElapsed / poseInterpDuration);
-            Quaternion interpRot = Quaternion.Lerp(startingRot, newRot, totalTimeElapsed / poseInterpDuration);
-
-            hand.root.localPosition = interpPos;
-            hand.root.localRotation = interpRot;
+            hand.root.localPosition = newPos;
+            hand.root.localRotation = newRot;
 
             for (int i = 0; i < newFingersRot.Length; i++)
             {
-                hand.fingerBones[i].localRotation = Quaternion.Lerp(startingFingersRot[i], newFingersRot[i], totalTimeElapsed / poseInterpDuration);
+                hand.fingerBones[i].localRotation = newFingersRot[i];
             }
-
-            totalTimeElapsed += Time.deltaTime;
-            yield return null;
         }
-    }
+
+
+        // Smooth interpolation version
+        public IEnumerator SetHandBoneDataRoutine(HandBoneData hand, Vector3 startingPos, Quaternion startingRot, Quaternion[] startingFingersRot, Vector3 newPos, Quaternion newRot, Quaternion[] newFingersRot)
+        {
+            float totalTimeElapsed = 0;
+
+            while (totalTimeElapsed < poseInterpDuration)
+            {
+                Vector3 interpPos = Vector3.Lerp(startingPos, newPos, totalTimeElapsed / poseInterpDuration);
+                Quaternion interpRot = Quaternion.Lerp(startingRot, newRot, totalTimeElapsed / poseInterpDuration);
+
+                hand.root.localPosition = interpPos;
+                hand.root.localRotation = interpRot;
+
+                for (int i = 0; i < newFingersRot.Length; i++)
+                {
+                    hand.fingerBones[i].localRotation = Quaternion.Lerp(startingFingersRot[i], newFingersRot[i], totalTimeElapsed / poseInterpDuration);
+                }
+
+                totalTimeElapsed += Time.deltaTime;
+                yield return null;
+            }
+        }
 
 #if UNITY_EDITOR
 
-    [MenuItem("Tools/Mirror the selected left grab pose")]
-    public static void MirrorLeftPose()
-    {
-        Debug.Log("mirrored left to right");
-        GrabPistolHandPose handPose = Selection.activeGameObject.GetComponent<GrabPistolHandPose>();
-        handPose.MirrorPose(handPose.primaryLeftHandPose, handPose.primaryRightHandPose);
-        handPose.MirrorPose(handPose.secondaryLeftHandPose, handPose.secondaryRightHandPose);
-    }
-
-    public void MirrorPose(HandBoneData toMirror, HandBoneData mirroredOut)
-    {
-        Vector3 mirroredPos = toMirror.root.localPosition;
-        mirroredPos.x *= -1;
-
-        Quaternion mirroredRot = toMirror.root.localRotation;
-        mirroredRot.y *= -1;
-        mirroredRot.z *= -1;
-
-        mirroredOut.root.localPosition = mirroredPos;
-        mirroredOut.root.localRotation = mirroredRot;
-
-        for (int i = 0; i < toMirror.fingerBones.Length; i++)
+        [MenuItem("Tools/Mirror the selected left grab pose")]
+        public static void MirrorLeftPose()
         {
-            mirroredOut.fingerBones[i].localRotation = toMirror.fingerBones[i].localRotation;
+            Debug.Log("mirrored left to right");
+            GrabPistolHandPose handPose = Selection.activeGameObject.GetComponent<GrabPistolHandPose>();
+            handPose.MirrorPose(handPose.primaryLeftHandPose, handPose.primaryRightHandPose);
+            handPose.MirrorPose(handPose.secondaryLeftHandPose, handPose.secondaryRightHandPose);
         }
-    }
+
+        public void MirrorPose(HandBoneData toMirror, HandBoneData mirroredOut)
+        {
+            Vector3 mirroredPos = toMirror.root.localPosition;
+            mirroredPos.x *= -1;
+
+            Quaternion mirroredRot = toMirror.root.localRotation;
+            mirroredRot.y *= -1;
+            mirroredRot.z *= -1;
+
+            mirroredOut.root.localPosition = mirroredPos;
+            mirroredOut.root.localRotation = mirroredRot;
+
+            for (int i = 0; i < toMirror.fingerBones.Length; i++)
+            {
+                mirroredOut.fingerBones[i].localRotation = toMirror.fingerBones[i].localRotation;
+            }
+        }
 #endif
+    }
 }

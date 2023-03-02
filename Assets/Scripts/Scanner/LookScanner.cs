@@ -12,10 +12,15 @@ namespace Detection
         [SerializeField] private float sprayAngleY;
         [SerializeField] private float maxRayDistance;
         private float timeSinceLastSpawn;
+        private float intervalPerSpawn;
+
+        public void Start()
+        {
+            intervalPerSpawn = 1 / (float)numParticlesPerSecond;
+        }
 
         public void Scan(Vector3 direction)
         {
-            float intervalPerSpawn = 1 / (float)numParticlesPerSecond;
             timeSinceLastSpawn += Time.deltaTime;
 
             if (timeSinceLastSpawn > intervalPerSpawn)

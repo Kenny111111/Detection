@@ -5,8 +5,8 @@ namespace Detection
     [RequireComponent(typeof(MeshRenderer), typeof(MeshCollider))]
     public class MeshScannerSurface : MonoBehaviour, IScannable
     {
-        private Color defaultColor = new Color(255, 0, 0);
-        [SerializeField] private float defaultLifetime = 3f;
+        private Color defaultColor = new Color(200, 255, 200);
+        [SerializeField] private float defaultLifetime = 6f;
         [SerializeField] private float defaultSize = 0.015f;
 
         void IScannable.EmitParticle(RaycastHit hit, VFXEmitArgs overrideArgs)

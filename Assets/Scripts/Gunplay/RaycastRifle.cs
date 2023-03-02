@@ -1,115 +1,117 @@
 using System.Collections;
 using UnityEngine;
-using Detection;
 using static Detection.IDealsDamage;
 
-public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, IDealsDamage
+namespace Detection
 {
-    [SerializeField] private Color bulletColor = new Color(240, 208, 81);
-    [SerializeField] private float bulletLifetime = 0.5f;
-    [SerializeField] private float bulletSize = 0.15f;
-
-    [SerializeField] protected GunData gunData;
-    public Transform bulletSpawn;
-    private int currentAmmo;
-    private WaitForSeconds waitTime;
-
-    private float fireRate = 0.095f;
-    private float nextShot = 0f;
-
-    // bullet trail created
-    public LineRenderer bulletTrail;
-    
-    private void SpawnBulletTrail(Vector3 hitPoint)
+    public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, IDealsDamage
     {
-        GameObject bulletTrailEffect = Instantiate(bulletTrail.gameObject, bulletSpawn.position, Quaternion.identity);
+        [SerializeField] private Color bulletColor = new Color(240, 208, 81);
+        [SerializeField] private float bulletLifetime = 0.5f;
+        [SerializeField] private float bulletSize = 0.15f;
 
-        LineRenderer lineR = bulletTrailEffect.GetComponent<LineRenderer>();
+        [SerializeField] protected GunData gunData;
+        public Transform bulletSpawn;
+        private int currentAmmo;
+        private WaitForSeconds waitTime;
 
-        lineR.SetPosition(0, bulletSpawn.position);
-        lineR.SetPosition(1, hitPoint);
+        private float fireRate = 0.095f;
+        private float nextShot = 0f;
 
-        Destroy(bulletTrailEffect, 1f);
-    }
-    //end of bullet trail - being called by ShootAndEmitParticle function
+        // bullet trail created
+        public LineRenderer bulletTrail;
 
-    private void Start()
-    {
-        waitTime = new WaitForSeconds(1f / gunData.fireRate);
-        currentAmmo = gunData.startingAmmo;
-        SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
-    }
-
-    public override void StartObjectAction()
-    {
-        StartCoroutine(ShootingRoutine());
-    }
-
-    public override void StopObjectAction()
-    {
-        StopAllCoroutines();
-    }
-
-    public void Attack()
-    {
-        Shoot();
-    }
-
-    public Weapons GetWeaponEnum()
-    {
-        return Weapons.Rifle;
-    }
-
-    public void Shoot()
-    {
-        if (currentAmmo > 0)
+        private void SpawnBulletTrail(Vector3 hitPoint)
         {
-            if(Time.time > nextShot)
-            {
-                nextShot = Time.time + fireRate;
-                Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
-                ShootAndEmitParticle(ray);
-                AudioSystem.instance.Play("ak47_shot");
-                ActivateHapticFeedback();
-                --currentAmmo;
-            }
+            GameObject bulletTrailEffect = Instantiate(bulletTrail.gameObject, bulletSpawn.position, Quaternion.identity);
+
+            LineRenderer lineR = bulletTrailEffect.GetComponent<LineRenderer>();
+
+            lineR.SetPosition(0, bulletSpawn.position);
+            lineR.SetPosition(1, hitPoint);
+
+            Destroy(bulletTrailEffect, 1f);
         }
-        else
+        //end of bullet trail - being called by ShootAndEmitParticle function
+
+        private void Start()
         {
-            AudioSystem.instance.Play("gun_empty");
+            waitTime = new WaitForSeconds(1f / gunData.fireRate);
+            currentAmmo = gunData.startingAmmo;
+            SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
         }
-    }
 
-    private IEnumerator ShootingRoutine()
-    {
-        while (true)
+        public override void StartObjectAction()
         {
-            if (PrimaryInteractor == null) yield break;
+            StartCoroutine(ShootingRoutine());
+        }
 
+        public override void StopObjectAction()
+        {
+            StopAllCoroutines();
+        }
+
+        public void Attack()
+        {
             Shoot();
-            yield return waitTime;
-            
         }
-    }
 
-    public void ShootAndEmitParticle(Ray ray)
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, gunData.range))
+        public Weapons GetWeaponEnum()
         {
-            Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
-            if (hitbox != null)
+            return Weapons.Rifle;
+        }
+
+        public void Shoot()
+        {
+            if (currentAmmo > 0)
             {
-                hitbox.Damage(gunData.damage);
+                if (Time.time > nextShot)
+                {
+                    nextShot = Time.time + fireRate;
+                    Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
+                    ShootAndEmitParticle(ray);
+                    AudioSystem.instance.Play("ak47_shot");
+                    ActivateHapticFeedback();
+                    --currentAmmo;
+                }
             }
+            else
+            {
+                AudioSystem.instance.Play("gun_empty");
+            }
+        }
 
-            var scannableObject = hit.collider.GetComponent<IScannable>();
-            if (scannableObject == null) return;
+        private IEnumerator ShootingRoutine()
+        {
+            while (true)
+            {
+                if (PrimaryInteractor == null) yield break;
 
-            VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
-            scannableObject.EmitParticle(hit, overrideArgs);
+                Shoot();
+                yield return waitTime;
 
-            SpawnBulletTrail(hit.point);
+            }
+        }
+
+        public void ShootAndEmitParticle(Ray ray)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, gunData.range))
+            {
+                Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
+                if (hitbox != null)
+                {
+                    hitbox.Damage(gunData.damage);
+                }
+
+                var scannableObject = hit.collider.GetComponent<IScannable>();
+                if (scannableObject == null) return;
+
+                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
+                scannableObject.EmitParticle(hit, overrideArgs);
+
+                SpawnBulletTrail(hit.point);
+            }
         }
     }
 }

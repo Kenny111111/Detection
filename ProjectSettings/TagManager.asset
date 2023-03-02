@@ -4,11 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
-  - Door
-  - Path
   - Enemy
-  - Camera
+  - SpawnPoint
+  - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX

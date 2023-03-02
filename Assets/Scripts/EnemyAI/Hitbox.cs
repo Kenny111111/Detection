@@ -1,17 +1,19 @@
 using UnityEngine;
-using Detection;
 
-public class Hitbox : MonoBehaviour
+namespace Detection
 {
-    private ITakeDamage damagable;
-
-    private void Start()
+    public class Hitbox : MonoBehaviour
     {
-        damagable = GetComponentInParent<ITakeDamage>();
-    }
+        private ITakeDamage damagable;
 
-    public void Damage(float damage)
-    {
-        damagable.TakeDamage(damage);
+        private void Start()
+        {
+            damagable = GetComponentInParent<ITakeDamage>();
+        }
+
+        public void Damage(float damage)
+        {
+            damagable.TakeDamage(damage);
+        }
     }
 }

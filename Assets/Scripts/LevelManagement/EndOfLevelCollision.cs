@@ -1,8 +1,12 @@
 using UnityEngine;
-public class EndOfLevelCollision : MonoBehaviour
+
+namespace Detection
 {
-    void OnTriggerEnter(Collider other)
+    public class EndOfLevelCollision : MonoBehaviour
     {
-        GameManager.instance.TryNextScene();
+        void OnTriggerEnter(Collider other)
+        {
+            GameManager.instance.TryNextScene();
+        }
     }
 }
