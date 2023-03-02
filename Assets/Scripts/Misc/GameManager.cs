@@ -105,7 +105,7 @@ namespace Detection
         private void HandleInitialStart()
         {
             // TEMPORARY REMOVE ME... HandleInitialStart should prepare stuff then go to the mainmenu
-            UpdateGameState(GameState.LEVELINTRO);
+            UpdateGameState(GameState.PREPARINGLEVEL);
         }
 
         // Player is in the main menu

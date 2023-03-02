@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - LeftController
   - RightController
+  - Camera
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - Environment
   - Enemies
-  - 
+  - Controllers
   - MiscVisible
   - Player
   - Weapons
