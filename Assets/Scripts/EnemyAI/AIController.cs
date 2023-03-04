@@ -5,12 +5,12 @@ public class AIController : MonoBehaviour
    
 
     public NavMeshAgent navMeshAgent;
-    public float waitingTime = 4.5f;
+    public float waitingTime = 2.0f;
     public float rotationTime = 2.5f;
-    public float walkingSpeed = 3;
-    public float RunningSpeed = 5.5f;
+    public float walkingSpeed = 4.0f;
+    public float RunningSpeed = 6.0f;
 
-    public float enemyRadius = 15.0f;
+    public float enemyRadius = 20.0f;
     public float enemyViewAngle = 90.0f;
     public LayerMask player;
     public LayerMask obstacle;
@@ -168,6 +168,17 @@ public class AIController : MonoBehaviour
         AIWeaponManager.NecessaryUseConditions useConditions = weaponManager.GetWeaponNecessaryUseConditions();
         float dist = Vector3.Distance(transform.position, playerPosition);
 
+        bool playerVisible = Physics.CheckSphere(transform.position, firingrange, player, QueryTriggerInteraction.Ignore);
+        if (playerVisible)
+        {
+            playerIsInRange = true;
+        }
+        else
+        {
+            playerIsInRange = false;
+        }
+
+
         // Player is visible
         if (playerIsInRange)
         {
@@ -178,7 +189,7 @@ public class AIController : MonoBehaviour
             if (dist < useConditions.idealRange)
             {
                 // enemy slows down to try attack
-                navMeshAgent.speed = 0.5f;
+                navMeshAgent.speed = 2.5f;
                 startAttack = true;
             }
 
@@ -187,7 +198,7 @@ public class AIController : MonoBehaviour
                 // Player is in range to use the weapon -> stop the enemy and try an attack
                 if (dist < useConditions.maxRange && dist > useConditions.minRange)
                 {
-                    
+
                     weaponManager.DoAttack();
                 }
                 else
@@ -199,6 +210,7 @@ public class AIController : MonoBehaviour
             }
         }
     }
+
 
     public void NextPoint()
     {
@@ -236,6 +248,7 @@ public class AIController : MonoBehaviour
     {
         navMeshAgent.speed = speed;
         navMeshAgent.isStopped = false;
+
     }
 
     void Stop()
