@@ -107,7 +107,7 @@ namespace Detection
         // The initial start of the game
         private void HandleInitialStart()
         {
-            // TEMPORARY REMOVE ME... HandleInitialStart should prepare stuff then go to the mainmenu
+            // TEMPORARY REMOVE ME... HandleInitialStart should prepare stuff then go to the main menu
             UpdateGameState(GameState.PREPARINGLEVEL);
         }
 
@@ -129,8 +129,14 @@ namespace Detection
         // Level start animations / intros are playing, spawn player
         private void HandlePreparingLevel()
         {
-            SpawnPlayerAtTransform(GameObject.FindWithTag("SpawnPoint").transform);
+            // Try to spawn the player in the level
+            Transform spawnPointTransform = GameObject.FindWithTag("SpawnPoint").transform;
+            if (spawnPointTransform == null) Debug.LogError("Unable to find an object with tag 'SpawnPoint'. spawnPointTransform is null.");
+            SpawnPlayerAtTransform(spawnPointTransform);
 
+            // Do other preparing stuff...
+
+            // Once we are finished preparing the level, switch to playinglevel
             UpdateGameState(GameState.PLAYINGLEVEL);
         }
 
