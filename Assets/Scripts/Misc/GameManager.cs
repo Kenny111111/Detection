@@ -98,7 +98,10 @@ namespace Detection
             else Destroy(gameObject);
 
             playerObject = GameObject.FindWithTag("Player");
+            if (playerObject == null) Debug.LogError("Unable to find an object with tag 'Player'. playerObject is null.");
+
             cameraObject = GameObject.FindWithTag("MainCamera");
+            if (cameraObject == null) Debug.LogError("Unable to find an object with tag 'MainCamera'. cameraObject is null.");
         }
 
         // The initial start of the game
