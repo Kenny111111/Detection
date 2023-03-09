@@ -209,21 +209,11 @@ namespace Detection
         {
             throw new NotImplementedException();
         }
-
-
-
-
-
-
-
+        
+        
         ////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
+        
+        
         public bool TryNextScene()
         {
             switch (gameState)
@@ -231,7 +221,13 @@ namespace Detection
                 case GameState.LEVELCLEARED:
                     if (currentSceneNum + 1 < totalNumberOfScenes)
                     {
-                        SwitchToScene(currentSceneNum++);
+                        SwitchToScene(currentSceneNum + 1, true);
+                    }
+                    return true;
+                case GameState.LEVELSTATISTICS:
+                    if (currentSceneNum + 1 < totalNumberOfScenes)
+                    {
+                        SwitchToScene(currentSceneNum + 1, false);
                     }
                     return true;
                 default:
@@ -239,18 +235,18 @@ namespace Detection
             }
         }
 
-        public void SwitchToScene(string sceneName)
+        public void SwitchToScene(string sceneName, bool updateCurrentSceneNum)
         {
             SceneManager.LoadSceneAsync(sceneName);
             SceneManager.UnloadSceneAsync(currentSceneNum);
-            currentSceneNum = GetSceneIndexFromName(sceneName);
+            if (updateCurrentSceneNum) currentSceneNum = GetSceneIndexFromName(sceneName);
         }
 
-        public void SwitchToScene(int sceneNum)
+        public void SwitchToScene(int sceneNum, bool updateCurrentSceneNum)
         {
             SceneManager.LoadSceneAsync(sceneNum);
             SceneManager.UnloadSceneAsync(currentSceneNum);
-            currentSceneNum = sceneNum;
+            if (updateCurrentSceneNum) currentSceneNum = sceneNum;
         }
 
         private string GetSceneNameFromIndex(int BuildIndex)
