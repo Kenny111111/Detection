@@ -119,7 +119,7 @@ namespace Detection
             // Prepare any pre game start stuff...
 
             // Then continue the game by going to the next scene
-            TryNextScene();
+            TrySwitchToNextScene();
         }
 
         // The game intro is playing
@@ -201,7 +201,7 @@ namespace Detection
         {
             // Do stuff before the next level is loaded
 
-            TryNextScene();
+            TrySwitchToNextScene();
         }
 
         // Play ending credits, then go to main menu
@@ -214,7 +214,7 @@ namespace Detection
         ////////////////////////////////////////////////////////////////////
         
         
-        public bool TryNextScene()
+        public bool TrySwitchToNextScene()
         {
             switch (gameState)
             {
