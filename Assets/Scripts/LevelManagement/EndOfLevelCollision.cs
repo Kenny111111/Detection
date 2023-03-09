@@ -6,7 +6,9 @@ namespace Detection
     {
         void OnTriggerEnter(Collider other)
         {
-            GameManager.instance.TrySwitchToNextScene();
+            if (other.gameObject.CompareTag("Player")) {
+                GameManager.instance.TrySwitchToNextScene();
+             }
         }
     }
 }
