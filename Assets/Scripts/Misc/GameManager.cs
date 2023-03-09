@@ -29,7 +29,7 @@ namespace Detection
 
         private GameState gameState;
         private int currentSceneNum = 0;
-        private int totalNumberOfScenes = 5;
+        private const int totalNumberOfScenes = 5;
         private GameObject playerObject;
         private GameObject cameraObject;
 
