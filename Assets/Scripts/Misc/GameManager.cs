@@ -9,30 +9,55 @@ namespace Detection
     {
         DEFAULT,            // Fall-back state, should never happen.
         INITIALSTART,       // The initial start of the game.
+        PLAYINGGAMEINTRO,   // The game intro is playing.
         INMAINMENU,         // Player is in the main menu.
-        LEVELINTRO,         // Level intro / start animations are playing
-        PREPARINGLEVEL,     // Prepare the level to start playing
+        LEVELINTRO,         // Level intro scene is playing.
+        PREPARINGLEVEL,     // Prepare the level to start playing.
         PLAYINGLEVEL,       // Player is in the level and playing.
         LEVELPAUSED,        // Player is interacting with the wrist menu.
         PLAYERDIED,         // Player died while playing the level.
         LEVELCLEARED,       // Player has killed all enemies in the level.
-        LEVELOUTRO,         // Level outro / end animations are playing
-        LEVELSTATISTICS,    // Show statistics and prepare the next level
-        LEVELENDED,         // Prepare the next level
-        ENDINGCREDITS,      // Play ending credits, then go to main menu
+        LEVELOUTRO,         // Level outro scene is playing.
+        LEVELSTATISTICS,    // Show the player their statistics.
+        LEVELENDED,         // Prepare before the next level.
+        PLAYINGCREDITS,     // Playing ending credits.
     }
 
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
 
-        public GameState gameState;
+        private GameState gameState;
         private int currentSceneNum = 0;
         private int totalNumberOfScenes = 5;
         private GameObject playerObject;
         private GameObject cameraObject;
 
         public static event Action<GameState> OnGameStateChanged;
+
+        private void Start() => UpdateGameState(GameState.INITIALSTART);
+
+        private void Awake()
+        {
+            // Ensure only one instance exists
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
+            }
+            else Destroy(gameObject);
+
+            playerObject = GameObject.FindWithTag("Player");
+            if (playerObject == null) Debug.LogError("Unable to find an object with tag 'Player'. playerObject is null.");
+
+            cameraObject = GameObject.FindWithTag("MainCamera");
+            if (cameraObject == null) Debug.LogError("Unable to find an object with tag 'MainCamera'. cameraObject is null.");
+        }
+
+        public GameState GetGameState()
+        {
+            return gameState;
+        }
 
         public void UpdateGameState(GameState newState)
         {
@@ -44,6 +69,9 @@ namespace Detection
             {
                 case GameState.INITIALSTART:
                     HandleInitialStart();
+                    break;
+                case GameState.PLAYINGGAMEINTRO:
+                    HandlePlayingGameIntro();
                     break;
                 case GameState.INMAINMENU:
                     HandleInMainMenu();
@@ -75,8 +103,8 @@ namespace Detection
                 case GameState.LEVELENDED:
                     HandleLevelEnded();
                     break;
-                case GameState.ENDINGCREDITS:
-                    HandleEndingCredits();
+                case GameState.PLAYINGCREDITS:
+                    HandlePlayingCredits();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
@@ -85,48 +113,36 @@ namespace Detection
             OnGameStateChanged?.Invoke(gameState);
         }
 
-        private void Start() => UpdateGameState(GameState.INITIALSTART);
-
-        private void Awake()
-        {
-            // Ensure only one instance exists
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(this.gameObject);
-            }
-            else Destroy(gameObject);
-
-            playerObject = GameObject.FindWithTag("Player");
-            if (playerObject == null) Debug.LogError("Unable to find an object with tag 'Player'. playerObject is null.");
-
-            cameraObject = GameObject.FindWithTag("MainCamera");
-            if (cameraObject == null) Debug.LogError("Unable to find an object with tag 'MainCamera'. cameraObject is null.");
-        }
-
         // The initial start of the game
         private void HandleInitialStart()
         {
-            // TEMPORARY REMOVE ME... HandleInitialStart should prepare stuff then go to the main menu
-            UpdateGameState(GameState.PREPARINGLEVEL);
+            // Prepare any pre game start stuff...
+
+            // Then continue the game by going to the next scene
+            TryNextScene();
+        }
+
+        // The game intro is playing
+        private void HandlePlayingGameIntro()
+        {
+            throw new NotImplementedException();
         }
 
         // Player is in the main menu
         private void HandleInMainMenu()
         {
+            // run any code we want to prepare playing in the main menu
             throw new NotImplementedException();
         }
 
-        // Level intro / start animations are playing
+        // Level intro scene is playing.
         private void HandleLevelIntro()
         {
             DisablePlayerInput();
             DisableScanner();
-
-            // Switch to scene that plays intro?
         }
 
-        // Level start animations / intros are playing, spawn player
+        // Prepare the level to start playing.
         private void HandlePreparingLevel()
         {
             // Try to spawn the player in the level
@@ -136,7 +152,7 @@ namespace Detection
 
             // Do other preparing stuff...
 
-            // Once we are finished preparing the level, switch to playinglevel
+            // Once we are finished preparing the level, switch gamestate to playinglevel
             UpdateGameState(GameState.PLAYINGLEVEL);
         }
 
@@ -147,7 +163,7 @@ namespace Detection
             EnableScanner();
         }
 
-        // Player is interacting with the wrist menu
+        // Player is interacting with the wrist menu.
         private void HandleLevelPaused()
         {
             throw new NotImplementedException();
@@ -159,7 +175,7 @@ namespace Detection
             throw new NotImplementedException();
         }
 
-        // Player has killed all enemies in the level
+        // Player has killed all enemies in the level.
         private void HandleLevelCleared()
         {
             // trigger showing arrows
@@ -167,28 +183,29 @@ namespace Detection
             throw new NotImplementedException();
         }
 
-        // Level outro / end animations are playing
+        // Level outro scene is playing.
         private void HandleLevelOutro()
         {
-            throw new NotImplementedException();
+            DisablePlayerInput();
+            DisableScanner();
         }
 
-        // Show statistics and prepare the next level
+        // Show the player their statistics.
         private void HandleLevelStatistics()
         {
             throw new NotImplementedException();
         }
 
-        // Prepare the next level
+        // Prepare before the next level
         private void HandleLevelEnded()
         {
-            // play animations?
+            // Do stuff before the next level is loaded
 
             TryNextScene();
         }
 
         // Play ending credits, then go to main menu
-        private void HandleEndingCredits()
+        private void HandlePlayingCredits()
         {
             throw new NotImplementedException();
         }
@@ -212,7 +229,7 @@ namespace Detection
             switch (gameState)
             {
                 case GameState.LEVELCLEARED:
-                    if (currentSceneNum++ < totalNumberOfScenes)
+                    if (currentSceneNum + 1 < totalNumberOfScenes)
                     {
                         SwitchToScene(currentSceneNum++);
                     }
