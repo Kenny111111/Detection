@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Detection
 {
-    public class SetGameStateOnAwake : MonoBehaviour
+    public class SetGameStateOnStart : MonoBehaviour
     {
         public GameState setGameManagerGameStateTo;
 
-        void Awake()
+        void Start()
         {
             GameManager.instance.UpdateGameState(setGameManagerGameStateTo);
         }

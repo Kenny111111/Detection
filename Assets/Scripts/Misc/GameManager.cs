@@ -27,7 +27,7 @@ namespace Detection
     {
         public static GameManager instance;
 
-        private GameState gameState;
+        public GameState gameState;
         private int currentSceneNum = 0;
         private const int totalNumberOfScenes = 5;
         private GameObject playerObject;
@@ -35,7 +35,7 @@ namespace Detection
 
         public static event Action<GameState> OnGameStateChanged;
 
-        private void Start() => UpdateGameState(GameState.INITIALSTART);
+        //private void Start() => UpdateGameState(GameState.INITIALSTART);
 
         private void Awake()
         {
@@ -218,6 +218,7 @@ namespace Detection
         {
             switch (gameState)
             {
+                case GameState.INITIALSTART:
                 case GameState.LEVELCLEARED:
                     if (currentSceneNum + 1 < totalNumberOfScenes)
                     {
