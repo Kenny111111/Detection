@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013a84f21bd398748a413a51ac67c99d, type: 3}
+  m_Name: EnemyHitboxData
+  m_EditorClassIdentifier: 
+  hitboxData:
+  - bodyPart: mixamorig:Head
+    multiplier: 2
+  - bodyPart: mixamorig:Spine1
+    multiplier: 1.25
+  - bodyPart: mixamorig:RightArm
+    multiplier: 1
+  - bodyPart: mixamorig:RightForeArm
+    multiplier: 1
+  - bodyPart: mixamorig:LeftArm
+    multiplier: 1
+  - bodyPart: mixamorig:LeftForeArm
+    multiplier: 1
+  - bodyPart: mixamorig:Hips
+    multiplier: 1
+  - bodyPart: mixamorig:RightUpLeg
+    multiplier: 1
+  - bodyPart: mixamorig:RightLeg
+    multiplier: 1
+  - bodyPart: mixamorig:LeftUpLeg
+    multiplier: 1
+  - bodyPart: mixamorig:LeftLeg
+    multiplier: 1
