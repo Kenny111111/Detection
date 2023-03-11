@@ -125,7 +125,8 @@ namespace Detection
         // The game intro is playing
         private void HandlePlayingGameIntro()
         {
-            throw new NotImplementedException();
+            DisablePlayerInput();
+            DisableScanner();
         }
 
         // Player is in the main menu

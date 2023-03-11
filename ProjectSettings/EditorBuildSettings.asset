@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/TestScenes/DanielTesting.unity
     guid: dea73f120694f614591b6e7eb7a67b55
   - enabled: 1
-    path: Assets/Scenes/Levels/MainMenu.unity
+    path: Assets/Scenes/Levels/GameIntro.unity
     guid: 1e5c7bef429d5c74cb9c9c4b4fb8dcc8
   - enabled: 1
     path: Assets/Scenes/Levels/Lab.unity
