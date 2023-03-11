@@ -5,28 +5,28 @@ public class Enemy : Combatant
 {
     private Animator animator;
     private Rigidbody[] rigidbodies;
-    private Collider[] colliders;
+    private Hitbox[] hitboxes;
     private AIWeaponManager weaponManager;
+    [SerializeField] private EnemyHitboxData hitboxData;
 
     private void Awake()
     {
         health = 100f;
         maxHealth = health;
         animator = GetComponent<Animator>();
-        colliders = GetComponentsInChildren<Collider>();
         rigidbodies = GetComponentsInChildren<Rigidbody>();
+        hitboxes = GetComponentsInChildren<Hitbox>();
         weaponManager = GetComponent<AIWeaponManager>();
-
-        foreach(Rigidbody rb in rigidbodies)
-        {
-            rb.gameObject.AddComponent<Hitbox>();
-            rb.gameObject.AddComponent<EnemyScannerSurface>();
-        }
     }
 
     private void Start()
     {
         ToggleRagdoll(false);
+
+        // Setup Hitboxes
+        hitboxData.Init();
+        foreach (Hitbox hitbox in hitboxes)
+            hitbox.Init(hitboxData);
     }
 
     public override void Die()
@@ -42,9 +42,11 @@ public class Enemy : Combatant
 
     private void ToggleRagdoll(bool state)
     {
+        // disable animator when ragdolling
+        if (state)
+            animator.enabled = false;
+
         foreach(Rigidbody rb in rigidbodies)
-        {
             rb.isKinematic = !state;
-        }
     }
 }

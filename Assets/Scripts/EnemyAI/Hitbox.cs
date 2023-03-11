@@ -4,6 +4,7 @@ using Detection;
 public class Hitbox : MonoBehaviour
 {
     private ITakeDamage damagable;
+    private float hitboxMultipler = 1f;
 
     private void Start()
     {
@@ -12,6 +13,11 @@ public class Hitbox : MonoBehaviour
 
     public void Damage(float damage)
     {
-        damagable.TakeDamage(damage);
+        damagable.TakeDamage(damage * hitboxMultipler);
+    }
+
+    public void Init(EnemyHitboxData hitboxData)
+    {
+        hitboxMultipler = hitboxData.GetMultiplier(gameObject.name);
     }
 }
