@@ -5,9 +5,7 @@ public class Enemy : Combatant
 {
     private Animator animator;
     private Rigidbody[] rigidbodies;
-    private Hitbox[] hitboxes;
     private AIWeaponManager weaponManager;
-    [SerializeField] private EnemyHitboxData hitboxData;
 
     private void Awake()
     {
@@ -15,18 +13,12 @@ public class Enemy : Combatant
         maxHealth = health;
         animator = GetComponent<Animator>();
         rigidbodies = GetComponentsInChildren<Rigidbody>();
-        hitboxes = GetComponentsInChildren<Hitbox>();
         weaponManager = GetComponent<AIWeaponManager>();
     }
 
     private void Start()
     {
         ToggleRagdoll(false);
-
-        // Setup Hitboxes
-        hitboxData.Init();
-        foreach (Hitbox hitbox in hitboxes)
-            hitbox.Init(hitboxData);
     }
 
     public override void Die()
