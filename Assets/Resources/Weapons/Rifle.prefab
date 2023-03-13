@@ -4586,12 +4586,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3667148160077364174}
-  - component: {fileID: 6829730802836521609}
   - component: {fileID: 3667148160077364169}
   - component: {fileID: 3667148160077364168}
   - component: {fileID: 3667148160077364171}
-  - component: {fileID: 3141589305663416052}
-  - component: {fileID: 5156963527139691223}
   - component: {fileID: 1381494281480486954}
   m_Layer: 11
   m_Name: Rifle
@@ -4619,19 +4616,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6829730802836521609
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3667148160077364170}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.028797753, y: 0.042057447, z: 0.48196793}
-  m_Center: {x: -0.0028282963, y: 0.09249857, z: 0.23241043}
 --- !u!54 &3667148160077364169
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4662,7 +4646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders:
-  - {fileID: 6829730802836521609}
+  - {fileID: 0}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -4780,7 +4764,6 @@ MonoBehaviour:
   bulletSize: 0.15
   gunData: {fileID: 11400000, guid: cb55a76c62207084c919708e1ebb50f5, type: 2}
   bulletSpawn: {fileID: 3667148159653066748}
-  _particleSystem: {fileID: 0}
   bulletTrail: {fileID: 120648884187509030, guid: d2ec70c814159504cb3e12e99b00b151,
     type: 3}
 --- !u!114 &3667148160077364171
@@ -4800,32 +4783,6 @@ MonoBehaviour:
   secondaryLeftHandPose: {fileID: 3667148158926037138}
   secondaryRightHandPose: {fileID: 3667148159488885363}
   poseInterpDuration: 0.25
---- !u!65 &3141589305663416052
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3667148160077364170}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03468366, y: 0.15676728, z: 0.010886982}
-  m_Center: {x: -0.0025427123, y: 0.032473132, z: -0.0024917983}
---- !u!65 &5156963527139691223
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3667148160077364170}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.029922023, y: 0.02108121, z: 0.2669127}
-  m_Center: {x: -0.00062093884, y: 0.057132944, z: -0.123417854}
 --- !u!65 &1381494281480486954
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4837,8 +4794,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.021295, y: 0.16066453, z: 0.026672691}
-  m_Center: {x: -0.002888696, y: 0.038314894, z: 0.15652679}
+  m_Size: {x: 0.077588595, y: 0.28125775, z: 0.8767913}
+  m_Center: {x: 0.0060123466, y: 0.011107683, z: 0.18171087}
 --- !u!1 &3701625034178511161
 GameObject:
   m_ObjectHideFlags: 0
