@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &2617269293794190011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &2916012160701220243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &3445272420787309936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &7025716796453216558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,7 +1348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1114c0914e82ad14a86971972ec08207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitboxData: {fileID: 0}
 --- !u!114 &2971048920018297390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,7 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &8993501809016800538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2639,7 +2638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 2
 --- !u!114 &8746701125185969491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3030,7 +3029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &6222960814374414110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3293,7 +3292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &7578274096192294111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3432,7 +3431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &647093104850745609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6227,7 +6226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &3085676226823692278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6522,7 +6521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  hitboxMultipler: 1
 --- !u!114 &6687477394211834645
 MonoBehaviour:
   m_ObjectHideFlags: 0
