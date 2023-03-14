@@ -7,6 +7,8 @@ public class Enemy : Combatant
     private Collider[] colliders;
     private AIWeaponManager weaponManager;
 
+    public bool isAlive { get; private set; } = true;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -24,6 +26,13 @@ public class Enemy : Combatant
 
     public override void Die()
     {
+
+        // Check if already dead
+        if (!isAlive) return;
+
+        // Set isAlive to false
+        isAlive = false;
+
         // Launch weapon towards player or drop on ground if not targeting player
         weaponManager.LaunchWeapon();
 
