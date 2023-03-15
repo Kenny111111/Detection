@@ -13,7 +13,7 @@ namespace Detection
 
         public float enemyRadius = 20.0f;
         public float enemyViewAngle = 90.0f;
-        public LayerMask player;
+        public LayerMask playerLayerMask;
         public LayerMask obstacle;
         public float meshResolution = 1.0f;
         public int edgeIterations = 4;
