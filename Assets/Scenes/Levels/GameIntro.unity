@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b058afb90b53143a76eeb5cf5f976a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToWaitInSeconds: 5
+  timeToWaitInSeconds: 3
 --- !u!4 &485168
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,7 +1086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e5f4ad16b63db4c878d730dbfbae19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0
 --- !u!1 &481810507
 GameObject:
   m_ObjectHideFlags: 0

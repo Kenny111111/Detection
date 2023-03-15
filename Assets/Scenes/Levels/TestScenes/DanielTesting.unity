@@ -17683,7 +17683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1271486274}
-  numParticlesPerSecond: 30000
+  numParticlesPerSecond: 25000
   sprayAngleX: 110
   sprayAngleY: 90
   maxRayDistance: 40
@@ -21218,7 +21218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e5f4ad16b63db4c878d730dbfbae19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0
 --- !u!1 &1480453480
 GameObject:
   m_ObjectHideFlags: 0

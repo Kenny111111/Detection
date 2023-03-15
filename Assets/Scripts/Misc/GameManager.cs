@@ -27,7 +27,7 @@ namespace Detection
     {
         public static GameManager instance;
 
-        public GameState gameState;
+        private GameState gameState;
         private int currentSceneNum = 0;
         private const int totalNumberOfScenes = 5;
         private GameObject playerObject;
@@ -219,6 +219,7 @@ namespace Detection
         {
             switch (gameState)
             {
+                case GameState.PLAYINGGAMEINTRO:
                 case GameState.INITIALSTART:
                 case GameState.LEVELCLEARED:
                     if (currentSceneNum + 1 < totalNumberOfScenes)
@@ -231,6 +232,9 @@ namespace Detection
                     {
                         SwitchToScene(currentSceneNum + 1, false);
                     }
+                    return true;
+                case GameState.PLAYINGCREDITS:
+                    SwitchToScene(0, true);
                     return true;
                 default:
                     return false;
