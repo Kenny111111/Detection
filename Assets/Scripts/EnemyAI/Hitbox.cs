@@ -1,18 +1,20 @@
 using UnityEngine;
-using Detection;
 
-public class Hitbox : MonoBehaviour
+namespace Detection
 {
-    [SerializeField] private float hitboxMultipler = 1f;
-    private ITakeDamage damagable;
-
-    private void Start()
+    public class Hitbox : MonoBehaviour
     {
-        damagable = GetComponentInParent<ITakeDamage>();
-    }
+        [SerializeField] private float hitboxMultipler = 1f;
+        private ITakeDamage damagable;
 
-    public void Damage(float damage)
-    {
-        damagable.TakeDamage(damage * hitboxMultipler);
+        private void Start()
+        {
+            damagable = GetComponentInParent<ITakeDamage>();
+        }
+
+        public void Damage(float damage)
+        {
+            damagable.TakeDamage(damage * hitboxMultipler);
+        }
     }
 }
