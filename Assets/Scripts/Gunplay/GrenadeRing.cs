@@ -1,34 +1,37 @@
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
 
-public class GrenadeRing : XRGrabInteractable
+namespace Detection
 {
-
-    [HideInInspector] public bool isConnected = true;
-    private Rigidbody ringBody;
-
-    protected override void Awake()
+    public class GrenadeRing : XRGrabInteractable
     {
-        base.Awake();
-        selectEntered.AddListener(PullPin);
-        selectExited.AddListener(DropPin);
-        ringBody = GetComponent<Rigidbody>();
-        ringBody.isKinematic = true;
-    }
 
-    private void PullPin(SelectEnterEventArgs args)
-    {
-        if (args.interactorObject is XRSocketInteractor) return;
+        [HideInInspector] public bool isConnected = true;
+        private Rigidbody ringBody;
 
-        isConnected = false;
-        AudioSystem.manager.Play("grenade_pin");
-    }
+        protected override void Awake()
+        {
+            base.Awake();
+            selectEntered.AddListener(PullPin);
+            selectExited.AddListener(DropPin);
+            ringBody = GetComponent<Rigidbody>();
+            ringBody.isKinematic = true;
+        }
 
-    private void DropPin(SelectExitEventArgs args)
-    {
-        if (args.interactorObject is XRSocketInteractor) return;
-        ringBody.isKinematic = false;
+        private void PullPin(SelectEnterEventArgs args)
+        {
+            if (args.interactorObject is XRSocketInteractor) return;
 
-        Destroy(gameObject, 2f);
+            isConnected = false;
+            AudioSystem.instance.Play("grenade_pin");
+        }
+
+        private void DropPin(SelectExitEventArgs args)
+        {
+            if (args.interactorObject is XRSocketInteractor) return;
+            ringBody.isKinematic = false;
+
+            Destroy(gameObject, 2f);
+        }
     }
 }

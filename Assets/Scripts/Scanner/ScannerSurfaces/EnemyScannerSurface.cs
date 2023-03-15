@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Detection
 {
-    public class EnemyScannerSurface : MonoBehaviour, IScannable, IRevealable
+    public class EnemyScannerSurface : MonoBehaviour, IScannable
     {
         private EnemySurfaceManager surfaceManager;
 

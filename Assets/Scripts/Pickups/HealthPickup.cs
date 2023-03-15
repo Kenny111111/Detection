@@ -1,31 +1,35 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Collider))]
-public class HealthPickup : MonoBehaviour
+namespace Detection
 {
-    private GameObject player;
-
-    private void Awake()
+    [RequireComponent(typeof(Collider))]
+    public class HealthPickup : MonoBehaviour
     {
-        GetComponent<Collider>().isTrigger = true;
-    }
+        private GameObject player;
 
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
+        private void Awake()
+        {
+            GetComponent<Collider>().isTrigger = true;
+        }
 
-    private void Update()
-    {
-        transform.LookAt(player.transform);
-    }
+        private void Start()
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Player player = other.transform.GetComponent<Player>();
-        if (player == null) return;
+        private void Update()
+        {
+            transform.LookAt(player.transform);
+        }
 
-        player.InstantHeal();
-        Destroy(gameObject);
+        private void OnTriggerEnter(Collider other)
+        {
+            Player player = other.transform.GetComponent<Player>();
+            if (player == null) return;
+
+            player.InstantHeal();
+            Destroy(gameObject);
+        }
     }
 }
+

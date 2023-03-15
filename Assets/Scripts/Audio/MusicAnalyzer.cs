@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -45,7 +44,7 @@ namespace Detection
 
         private void Update()
         {
-            if (songPlaying == null || songPlaying.clip == null) return;
+            if (songPlaying == null || songPlaying.clip == null || songPlaying.clip.length == 0) return;
 
             curTimeCount += Time.deltaTime;
             if (curTimeCount >= updateStep)

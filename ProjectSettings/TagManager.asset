@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
-  - Door
-  - Path
   - Enemy
+  - SpawnPoint
+  - LeftController
+  - RightController
   - Camera
   layers:
   - Default
@@ -18,7 +18,7 @@ TagManager:
   - UI
   - Environment
   - Enemies
-  - 
+  - Controllers
   - MiscVisible
   - Player
   - Weapons

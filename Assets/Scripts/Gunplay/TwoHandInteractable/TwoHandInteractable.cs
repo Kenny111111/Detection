@@ -1,5 +1,6 @@
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
+using Detection;
 
 /// <summary>
 /// 
@@ -9,6 +10,8 @@ using UnityEngine;
 /// You must also have GrabPistolHandPose on the main object
 ///
 /// </summary>
+/// 
+
 
 public class TwoHandInteractable : XRGrabInteractable
 {

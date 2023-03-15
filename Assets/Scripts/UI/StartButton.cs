@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuConfig : MonoBehaviour
+namespace Detection
 {
-    public void StartButton()
+    public class MenuConfig : MonoBehaviour
     {
-        SceneManager.LoadScene("Lab");
+        public void StartButton()
+        {
+            SceneManager.LoadScene("Lab");
+        }
     }
 }

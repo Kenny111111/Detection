@@ -1,114 +1,116 @@
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
-using Detection;
 using static Detection.IDealsDamage;
 
-public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDamage
+namespace Detection
 {
-    [SerializeField] private Color bulletColor = new Color(240, 208, 81);
-    [SerializeField] private float bulletLifetime = 0.5f;
-    [SerializeField] private float bulletSize = 0.2f;
-
-    [SerializeField] private Transform bulletSpawn;
-    [SerializeField] private int pelletsPerShot = 7;
-    [SerializeField] private float spread;
-    private int currentAmmo;
-
-    private float fireRate = 0.50f;
-    private float nextShot = 0f;
-
-    // bullet trail created
-    public LineRenderer bulletTrail;
-
-    private void SpawnBulletTrail(Vector3 hitPoint)
+    public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDamage
     {
-        GameObject bulletTrailEffect = Instantiate(bulletTrail.gameObject, bulletSpawn.position, Quaternion.identity);
+        [SerializeField] private Color bulletColor = new Color(240, 208, 81);
+        [SerializeField] private float bulletLifetime = 0.5f;
+        [SerializeField] private float bulletSize = 0.2f;
 
-        LineRenderer lineR = bulletTrailEffect.GetComponent<LineRenderer>();
+        [SerializeField] private Transform bulletSpawn;
+        [SerializeField] private int pelletsPerShot = 7;
+        [SerializeField] private float spread;
+        private int currentAmmo;
 
-        lineR.SetPosition(0, bulletSpawn.position);
-        lineR.SetPosition(1, hitPoint);
+        private float fireRate = 0.50f;
+        private float nextShot = 0f;
 
-        Destroy(bulletTrailEffect, 1f);
-    }
-    //end of bullet trail - being called by ShootAndEmitParticle function
+        // bullet trail created
+        public LineRenderer bulletTrail;
 
-    private void Start()
-    {
-        currentAmmo = gunData.startingAmmo;
-        SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
-    }
-
-    protected override void StartAttacking(ActivateEventArgs args)
-    {
-        Attack();
-    }
-
-    public void Attack()
-    {
-        Shoot();
-    }
-
-    public Weapons GetWeaponEnum()
-    {
-        return Weapons.Shotgun;
-    }
-
-    public void Shoot()
-    {
-        if (currentAmmo > 0)
+        private void SpawnBulletTrail(Vector3 hitPoint)
         {
-            if(Time.time > nextShot)
+            GameObject bulletTrailEffect = Instantiate(bulletTrail.gameObject, bulletSpawn.position, Quaternion.identity);
+
+            LineRenderer lineR = bulletTrailEffect.GetComponent<LineRenderer>();
+
+            lineR.SetPosition(0, bulletSpawn.position);
+            lineR.SetPosition(1, hitPoint);
+
+            Destroy(bulletTrailEffect, 1f);
+        }
+        //end of bullet trail - being called by ShootAndEmitParticle function
+
+        private void Start()
+        {
+            currentAmmo = gunData.startingAmmo;
+            SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
+        }
+
+        protected override void StartAttacking(ActivateEventArgs args)
+        {
+            Attack();
+        }
+
+        public void Attack()
+        {
+            Shoot();
+        }
+
+        public Weapons GetWeaponEnum()
+        {
+            return Weapons.Shotgun;
+        }
+
+        public void Shoot()
+        {
+            if (currentAmmo > 0)
             {
-                nextShot = Time.time + fireRate;
-                for (int i = 0; i < pelletsPerShot; ++i)
+                if (Time.time > nextShot)
                 {
-                    Ray ray = new(bulletSpawn.position, GetPelletDirection());
-                    ShootAndEmitParticle(ray);
+                    nextShot = Time.time + fireRate;
+                    for (int i = 0; i < pelletsPerShot; ++i)
+                    {
+                        Ray ray = new(bulletSpawn.position, GetPelletDirection());
+                        ShootAndEmitParticle(ray);
+                    }
+
+                    AudioSystem.instance.Play("shotgun_shot");
+                    ActivateHapticFeedback();
+                    --currentAmmo;
+                }
+            }
+            else
+            {
+                AudioSystem.instance.Play("gun_empty");
+            }
+        }
+
+        private Vector3 GetPelletDirection()
+        {
+            Vector3 target = bulletSpawn.position + bulletSpawn.forward * gunData.range;
+            target = new Vector3(
+                target.x + Random.Range(-spread, spread),
+                target.y + Random.Range(-spread, spread),
+                target.z + Random.Range(-spread, spread)
+            );
+
+            Vector3 dir = target - bulletSpawn.position;
+            return dir.normalized;
+        }
+
+        public void ShootAndEmitParticle(Ray ray)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, gunData.range))
+            {
+                Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
+                if (hitbox != null)
+                {
+                    hitbox.Damage(gunData.damage);
                 }
 
-                AudioSystem.manager.Play("shotgun_shot");
-                ActivateHapticFeedback();
-                --currentAmmo;
+                var scannableObject = hit.collider.GetComponent<IScannable>();
+                if (scannableObject == null) return;
+
+                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
+                scannableObject.EmitParticle(hit, overrideArgs);
+
+                SpawnBulletTrail(hit.point);
             }
-        }
-        else
-        {
-            AudioSystem.manager.Play("gun_empty");
-        }
-    }
-
-    private Vector3 GetPelletDirection()
-    {
-        Vector3 target = bulletSpawn.position + bulletSpawn.forward * gunData.range;
-        target = new Vector3(
-            target.x + Random.Range(-spread, spread),
-            target.y + Random.Range(-spread, spread),
-            target.z + Random.Range(-spread, spread)
-        );
-
-        Vector3 dir = target - bulletSpawn.position;
-        return dir.normalized;
-    }
-
-    public void ShootAndEmitParticle(Ray ray)
-    {
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, gunData.range))
-        {
-            Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
-            if(hitbox != null)
-            {
-                hitbox.Damage(gunData.damage);
-            }
-
-            var scannableObject = hit.collider.GetComponent<IScannable>();
-            if (scannableObject == null) return;
-
-            VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
-            scannableObject.EmitParticle(hit, overrideArgs);
-
-            SpawnBulletTrail(hit.point);
         }
     }
 }

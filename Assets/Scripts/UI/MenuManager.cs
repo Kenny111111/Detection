@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class MenuManager : MonoBehaviour
+
+namespace Detection
 {
-    // Start is called before the first frame update
-    /// <summary>
-    public GameObject Canvas;
-    /// </summary>
-    void Start()
+    public class MenuManager : MonoBehaviour
     {
-        Canvas.SetActive(false);
+        // Start is called before the first frame update
+        /// <summary>
+        public GameObject Canvas;
+        /// </summary>
+        void Start()
+        {
+            Canvas.SetActive(false);
+        }
     }
 }

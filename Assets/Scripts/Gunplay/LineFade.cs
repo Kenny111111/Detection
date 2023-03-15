@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace Bolt.AdvancedTutorial
+namespace Detection
 {
 	public class LineFade : MonoBehaviour
 	{
@@ -13,7 +12,7 @@ namespace Bolt.AdvancedTutorial
 
 		void Start ()
 		{
-			lr = GetComponent<LineRenderer> ();
+			lr = GetComponent<LineRenderer>();
 		}
 
 		void Update ()
