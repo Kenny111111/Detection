@@ -5,12 +5,12 @@ public class AIController : MonoBehaviour
    
 
     public NavMeshAgent navMeshAgent;
-    public float waitingTime = 4.5f;
+    public float waitingTime = 2.0f;
     public float rotationTime = 2.5f;
-    public float walkingSpeed = 3;
-    public float RunningSpeed = 5.5f;
+    public float walkingSpeed = 4.0f;
+    public float RunningSpeed = 6.0f;
 
-    public float enemyRadius = 15.0f;
+    public float enemyRadius = 20.0f;
     public float enemyViewAngle = 90.0f;
     public LayerMask player;
     public LayerMask obstacle;
@@ -141,12 +141,13 @@ public class AIController : MonoBehaviour
             Move(RunningSpeed);
             navMeshAgent.SetDestination(playerPosition);
         }
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance || Vector3.Distance(transform.position, playerTransform.position) > enemyRadius)
         {
             if (delayTime <= 0 && !playerCaught && Vector3.Distance(transform.position, playerTransform.position) >= 6f)
             {
                 patrolling = true;
                 playerIsNear = false;
+                playerIsInRange = false;
 
                 Move(walkingSpeed);
                 rotate = rotationTime;
@@ -167,6 +168,17 @@ public class AIController : MonoBehaviour
         AIWeaponManager.NecessaryUseConditions useConditions = weaponManager.GetWeaponNecessaryUseConditions();
         float dist = Vector3.Distance(transform.position, playerPosition);
 
+        bool playerVisible = Physics.CheckSphere(transform.position, firingrange, player, QueryTriggerInteraction.Ignore);
+        if (playerVisible)
+        {
+            playerIsInRange = true;
+        }
+        else
+        {
+            playerIsInRange = false;
+        }
+
+
         // Player is visible
         if (playerIsInRange)
         {
@@ -177,7 +189,7 @@ public class AIController : MonoBehaviour
             if (dist < useConditions.idealRange)
             {
                 // enemy slows down to try attack
-                navMeshAgent.speed = 0.5f;
+                navMeshAgent.speed = 2.5f;
                 startAttack = true;
             }
 
@@ -186,7 +198,7 @@ public class AIController : MonoBehaviour
                 // Player is in range to use the weapon -> stop the enemy and try an attack
                 if (dist < useConditions.maxRange && dist > useConditions.minRange)
                 {
-                    
+
                     weaponManager.DoAttack();
                 }
                 else
@@ -198,6 +210,7 @@ public class AIController : MonoBehaviour
             }
         }
     }
+
 
     public void NextPoint()
     {
@@ -235,6 +248,7 @@ public class AIController : MonoBehaviour
     {
         navMeshAgent.speed = speed;
         navMeshAgent.isStopped = false;
+
     }
 
     void Stop()
@@ -267,5 +281,39 @@ public class AIController : MonoBehaviour
             if (Vector3.Distance(transform.position, player.position) > enemyRadius) playerIsInRange = false;
             if (playerIsInRange) playerPosition = player.position;
         }
+
+        Collider[] targetsInRadius = Physics.OverlapSphere(transform.position, enemyRadius, player);
+
+        foreach (Collider targetCollider in targetsInRadius)
+        {
+            Vector3 targetPosition = targetCollider.transform.position;
+            Vector3 targetDirection = targetPosition - transform.position;
+            float angle = Vector3.Angle(targetDirection, transform.forward);
+
+            if (angle < enemyViewAngle / 2)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, targetDirection, out hit, enemyRadius, obstacle))
+                {
+                    if (hit.collider.CompareTag("Player"))
+                    {
+                        playerIsInRange = true;
+                        playerPosition = targetPosition;
+                        playerCaught = false;
+                        patrolling = false;
+                        tryAttack = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (!playerIsInRange)
+        {
+            playerCaught = false;
+            tryAttack = false;
+        }
+
     }
 }
