@@ -3,6 +3,7 @@ using Detection;
 
 public class Hitbox : MonoBehaviour
 {
+    [SerializeField] private float hitboxMultipler = 1f;
     private ITakeDamage damagable;
 
     private void Start()
@@ -12,6 +13,6 @@ public class Hitbox : MonoBehaviour
 
     public void Damage(float damage)
     {
-        damagable.TakeDamage(damage);
+        damagable.TakeDamage(damage * hitboxMultipler);
     }
 }
