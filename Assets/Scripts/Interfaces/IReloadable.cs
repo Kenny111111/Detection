@@ -1,4 +1,3 @@
-using UnityEngine;
 namespace Detection
 {
     public interface IReloadable

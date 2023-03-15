@@ -1,4 +1,5 @@
 using UnityEngine;
+
 namespace Detection
 {
     public struct VFXEmitArgs
