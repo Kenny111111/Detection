@@ -169,7 +169,7 @@ namespace Detection
             AIWeaponManager.NecessaryUseConditions useConditions = weaponManager.GetWeaponNecessaryUseConditions();
             float dist = Vector3.Distance(transform.position, playerPosition);
 
-            bool playerVisible = Physics.CheckSphere(transform.position, firingrange, player, QueryTriggerInteraction.Ignore);
+            bool playerVisible = Physics.CheckSphere(transform.position, firingrange, playerLayerMask, QueryTriggerInteraction.Ignore);
             if (playerVisible)
             {
                 playerIsInRange = true;
@@ -260,7 +260,7 @@ namespace Detection
 
         void EnviromentView()
         {
-            Collider[] playerInRange = Physics.OverlapSphere(transform.position, enemyRadius, player);
+            Collider[] playerInRange = Physics.OverlapSphere(transform.position, enemyRadius, playerLayerMask);
 
             for (int i = 0; i < playerInRange.Length; i++)
             {
@@ -283,7 +283,7 @@ namespace Detection
                 if (playerIsInRange) playerPosition = player.position;
             }
 
-            Collider[] targetsInRadius = Physics.OverlapSphere(transform.position, enemyRadius, player);
+            Collider[] targetsInRadius = Physics.OverlapSphere(transform.position, enemyRadius, playerLayerMask);
 
             foreach (Collider targetCollider in targetsInRadius)
             {

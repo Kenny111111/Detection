@@ -2898,8 +2898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWeaponNecessaryUseConditions:
     minRange: 0
-    maxRange: 10
-    idealRange: 6
+    maxRange: 20
+    idealRange: 15
 --- !u!114 &3035022820730989393
 MonoBehaviour:
   m_ObjectHideFlags: 0

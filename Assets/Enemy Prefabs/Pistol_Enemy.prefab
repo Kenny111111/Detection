@@ -2526,12 +2526,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 6492723908682279800}
-  waitingTime: 1
+  waitingTime: 0.25
   rotationTime: 0
   walkingSpeed: 3
   RunningSpeed: 4.75
   enemyRadius: 15
-  enemyViewAngle: 90
+  enemyViewAngle: 200
   player:
     serializedVersion: 2
     m_Bits: 1024
@@ -2675,8 +2675,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWeaponNecessaryUseConditions:
     minRange: 0
-    maxRange: 6
-    idealRange: 4
+    maxRange: 15
+    idealRange: 10
 --- !u!114 &9210138114496999988
 MonoBehaviour:
   m_ObjectHideFlags: 0
