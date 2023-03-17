@@ -2678,13 +2678,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5092688273724174215}
   - component: {fileID: 1174579496584328701}
-  - component: {fileID: 5092688273724174209}
+  - component: {fileID: 3502155661167586564}
   - component: {fileID: 5092688273724174208}
   - component: {fileID: 1174579496584328672}
+  - component: {fileID: 6356202195675834499}
   - component: {fileID: 5092688273724174221}
   - component: {fileID: 5092688273724174220}
   - component: {fileID: 8580520097140927544}
-  - component: {fileID: 6356202195675834499}
   - component: {fileID: 3035022820730989393}
   m_Layer: 7
   m_Name: Rifle_Enemy
@@ -2731,7 +2731,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &5092688273724174209
+--- !u!114 &3502155661167586564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2740,34 +2740,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5613470493623465277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8283dc15b43129e4f8da73a4c14efd03, type: 3}
+  m_Script: {fileID: 11500000, guid: ec04c48d1d4e008488dc2fd6150dee76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 5092688273724174208}
-  waitingTime: 1
-  rotationTime: 0
-  walkingSpeed: 3
-  RunningSpeed: 4.75
-  enemyRadius: 15
-  enemyViewAngle: 90
-  player:
+  walkingSpeed: 2.5
+  runningSpeed: 4.5
+  aiDetectRadius: 15
+  aiViewAngle: 135
+  playerLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  obstacle:
+  obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  meshResolution: 1
-  edgeIterations: 4
-  edgeDistance: 0.5
-  firingrange: 10
-  firingrate: 2
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   weaponManager: {fileID: 6356202195675834499}
-  playerTransform: {fileID: 0}
+  aiState: 0
 --- !u!195 &5092688273724174208
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2802,6 +2791,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1114c0914e82ad14a86971972ec08207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6356202195675834499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613470493623465277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c4ab5bada15894284e4a5adffe87e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponNecessaryUseConditions:
+    minRange: 0
+    maxRange: 12
+    idealRange: 9
 --- !u!114 &5092688273724174221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2884,22 +2889,6 @@ MonoBehaviour:
   - {fileID: 7047024791480904816}
   - {fileID: 8163541141381392327}
   - {fileID: 8786012447088916762}
---- !u!114 &6356202195675834499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613470493623465277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c4ab5bada15894284e4a5adffe87e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeaponNecessaryUseConditions:
-    minRange: 0
-    maxRange: 20
-    idealRange: 15
 --- !u!114 &3035022820730989393
 MonoBehaviour:
   m_ObjectHideFlags: 0
