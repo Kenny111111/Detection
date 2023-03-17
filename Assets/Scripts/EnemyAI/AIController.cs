@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 namespace Detection
 {
-    enum AIState {
+    enum AIState 
+    {
         Default,        // Default state, should not occur.
         Patrolling,     // Ai is walking around waypoints.
         Alerted,        // Ai is walking towards a sound location.
@@ -19,6 +20,7 @@ namespace Detection
     {
         public NavMeshAgent navMeshAgent;
         private Enemy enemyAI;
+        [SerializeField] private AIState aiState = AIState.Default;
 
         public float walkingSpeed = 2.50f;
         public float runningSpeed = 4.0f;
@@ -40,16 +42,8 @@ namespace Detection
 
         private WeaponInverseKinematics weaponInverseKinematics;
         private Transform playerTransform;
-
-        [SerializeField] private AIState aiState = AIState.Default;
-
         private AIWeaponManager.NecessaryUseConditions aiWeaponUseConditions;
-
-        private double distanceToPlayer;
-        private Vector3 dirToPlayer;
-
         private bool startAttack;
-        private bool tryAttack;
 
         void Start()
         {
@@ -86,18 +80,26 @@ namespace Detection
             }
 
             // If the game state is paused, dont do anything..
-            if (GameManager.instance.GetGameState() == GameState.LEVELPAUSED) return;
+            if (GameManager.instance.GetGameState() == GameState.LEVELPAUSED) 
+            {
+                aiState = AIState.Paused;
+                return;
+            }
 
             // Update the animator speedHash (how fast it looks like its moving)
             if (!navMeshAgent.isStopped) animator.SetFloat(speedHash, navMeshAgent.velocity.magnitude);
             else animator.SetFloat(speedHash, 0);
 
-            // These functions update the ai state based on certain logical requirements
-            ViewEnvironment();
-
-            if (tryAttack)
+            Vector3 aiPosition = transform.position;
+            Vector3 playerPosition = playerTransform.position;
+            
+            Vector3 dirToPlayer = playerPosition - aiPosition;
+            float distanceToPlayer = dirToPlayer.magnitude;
+            dirToPlayer.Normalize();
+            
+            if (CanAttackPlayerUnobstructed(aiPosition, playerPosition, distanceToPlayer, dirToPlayer))
             {
-                if (CanAttackWithWeaponRequirements()) aiState = AIState.Attacking;
+                if (CanAttackWithWeaponRequirements(distanceToPlayer)) aiState = AIState.Attacking;
                 else aiState = AIState.Chasing;
             }
 
@@ -115,20 +117,14 @@ namespace Detection
             }
         }
 
-        private void ViewEnvironment()
+        private bool CanAttackPlayerUnobstructed(Vector3 aiPosition, Vector3 playerPosition, float distanceToPlayer, Vector3 dirToPlayer)
         {
-            Vector3 aiPosition = transform.position;
-            Vector3 playerPosition = playerTransform.position;
-            distanceToPlayer = (playerPosition - aiPosition).magnitude;
-
             // If the player is out of range, do nothing
             if (distanceToPlayer > aiDetectRadius)
             {
                 aiState = AIState.Patrolling;
-                return;
+                return false;
             }
-
-            dirToPlayer = (playerPosition - aiPosition).normalized;
 
             // Ensure the player is within the bounds of the ai's viewangle
             if (Vector3.Angle(transform.forward, dirToPlayer) < aiViewAngle / 2)
@@ -136,12 +132,11 @@ namespace Detection
                 // Check if there are any objects between the ai and the player
                 if (!Physics.Raycast(aiPosition, dirToPlayer, (float)distanceToPlayer, obstacleLayerMask))
                 {
-                    tryAttack = true;
                     playerLastPosition = playerPosition;
+                    return false;
                 }
-                else tryAttack = false;
             }
-            else tryAttack = false;
+            return false;
         }
 
         private void Patrolling()
@@ -173,7 +168,7 @@ namespace Detection
         }
 
 
-        private bool CanAttackWithWeaponRequirements()
+        private bool CanAttackWithWeaponRequirements(float distanceToPlayer)
         {
             if (distanceToPlayer < aiWeaponUseConditions.idealRange)
                 startAttack = true;
