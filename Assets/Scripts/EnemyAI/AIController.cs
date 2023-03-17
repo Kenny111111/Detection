@@ -97,7 +97,7 @@ namespace Detection
             float distanceToPlayer = dirToPlayer.magnitude;
             dirToPlayer.Normalize();
             
-            if (CanAttackPlayerUnobstructed(aiPosition, playerPosition, distanceToPlayer, dirToPlayer))
+            if (CanSeePlayerUnobstructed(aiPosition, playerPosition, distanceToPlayer, dirToPlayer))
             {
                 if (CanAttackWithWeaponRequirements(distanceToPlayer)) aiState = AIState.Attacking;
                 else aiState = AIState.Chasing;
@@ -121,26 +121,20 @@ namespace Detection
             }
         }
 
-        private bool CanAttackPlayerUnobstructed(Vector3 aiPosition, Vector3 playerPosition, float distanceToPlayer, Vector3 dirToPlayer)
+        private bool CanSeePlayerUnobstructed(Vector3 aiPosition, Vector3 playerPosition, float distanceToPlayer, Vector3 dirToPlayer)
         {
-            // If the player is out of range, do nothing
-            if (distanceToPlayer > aiDetectRadius)
-            {
-                aiState = AIState.Patrolling;
-                return false;
-            }
+            // Ensure the player is in range. If the player is out of range, do nothing
+            if (distanceToPlayer > aiDetectRadius) return false;
 
-            // Ensure the player is within the bounds of the ai's viewangle
-            if (Vector3.Angle(transform.forward, dirToPlayer) < aiViewAngle / 2)
-            {
-                // Check if there are any objects between the ai and the player
-                if (!Physics.Raycast(aiPosition, dirToPlayer, (float)distanceToPlayer, obstacleLayerMask))
-                {
-                    playerLastPosition = playerPosition;
-                    return true;
-                }
-            }
-            return false;
+            // Ensure the player is in the enemies viewangle. If the player is not within the ai's viewangle, do nothing
+            if (Vector3.Angle(transform.forward, dirToPlayer) > aiViewAngle / 2) return false;
+
+            // Ensure the player is viewable. If there are any objects between the ai and the player, do nothing
+            if (Physics.Raycast(aiPosition, dirToPlayer, (float)distanceToPlayer, obstacleLayerMask)) return false;
+
+            // All logical requirements are met to 'see' a player.
+            playerLastPosition = playerPosition;
+            return true;
         }
 
         private void Patrolling()
