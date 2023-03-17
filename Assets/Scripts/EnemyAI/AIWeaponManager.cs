@@ -43,9 +43,6 @@ namespace Detection
 
         public void DoAttack()
         {
-
-            if (!GetComponent<Enemy>().isAlive) return; // check if enemy is alive
-
             if (aiSpecificBehavior != null)
             {
                 aiSpecificBehavior.DoAIBehavior();

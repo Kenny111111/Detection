@@ -1286,34 +1286,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2481652636882827422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8283dc15b43129e4f8da73a4c14efd03, type: 3}
+  m_Script: {fileID: 11500000, guid: ec04c48d1d4e008488dc2fd6150dee76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 2971048920018297379}
-  waitingTime: 0.25
-  rotationTime: 0
-  walkingSpeed: 3
-  RunningSpeed: 4.75
-  enemyRadius: 15
-  enemyViewAngle: 200
-  player:
+  navMeshAgent: {fileID: 0}
+  walkingSpeed: 2.5
+  runningSpeed: 4
+  aiDetectRadius: 12
+  aiViewAngle: 135
+  playerLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  obstacle:
+  obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  meshResolution: 1
-  edgeIterations: 4
-  edgeDistance: 0.5
-  firingrange: 10
-  firingrate: 2
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   weaponManager: {fileID: 5424814530389490901}
-  playerTransform: {fileID: 0}
+  aiState: 0
 --- !u!195 &2971048920018297379
 NavMeshAgent:
   m_ObjectHideFlags: 0
