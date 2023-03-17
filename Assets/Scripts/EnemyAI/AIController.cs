@@ -9,9 +9,9 @@ namespace Detection
     {
         Default,        // Default state, should not occur.
         Patrolling,     // Ai is walking around waypoints.
-        Alerted,        // Ai is walking towards a sound location.
         Chasing,        // Ai is running towards the player until it can attack.
         Attacking,      // Ai is attacking the player using its weapon.
+        Alerted,        // Ai is walking towards a sound location.
         Dead,           // Ai is dead and not doing anything.
         Paused          // Game is paused, so the Ai is doing nothing.
     }
@@ -102,6 +102,7 @@ namespace Detection
                 if (CanAttackWithWeaponRequirements(distanceToPlayer)) aiState = AIState.Attacking;
                 else aiState = AIState.Chasing;
             }
+            else aiState = AIState.Patrolling;
 
             switch(aiState)
             {
@@ -113,6 +114,9 @@ namespace Detection
                     break;
                 case AIState.Chasing:
                     Chasing();
+                    break;
+                default:
+                    Debug.Log("Unexpected aiState");
                     break;
             }
         }
@@ -133,7 +137,7 @@ namespace Detection
                 if (!Physics.Raycast(aiPosition, dirToPlayer, (float)distanceToPlayer, obstacleLayerMask))
                 {
                     playerLastPosition = playerPosition;
-                    return false;
+                    return true;
                 }
             }
             return false;
