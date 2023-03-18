@@ -57,7 +57,10 @@ namespace Detection
             navMeshAgent.isStopped = false;
             navMeshAgent.speed = walkingSpeed;
 
-            if (waypoints.Count == 0) Debug.LogError("No waypoints set.");
+            if (waypoints.Count == 0)
+            {
+                //Debug.LogError("No waypoints set.");
+            }
             else navMeshAgent.SetDestination(waypoints[curWaypoint].position);
 
             weaponInverseKinematics = GetComponent<WeaponInverseKinematics>();

@@ -243,15 +243,15 @@ namespace Detection
 
         public void SwitchToScene(string sceneName, bool updateCurrentSceneNum)
         {
-            SceneManager.LoadSceneAsync(sceneName);
-            SceneManager.UnloadSceneAsync(currentSceneNum);
+            SceneManager.LoadScene(sceneName);
+            //SceneManager.UnloadSceneAsync(currentSceneNum);
             if (updateCurrentSceneNum) currentSceneNum = GetSceneIndexFromName(sceneName);
         }
 
         public void SwitchToScene(int sceneNum, bool updateCurrentSceneNum)
         {
-            SceneManager.LoadSceneAsync(sceneNum);
-            SceneManager.UnloadSceneAsync(currentSceneNum);
+            SceneManager.LoadScene(sceneNum);
+            //SceneManager.UnloadSceneAsync(currentSceneNum);
             if (updateCurrentSceneNum) currentSceneNum = sceneNum;
         }
 
@@ -283,26 +283,26 @@ namespace Detection
 
         private void DisablePlayerInput()
         {
-            playerObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
-            playerObject.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+            //playerObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+            //playerObject.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
         }
 
         private void EnablePlayerInput()
         {
-            playerObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
-            playerObject.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
+            //playerObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
+            //playerObject.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
         }
 
         private void DisableScanner()
         {
-            cameraObject.GetComponent<InputController>().enabled = false;
-            cameraObject.GetComponent<LookScanner>().enabled = false;
+            //cameraObject.GetComponent<InputController>().enabled = false;
+            //cameraObject.GetComponent<LookScanner>().enabled = false;
         }
 
         private void EnableScanner()
         {
-            cameraObject.GetComponent<InputController>().enabled = true;
-            cameraObject.GetComponent<LookScanner>().enabled = true;
+            //cameraObject.GetComponent<InputController>().enabled = true;
+            //cameraObject.GetComponent<LookScanner>().enabled = true;
         }
     }
 }
