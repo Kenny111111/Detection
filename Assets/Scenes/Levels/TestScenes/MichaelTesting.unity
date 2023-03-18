@@ -1838,7 +1838,7 @@ Transform:
   - {fileID: 54746359}
   - {fileID: 228770761}
   m_Father: {fileID: 402558262}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &215589863
 MonoBehaviour:
@@ -2028,10 +2028,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1688102021}
   - {fileID: 253495185}
   - {fileID: 2006698703}
   m_Father: {fileID: 1631209690}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &232708020
 Rigidbody:
@@ -2534,7 +2535,7 @@ Transform:
   - {fileID: 1204662942}
   - {fileID: 1447723329}
   m_Father: {fileID: 232708019}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &253495186
 MonoBehaviour:
@@ -4488,9 +4489,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 525240944}
   - {fileID: 215589862}
   m_Father: {fileID: 1631209690}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &402558263
 Rigidbody:
@@ -6294,8 +6296,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1631209690}
-  m_RootOrder: 1
+  m_Father: {fileID: 402558262}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &525240945
 SortingGroup:
@@ -6320,7 +6322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LineWidth: 0.05
+  m_LineWidth: 0.01
   m_OverrideInteractorLineLength: 1
   m_LineLength: 4
   m_WidthCurve:
@@ -22403,8 +22405,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1271486266}
-  - {fileID: 525240944}
-  - {fileID: 1688102021}
   - {fileID: 232708019}
   - {fileID: 402558262}
   m_Father: {fileID: 302959413}
@@ -23606,8 +23606,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1631209690}
-  m_RootOrder: 2
+  m_Father: {fileID: 232708019}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1688102022
 SortingGroup:
@@ -23632,7 +23632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LineWidth: 0.05
+  m_LineWidth: 0.01
   m_OverrideInteractorLineLength: 1
   m_LineLength: 4
   m_WidthCurve:
@@ -26777,7 +26777,7 @@ RectTransform:
   - {fileID: 1238392590}
   - {fileID: 605243088}
   m_Father: {fileID: 232708019}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 24.7, y: -1334.372, z: 99.294}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
