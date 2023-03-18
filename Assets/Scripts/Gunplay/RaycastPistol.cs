@@ -12,8 +12,6 @@ namespace Detection
         [SerializeField] private GunData gunData;
         [SerializeField] private Transform bulletSpawn;
         private int currentAmmo;
-
-        private float fireRate = 0.1f;
         private float nextShot = 0f;
 
         // bullet trail created
@@ -59,7 +57,7 @@ namespace Detection
             {
                 if (Time.time > nextShot)
                 {
-                    nextShot = Time.time + fireRate;
+                    nextShot = Time.time + gunData.fireRate;
                     Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                     ShootAndEmitParticle(ray);
                     AudioSystem.instance.Play("beretta_shot");

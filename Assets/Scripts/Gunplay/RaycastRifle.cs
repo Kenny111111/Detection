@@ -14,8 +14,6 @@ namespace Detection
         public Transform bulletSpawn;
         private int currentAmmo;
         private WaitForSeconds waitTime;
-
-        private float fireRate = 0.095f;
         private float nextShot = 0f;
 
         // bullet trail created
@@ -36,7 +34,7 @@ namespace Detection
 
         private void Start()
         {
-            waitTime = new WaitForSeconds(1f / gunData.fireRate);
+            waitTime = new WaitForSeconds(gunData.fireRate);
             currentAmmo = gunData.startingAmmo;
             SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
         }
@@ -67,7 +65,7 @@ namespace Detection
             {
                 if (Time.time > nextShot)
                 {
-                    nextShot = Time.time + fireRate;
+                    nextShot = Time.time + gunData.fireRate;
                     Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                     ShootAndEmitParticle(ray);
                     AudioSystem.instance.Play("ak47_shot");
