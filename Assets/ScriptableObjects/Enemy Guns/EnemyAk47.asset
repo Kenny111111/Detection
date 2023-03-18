@@ -15,7 +15,7 @@ MonoBehaviour:
   name: EnemyAk47
   damage: 40
   range: 50
-  fireRate: 5
+  fireRate: 0.1
   recoilForce: 0
   hapticIntensity: 0
   hapticDuration: 0

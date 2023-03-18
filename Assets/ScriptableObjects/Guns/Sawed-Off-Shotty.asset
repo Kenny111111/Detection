@@ -15,7 +15,7 @@ MonoBehaviour:
   name: DoubleBarrelShotty
   damage: 20
   range: 20
-  fireRate: 3
+  fireRate: 0.25
   recoilForce: 0
   hapticIntensity: 0.5
   hapticDuration: 0.25

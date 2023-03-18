@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Pistol
   damage: 40
   range: 50
-  fireRate: 5
+  fireRate: 0.15
   recoilForce: 0
   hapticIntensity: 0.5
   hapticDuration: 0.15
