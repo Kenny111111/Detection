@@ -50,8 +50,8 @@ namespace Detection
             curWaypoint = 0;
 
             enemyAI = GetComponent<Enemy>();
-            playerLayerMask = LayerMask.NameToLayer("Player");
-            obstacleLayerMask = LayerMask.NameToLayer("Environment");
+            playerLayerMask = LayerMask.GetMask("Player");
+            obstacleLayerMask = LayerMask.GetMask("Environment");
 
             navMeshAgent = GetComponent<NavMeshAgent>();
             navMeshAgent.isStopped = false;
@@ -68,9 +68,6 @@ namespace Detection
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
             aiWeaponUseConditions = weaponManager.GetWeaponNecessaryUseConditions();
-
-            if (playerLayerMask == 0) Debug.LogError("No playerLayerMask set.");
-            if (obstacleLayerMask == 0) Debug.LogError("No obstacleLayerMask set.");
         }
 
         void Update()
@@ -95,7 +92,10 @@ namespace Detection
 
             Vector3 aiPosition = transform.position;
             Vector3 playerPosition = playerTransform.position;
-            
+            // Magic number offsets :) TO FIX PLS
+            aiPosition.y += 1.1f;
+            playerPosition.y += 1.1f;
+
             Vector3 dirToPlayer = playerPosition - aiPosition;
             float distanceToPlayer = dirToPlayer.magnitude;
             dirToPlayer.Normalize();
@@ -135,6 +135,7 @@ namespace Detection
             // Ensure the player is viewable. If there are any objects between the ai and the player, do nothing
             if (Physics.Raycast(aiPosition, dirToPlayer, (float)distanceToPlayer, obstacleLayerMask)) return false;
 
+            Debug.DrawRay(aiPosition, dirToPlayer * 10, Color.white);
             // All logical requirements are met to 'see' a player.
             playerLastPosition = playerPosition;
             return true;
