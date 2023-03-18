@@ -1342,6 +1342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e5f4ad16b63db4c878d730dbfbae19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
 --- !u!1 &447414026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d100b9f5b2e1e4e814d45e2b03ac1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setGameManagerGameStateTo: 2
+  setGameManagerGameStateTo: 1
 --- !u!4 &990284659
 Transform:
   m_ObjectHideFlags: 0

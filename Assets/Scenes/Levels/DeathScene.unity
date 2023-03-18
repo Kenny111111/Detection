@@ -2473,7 +2473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d100b9f5b2e1e4e814d45e2b03ac1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setGameManagerGameStateTo: 8
+  setGameManagerGameStateTo: 7
 --- !u!4 &1634244466
 Transform:
   m_ObjectHideFlags: 0
