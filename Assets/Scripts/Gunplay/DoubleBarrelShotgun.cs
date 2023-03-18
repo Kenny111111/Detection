@@ -14,8 +14,6 @@ namespace Detection
         [SerializeField] private int pelletsPerShot = 7;
         [SerializeField] private float spread;
         private int currentAmmo;
-
-        private float fireRate = 0.50f;
         private float nextShot = 0f;
 
         // bullet trail created
@@ -61,7 +59,7 @@ namespace Detection
             {
                 if (Time.time > nextShot)
                 {
-                    nextShot = Time.time + fireRate;
+                    nextShot = Time.time + gunData.fireRate;
                     for (int i = 0; i < pelletsPerShot; ++i)
                     {
                         Ray ray = new(bulletSpawn.position, GetPelletDirection());
