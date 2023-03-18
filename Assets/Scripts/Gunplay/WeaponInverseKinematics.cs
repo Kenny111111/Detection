@@ -33,7 +33,7 @@ namespace Detection
 
         void LateUpdate()
         {
-            if (TargetTransform == null) return;
+            if (TargetTransform == null || aimTransform == null) return;
 
             Vector3 targetPosition = GetTargetPostiion();
 

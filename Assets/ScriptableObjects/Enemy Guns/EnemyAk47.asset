@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f6f6d7125d4a034ba6dd2d0989ea1ef, type: 3}
-  m_Name: Sawed-Off-Shotty
+  m_Name: EnemyAk47
   m_EditorClassIdentifier: 
-  name: DoubleBarrelShotty
-  damage: 20
-  range: 20
-  fireRate: 3
+  name: EnemyAk47
+  damage: 40
+  range: 50
+  fireRate: 5
   recoilForce: 0
-  hapticIntensity: 0.5
-  hapticDuration: 0.25
-  startingAmmo: 2
-  maxAmmo: 2
+  hapticIntensity: 0
+  hapticDuration: 0
+  startingAmmo: 9999
+  maxAmmo: 9999

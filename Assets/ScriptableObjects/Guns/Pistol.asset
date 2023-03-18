@@ -19,5 +19,5 @@ MonoBehaviour:
   recoilForce: 0
   hapticIntensity: 0.5
   hapticDuration: 0.15
-  startingAmmo: 9999
+  startingAmmo: 30
   maxAmmo: 30
