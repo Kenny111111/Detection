@@ -543,7 +543,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1813396718}
+    m_TransformParent: {fileID: 564362828}
     m_Modifications:
     - target: {fileID: 3667148160077364170, guid: b0504efda6f0c9d4ab59a445f9d9c697,
         type: 3}
@@ -553,7 +553,7 @@ PrefabInstance:
     - target: {fileID: 3667148160077364174, guid: b0504efda6f0c9d4ab59a445f9d9c697,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3667148160077364174, guid: b0504efda6f0c9d4ab59a445f9d9c697,
         type: 3}
@@ -3117,7 +3117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302959402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.2, y: 7.3, z: 10.57}
+  m_LocalPosition: {x: 10.2, y: 7.3, z: 16.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6068,6 +6068,7 @@ Transform:
   - {fileID: 760822927}
   - {fileID: 1625757362}
   - {fileID: 1274323136}
+  - {fileID: 124151667}
   m_Father: {fileID: 1813396718}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18346,6 +18347,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songList:
+  - name: Perturbator - Sexualizer
+    clip: {fileID: 8300000, guid: 46a831a31739d0c409ab49ea511b0af8, type: 3}
+    audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
+      type: 2}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.25
+    volumeDeviation: 0
+    pitch: 1
+    pitchDeviation: 0
   - name: Aftershock
     clip: {fileID: 8300000, guid: 6289dc202a543094994cbbd3ae6279f2, type: 3}
     audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
@@ -25108,7 +25119,6 @@ Transform:
   - {fileID: 1205631801}
   - {fileID: 1399336575}
   - {fileID: 192615008}
-  - {fileID: 124151667}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

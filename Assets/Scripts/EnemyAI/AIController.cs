@@ -57,11 +57,7 @@ namespace Detection
             navMeshAgent.isStopped = false;
             navMeshAgent.speed = walkingSpeed;
 
-            if (waypoints.Count == 0)
-            {
-                //Debug.LogError("No waypoints set.");
-            }
-            else navMeshAgent.SetDestination(waypoints[curWaypoint].position);
+            if (waypoints.Count != 0) navMeshAgent.SetDestination(waypoints[curWaypoint].position);
 
             weaponInverseKinematics = GetComponent<WeaponInverseKinematics>();
             animator = GetComponent<Animator>();
@@ -135,7 +131,6 @@ namespace Detection
             // Ensure the player is viewable. If there are any objects between the ai and the player, do nothing
             if (Physics.Raycast(aiPosition, dirToPlayer, (float)distanceToPlayer, obstacleLayerMask)) return false;
 
-            Debug.DrawRay(aiPosition, dirToPlayer * 10, Color.white);
             // All logical requirements are met to 'see' a player.
             playerLastPosition = playerPosition;
             return true;
