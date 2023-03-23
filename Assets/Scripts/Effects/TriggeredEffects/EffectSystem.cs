@@ -52,8 +52,8 @@ namespace Detection
         {
             if ((allowMultipleEffectsAtOnce || !isApplyingEffect) && !waitFlag)
             {
-                // if currentLoudness is greater than a tolerance percentage of the maxLoudness
-                if (musicAnalyzer.currentLoudness > musicAnalyzer.maxLoudness * loudnessTolerance)
+                // if currentAvgLoudness is greater than a tolerance percentage of the maxLoudness
+                if (musicAnalyzer.currentAvgLoudnessNormalized > loudnessTolerance)
                 {
                     isApplyingEffect = true;
 
