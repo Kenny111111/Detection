@@ -13,6 +13,7 @@ namespace Detection
 		[Range(0.01f, 30)]
 		[SerializeField] double maxEffectDuration = 2;
 
+		[SerializeField] float loudnessToSizeScalar = 0.02f;
 		public void Initialize(MusicAnalyzer mAnalyzer) 
 		{ 
 			musicAnalyzer = mAnalyzer;
@@ -30,7 +31,7 @@ namespace Detection
 
 			while (currentTimeCount < randomDuration)
 			{
-				EffectSystem.effectSystem.effectEmitArgs.size = musicAnalyzer.currentLoudness;
+				EffectSystem.effectSystem.effectEmitArgs.size = musicAnalyzer.currentAvgLoudnessNormalized * loudnessToSizeScalar;
 				yield return null;
 			}
 

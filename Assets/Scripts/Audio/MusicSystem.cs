@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Detection
 		public static MusicSystem musicSystem;
 		public AudioMixerGroup audioMxrGroup;
 		public Queue<Sound> musicQueue;
+
+		public static event Action<Sound> UpdatedSongPlaying;
 
 		void Awake()
 		{
@@ -38,6 +41,8 @@ namespace Detection
 				{
 					// Start playing the next song
 					musicSystem.musicQueue.Peek().source.Play();
+
+					UpdatedSongPlaying?.Invoke(musicSystem.musicQueue.Peek());
 
 					float currentSongLength = musicSystem.TryGetCurrentSong().source.clip.length;
 					yield return new WaitForSeconds(currentSongLength + waitAmount);

@@ -11,35 +11,25 @@ namespace Detection
         [SerializeField] public float maxLoudness = 250;
         [SerializeField] public float updateStep = 0.01f;
         [SerializeField] public int sampleDataLength = 512;
-        [SerializeField] public float sizeFactor = 1.0f;
         private float curTimeCount = 0.0f;
         private float[] audioSamples;
 
         public AudioSource songPlaying;
 
-        // This represents the current song Loudness at any point in the game.
-        public float currentLoudness = 0.0f;
+        private float currentAvgLoudness = 0.0f;
+        public float currentAvgLoudnessNormalized = 0.0f;
 
         private void Start()
         {
             musicSystem = FindObjectOfType<MusicSystem>();
             audioSamples = new float[sampleDataLength];
 
-            StartCoroutine(UpdateSongPlaying(this, musicSystem));
+            MusicSystem.UpdatedSongPlaying += UpdateSongPlaying;
         }
 
-        private static IEnumerator UpdateSongPlaying(MusicAnalyzer analyzer, MusicSystem musicSystem)
+        private void UpdateSongPlaying(Sound newSong)
         {
-            while (true)
-            {
-                Sound soundPlaying;
-                if (musicSystem.musicQueue.TryPeek(out soundPlaying))
-                {
-                    analyzer.songPlaying = soundPlaying.source;
-                }
-
-                yield return new WaitForSeconds(1);
-            }
+            songPlaying = newSong.source;
         }
 
         private void Update()
@@ -53,15 +43,17 @@ namespace Detection
                 if (songPlaying.clip.GetData(audioSamples, songPlaying.timeSamples))
                 {
                     // reset and recalculate the current sound
-                    currentLoudness = 0;
+                    currentAvgLoudness = 0;
+                    currentAvgLoudnessNormalized = 0;
                     foreach (float sample in audioSamples)
                     {
-                        currentLoudness += Mathf.Abs(sample);
+                        currentAvgLoudness += Mathf.Abs(sample);
                     }
-                    currentLoudness /= sampleDataLength;
+                    currentAvgLoudness /= sampleDataLength;
+                    currentAvgLoudness = Mathf.Clamp(currentAvgLoudness, minLoudness, maxLoudness);
 
-                    currentLoudness *= sizeFactor;
-                    currentLoudness = Mathf.Clamp(currentLoudness, minLoudness, maxLoudness);
+                    // normalize it from 0 to 1 based on the min max range
+                    currentAvgLoudnessNormalized = (currentAvgLoudness - minLoudness) / (maxLoudness - minLoudness);
                 }
             }
         }
