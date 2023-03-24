@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace Detection
@@ -19,6 +21,7 @@ namespace Detection
         private bool waitFlag = false;
 
         private WeightedRandom<IEffect> weightedEffectsBag;
+        private IEffect[] effectsFound;
 
         private void Awake()
         {
@@ -33,21 +36,19 @@ namespace Detection
             musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             effectEmitArgs = new VFXEmitArgs(null, null, null);
 
-            List<KeyValuePair<IEffect, double>> effectList = new List<KeyValuePair<IEffect, double>>();
-
             gameObject.AddComponent<ParticleSizeBeatEffect>().Initialize(musicAnalyzer);
 
-            effectList.Add(new KeyValuePair<IEffect, double>(gameObject.GetComponent<ParticleSizeBeatEffect>(), 10));
+            effectsFound = GameObject.FindGameObjectWithTag("Effects").GetComponents<IEffect>();
 
             // populate the weightedRandom effects bag we can pick from
             weightedEffectsBag = new WeightedRandom<IEffect>();
-            foreach (var x in effectList)
+
+            foreach (IEffect effect in effectsFound)
             {
-                weightedEffectsBag.Add(x.Key, x.Value);
+                weightedEffectsBag.Add(effect, effect.Weight);
             }
         }
 
-        // Update is called once per frame
         void Update()
         {
             if ((allowMultipleEffectsAtOnce || !isApplyingEffect) && !waitFlag)
@@ -59,9 +60,26 @@ namespace Detection
 
                     // randomly decide an event and some duration
                     var chosenEffect = weightedEffectsBag.GetRandomWeighted();
-                    chosenEffect.DoEffect(OnFinishedEffect);
+                    if (chosenEffect != null) chosenEffect.DoEffect(OnFinishedEffect);
+
+                    if (!waitFlag) StartCoroutine(WaitBeforeNextEffect());
                 }
             }
+        }
+
+        public IEnumerator WaitBeforeNextEffect()
+        {
+            waitFlag = true;
+            const float WAIT_TIME = 3f;
+
+            double currentTimeCount = 0;
+            while (currentTimeCount < WAIT_TIME)
+            {
+                currentTimeCount += Time.deltaTime;
+                yield return null;
+            }
+
+            waitFlag = false;
         }
 
         void OnFinishedEffect()
