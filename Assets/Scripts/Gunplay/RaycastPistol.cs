@@ -63,6 +63,7 @@ namespace Detection
                     nextShot = Time.time + gunData.fireRate;
                     Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                     ShootAndEmitParticle(ray);
+                    OnShot?.Invoke();
                     AudioSystem.instance.Play("beretta_shot");
                     ActivateHapticFeedback();
                     --currentAmmo;
