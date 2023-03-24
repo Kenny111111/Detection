@@ -226,7 +226,7 @@ namespace Detection
         // Done preparing the level
         private void AfterPreparingLevel()
         {
-            throw new NotImplementedException();
+
         }
 
         // Player is now in the level and playing

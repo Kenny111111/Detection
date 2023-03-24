@@ -506,6 +506,67 @@ Transform:
   m_Father: {fileID: 1484711975}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &94907465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94907466}
+  - component: {fileID: 94907467}
+  m_Layer: 0
+  m_Name: LevelBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94907466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94907465}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1813396718}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94907467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94907465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42940c0e54b66e94cbf8d1b57ea60f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - serializedVersion: 2
+    rgba: 4278198018
+  - serializedVersion: 2
+    rgba: 4281532416
+  - serializedVersion: 2
+    rgba: 4281015324
+  - serializedVersion: 2
+    rgba: 4278190121
+  - serializedVersion: 2
+    rgba: 4280811561
+  - serializedVersion: 2
+    rgba: 4280428032
+  - serializedVersion: 2
+    rgba: 4278197030
+  - serializedVersion: 2
+    rgba: 4278198818
 --- !u!1 &120448302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1889,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1813396718}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &192615009
 MonoBehaviour:
@@ -3124,7 +3185,7 @@ Transform:
   - {fileID: 1631209690}
   - {fileID: 612825432}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &302959414
 MonoBehaviour:
@@ -5534,7 +5595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d100b9f5b2e1e4e814d45e2b03ac1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setGameManagerGameStateTo: 5
+  setGameManagerGameStateTo: 4
 --- !u!4 &508246738
 Transform:
   m_ObjectHideFlags: 0
@@ -8249,7 +8310,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723920188
 GameObject:
@@ -12356,7 +12417,7 @@ GameObject:
   - component: {fileID: 989308575}
   - component: {fileID: 989308574}
   m_Layer: 0
-  m_Name: EffectSystem
+  m_Name: EffectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12389,7 +12450,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &990719831
 PrefabInstance:
@@ -15873,7 +15934,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1232795163
 PrefabInstance:
@@ -16182,7 +16243,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1246418994
 PrefabInstance:
@@ -16619,7 +16680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42940c0e54b66e94cbf8d1b57ea60f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1271486274}
   colors:
   - serializedVersion: 2
     rgba: 4278203652
@@ -18347,6 +18407,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songList:
+  - name: Death Squad
+    clip: {fileID: 8300000, guid: e6a76ad4c14015b4293ddee38807209b, type: 3}
+    audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
+      type: 2}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.25
+    volumeDeviation: 0
+    pitch: 1
+    pitchDeviation: 0
+  - name: 130R
+    clip: {fileID: 8300000, guid: ce0cc29fa23dd8f4db989d0a4c16cd37, type: 3}
+    audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
+      type: 2}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.25
+    volumeDeviation: 0
+    pitch: 1
+    pitchDeviation: 0
   - name: Aftershock
     clip: {fileID: 8300000, guid: 6289dc202a543094994cbbd3ae6279f2, type: 3}
     audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
@@ -20677,7 +20757,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1492276367
 PrefabInstance:
@@ -22448,7 +22528,7 @@ GameObject:
   - component: {fileID: 1631209690}
   m_Layer: 10
   m_Name: Camera Rig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23808,7 +23888,7 @@ Transform:
   m_Children:
   - {fileID: 473082368}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1717796194
 PrefabInstance:
@@ -24768,7 +24848,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1806455619
 PrefabInstance:
@@ -25128,9 +25208,10 @@ Transform:
   - {fileID: 564362828}
   - {fileID: 1205631801}
   - {fileID: 1399336575}
+  - {fileID: 94907466}
   - {fileID: 192615008}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1814312938
 PrefabInstance:
@@ -25399,7 +25480,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1858101053
 MonoBehaviour:
@@ -25427,8 +25508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLoudness: 0.083
-  maxLoudness: 0.4
   updateStep: 0.01
   sampleDataLength: 512
   songPlaying: {fileID: 0}

@@ -18,20 +18,20 @@ namespace Detection
 
     public class AIController : MonoBehaviour
     {
-        public NavMeshAgent navMeshAgent;
+        [SerializeField] private NavMeshAgent navMeshAgent;
         private Enemy enemyAI;
         [SerializeField] private AIState aiState = AIState.Default;
 
-        public float walkingSpeed = 2.50f;
-        public float runningSpeed = 4.0f;
+        [SerializeField] private float walkingSpeed = 2.50f;
+        [SerializeField] private float runningSpeed = 4.0f;
 
-        public float aiDetectRadius = 20.0f;
-        public float aiViewAngle = 90.0f;
+        [SerializeField] private float aiDetectRadius = 20.0f;
+        [SerializeField] private float aiViewAngle = 90.0f;
 
         private LayerMask playerLayerMask;
         private LayerMask obstacleLayerMask;
 
-        public List<Transform> waypoints;
+        [SerializeField] private List<Transform> waypoints;
         private int curWaypoint;
         private Animator animator;
 

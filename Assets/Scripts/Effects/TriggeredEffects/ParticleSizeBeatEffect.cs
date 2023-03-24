@@ -31,12 +31,12 @@ namespace Detection
 
 			while (currentTimeCount < randomDuration)
 			{
-				EffectSystem.effectSystem.effectEmitArgs.size = musicAnalyzer.currentAvgLoudnessNormalized * loudnessToSizeScalar;
+				EffectManager.instance.effectEmitArgs.size = musicAnalyzer.currentAvgLoudnessNormalized * loudnessToSizeScalar;
 				yield return null;
 			}
 
 			// reset the override size
-			EffectSystem.effectSystem.effectEmitArgs.size = null;
+			EffectManager.instance.effectEmitArgs.size = null;
 
 			callback();
 		}

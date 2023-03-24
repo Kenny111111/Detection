@@ -10,7 +10,8 @@ namespace Detection
         /// </summary>
         void Start()
         {
-            Canvas.SetActive(false);
+            if (Canvas != null) Canvas.SetActive(false);
+            else Debug.Log("Need to set the canvas to an object...");
         }
     }
 }

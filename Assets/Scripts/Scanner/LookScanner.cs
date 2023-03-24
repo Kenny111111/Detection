@@ -52,7 +52,7 @@ namespace Detection
                 var scannableObject = hit.transform.gameObject.GetComponent<IScannable>();
                 if (scannableObject == null) return;
 
-                VFXEmitArgs overrideArgs = EffectSystem.effectSystem.effectEmitArgs;
+                VFXEmitArgs overrideArgs = EffectManager.instance.effectEmitArgs;
                 scannableObject.EmitParticle(hit, overrideArgs);
             }
         }
