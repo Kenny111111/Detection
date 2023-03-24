@@ -21133,6 +21133,7 @@ GameObject:
   - component: {fileID: 1512492242}
   - component: {fileID: 1512492241}
   - component: {fileID: 1512492240}
+  - component: {fileID: 1512492244}
   m_Layer: 8
   m_Name: RightHand
   m_TagString: RightController
@@ -21461,6 +21462,19 @@ MonoBehaviour:
     m_Reference: {fileID: 875253871413052681, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &1512492244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512492238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a16b5573cf7c6740bf14e21d95b3e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desiredColorOnHover: {r: 0.77254903, g: 0.06316998, b: 0, a: 1}
 --- !u!1001 &1524498363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24445,6 +24459,7 @@ GameObject:
   - component: {fileID: 1790728502}
   - component: {fileID: 1790728501}
   - component: {fileID: 1790728500}
+  - component: {fileID: 1790728504}
   m_Layer: 8
   m_Name: LeftHand
   m_TagString: LeftController
@@ -24774,6 +24789,19 @@ MonoBehaviour:
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &1790728504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790728498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a16b5573cf7c6740bf14e21d95b3e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desiredColorOnHover: {r: 0.77254903, g: 0.06316998, b: 0, a: 1}
 --- !u!1 &1795428024
 GameObject:
   m_ObjectHideFlags: 0
