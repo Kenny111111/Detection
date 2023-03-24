@@ -38,7 +38,6 @@ namespace Detection
         private void Start()
         {
             currentAmmo = gunData.startingAmmo;
-            OnShot?.Invoke();
             SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
         }
 
