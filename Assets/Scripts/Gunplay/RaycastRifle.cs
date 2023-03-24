@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using static Detection.IDealsDamage;
@@ -18,6 +19,8 @@ namespace Detection
 
         // bullet trail created
         public LineRenderer bulletTrail;
+
+        public event Action OnShot;
 
         private void SpawnBulletTrail(Vector3 hitPoint)
         {
@@ -68,6 +71,7 @@ namespace Detection
                     nextShot = Time.time + gunData.fireRate;
                     Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                     ShootAndEmitParticle(ray);
+                    OnShot?.Invoke();
                     AudioSystem.instance.Play("ak47_shot");
                     ActivateHapticFeedback();
                     --currentAmmo;
