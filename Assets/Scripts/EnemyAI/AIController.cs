@@ -24,7 +24,7 @@ namespace Detection
 
         [SerializeField] private float walkingSpeed = 2.50f;
         [SerializeField] private float runningSpeed = 4.0f;
-        [SerializeField] private float hearingDistance;
+        [SerializeField] private float hearingDistance = 8f;
 
         [SerializeField] private float aiDetectRadius = 20.0f;
         [SerializeField] private float aiViewAngle = 90.0f;
@@ -202,10 +202,11 @@ namespace Detection
             // Calculate distance between the AI and the sound position
             float distance = Vector3.Distance(transform.position, soundPos);
 
-            // If the sound is within hearing range, respond to it
+            // If the sound is within hearing range, move towards the sound
             if (distance <= hearingDistance)
             {
-                // Do something, e.g. move towards the sound or attack the player
+                SetAiMoveSpeed(runningSpeed);
+                navMeshAgent.SetDestination(soundPos);
             }
         }
 
