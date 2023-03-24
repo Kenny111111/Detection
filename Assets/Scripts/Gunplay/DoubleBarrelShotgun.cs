@@ -1,6 +1,7 @@
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
 using static Detection.IDealsDamage;
+using System;
 
 namespace Detection
 {
@@ -19,6 +20,8 @@ namespace Detection
         // bullet trail created
         public LineRenderer bulletTrail;
 
+        public event Action OnShot;
+
         private void SpawnBulletTrail(Vector3 hitPoint)
         {
             GameObject bulletTrailEffect = Instantiate(bulletTrail.gameObject, bulletSpawn.position, Quaternion.identity);
@@ -35,6 +38,7 @@ namespace Detection
         private void Start()
         {
             currentAmmo = gunData.startingAmmo;
+            OnShot?.Invoke();
             SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
         }
 
@@ -66,6 +70,8 @@ namespace Detection
                         ShootAndEmitParticle(ray);
                     }
 
+                    OnShot?.Invoke();
+
                     AudioSystem.instance.Play("shotgun_shot");
                     ActivateHapticFeedback();
                     --currentAmmo;
@@ -81,9 +87,9 @@ namespace Detection
         {
             Vector3 target = bulletSpawn.position + bulletSpawn.forward * gunData.range;
             target = new Vector3(
-                target.x + Random.Range(-spread, spread),
-                target.y + Random.Range(-spread, spread),
-                target.z + Random.Range(-spread, spread)
+                target.x + UnityEngine.Random.Range(-spread, spread),
+                target.y + UnityEngine.Random.Range(-spread, spread),
+                target.z + UnityEngine.Random.Range(-spread, spread)
             );
 
             Vector3 dir = target - bulletSpawn.position;
