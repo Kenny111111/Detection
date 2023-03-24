@@ -14,8 +14,16 @@ namespace Detection
 		[SerializeField] double maxEffectDuration = 2;
 
 		[SerializeField] float loudnessToSizeScalar = 0.02f;
-		public void Initialize(MusicAnalyzer mAnalyzer) 
-		{ 
+
+        public int Weight { get; set; }
+
+        public void Awake()
+        {
+			Weight = 10;
+        }
+
+        public void Initialize(MusicAnalyzer mAnalyzer) 
+		{
 			musicAnalyzer = mAnalyzer;
 		}
 
