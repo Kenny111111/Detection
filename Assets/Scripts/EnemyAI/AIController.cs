@@ -205,6 +205,7 @@ namespace Detection
             // If the sound is within hearing range, move towards the sound
             if (distance <= hearingDistance)
             {
+                aiState = AIState.Alerted;
                 SetAiMoveSpeed(runningSpeed);
                 navMeshAgent.SetDestination(soundPos);
             }
