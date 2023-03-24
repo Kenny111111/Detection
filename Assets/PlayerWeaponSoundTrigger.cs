@@ -5,7 +5,8 @@ namespace Detection
 {
     public class PlayerWeaponSoundTrigger : MonoBehaviour
     {
-        [SerializeField] private float radius = 8f;
+        // Later we want to make OnShot return the weapon var on the weapons max hearing radius
+        [SerializeField] private float maxWeaponHearingRadius = 10f;
 
         void Awake()
         {
@@ -14,9 +15,8 @@ namespace Detection
 
         void DoEnemyCheckForSound()
         {
-            Debug.Log("shoot memeee");
             // find ai around player then call each enemies Alert() function in radius
-            Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, maxWeaponHearingRadius);
             foreach (Collider collider in colliders)
             {
                 AIController enemy = collider.GetComponent<AIController>();
