@@ -7,14 +7,14 @@ namespace Detection
         protected float health;
         protected float maxHealth;
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(IDealsDamage.Weapons weapon, float damage, AttackerType attacker)
         {
             health -= damage;
             if (health <= 0)
-                Die();
+                Die(weapon, attacker);
         }
 
-        public virtual void Die()
+        public virtual void Die(IDealsDamage.Weapons weapon, AttackerType attacker)
         {
 
         }

@@ -1,11 +1,13 @@
 using UnityEngine;
 using Detection;
+using System;
 
 public class Enemy : Combatant
 {
     private Animator animator;
     private Rigidbody[] rigidbodies;
     private AIWeaponManager weaponManager;
+    public Action<Enemy, IDealsDamage.Weapons, AttackerType> OnDeath;
 
     public bool isAlive { get; private set; } = true;
 
@@ -23,7 +25,7 @@ public class Enemy : Combatant
         ToggleRagdoll(false);
     }
 
-    public override void Die()
+    public override void Die(IDealsDamage.Weapons weapon, AttackerType attacker)
     {
 
         // Check if already dead
@@ -31,6 +33,8 @@ public class Enemy : Combatant
 
         // Set isAlive to false
         isAlive = false;
+
+        OnDeath?.Invoke(this, weapon, attacker);
 
         // Launch weapon towards player or drop on ground if not targeting player
         weaponManager.LaunchWeapon();
