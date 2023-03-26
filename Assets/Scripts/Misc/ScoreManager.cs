@@ -21,7 +21,7 @@ namespace Detection
 
         private void HandleEnemyDeath(AttackerType attackerType, IDealsDamage.Weapons weapon)
         {
-            //Debug.Log("Enemy died to " + attackerType.ToString() + " with weapon: " + weapon.ToString());
+            
         }
     }
 }

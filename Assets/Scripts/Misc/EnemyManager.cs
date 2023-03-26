@@ -49,7 +49,6 @@ namespace Detection
 
         private void Init()
         {
-            Debug.Log("Init");
             Enemy[] enemyInstances = FindObjectsOfType<Enemy>();
             foreach (Enemy enemy in enemyInstances)
             {
@@ -60,7 +59,6 @@ namespace Detection
 
         private void Reset()
         {
-            Debug.Log("Reset");
             foreach (KeyValuePair<Enemy, GameObject> entry in enemies)
             {
                 entry.Key.OnDeath -= HandleEnemyDeath;
