@@ -11,6 +11,7 @@ namespace Detection
         public static EnemyManager instance;
 
         public static Action<AttackerType, IDealsDamage.Weapons> OnEnemyDeath;
+        public static Action OnAllEnemiesDead;
 
         private Dictionary<Enemy, GameObject> enemies = new Dictionary<Enemy, GameObject>();
 
@@ -33,6 +34,9 @@ namespace Detection
             enemy.OnDeath -= HandleEnemyDeath;
 
             OnEnemyDeath?.Invoke(attackerType, weapon);
+
+            if (enemies.Count == 0)
+                OnAllEnemiesDead?.Invoke();
         }
 
         private void HandleGameStateChange(GameState gameState)
