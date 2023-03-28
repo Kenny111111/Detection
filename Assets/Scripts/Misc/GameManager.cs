@@ -37,6 +37,8 @@ namespace Detection
 
         private void Awake()
         {
+            currentSceneNum = 0;
+
             // Ensure only one instance exists
             if (instance == null)
             {

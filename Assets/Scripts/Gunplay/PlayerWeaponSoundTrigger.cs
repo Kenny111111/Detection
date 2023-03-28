@@ -6,7 +6,7 @@ namespace Detection
     public class PlayerWeaponSoundTrigger : MonoBehaviour
     {
         // Later we want to make OnShot return the weapon var on the weapons max hearing radius
-        [SerializeField] private float maxWeaponHearingRadius = 10f;
+        [SerializeField] private float maxWeaponHearingRadius = 20f;
 
         void Awake()
         {

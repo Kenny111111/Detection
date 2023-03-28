@@ -24,7 +24,7 @@ namespace Detection
 
         [SerializeField] private float walkingSpeed = 2.50f;
         [SerializeField] private float runningSpeed = 4.0f;
-        [SerializeField] private float hearingDistance = 8f;
+        [SerializeField] private float hearingDistance = 15f;
 
         [SerializeField] private float aiDetectRadius = 20.0f;
         [SerializeField] private float aiViewAngle = 90.0f;

@@ -479,12 +479,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 564362828}
     m_Modifications:
     - target: {fileID: 5961702562182255538, guid: 749d5984427412e40ac0ba5c79a86821,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5961702562182255538, guid: 749d5984427412e40ac0ba5c79a86821,
         type: 3}
@@ -509,17 +509,17 @@ PrefabInstance:
     - target: {fileID: 5961702562182255538, guid: 749d5984427412e40ac0ba5c79a86821,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5961702562182255538, guid: 749d5984427412e40ac0ba5c79a86821,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5961702562182255538, guid: 749d5984427412e40ac0ba5c79a86821,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5961702562182255538, guid: 749d5984427412e40ac0ba5c79a86821,
         type: 3}
@@ -2232,7 +2232,7 @@ PrefabInstance:
     - target: {fileID: 6492723908682279801, guid: c32b02d24139a084f90b79151aaaf0d5,
         type: 3}
       propertyPath: waypoints.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6492723908682279801, guid: c32b02d24139a084f90b79151aaaf0d5,
         type: 3}
@@ -2252,7 +2252,7 @@ PrefabInstance:
     - target: {fileID: 6492723908682279807, guid: c32b02d24139a084f90b79151aaaf0d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13
+      value: 16.71
       objectReference: {fileID: 0}
     - target: {fileID: 6492723908682279807, guid: c32b02d24139a084f90b79151aaaf0d5,
         type: 3}
@@ -2262,7 +2262,7 @@ PrefabInstance:
     - target: {fileID: 6492723908682279807, guid: c32b02d24139a084f90b79151aaaf0d5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 6492723908682279807, guid: c32b02d24139a084f90b79151aaaf0d5,
         type: 3}
@@ -6199,6 +6199,7 @@ Transform:
   - {fileID: 1625757362}
   - {fileID: 1274323136}
   - {fileID: 124151667}
+  - {fileID: 926060773}
   m_Father: {fileID: 1813396718}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10223,6 +10224,7 @@ Transform:
   - {fileID: 322353050}
   - {fileID: 922883765}
   - {fileID: 1666161982}
+  - {fileID: 1233072659}
   m_Father: {fileID: 1813396718}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11566,6 +11568,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultLifetime: 3
   defaultSize: 0.015
+--- !u!4 &926060773 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5961702562182255538, guid: 749d5984427412e40ac0ba5c79a86821,
+    type: 3}
+  m_PrefabInstance: {fileID: 60348046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &927745186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16088,6 +16096,161 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1232795163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1233072658
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 838798985}
+    m_Modifications:
+    - target: {fileID: 109516, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 109516, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 110832, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 110832, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 126070, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 126070, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 143660, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 143660, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 157644, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 157644, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 184556, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 184556, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 187392, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 187392, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 189930, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Name
+      value: SM_Veh_Car_Police_18 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 189930, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 189930, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 196098, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 196098, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_RootOrder
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69983906
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.71430063
+      objectReference: {fileID: 0}
+    - target: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f539f0390d17a9f4a922b722e47998fe, type: 3}
+--- !u!4 &1233072659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 434564, guid: f539f0390d17a9f4a922b722e47998fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1233072658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1233072660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 189930, guid: f539f0390d17a9f4a922b722e47998fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1233072658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1233072661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233072660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultLifetime: 3
+  defaultSize: 0.015
 --- !u!1 &1236992365
 GameObject:
   m_ObjectHideFlags: 0
@@ -18476,8 +18639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songList:
-  - name: Death Squad
-    clip: {fileID: 8300000, guid: e6a76ad4c14015b4293ddee38807209b, type: 3}
+  - name: 130R
+    clip: {fileID: 8300000, guid: ce0cc29fa23dd8f4db989d0a4c16cd37, type: 3}
     audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
       type: 2}
     loop: 0
@@ -18486,8 +18649,8 @@ MonoBehaviour:
     volumeDeviation: 0
     pitch: 1
     pitchDeviation: 0
-  - name: 130R
-    clip: {fileID: 8300000, guid: ce0cc29fa23dd8f4db989d0a4c16cd37, type: 3}
+  - name: Death Squad
+    clip: {fileID: 8300000, guid: e6a76ad4c14015b4293ddee38807209b, type: 3}
     audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
       type: 2}
     loop: 0
