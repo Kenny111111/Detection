@@ -48,7 +48,6 @@ namespace Detection
 
 		[SerializeField] private float lineStartThickness;
 		[SerializeField] private float lineEndThickness;
-		[SerializeField] private Material lineMaterial;
 
 		public void Awake()
 		{
@@ -111,12 +110,15 @@ namespace Detection
 				}
 			}
 
+			Color startingColor = new Color(255, 255, 255, 255);
+
 			//Create the line renderer to draw the points.
 			LineRenderer line = new LineRenderer();
 			line.startWidth = lineStartThickness;
 			line.endWidth = lineEndThickness;
 			line.positionCount = numPointsHit;
-			line.material = lineMaterial;
+			line.startColor = startingColor;
+			line.endColor = startingColor;
 
 			line.SetPosition(0, new Vector3(0, 0, 0));
 			line.SetPosition(1, new Vector3(1, 1, 1));
@@ -138,22 +140,23 @@ namespace Detection
 					}
 				}
 			}*/
-
-			Color startColor = new Color(255, 255, 255, 255);
-			Color endColor = new Color(0, 0, 0, 0);
-			StartCoroutine(FadeLineColor(startColor, endColor, duration, callback));
+			Color endingColor = new Color(0, 0, 0, 0);
+			StartCoroutine(FadeLineColor(line, startingColor, endingColor, duration, callback));
 		}
 
-		public IEnumerator FadeLineColor(Color startColor, Color endColor, double duration, Action callback)
+		public IEnumerator FadeLineColor(LineRenderer line, Color startColor, Color endColor, double duration, Action callback)
 		{
 			for (float t = 0f; t < duration; t += Time.deltaTime)
 			{
 				float normalizedTime = t / (float)duration;
-				linesManager.baseColor = Color.Lerp(startColor, endColor, normalizedTime);
+				Color lerped = Color.Lerp(startColor, endColor, normalizedTime);
+				line.startColor = lerped;
+				line.endColor = lerped;
 				yield return null;
 			}
 
-			linesManager.baseColor = endColor;
+			line.startColor = endColor;
+			line.endColor = endColor;
 			InitializePointList();
 
 			callback();
