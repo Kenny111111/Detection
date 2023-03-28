@@ -44,7 +44,16 @@ namespace Detection
 		private float maxDistance;
 		private LayerMask layerMask;
 		private float diffDistanceTolerance;
-		private LinesManager linesManager;
+        public int Weight { get; set; }
+
+		[SerializeField] private float lineStartThickness;
+		[SerializeField] private float lineEndThickness;
+		[SerializeField] private Material lineMaterial;
+
+		public void Awake()
+		{
+			Weight = 5;
+		}
 
 		public void Initialize(MusicAnalyzer mAnalyzer, GameObject player, int newNumPoints, float newMaxDistance, float newDiffDistanceTolerance)
 		{
@@ -53,8 +62,6 @@ namespace Detection
 			maxDistance = newMaxDistance;
 			playerTransform = player.transform;
 			diffDistanceTolerance = newDiffDistanceTolerance;
-
-			linesManager = FindObjectOfType<LinesManager>();
 
 			pointList = new List<OutlinePoint>();
 
@@ -74,9 +81,6 @@ namespace Detection
 		void IEffect.DoEffect(Action callback)
 		{
 			float duration = 1f;
-
-			if (linesManager == null) return;
-			linesManager.Reset();
 
 			int numPointsHit = 0;
 			// Shoot rays 360 degrees around the player and set point data
@@ -107,17 +111,33 @@ namespace Detection
 				}
 			}
 
+			//Create the line renderer to draw the points.
+			LineRenderer line = new LineRenderer();
+			line.startWidth = lineStartThickness;
+			line.endWidth = lineEndThickness;
+			line.positionCount = numPointsHit;
+			line.material = lineMaterial;
+
+			line.SetPosition(0, new Vector3(0, 0, 0));
+			line.SetPosition(1, new Vector3(1, 1, 1));
+			line.SetPosition(3, new Vector3(2, 2, 2));
+			line.SetPosition(4, new Vector3(3, 3, 3));
+
+			/*
+			bool createdNewLineRenderer = true;
 			for (int i = 0; i < numPointsHit; i++)
 			{
 				// Update the line data if.... 
 				// 1. both points have hit something.
 				// 2. the distance in between two points are less than the tolerance.
-				if (i > 0 && (pointList[i].GetHasHitWall() && pointList[i - 1].GetHasHitWall())
-					&& (Vector3.Distance(pointList[i].GetLocation(), pointList[i - 1].GetLocation()) < diffDistanceTolerance))
+				if (i > 0 && (pointList[i].GetHasHitWall() && pointList[i - 1].GetHasHitWall()))
 				{
-					linesManager.lines.Add(new KeyValuePair<Vector3, Vector3>(pointList[i - 1].location, pointList[i].location));
+					if (Vector3.Distance(pointList[i].GetLocation(), pointList[i - 1].GetLocation()) < diffDistanceTolerance)
+                    {
+						line.SetPosition(i, pointList[i].location);
+					}
 				}
-			}
+			}*/
 
 			Color startColor = new Color(255, 255, 255, 255);
 			Color endColor = new Color(0, 0, 0, 0);
