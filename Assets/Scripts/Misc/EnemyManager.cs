@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using System.Linq;
 
 namespace Detection
 {
@@ -69,6 +70,11 @@ namespace Detection
             }
 
             enemies.Clear();
+        }
+
+        public List<GameObject> GetActiveEnemies()
+        {
+            return enemies.Values.ToList();
         }
     }
 }
