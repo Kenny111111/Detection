@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 
 namespace Detection
@@ -16,17 +17,24 @@ namespace Detection
         void DoEnemyCheckForSound()
         {
             // find ai around player then call each enemies Alert() function in radius
-            Collider[] colliders = Physics.OverlapSphere(transform.position, maxWeaponHearingRadius);
-            foreach (Collider collider in colliders)
+            List<Enemy> enemiesInRange = new List<Enemy>();
+
+            foreach (KeyValuePair<Enemy, GameObject> entry in EnemyManager.instance.enemies)
             {
-                AIController enemy = collider.GetComponent<AIController>();
+                if (Vector3.Distance(transform.position, entry.Value.transform.position) <= maxWeaponHearingRadius)
+                {
+                    enemiesInRange.Add(entry.Key);
+                }
+            }
+
+            foreach (Enemy enemy in enemiesInRange)
+            {
                 if (enemy != null)
                 {
                     Vector3 soundPos = transform.position;
                     enemy.Alerted(soundPos);
-                }
+                }  
             }
-
         }
     }
 }
