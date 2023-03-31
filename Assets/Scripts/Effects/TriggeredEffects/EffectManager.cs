@@ -36,8 +36,6 @@ namespace Detection
             musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             effectEmitArgs = new VFXEmitArgs(null, null, null);
 
-            gameObject.AddComponent<ParticleSizeBeatEffect>().Initialize(musicAnalyzer);
-
             effectsFound = GameObject.FindGameObjectWithTag("Effects").GetComponents<IEffect>();
 
             // populate the weightedRandom effects bag we can pick from

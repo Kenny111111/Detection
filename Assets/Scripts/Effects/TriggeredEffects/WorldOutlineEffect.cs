@@ -46,28 +46,23 @@ namespace Detection
 		private float diffDistanceTolerance;
         public int Weight { get; set; }
 
-		[SerializeField] private float lineStartThickness;
-		[SerializeField] private float lineEndThickness;
+		[SerializeField] private float lineStartThickness = 1f;
+		[SerializeField] private float lineEndThickness = 1f;
 
 		public void Awake()
 		{
 			Weight = 5;
-		}
+            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
+            numPoints = 500;
+            maxDistance = 20;
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+			diffDistanceTolerance = 2f;
 
-		public void Initialize(MusicAnalyzer mAnalyzer, GameObject player, int newNumPoints, float newMaxDistance, float newDiffDistanceTolerance)
-		{
-			musicAnalyzer = mAnalyzer;
-			numPoints = newNumPoints;
-			maxDistance = newMaxDistance;
-			playerTransform = player.transform;
-			diffDistanceTolerance = newDiffDistanceTolerance;
+            pointList = new List<OutlinePoint>();
+            layerMask = LayerMask.GetMask("Environment");
 
-			pointList = new List<OutlinePoint>();
-
-			layerMask = LayerMask.GetMask("Environment");
-
-			InitializePointList();
-		}
+            InitializePointList();
+        }
 
 		void InitializePointList()
         {
@@ -90,7 +85,6 @@ namespace Detection
 				{
 					float x = Mathf.Cos(angle);
 					float z = Mathf.Sin(angle);
-					angle += 2 * Mathf.PI / numPoints;
 
 					Vector3 dir = new Vector3(playerTransform.position.x * x, 0, playerTransform.position.z * z);
 					Vector3 fwd = transform.TransformDirection(dir); // is this necessary? maybe just use dir?
@@ -107,7 +101,9 @@ namespace Detection
 						pointList[i].SetHasHitWall(true);
 					}
 					else pointList[i].SetHasHitWall(false);
-				}
+
+                    angle += 2 * Mathf.PI / numPoints;
+                }
 			}
 
 			Color startingColor = new Color(255, 255, 255, 255);
@@ -121,9 +117,13 @@ namespace Detection
 			line.endColor = startingColor;
 
 			line.SetPosition(0, new Vector3(0, 0, 0));
-			line.SetPosition(1, new Vector3(1, 1, 1));
-			line.SetPosition(3, new Vector3(2, 2, 2));
-			line.SetPosition(4, new Vector3(3, 3, 3));
+			line.SetPosition(1, new Vector3(100, 100, 100));
+			line.SetPosition(3, new Vector3(200, 200, 200));
+			line.SetPosition(4, new Vector3(300, 300, 300));
+
+
+
+
 
 			/*
 			bool createdNewLineRenderer = true;
@@ -140,6 +140,7 @@ namespace Detection
 					}
 				}
 			}*/
+
 			Color endingColor = new Color(0, 0, 0, 0);
 			StartCoroutine(FadeLineColor(line, startingColor, endingColor, duration, callback));
 		}

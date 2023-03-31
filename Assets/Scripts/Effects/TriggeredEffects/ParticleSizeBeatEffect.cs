@@ -20,12 +20,8 @@ namespace Detection
         public void Awake()
         {
 			Weight = 10;
+            musicAnalyzer = FindObjectOfType<MusicAnalyzer>(); ;
         }
-
-        public void Initialize(MusicAnalyzer mAnalyzer) 
-		{
-			musicAnalyzer = mAnalyzer;
-		}
 
 		void IEffect.DoEffect(Action callback) => StartCoroutine(DoParticleSizeBeatEffect(callback));
 
