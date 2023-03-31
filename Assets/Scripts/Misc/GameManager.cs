@@ -119,6 +119,9 @@ namespace Detection
             OnGameStateChanged?.Invoke(gameState);
         }
 
+        // pre doesnt do levelended
+        // on doesnt do preparing level
+
         private void GameManagerPreGameStateChanged(GameState currentState)
         {
             switch (currentState)
