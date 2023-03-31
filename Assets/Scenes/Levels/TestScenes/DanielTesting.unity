@@ -16957,10 +16957,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1271486274}
-  numParticlesPerSecond: 25000
-  sprayAngleX: 110
-  sprayAngleY: 90
-  maxRayDistance: 40
+  numParticlesPerSecond: 20000
+  sprayAngleLoudnessVariance: 150
+  sprayAngleX: 70
+  sprayAngleY: 50
+  maxRayDistance: 30
 --- !u!114 &1271486271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17115,8 +17116,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 40.2
+  far clip plane: 100
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -18639,8 +18640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songList:
-  - name: 130R
-    clip: {fileID: 8300000, guid: ce0cc29fa23dd8f4db989d0a4c16cd37, type: 3}
+  - name: Death Squad
+    clip: {fileID: 8300000, guid: e6a76ad4c14015b4293ddee38807209b, type: 3}
     audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
       type: 2}
     loop: 0
@@ -18649,8 +18650,8 @@ MonoBehaviour:
     volumeDeviation: 0
     pitch: 1
     pitchDeviation: 0
-  - name: Death Squad
-    clip: {fileID: 8300000, guid: e6a76ad4c14015b4293ddee38807209b, type: 3}
+  - name: 130R
+    clip: {fileID: 8300000, guid: ce0cc29fa23dd8f4db989d0a4c16cd37, type: 3}
     audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
       type: 2}
     loop: 0

@@ -45,7 +45,7 @@ namespace Detection
                     // reset and recalculate the current sound
                     currentAvgLoudness = 0;
                     currentAvgLoudnessNormalized = 0;
-                    currentMaxLoudness = .1f;
+                    //currentMaxLoudness = .1f;
                     foreach (float sample in audioSamples)
                     {
                         currentAvgLoudness += Mathf.Abs(sample);
