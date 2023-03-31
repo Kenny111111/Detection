@@ -19,6 +19,7 @@ namespace Detection
         void Start()
         {
             mainScanner = gameObject.GetComponent(typeof(LookScanner)) as LookScanner;
+            if (mainScanner == null) Debug.LogError("Could not find LookScanner");
             StartCoroutine(ConstantMainScanner());
         }
 
