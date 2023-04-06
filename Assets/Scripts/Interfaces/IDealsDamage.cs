@@ -4,6 +4,7 @@ namespace Detection
     {
         public enum Weapons
         {
+            None,
             Knife,
             Pistol,
             Shotgun,

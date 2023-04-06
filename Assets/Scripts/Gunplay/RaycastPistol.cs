@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static Detection.IDealsDamage;
 
@@ -16,6 +17,8 @@ namespace Detection
 
         // bullet trail created
         public LineRenderer bulletTrail;
+
+        public event Action OnShot;
 
         private void SpawnBulletTrail(Vector3 hitPoint)
         {
@@ -60,6 +63,7 @@ namespace Detection
                     nextShot = Time.time + gunData.fireRate;
                     Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                     ShootAndEmitParticle(ray);
+                    OnShot?.Invoke();
                     AudioSystem.instance.Play("beretta_shot");
                     ActivateHapticFeedback();
                     --currentAmmo;
@@ -79,7 +83,7 @@ namespace Detection
                 Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
                 if (hitbox != null)
                 {
-                    hitbox.Damage(gunData.damage);
+                    hitbox.Damage(Weapons.Pistol, gunData.damage, attackerType);
                 }
 
                 var scannableObject = hit.collider.GetComponent<IScannable>();
