@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Detection
@@ -30,6 +32,7 @@ namespace Detection
         private void UpdateSongPlaying(Sound newSong)
         {
             songPlaying = newSong.source;
+            audioSamples = new float[sampleDataLength * songPlaying.clip.channels];
         }
 
         private void Update()
@@ -40,6 +43,7 @@ namespace Detection
             if (curTimeCount >= updateStep)
             {
                 curTimeCount = 0f;
+
                 if (songPlaying.clip.GetData(audioSamples, songPlaying.timeSamples))
                 {
                     // reset and recalculate the current sound
@@ -60,6 +64,7 @@ namespace Detection
 
                     // normalize it from 0 to 1 based on the min max range
                     currentAvgLoudnessNormalized = (currentAvgLoudness - minLoudness) / (currentMaxLoudness - minLoudness);
+                    if (double.IsNaN(currentAvgLoudnessNormalized)) currentAvgLoudnessNormalized = 0;
                 }
             }
         }

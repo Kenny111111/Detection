@@ -54,11 +54,18 @@ namespace Detection
             if (cameraObject == null) Debug.LogError("Unable to find an object with tag 'MainCamera'. cameraObject is null.");
 
             GameManager.PreGameStateChanged += GameManagerPreGameStateChanged;
+            EnemyManager.OnAllEnemiesDead += GameManagerOnAllEnemiesDead;
+        }
+
+        private void GameManagerOnAllEnemiesDead()
+        {
+            UpdateGameState(GameState.LEVELCLEARED);
         }
 
         private void OnDestroy()
         {
             GameManager.PreGameStateChanged -= GameManagerPreGameStateChanged;
+            EnemyManager.OnAllEnemiesDead -= GameManagerOnAllEnemiesDead;
         }
 
         public GameState GetGameState()
@@ -197,7 +204,6 @@ namespace Detection
         {
             // Enable the controller ray interators
             // Disable the controller direct interators
-            throw new NotImplementedException();
         }
 
         // Level intro scene is playing.

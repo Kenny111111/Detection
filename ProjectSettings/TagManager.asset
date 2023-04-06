@@ -10,6 +10,7 @@ TagManager:
   - RightController
   - Camera
   - Effects
+  - WristTimerText
   layers:
   - Default
   - TransparentFX
