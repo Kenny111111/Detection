@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using System.Linq;
 
 namespace Detection
 {
@@ -11,8 +12,9 @@ namespace Detection
         public static EnemyManager instance;
 
         public static Action<AttackerType, IDealsDamage.Weapons> OnEnemyDeath;
+        public static Action OnAllEnemiesDead;
 
-        public Dictionary<Enemy, GameObject> enemies { get; private set; } = new Dictionary<Enemy, GameObject>();
+        private Dictionary<Enemy, GameObject> enemies = new Dictionary<Enemy, GameObject>();
 
         private void Awake()
         {
@@ -33,15 +35,18 @@ namespace Detection
             enemy.OnDeath -= HandleEnemyDeath;
 
             OnEnemyDeath?.Invoke(attackerType, weapon);
+
+            if (enemies.Count == 0)
+                OnAllEnemiesDead?.Invoke();
         }
 
         private void HandleGameStateChange(GameState gameState)
         {
-            if (gameState == GameState.PREPARINGLEVEL)
+            if(gameState == GameState.PREPARINGLEVEL)
             {
                 Init();
             }
-            else if (gameState == GameState.LEVELENDED)
+            else if(gameState == GameState.LEVELENDED)
             {
                 Reset();
             }
@@ -49,7 +54,6 @@ namespace Detection
 
         private void Init()
         {
-            Debug.Log("Init");
             Enemy[] enemyInstances = FindObjectsOfType<Enemy>();
             foreach (Enemy enemy in enemyInstances)
             {
@@ -60,13 +64,17 @@ namespace Detection
 
         private void Reset()
         {
-            Debug.Log("Reset");
             foreach (KeyValuePair<Enemy, GameObject> entry in enemies)
             {
                 entry.Key.OnDeath -= HandleEnemyDeath;
             }
 
             enemies.Clear();
+        }
+
+        public List<GameObject> GetActiveEnemies()
+        {
+            return enemies.Values.ToList();
         }
     }
 }

@@ -1,16 +1,15 @@
 using UnityEngine;
 using Detection;
+using System;
 
 public class Enemy : Combatant
 {
     private Animator animator;
     private Rigidbody[] rigidbodies;
     private AIWeaponManager weaponManager;
-    private AIController aiController;
+    public Action<Enemy, IDealsDamage.Weapons, AttackerType> OnDeath;
 
     public bool isAlive { get; private set; } = true;
-    public event System.Action<Enemy, IDealsDamage.Weapons, AttackerType> OnDeath;
-
 
     private void Awake()
     {
@@ -19,7 +18,6 @@ public class Enemy : Combatant
         animator = GetComponent<Animator>();
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         weaponManager = GetComponent<AIWeaponManager>();
-        aiController = GetComponent<AIController>();
     }
 
     private void Start()
@@ -27,7 +25,7 @@ public class Enemy : Combatant
         ToggleRagdoll(false);
     }
 
-    public override void Die()
+    public override void Die(IDealsDamage.Weapons weapon, AttackerType attacker)
     {
 
         // Check if already dead
@@ -36,16 +34,13 @@ public class Enemy : Combatant
         // Set isAlive to false
         isAlive = false;
 
+        OnDeath?.Invoke(this, weapon, attacker);
+
         // Launch weapon towards player or drop on ground if not targeting player
         weaponManager.LaunchWeapon();
 
         animator.enabled = false;
         ToggleRagdoll(true);
-
-        if (OnDeath != null)
-        {
-            OnDeath.Invoke(this, IDealsDamage.Weapons.None, AttackerType.Enemy);
-        }
 
         Destroy(gameObject, 1f);
     }
@@ -56,13 +51,7 @@ public class Enemy : Combatant
         if (state)
             animator.enabled = false;
 
-        foreach (Rigidbody rb in rigidbodies)
+        foreach(Rigidbody rb in rigidbodies)
             rb.isKinematic = !state;
     }
-
-    public void Alerted(Vector3 position)
-    {
-        aiController.Alerted(position);
-    }
 }
-
