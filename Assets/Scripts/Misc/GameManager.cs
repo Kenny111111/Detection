@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Detection
 {
@@ -12,12 +11,12 @@ namespace Detection
         INMAINMENU,         // Player is in the main menu.
         LEVELINTRO,         // Level intro scene is playing.
         PREPARINGLEVEL,     // Prepare the level to start playing.
-        PLAYINGLEVEL,       // Player is in the level and playing.
+        PLAYINGMISSION,       // Player is in the level and playing.
         LEVELPAUSED,        // Player is interacting with the wrist menu.
         PLAYERDIED,         // Player died while playing the level.
-        LEVELCLEARED,       // Player has killed all enemies in the level.
+        MISSIONCLEARED,       // Player has killed all enemies in the level.
         LEVELOUTRO,         // Level outro scene is playing.
-        LEVELSTATISTICS,    // Show the player their statistics.
+        MISSIONSTATISTICS,    // Show the player their statistics.
         LEVELENDED,         // Prepare before the next level.
         PLAYINGCREDITS,     // Playing ending credits.
     }
@@ -28,7 +27,7 @@ namespace Detection
 
         public GameState gameState;
         private int currentSceneNum = 0;
-        private const int totalNumberOfScenes = 5;
+        private int totalNumberOfScenes;
         private GameObject playerObject;
         private GameObject cameraObject;
 
@@ -38,6 +37,7 @@ namespace Detection
         private void Awake()
         {
             currentSceneNum = 0;
+            totalNumberOfScenes = SceneManager.sceneCountInBuildSettings;
 
             // Ensure only one instance exists
             if (instance == null)
@@ -59,7 +59,7 @@ namespace Detection
 
         private void GameManagerOnAllEnemiesDead()
         {
-            UpdateGameState(GameState.LEVELCLEARED);
+            UpdateGameState(GameState.MISSIONCLEARED);
         }
 
         private void OnDestroy()
@@ -95,8 +95,8 @@ namespace Detection
                 case GameState.PREPARINGLEVEL:
                     OnPreparingLevel();
                     break;
-                case GameState.PLAYINGLEVEL:
-                    OnPlayingLevel();
+                case GameState.PLAYINGMISSION:
+                    OnPlayingMission();
                     break;
                 case GameState.LEVELPAUSED:
                     OnLevelPaused();
@@ -104,13 +104,13 @@ namespace Detection
                 case GameState.PLAYERDIED:
                     OnPlayerDied();
                     break;
-                case GameState.LEVELCLEARED:
+                case GameState.MISSIONCLEARED:
                     OnLevelCleared();
                     break;
                 case GameState.LEVELOUTRO:
                     OnLevelOutro();
                     break;
-                case GameState.LEVELSTATISTICS:
+                case GameState.MISSIONSTATISTICS:
                     OnLevelStatistics();
                     break;
                 case GameState.LEVELENDED:
@@ -147,8 +147,8 @@ namespace Detection
                 case GameState.PREPARINGLEVEL:
                     AfterPreparingLevel();
                     break;
-                case GameState.PLAYINGLEVEL:
-                    AfterPlayingLevel();
+                case GameState.PLAYINGMISSION:
+                    AfterPlayingMission();
                     break;
                 case GameState.LEVELPAUSED:
                     AfterLevelPaused();
@@ -156,14 +156,14 @@ namespace Detection
                 case GameState.PLAYERDIED:
                     AfterPlayerDied();
                     break;
-                case GameState.LEVELCLEARED:
-                    AfterLevelCleared();
+                case GameState.MISSIONCLEARED:
+                    AfterMissionCleared();
                     break;
                 case GameState.LEVELOUTRO:
                     AfterLevelOutro();
                     break;
-                case GameState.LEVELSTATISTICS:
-                    AfterLevelStatistics();
+                case GameState.MISSIONSTATISTICS:
+                    AfterMissionStatistics();
                     break;
                 case GameState.LEVELENDED:
                     AfterLevelEnded();
@@ -231,7 +231,7 @@ namespace Detection
             // Do other preparing stuff...
 
             // Once we are finished preparing the level, switch gamestate to playinglevel
-            UpdateGameState(GameState.PLAYINGLEVEL);
+            UpdateGameState(GameState.PLAYINGMISSION);
         }
 
         // Done preparing the level
@@ -241,16 +241,16 @@ namespace Detection
         }
 
         // Player is now in the level and playing
-        private void OnPlayingLevel()
+        private void OnPlayingMission()
         {
             EnablePlayerInput();
             EnableScanner();
         }
 
         // Player is done playing in the level
-        private void AfterPlayingLevel()
+        private void AfterPlayingMission()
         {
-            throw new NotImplementedException();
+
         }
 
         // Player is interacting with the wrist menu.
@@ -285,16 +285,12 @@ namespace Detection
         private void OnLevelCleared()
         {
             // trigger showing arrows
-
-            throw new NotImplementedException();
         }
 
         // The level is no longer levelCleared
-        private void AfterLevelCleared()
+        private void AfterMissionCleared()
         {
             // trigger showing arrows
-
-            throw new NotImplementedException();
         }
 
         // Level outro scene is playing.
@@ -314,27 +310,27 @@ namespace Detection
         // Show the player their statistics.
         private void OnLevelStatistics()
         {
-            throw new NotImplementedException();
+
         }
 
         // Done with the current levels statistics.
-        private void AfterLevelStatistics()
+        private void AfterMissionStatistics()
         {
-            throw new NotImplementedException();
+
         }
 
         // The level ended
         private void OnLevelEnded()
         {
             // Do stuff before the next level is loaded
-
+            FindObjectOfType<MusicSystem>().ResetQueue();
             TrySwitchToNextScene();
         }
 
         // Do stuff before 
         private void AfterLevelEnded()
         {
-            throw new NotImplementedException();
+
         }
 
         // Play ending credits, then go to main menu
@@ -358,10 +354,11 @@ namespace Detection
             switch (gameState)
             {
                 case GameState.PLAYINGGAMEINTRO:
-                case GameState.LEVELSTATISTICS:
-                case GameState.LEVELCLEARED:
+                case GameState.MISSIONSTATISTICS:
+                case GameState.MISSIONCLEARED:
                     if (currentSceneNum + 1 < totalNumberOfScenes)
                     {
+                        GameManager.instance.UpdateGameState(GameState.LEVELENDED);
                         SwitchToScene(currentSceneNum + 1, true);
                     }
                     return true;
