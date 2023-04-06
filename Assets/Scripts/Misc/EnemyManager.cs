@@ -72,9 +72,9 @@ namespace Detection
             enemies.Clear();
         }
 
-        public List<GameObject> GetActiveEnemies()
+        public List<KeyValuePair<Enemy, GameObject>> GetActiveEnemies()
         {
-            return enemies.Values.ToList();
+            return enemies.ToList();
         }
     }
 }

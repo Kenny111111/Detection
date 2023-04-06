@@ -24,7 +24,7 @@ namespace Detection
         void DoEnemyCheckForSound()
         {
             // find ai around player then call each enemies Alert() function in radius
-            foreach (KeyValuePair<Enemy, GameObject> entry in EnemyManager.instance.enemies)
+            foreach (KeyValuePair<Enemy, GameObject> entry in EnemyManager.instance.GetActiveEnemies())
             {
                 if (Vector3.Distance(transform.position, entry.Value.transform.position) <= maxWeaponHearingRadius)
                 {
