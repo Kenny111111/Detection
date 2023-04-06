@@ -10,6 +10,7 @@ TagManager:
   - RightController
   - Camera
   - Effects
+  - statisticsMenu
   layers:
   - Default
   - TransparentFX
