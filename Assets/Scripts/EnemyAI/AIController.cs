@@ -102,7 +102,10 @@ namespace Detection
                 if (CanAttackWithWeaponRequirements(distanceToPlayer)) aiState = AIState.Attacking;
                 else aiState = AIState.Chasing;
             }
-            else aiState = AIState.Patrolling;
+            else
+            {
+                if (aiState != AIState.Alerted) aiState = AIState.Patrolling;
+            }
 
             switch (aiState)
             {
@@ -114,6 +117,8 @@ namespace Detection
                     break;
                 case AIState.Chasing:
                     Chasing();
+                    break;
+                case AIState.Alerted:
                     break;
                 default:
                     Debug.Log("Unexpected aiState");
