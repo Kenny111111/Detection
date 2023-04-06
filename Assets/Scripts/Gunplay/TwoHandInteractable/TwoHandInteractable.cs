@@ -29,7 +29,8 @@ public class TwoHandInteractable : XRGrabInteractable
     public ZAxisRotationType rotationType;
     private float intensity = 0f;
     private float duration = 0f;
-    
+    protected AttackerType attackerType { get; private set; } = AttackerType.Enemy;
+
     protected override void Awake()
     {
         base.Awake();
@@ -63,6 +64,7 @@ public class TwoHandInteractable : XRGrabInteractable
     {
         PrimaryInteractor = args.interactorObject;
         initalAttachRotation = pHold.ObjectHeld.transform.localRotation;
+        attackerType = AttackerType.Player;
 
         ManualSelect(args);
 

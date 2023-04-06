@@ -77,7 +77,7 @@ namespace Detection
             }
 
             // If the game state is paused, dont do anything..
-            if (GameManager.instance.GetGameState() == GameState.LEVELPAUSED) 
+            if (GameManager.instance.GetGameState() == GameState.LEVELPAUSED)
             {
                 aiState = AIState.Paused;
                 return;
@@ -96,15 +96,18 @@ namespace Detection
             Vector3 dirToPlayer = playerPosition - aiPosition;
             float distanceToPlayer = dirToPlayer.magnitude;
             dirToPlayer.Normalize();
-            
+
             if (CanSeePlayerUnobstructed(aiPosition, playerPosition, distanceToPlayer, dirToPlayer))
             {
                 if (CanAttackWithWeaponRequirements(distanceToPlayer)) aiState = AIState.Attacking;
                 else aiState = AIState.Chasing;
             }
-            else aiState = AIState.Patrolling;
+            else
+            {
+                if (aiState != AIState.Alerted) aiState = AIState.Patrolling;
+            }
 
-            switch(aiState)
+            switch (aiState)
             {
                 case AIState.Patrolling:
                     Patrolling();
@@ -114,6 +117,8 @@ namespace Detection
                     break;
                 case AIState.Chasing:
                     Chasing();
+                    break;
+                case AIState.Alerted:
                     break;
                 default:
                     Debug.Log("Unexpected aiState");
@@ -197,20 +202,6 @@ namespace Detection
             weaponManager.DoAttack();
         }
 
-        public void Alerted(Vector3 soundPos)
-        {
-            // Calculate distance between the AI and the sound position
-            float distance = Vector3.Distance(transform.position, soundPos);
-
-            // If the sound is within hearing range, move towards the sound
-            if (distance <= hearingDistance)
-            {
-                aiState = AIState.Alerted;
-                SetAiMoveSpeed(runningSpeed);
-                navMeshAgent.SetDestination(soundPos);
-            }
-        }
-
         void SetAiMoveSpeed(float speed)
         {
             navMeshAgent.speed = speed; // maybe use a coroutine to interpolate over time?
@@ -221,6 +212,20 @@ namespace Detection
         {
             navMeshAgent.speed = 0; // maybe use a coroutine to lower over time?
             navMeshAgent.isStopped = true;
+        }
+
+        public void Alerted(Vector3 soundPos)
+        {
+            // Calculate distance between the AI and the sound position
+            float distance = Vector3.Distance(transform.position, soundPos);
+
+            // If the sound is within hearing range, respond to it
+            if (distance <= hearingDistance)
+            {
+                aiState = AIState.Alerted;
+                SetAiMoveSpeed(runningSpeed);
+                navMeshAgent.SetDestination(soundPos);
+            }
         }
     }
 }

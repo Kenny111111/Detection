@@ -21,7 +21,7 @@ namespace Detection
             StartCoroutine(RegenOverTime());
         }
 
-        public override void Die()
+        public override void Die(IDealsDamage.Weapons weapon, AttackerType attacker)
         {
             StopCoroutine(RegenOverTime());
 

@@ -15,6 +15,7 @@ namespace Detection
         private Collider ringCollider;
         private bool exploded = false;
         private int count = 0;
+        private AttackerType attackerType = AttackerType.Enemy;
 
         protected override void Awake()
         {
@@ -43,6 +44,7 @@ namespace Detection
         {
             // Allow the ring to be pulled after the grenade has been picked up
             ringCollider.enabled = true;
+            attackerType = AttackerType.Player;
         }
 
         private void DisableRing(SelectExitEventArgs args)
@@ -123,7 +125,7 @@ namespace Detection
             {
                 Hitbox hitbox = collider.GetComponent<Hitbox>();
                 if (hitbox == null) continue;
-                hitbox.Damage(damage);
+                hitbox.Damage(Weapons.Grenade, damage, attackerType);
             }
 
             Instantiate(explosionPrefab, transform.position, transform.rotation, transform);
