@@ -9,6 +9,7 @@ namespace Detection
         // Start is called before the first frame update
         void Start()
         {
+            GameManager.instance.UpdateGameState(GameState.LEVELENDED);
             GameManager.instance.SwitchToScene("Statistics", false);
         }
     }

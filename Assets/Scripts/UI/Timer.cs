@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -7,14 +5,16 @@ namespace Detection
 {
     public class Timer : MonoBehaviour
     {
-        public Text timerText;
+        private Text timerText;
         private float startTime;
         private bool finished = false;
 
         // Start is called before the first frame update
         void Start()
         {
-            startTime = Time.time;
+            timerText = GameObject.FindWithTag("WristTimerText").GetComponent<Text>();
+            if (timerText == null) Debug.LogError("Could not find WristTimerText component Text");
+            startTime = Time.time; 
         }
 
         // Update is called once per frame

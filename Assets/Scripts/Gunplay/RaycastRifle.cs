@@ -103,7 +103,7 @@ namespace Detection
                 Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
                 if (hitbox != null)
                 {
-                    hitbox.Damage(gunData.damage);
+                    hitbox.Damage(Weapons.Rifle, gunData.damage, attackerType);
                 }
 
                 var scannableObject = hit.collider.GetComponent<IScannable>();
