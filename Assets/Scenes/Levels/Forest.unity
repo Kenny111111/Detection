@@ -693,6 +693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Connector 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
       value: 122
@@ -1397,6 +1401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8631696006529404998, guid: 9cd9663f0245f2746b4094f8cabfb82a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd9663f0245f2746b4094f8cabfb82a, type: 3}
 --- !u!4 &162591562 stripped
@@ -2090,7 +2099,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &273986585
 Transform:
@@ -2620,6 +2629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock Type5 02
       objectReference: {fileID: 0}
+    - target: {fileID: 110398, guid: f584b275cfb132f48a2ec91fd9d1b576, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 483248, guid: f584b275cfb132f48a2ec91fd9d1b576, type: 3}
       propertyPath: m_RootOrder
       value: 155
@@ -2802,6 +2815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigRock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511082446518392383, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4511082446518553119, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
         type: 3}
@@ -3452,7 +3470,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &405501072
 Transform:
@@ -4296,6 +4314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8631696006529404998, guid: 9cd9663f0245f2746b4094f8cabfb82a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd9663f0245f2746b4094f8cabfb82a, type: 3}
 --- !u!4 &479594408 stripped
@@ -4590,6 +4613,10 @@ PrefabInstance:
     - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_Name
       value: Clifftile Connector 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
@@ -5117,6 +5144,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1492923980}
     m_Modifications:
+    - target: {fileID: 3443252409306970031, guid: 94b44b65078ea0a44a072e3d52c3eb1a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8566659439620414121, guid: 94b44b65078ea0a44a072e3d52c3eb1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -5176,6 +5208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpeedPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566659439620414122, guid: 94b44b65078ea0a44a072e3d52c3eb1a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b44b65078ea0a44a072e3d52c3eb1a, type: 3}
@@ -5396,7 +5433,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &579610808
 Transform:
@@ -5950,6 +5987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bridge_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631696006529404998, guid: 9cd9663f0245f2746b4094f8cabfb82a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd9663f0245f2746b4094f8cabfb82a, type: 3}
@@ -6615,6 +6657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Connector 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
       value: 130
@@ -6812,7 +6858,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &725102157
 Transform:
@@ -6844,7 +6890,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &729245043
 MonoBehaviour:
@@ -6892,6 +6938,10 @@ PrefabInstance:
     - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_Name
       value: Clifftile Connector 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
@@ -7066,6 +7116,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultLifetime: 3
   defaultSize: 0.015
+--- !u!1001 &754907899
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.700003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.32298806
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.946403
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 217.687
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834015, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_Name
+      value: VR Rig
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe03e8d2af57f6f48b54b55af3f590b7, type: 3}
 --- !u!1 &755660801
 GameObject:
   m_ObjectHideFlags: 0
@@ -7303,37 +7422,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1312243999}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &770881744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 770881745}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: SpawnPoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &770881745
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770881744}
-  m_LocalRotation: {x: -0, y: 0.72507435, z: -0, w: 0.6886706}
-  m_LocalPosition: {x: 22.875, y: 3.1427402, z: 5.415}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1241313609}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 92.95, z: 0}
 --- !u!1001 &783874546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7845,7 +7933,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &821616896
 Transform:
@@ -8037,6 +8125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock Type1 01
       objectReference: {fileID: 0}
+    - target: {fileID: 110610, guid: 75283e9ef15245c4aab126ec6525dd2a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 474244, guid: 75283e9ef15245c4aab126ec6525dd2a, type: 3}
       propertyPath: m_RootOrder
       value: 82
@@ -8115,7 +8207,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &863512222
 Transform:
@@ -9498,6 +9590,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthPickup
       objectReference: {fileID: 0}
+    - target: {fileID: 399985090837678695, guid: a236626b8aa9c2443a984e407bbef1a9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738985845334960104, guid: a236626b8aa9c2443a984e407bbef1a9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a236626b8aa9c2443a984e407bbef1a9, type: 3}
 --- !u!4 &969150684 stripped
@@ -9964,7 +10066,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1027908755
 Transform:
@@ -10307,7 +10409,7 @@ GameObject:
   m_TagString: Effects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1063105050
 MonoBehaviour:
@@ -10321,7 +10423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151e425a11a74584489bc964a69d4f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicAnalyzer: {fileID: 0}
   minEffectDuration: 0.5
   maxEffectDuration: 2
   loudnessToSizeScalar: 0.02
@@ -10533,7 +10634,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1089899968
 Transform:
@@ -10850,7 +10951,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1110282228
 Transform:
@@ -10964,6 +11065,11 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7429412392875834564, guid: 76cb182ad3a8cbb48a842273a4c8e674,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8350504536508284449, guid: 76cb182ad3a8cbb48a842273a4c8e674,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -12082,6 +12188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Connector 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1197048385328406, guid: 797710b9cddb52647aa5e2345461502f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4050830807347228, guid: 797710b9cddb52647aa5e2345461502f, type: 3}
       propertyPath: m_RootOrder
       value: 126
@@ -13047,38 +13157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultLifetime: 3
   defaultSize: 0.015
---- !u!1 &1241313608
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1241313609}
-  m_Layer: 0
-  m_Name: Setup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1241313609
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241313608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 770881745}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242118042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 159288, guid: d7be01913fd43c542a7c03fa290742fa,
@@ -13910,6 +13988,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRock_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4511082446518392383, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4511082446518553119, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
         type: 3}
       propertyPath: m_RootOrder
@@ -14293,7 +14376,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1329776253
 Transform:
@@ -15074,7 +15157,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1400373011
 Transform:
@@ -15488,7 +15571,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1469116354
 MonoBehaviour:
@@ -15633,7 +15716,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1473891335
 MonoBehaviour:
@@ -15696,7 +15779,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1478704692
 Transform:
@@ -15833,7 +15916,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1492923980
 Transform:
@@ -15866,7 +15949,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1495881481
 Transform:
@@ -16242,7 +16325,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1523954653
 Transform:
@@ -16621,6 +16704,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigRock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511082446518392383, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4511082446518553119, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
         type: 3}
@@ -17497,7 +17585,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1638372202
 Transform:
@@ -17679,6 +17767,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bridge_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631696006529404998, guid: 9cd9663f0245f2746b4094f8cabfb82a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd9663f0245f2746b4094f8cabfb82a, type: 3}
@@ -18003,6 +18096,10 @@ PrefabInstance:
     - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_Name
       value: Clifftile Connector 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
@@ -21028,6 +21125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock Type1 03
       objectReference: {fileID: 0}
+    - target: {fileID: 128044, guid: 85f4229977c9ee247bc4425710c5b0c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 441272, guid: 85f4229977c9ee247bc4425710c5b0c4, type: 3}
       propertyPath: m_RootOrder
       value: 80
@@ -21691,6 +21792,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRock_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4511082446518392383, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4511082446518553119, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
         type: 3}
       propertyPath: m_RootOrder
@@ -22332,7 +22438,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2086127536
 Transform:
@@ -22686,7 +22792,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2139437238
 Transform:
