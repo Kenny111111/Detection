@@ -29,7 +29,6 @@ namespace Detection
         [SerializeField] private float aiDetectRadius = 20.0f;
         [SerializeField] private float aiViewAngle = 90.0f;
 
-        private LayerMask playerLayerMask;
         private LayerMask obstacleLayerMask;
 
         [SerializeField] private List<Transform> waypoints;
@@ -51,7 +50,6 @@ namespace Detection
             curWaypoint = 0;
 
             enemyAI = GetComponent<Enemy>();
-            playerLayerMask = LayerMask.GetMask("Player");
             obstacleLayerMask = LayerMask.GetMask("Environment");
 
             navMeshAgent = GetComponent<NavMeshAgent>();

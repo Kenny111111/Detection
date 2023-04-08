@@ -56,7 +56,12 @@ namespace Detection
 		}
 
 
-		public bool TryEnqueue(Sound songToAdd)
+		public void ResetQueue()
+		{
+			musicQueue.Clear();
+		}
+
+			public bool TryEnqueue(Sound songToAdd)
 		{
 			// If we arent able to find the current song in the queue, add it.
 			if (musicQueue.ToList().Find(item => item.name == songToAdd.name) == null)

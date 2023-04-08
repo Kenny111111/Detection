@@ -19,6 +19,7 @@ namespace Detection
 
 			musicSystem = FindObjectOfType<MusicSystem>();
 
+			musicSystem.ResetQueue();
 			AddSongsToQueue();
 		}
 
