@@ -51,7 +51,7 @@ namespace Detection
             {
                 Init();
             }
-            else if(gameState == GameState.LEVELENDED)
+            else if(gameState == GameState.LEVELENDED || gameState == GameState.PLAYERDIED)
             {
                 Reset();
             }
