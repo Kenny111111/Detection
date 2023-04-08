@@ -9,8 +9,6 @@ namespace Detection
         private float difficultyModifier = 1f;
         private float regenPerTick = 1f;
         private WaitForSeconds healTick;
-        public int currentSceneIndex;
-        public int deathScene;
 
         private void Start()
         {
@@ -24,9 +22,7 @@ namespace Detection
         public override void Die(IDealsDamage.Weapons weapon, AttackerType attacker)
         {
             StopCoroutine(RegenOverTime());
-
-            SceneManager.LoadScene(deathScene);
-            SceneManager.UnloadSceneAsync(currentSceneIndex);
+            GameManager.instance.UpdateGameState(GameState.PLAYERDIED);
         }
 
         public void InstantHeal()

@@ -11,6 +11,7 @@ namespace Detection
 
         public void LevelSelected(string sceneName)
         {
+            GameManager.instance.UpdateGameState(GameState.LEVELENDED);
             GameManager.instance.SwitchToScene(sceneName, true);
         }
     }

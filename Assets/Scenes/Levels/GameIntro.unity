@@ -3372,6 +3372,7 @@ GameObject:
   - component: {fileID: 1384999238}
   - component: {fileID: 1384999237}
   - component: {fileID: 1384999236}
+  - component: {fileID: 1384999248}
   m_Layer: 10
   m_Name: VR Rig
   m_TagString: Player
@@ -3403,8 +3404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d927317ea5b26bd499e305e57ab2d0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSceneIndex: 3
-  deathScene: 4
 --- !u!114 &1384999238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3641,6 +3640,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384999248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384999235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10487286d4a290409d420744615b52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitboxMultipler: 1
 --- !u!1 &1405591828
 GameObject:
   m_ObjectHideFlags: 0

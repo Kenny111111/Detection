@@ -272,13 +272,13 @@ namespace Detection
         // Player died while playing the level.
         private void OnPlayerDied()
         {
-            throw new NotImplementedException();
+            ReloadScene();
         }
 
         // Player is no longer dead
         private void AfterPlayerDied()
         {
-            throw new NotImplementedException();
+
         }
 
         // Player has killed all enemies in the level.
@@ -369,6 +369,12 @@ namespace Detection
                     return false;
             }
         }
+
+        public void ReloadScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
 
         public void SwitchToScene(string sceneName, bool updateCurrentSceneNum)
         {
