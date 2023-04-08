@@ -28,6 +28,11 @@ namespace Detection
             GameManager.PreGameStateChanged += HandleGameStateChange;
         }
 
+        private void OnDestroy()
+        {
+            Reset();
+        }
+
         private void HandleEnemyDeath(Enemy enemy, IDealsDamage.Weapons weapon, AttackerType attackerType)
         {
             // Don't need to be removed if the enemies aren't destroyed when they die
