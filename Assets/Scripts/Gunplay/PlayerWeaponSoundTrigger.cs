@@ -28,10 +28,11 @@ namespace Detection
                 // find ai around player then call each enemies Alert() function in radius
                 foreach (KeyValuePair<Enemy, GameObject> entry in EnemyManager.instance.GetActiveEnemies())
                 {
-                    if (Vector3.Distance(transform.position, entry.Value.transform.position) <= maxWeaponHearingRadius)
+                    if (entry.Key != null && entry.Value != null)
                     {
-                        if (entry.Key != null && entry.Value != null)
+                        if (Vector3.Distance(transform.position, entry.Value.transform.position) <= maxWeaponHearingRadius)
                         {
+
                             Vector3 soundPos = transform.position;
                             entry.Key.Alerted(soundPos);
                         }

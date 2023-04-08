@@ -193,10 +193,7 @@ namespace Detection
         // Player is in the main menu
         private void OnInMainMenu()
         {
-            // Try to spawn the player in the level
-            Transform spawnPointTransform = GameObject.FindWithTag("SpawnPoint").transform;
-            if (spawnPointTransform == null) Debug.LogError("Unable to find an object with tag 'SpawnPoint'. spawnPointTransform is null.");
-            SpawnPlayerAtTransform(spawnPointTransform);
+
         }
         
         // Player is leaving the main menu
@@ -223,11 +220,6 @@ namespace Detection
         // Prepare the level to start playing.
         private void OnPreparingLevel()
         {
-            // Try to spawn the player in the level
-            Transform spawnPointTransform = GameObject.FindWithTag("SpawnPoint").transform;
-            if (spawnPointTransform == null) Debug.LogError("Unable to find an object with tag 'SpawnPoint'. spawnPointTransform is null.");
-            SpawnPlayerAtTransform(spawnPointTransform);
-
             // Do other preparing stuff...
 
             // Once we are finished preparing the level, switch gamestate to playinglevel
@@ -408,12 +400,6 @@ namespace Detection
                     return i;
             }
             return -1;
-        }
-
-        private void SpawnPlayerAtTransform(Transform spawnPoint)
-        {
-            playerObject.transform.position = spawnPoint.position;
-            playerObject.transform.rotation = spawnPoint.rotation;
         }
 
         private void DisablePlayerInput()
