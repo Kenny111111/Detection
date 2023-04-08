@@ -744,7 +744,7 @@ MonoBehaviour:
     volume: 0.75
     volumeDeviation: 0.125
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0.3
   - name: ak47_shot
     clip: {fileID: 8300000, guid: fe079a0084e62be41bbae6761896a07b, type: 3}
     audioMxrGroup: {fileID: 0}
@@ -753,7 +753,7 @@ MonoBehaviour:
     volume: 0.837
     volumeDeviation: 0.125
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0.3
   - name: gun_empty
     clip: {fileID: 8300000, guid: 1a8eb8da13ce75d47b6022b4f46d0b16, type: 3}
     audioMxrGroup: {fileID: 0}
@@ -771,7 +771,7 @@ MonoBehaviour:
     volume: 0.75
     volumeDeviation: 0.125
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0.3
   - name: small_explosion
     clip: {fileID: 8300000, guid: 2b61f060b2db53744835485f600c7fcb, type: 3}
     audioMxrGroup: {fileID: 0}
@@ -780,7 +780,7 @@ MonoBehaviour:
     volume: 0.75
     volumeDeviation: 0.125
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0.3
   - name: grenade_pin
     clip: {fileID: 8300000, guid: db822a32381e91c4f8c71ebc2a90a78b, type: 3}
     audioMxrGroup: {fileID: 0}
@@ -789,7 +789,7 @@ MonoBehaviour:
     volume: 0.75
     volumeDeviation: 0.125
     pitch: 1
-    pitchDeviation: 0.125
+    pitchDeviation: 0.3
 --- !u!1 &1795064691
 GameObject:
   m_ObjectHideFlags: 0
