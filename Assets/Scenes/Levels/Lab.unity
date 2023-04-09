@@ -19264,7 +19264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060de8031dcfa3e47960218ee68f9906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loudnessTolerance: 0.8
+  loudnessTolerance: 0.75
   allowMultipleEffectsAtOnce: 0
 --- !u!4 &720386084
 Transform:
@@ -21648,7 +21648,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh204672
+  m_Name: pb_Mesh283254
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36470,29 +36470,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1362129678}
-  - component: {fileID: 1362129677}
-  m_Layer: 0
+  - component: {fileID: 1362129679}
+  m_Layer: 9
   m_Name: Effects
   m_TagString: Effects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1362129677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362129676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151e425a11a74584489bc964a69d4f56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minEffectDuration: 0.5
-  maxEffectDuration: 2
-  loudnessToSizeScalar: 0.02
 --- !u!4 &1362129678
 Transform:
   m_ObjectHideFlags: 0
@@ -36508,6 +36493,21 @@ Transform:
   m_Father: {fileID: 720386084}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1362129679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362129676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a8b68693b22aa49bd65def5b49ab7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineMaterial: {fileID: 2100000, guid: e669bc14158081c42b15bb33995aab78, type: 2}
+  startingColor: {r: 0.7971698, g: 0.9972129, b: 1, a: 1}
+  endingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1365192319
 PrefabInstance:
   m_ObjectHideFlags: 0
