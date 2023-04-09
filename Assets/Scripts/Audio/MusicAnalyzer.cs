@@ -1,70 +1,72 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Detection
 {
     public class MusicAnalyzer : MonoBehaviour
     {
-        // dependency
-        private MusicSystem musicSystem;
         [SerializeField] public float updateStep = 0.01f;
-        [SerializeField] public int sampleDataLength = 512;
-        private float curTimeCount = 0.0f;
+        [SerializeField] public int defaultSampleDataLength = 512;
+        private int sampleDataLength;
         private float[] audioSamples;
-
-        public AudioSource songPlaying;
 
         private float currentMaxLoudness = 0.0f;
         private float currentAvgLoudness = 0.0f;
-
         public float currentAvgLoudnessNormalized = 0.0f;
 
-        private void Start()
+        private void Awake()
         {
-            musicSystem = FindObjectOfType<MusicSystem>();
+            sampleDataLength = defaultSampleDataLength;
             audioSamples = new float[sampleDataLength];
 
             MusicSystem.UpdatedSongPlaying += UpdateSongPlaying;
         }
 
+        private void OnDestroy()
+        {
+            MusicSystem.UpdatedSongPlaying -= UpdateSongPlaying;
+        }
+
         private void UpdateSongPlaying(Sound newSong)
         {
-            songPlaying = newSong.source;
-            audioSamples = new float[sampleDataLength * songPlaying.clip.channels];
+            sampleDataLength = defaultSampleDataLength * newSong.clip.channels;
+            audioSamples = new float[sampleDataLength];
+
+            StartCoroutine(AnalyzeSongPlaying(this, newSong.source));
         }
 
-        private void Update()
+        private static IEnumerator AnalyzeSongPlaying(MusicAnalyzer analyzer, AudioSource song)
         {
-            if (songPlaying == null || songPlaying.clip == null || songPlaying.clip.length == 0) return;
+            const float earlyStopAmount = 0.1f;
+            float songLength = song.clip.length - earlyStopAmount;
 
-            curTimeCount += Time.deltaTime;
-            if (curTimeCount >= updateStep)
+            for (float t = 0f; t < songLength; t += Time.deltaTime)
             {
-                curTimeCount = 0f;
-
-                if (songPlaying.clip.GetData(audioSamples, songPlaying.timeSamples))
+                if (song.clip.GetData(analyzer.audioSamples, song.timeSamples))
                 {
                     // reset and recalculate the current sound
-                    currentAvgLoudness = 0;
-                    currentAvgLoudnessNormalized = 0;
-                    foreach (float sample in audioSamples)
+                    analyzer.currentAvgLoudness = 0;
+                    analyzer.currentAvgLoudnessNormalized = 0;
+                    foreach (float sample in analyzer.audioSamples)
                     {
-                        currentAvgLoudness += Mathf.Abs(sample);
+                        analyzer.currentAvgLoudness += Mathf.Abs(sample);
                     }
-                    currentAvgLoudness /= sampleDataLength;
+                    analyzer.currentAvgLoudness /= analyzer.sampleDataLength;
 
-                    if (currentMaxLoudness < currentAvgLoudness) currentMaxLoudness = currentAvgLoudness;
+                    if (analyzer.currentMaxLoudness < analyzer.currentAvgLoudness) analyzer.currentMaxLoudness = analyzer.currentAvgLoudness;
 
                     const float minLoudness = 0f;
-                    currentAvgLoudness = Mathf.Clamp(currentAvgLoudness, minLoudness, currentMaxLoudness);
+                    analyzer.currentAvgLoudness = Mathf.Clamp(analyzer.currentAvgLoudness, minLoudness, analyzer.currentMaxLoudness);
 
                     // normalize it from 0 to 1 based on the min max range
-                    currentAvgLoudnessNormalized = (currentAvgLoudness - minLoudness) / (currentMaxLoudness - minLoudness);
-                    if (double.IsNaN(currentAvgLoudnessNormalized)) currentAvgLoudnessNormalized = 0;
+                    analyzer.currentAvgLoudnessNormalized = (analyzer.currentAvgLoudness - minLoudness) / (analyzer.currentMaxLoudness - minLoudness);
+                    if (double.IsNaN(analyzer.currentAvgLoudnessNormalized)) analyzer.currentAvgLoudnessNormalized = 0;
                 }
+
+                yield return new WaitForSeconds(0.01f);
             }
         }
+
     }
 }

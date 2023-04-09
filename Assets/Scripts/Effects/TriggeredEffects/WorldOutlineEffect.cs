@@ -12,9 +12,10 @@ namespace Detection
 		private int numPoints;
 		private float maxDistance;
 		private LayerMask layerMask;
-		private float diffDistanceTolerance;
 
-        public int Weight { get; set; }
+		[SerializeField] private int weight = 5;
+
+		public int Weight { get; set; }
 
 		private float lineStartThickness = 0.02f;
 		private float lineEndThickness = 0.02f;
@@ -26,11 +27,10 @@ namespace Detection
 
 		public void Awake()
 		{
-			Weight = 5;
+			Weight = weight;
             numPoints = 500;
             maxDistance = 20;
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-			diffDistanceTolerance = 2f;
 
             pointList = new List<Vector3>();
             layerMask = LayerMask.GetMask("Environment");

@@ -10,58 +10,76 @@ namespace Detection
 	// Usage example: FindObjectOfType<MusicSystem>();
 	public class MusicSystem : MonoBehaviour
 	{
-		public static MusicSystem musicSystem;
+		public static MusicSystem instance;
 		public AudioMixerGroup audioMxrGroup;
 		public Queue<Sound> musicQueue;
+
+		public Sound songPlaying;
 
 		public static event Action<Sound> UpdatedSongPlaying;
 
 		void Awake()
 		{
 			// Ensure only one musicSystem exists
-			if (musicSystem == null)
+			if (instance == null)
 			{
-				musicSystem = this;
+				instance = this;
 				DontDestroyOnLoad(this.gameObject);
 			}
 			else Destroy(gameObject);
 
 			musicQueue = new Queue<Sound>();
+		}
 
+        private void Start()
+        {
 			StartCoroutine(PlaySongQueue());
 		}
 
-		private static IEnumerator PlaySongQueue()
+        private static IEnumerator PlaySongQueue()
 		{
 			float waitAmount = 0.25f;
 
 			while (true)
 			{
-				if (musicSystem.musicQueue.Count > 0)
+				if (instance.musicQueue.Count > 0)
 				{
 					// Start playing the next song
-					musicSystem.musicQueue.Peek().source.Play();
+					instance.songPlaying = instance.musicQueue.Peek();
+					instance.songPlaying.source.Play();
 
-					UpdatedSongPlaying?.Invoke(musicSystem.musicQueue.Peek());
+					UpdatedSongPlaying?.Invoke(instance.musicQueue.Peek());
 
-					float currentSongLength = musicSystem.TryGetCurrentSong().source.clip.length;
+					float currentSongLength = instance.songPlaying.source.clip.length;
 					yield return new WaitForSeconds(currentSongLength + waitAmount);
 					// remove it from the list since it has completed playing
-
-					musicSystem.musicQueue.Dequeue();
+					instance.musicQueue.Dequeue();
 				}
 
 				yield return new WaitForSeconds(waitAmount);
 			}
 		}
 
+		public void TryStopAndDequeue()
+        {
+			if (instance.songPlaying != null && instance.songPlaying.source != null && instance.songPlaying.source.isPlaying)
+			{
+				instance.songPlaying.source.Stop();
+				instance.musicQueue.Dequeue();
+			}
+		}
 
 		public void ResetQueue()
 		{
+			StopCoroutine(PlaySongQueue());
+
+			TryStopAndDequeue();
 			musicQueue.Clear();
+
+			StartCoroutine(PlaySongQueue());
 		}
 
-			public bool TryEnqueue(Sound songToAdd)
+		public bool TryEnqueue(Sound songToAdd)
 		{
 			// If we arent able to find the current song in the queue, add it.
 			if (musicQueue.ToList().Find(item => item.name == songToAdd.name) == null)

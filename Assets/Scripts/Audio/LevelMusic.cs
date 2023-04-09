@@ -11,15 +11,13 @@ namespace Detection
 		public List<Sound> songList;
 		private MusicSystem musicSystem;
 
-		void Start()
+		void Awake()
 		{
 			// Ensure only one LevelMusic object exists at one time..
 			if (levelMusic == null) levelMusic = this;
 			else Destroy(gameObject);
 
 			musicSystem = FindObjectOfType<MusicSystem>();
-
-			musicSystem.ResetQueue();
 			AddSongsToQueue();
 		}
 

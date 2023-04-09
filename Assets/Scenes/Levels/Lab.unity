@@ -31225,8 +31225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateStep: 0.01
-  sampleDataLength: 512
-  songPlaying: {fileID: 0}
+  defaultSampleDataLength: 512
   currentAvgLoudnessNormalized: 0
 --- !u!114 &1155875050
 MonoBehaviour:
@@ -36506,6 +36505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a8b68693b22aa49bd65def5b49ab7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weight: 5
   lineMaterial: {fileID: 2100000, guid: e669bc14158081c42b15bb33995aab78, type: 2}
   startingColor: {r: 0.7971698, g: 0.9972129, b: 1, a: 1}
   endingColor: {r: 0, g: 0, b: 0, a: 0}
@@ -36524,6 +36524,7 @@ MonoBehaviour:
   minEffectDuration: 0.25
   maxEffectDuration: 1.5
   loudnessToSizeScalar: 0.04
+  weight: 5
 --- !u!1001 &1365192319
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 namespace Detection
@@ -10,10 +8,10 @@ namespace Detection
     {
         public static EffectManager instance;
         public VFXEmitArgs effectEmitArgs;
+        private MusicAnalyzer musicAnalyzer;
 
         [Range(0, 1)]
         [SerializeField] private float loudnessTolerance = 0.8f;
-        private MusicAnalyzer musicAnalyzer;
 
         public bool allowMultipleEffectsAtOnce = false;
         private bool isApplyingEffect = false;
@@ -30,9 +28,8 @@ namespace Detection
 
         private void Start()
         {
-            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             effectEmitArgs = new VFXEmitArgs(null, null, null);
-
+            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             effectsFound = GameObject.FindGameObjectWithTag("Effects").GetComponents<IEffect>();
 
             // populate the weightedRandom effects bag we can pick from
@@ -56,7 +53,7 @@ namespace Detection
                     // randomly decide an event and some duration
                     var chosenEffect = weightedEffectsBag.GetRandomWeighted();
                     if (chosenEffect != null) chosenEffect.DoEffect(OnFinishedEffect);
-
+                    
                     if (!waitFlag) StartCoroutine(WaitBeforeNextEffect());
                 }
             }
@@ -65,7 +62,7 @@ namespace Detection
         public IEnumerator WaitBeforeNextEffect()
         {
             waitFlag = true;
-            const float WAIT_TIME = 3f;
+            const float WAIT_TIME = 0.25f;
 
             double currentTimeCount = 0;
             while (currentTimeCount < WAIT_TIME)

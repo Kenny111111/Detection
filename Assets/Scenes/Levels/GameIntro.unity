@@ -454,8 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateStep: 0.01
-  sampleDataLength: 512
-  songPlaying: {fileID: 0}
+  defaultSampleDataLength: 512
   currentAvgLoudnessNormalized: 0
 --- !u!114 &609754776
 MonoBehaviour:
@@ -471,6 +470,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
     type: 2}
+  songPlaying:
+    name: 
+    clip: {fileID: 0}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.1
+    pitch: 1
+    pitchDeviation: 0.1
 --- !u!1 &823963323
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +828,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 340499363}
-  - {fileID: 2094517654}
   - {fileID: 1880545383}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -885,7 +893,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1795064692}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1880545384
 MonoBehaviour:
@@ -916,78 +924,6 @@ MonoBehaviour:
     rgba: 4278201665
   - serializedVersion: 2
     rgba: 4278216037
---- !u!1 &2094517651
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2094517654}
-  - component: {fileID: 2094517653}
-  - component: {fileID: 2094517652}
-  m_Layer: 0
-  m_Name: Level Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2094517652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094517651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateStep: 0.01
-  sampleDataLength: 512
-  songPlaying: {fileID: 0}
-  currentAvgLoudnessNormalized: 0
---- !u!114 &2094517653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094517651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150fedd9b47a2fd4699e657a8b629096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  songList:
-  - name: bam
-    clip: {fileID: 8300000, guid: e377138752ee6eb4ab440cfe93601b60, type: 3}
-    audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
-      type: 2}
-    loop: 0
-    source: {fileID: 0}
-    volume: 0.25
-    volumeDeviation: 0
-    pitch: 1
-    pitchDeviation: 0
---- !u!4 &2094517654
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094517651}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1795064692}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2399542223753464796
 PrefabInstance:
   m_ObjectHideFlags: 0

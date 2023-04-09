@@ -16,10 +16,11 @@ namespace Detection
 		[SerializeField] float loudnessToSizeScalar = 0.04f;
 
         public int Weight { get; set; }
+		[SerializeField] private int weight = 5;
 
-        public void Awake()
+		public void Awake()
         {
-			Weight = 10;
+			Weight = weight;
 			musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
 		}
 
@@ -31,9 +32,7 @@ namespace Detection
 			System.Random rand = new System.Random();
 			double randomDuration = rand.NextDouble() * (maxEffectDuration - minEffectDuration) + minEffectDuration;
 
-			double currentTimeCount = 0;
-
-			while (currentTimeCount < randomDuration)
+			for (float t = 0f; t < randomDuration; t += Time.deltaTime)
 			{
 				EffectManager.instance.effectEmitArgs.size = musicAnalyzer.currentAvgLoudnessNormalized * loudnessToSizeScalar;
 				yield return null;
@@ -41,7 +40,6 @@ namespace Detection
 
 			// reset the override size
 			EffectManager.instance.effectEmitArgs.size = null;
-
 			callback();
 		}
 	}
