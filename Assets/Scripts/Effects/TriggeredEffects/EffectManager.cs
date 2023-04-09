@@ -14,7 +14,6 @@ namespace Detection
         [Range(0, 1)]
         [SerializeField] private float loudnessTolerance = 0.8f;
         private MusicAnalyzer musicAnalyzer;
-        private GameObject playerObj;
 
         public bool allowMultipleEffectsAtOnce = false;
         private bool isApplyingEffect = false;
@@ -27,8 +26,6 @@ namespace Detection
         {
             if (instance != null && instance != this) Destroy(this);
             else instance = this;
-
-            playerObj = GameObject.FindGameObjectWithTag("Player");
         }
 
         private void Start()

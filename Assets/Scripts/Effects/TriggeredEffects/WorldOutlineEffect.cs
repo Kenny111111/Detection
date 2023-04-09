@@ -7,123 +7,72 @@ namespace Detection
 {
 	public class WorldOutlineEffect : MonoBehaviour, IEffect
 	{
-		public class OutlinePoint
-		{
-			public bool hasHitWall;
-			public Vector3 location;
-
-			public OutlinePoint(bool newHitWall, Vector3 newLocation)
-			{
-				this.hasHitWall = newHitWall;
-				this.location = newLocation;
-			}
-
-			public bool GetHasHitWall()
-			{
-				return this.hasHitWall;
-			}
-			public void SetHasHitWall(bool newHasHitWall)
-            {
-				this.hasHitWall = newHasHitWall;
-			}
-
-			public Vector3 GetLocation()
-			{
-				return this.location;
-			}
-			public void SetLocation(Vector3 newLocation)
-			{
-				this.location = newLocation;
-			}
-		}
-
-		public MusicAnalyzer musicAnalyzer;
-		private List<OutlinePoint> pointList;
+		private List<Vector3> pointList;
 		private Transform playerTransform;
 		private int numPoints;
 		private float maxDistance;
 		private LayerMask layerMask;
 		private float diffDistanceTolerance;
+
         public int Weight { get; set; }
 
-		[SerializeField] private float lineStartThickness = 1f;
-		[SerializeField] private float lineEndThickness = 1f;
+		private float lineStartThickness = 0.02f;
+		private float lineEndThickness = 0.02f;
+		[SerializeField] private Material lineMaterial;
+		[SerializeField] private Color startingColor;
+		[SerializeField] private Color endingColor;
+
+		private LineRenderer line;
 
 		public void Awake()
 		{
 			Weight = 5;
-            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             numPoints = 500;
             maxDistance = 20;
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 			diffDistanceTolerance = 2f;
 
-            pointList = new List<OutlinePoint>();
+            pointList = new List<Vector3>();
             layerMask = LayerMask.GetMask("Environment");
 
-            InitializePointList();
-        }
-
-		void InitializePointList()
-        {
-			pointList.Clear();
-
-			for (int i = 0; i < numPoints; i++)
-				pointList.Add(new OutlinePoint(false, new Vector3(0, 0, 0)));
+			line = gameObject.AddComponent<LineRenderer>();
 		}
 
 		void IEffect.DoEffect(Action callback)
 		{
-			float duration = 1f;
+			float duration = .5f;
 
 			int numPointsHit = 0;
 			// Shoot rays 360 degrees around the player and set point data
 			float angle = 0;
 			for (int i = 0; i < numPoints; i++)
 			{
-				if (!pointList[i].GetHasHitWall())
+				float x = Mathf.Cos(angle);
+				float z = Mathf.Sin(angle);
+
+				Vector3 dir = new Vector3(playerTransform.position.x * x, 0, playerTransform.position.z * z);
+				Vector3 fwd = transform.TransformDirection(dir);
+
+				Vector3 playerPosOffset = playerTransform.position;
+				playerPosOffset.y += 0.15f;
+
+				RaycastHit rayHit;
+				if (Physics.Raycast(playerPosOffset, dir, out rayHit, maxDistance, layerMask))
 				{
-					float x = Mathf.Cos(angle);
-					float z = Mathf.Sin(angle);
+					numPointsHit++;
+					pointList.Add(rayHit.point);
+				}
 
-					Vector3 dir = new Vector3(playerTransform.position.x * x, 0, playerTransform.position.z * z);
-					Vector3 fwd = transform.TransformDirection(dir); // is this necessary? maybe just use dir?
-
-					RaycastHit rayHit;
-
-					Vector3 playerPosOffset = playerTransform.position;
-					playerPosOffset.y += 0.15f;
-
-					if (Physics.Raycast(playerPosOffset, dir, out rayHit, maxDistance, layerMask))
-					{
-						numPointsHit++;
-						pointList[i].SetLocation(rayHit.point);
-						pointList[i].SetHasHitWall(true);
-					}
-					else pointList[i].SetHasHitWall(false);
-
-                    angle += 2 * Mathf.PI / numPoints;
-                }
+                angle += 2 * Mathf.PI / numPoints;
 			}
 
-			Color startingColor = new Color(255, 255, 255, 255);
-
-			//Create the line renderer to draw the points.
-			LineRenderer line = new LineRenderer();
 			line.startWidth = lineStartThickness;
 			line.endWidth = lineEndThickness;
 			line.positionCount = numPointsHit;
 			line.startColor = startingColor;
 			line.endColor = startingColor;
-
-			line.SetPosition(0, new Vector3(0, 0, 0));
-			line.SetPosition(1, new Vector3(100, 100, 100));
-			line.SetPosition(3, new Vector3(200, 200, 200));
-			line.SetPosition(4, new Vector3(300, 300, 300));
-
-
-
-
+			line.material = lineMaterial;
+			line.SetPositions(pointList.ToArray());
 
 			/*
 			bool createdNewLineRenderer = true;
@@ -141,24 +90,25 @@ namespace Detection
 				}
 			}*/
 
-			Color endingColor = new Color(0, 0, 0, 0);
-			StartCoroutine(FadeLineColor(line, startingColor, endingColor, duration, callback));
+			StartCoroutine(FadeLineColor(startingColor, endingColor, duration, callback));
 		}
 
-		public IEnumerator FadeLineColor(LineRenderer line, Color startColor, Color endColor, double duration, Action callback)
+		public IEnumerator FadeLineColor(Color startColor, Color endColor, double duration, Action callback)
 		{
 			for (float t = 0f; t < duration; t += Time.deltaTime)
 			{
 				float normalizedTime = t / (float)duration;
 				Color lerped = Color.Lerp(startColor, endColor, normalizedTime);
+				lerped.a = Mathf.Lerp(lerped.a, 0, normalizedTime);
 				line.startColor = lerped;
 				line.endColor = lerped;
 				yield return null;
 			}
 
+			line.positionCount = 0;
 			line.startColor = endColor;
 			line.endColor = endColor;
-			InitializePointList();
+			pointList.Clear();
 
 			callback();
 		}
