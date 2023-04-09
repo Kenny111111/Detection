@@ -13,7 +13,7 @@ namespace Detection
 		[Range(0.01f, 30)]
 		[SerializeField] double maxEffectDuration = 2;
 
-		[SerializeField] float loudnessToSizeScalar = 0.02f;
+		[SerializeField] float loudnessToSizeScalar = 0.04f;
 
         public int Weight { get; set; }
 
