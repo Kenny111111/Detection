@@ -9,7 +9,7 @@ namespace Detection
 	{
 		private List<Vector3> pointList;
 		private Transform playerTransform;
-		private int numPoints;
+		[SerializeField] private int numPoints = 300;
 		private float maxDistance;
 		private LayerMask layerMask;
 
@@ -28,7 +28,6 @@ namespace Detection
 		public void Awake()
 		{
 			Weight = weight;
-            numPoints = 500;
             maxDistance = 20;
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 

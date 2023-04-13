@@ -47,7 +47,6 @@ namespace Detection
 					// Start playing the next song
 					instance.songPlaying = instance.musicQueue.Peek();
 					instance.songPlaying.source.Play();
-					Debug.Log("start playing " + instance.songPlaying.name);
 
 					UpdatedSongPlaying?.Invoke(instance.songPlaying);
 
@@ -58,17 +57,6 @@ namespace Detection
 
 					// Try to remove it from the front of the queue
 					instance.TryDequeue(songForDequeue);
-
-					int x = 0;
-					StringBuilder sb = new StringBuilder();
-					sb.Append("-LogMusicQueue-");
-					foreach (Sound sss in MusicSystem.instance.musicQueue.ToArray())
-					{
-						sb.Append("Song " + x + " " + sss.name);
-						x++;
-					}
-					sb.Append("------");
-					Debug.Log(sb.ToString());
 				}
 
 				yield return new WaitForSeconds(waitAmount);
@@ -77,11 +65,13 @@ namespace Detection
 
 		public bool TryDequeue(Sound songToRemove)
 		{
+			if (musicQueue.Count == 0) return false;
+
 			Debug.Log("TryDequeue.. " + songToRemove.name);
-			Sound top = instance.musicQueue.Peek();
+			Sound top = musicQueue.Peek();
 			if (songToRemove.name == top.name)
 			{
-				instance.musicQueue.Dequeue();
+				musicQueue.Dequeue();
 				return true;
 			}
 			else return false;
@@ -89,11 +79,9 @@ namespace Detection
 
 		public void TryStopAndClearQueue()
         {
-			if (instance.songPlaying == null || instance.songPlaying.source == null || instance.songPlaying.source.isPlaying == false) return;
+			if (songPlaying == null || songPlaying.source == null || songPlaying.source.isPlaying == false) return;
 
-			Debug.Log("TryStopAndClearQueue..");
-			instance.songPlaying.source.Stop();
-			Debug.Log("Stop playing " + songPlaying.name);
+			songPlaying.source.Stop();
 			musicQueue.Clear();
 		}
 
@@ -101,25 +89,13 @@ namespace Detection
 		{
 			StopCoroutine(PlaySongQueue());
 
-			Debug.Log("ResetQueue..");
 			TryStopAndClearQueue();
-			int x = 0;
-			StringBuilder sb = new StringBuilder();
-			sb.Append("-LogMusicQueue-");
-			foreach (Sound sss in MusicSystem.instance.musicQueue.ToArray())
-			{
-				sb.Append("Song " + x + " " + sss.name);
-				x++;
-			}
-			sb.Append("------");
-			Debug.Log(sb.ToString());
 
 			StartCoroutine(PlaySongQueue());
 		}
 
 		public bool TryEnqueue(Sound songToAdd)
 		{
-			Debug.Log("TryEnqueue.. " + songToAdd.name);
 			if (songToAdd == null || songToAdd.name == null) return false;
 
 			// If we arent able to find the current song in the queue, add it.

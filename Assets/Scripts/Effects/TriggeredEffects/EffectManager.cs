@@ -27,7 +27,7 @@ namespace Detection
 
         private void Start()
         {
-            effectEmitArgs = new VFXEmitArgs(null, null, null);
+            effectEmitArgs = new VFXEmitArgs(null, null);
             effectsFound = GameObject.FindGameObjectWithTag("Effects").GetComponents<IEffect>();
 
             // populate the weightedRandom effects bag we can pick from

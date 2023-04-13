@@ -315,6 +315,9 @@ namespace Detection
         private void OnLevelEnded()
         {
             // Do stuff before the next level is loaded
+            // Clear all points
+            ParticleCollector.instance.ClearAllPoints();
+            // Clear the music queue
             FindObjectOfType<MusicSystem>().ResetQueue();
             TrySwitchToNextScene();
         }
