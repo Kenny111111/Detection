@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4589058425741210594}
   - component: {fileID: 4589058425741210597}
   m_Layer: 3
-  m_Name: Points
+  m_Name: MovingPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4589058425741210596}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: a19df06c67e94cd4480cb0dadccff5c8, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 204b0ba8e741d8540976d32d5aa0dd2b, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
