@@ -13,7 +13,7 @@ public class ParticleCollector : MonoBehaviour
     private const string COLORS_TEXTURE_NAME = "Colors";
     private const string CAPACITY_PARAM_NAME = "Capacity";
 
-    [SerializeField] private VisualEffect effectPrefab;
+    public VisualEffect effectPrefab;
     [SerializeField] private Transform effectContainer;
 
     private VisualEffect currentEffect;
@@ -26,11 +26,11 @@ public class ParticleCollector : MonoBehaviour
     private Color[] colorsAndSizes;
 
     private int particleCount;
-    private const int maxEffectCount = 35;
+    [SerializeField] private int maxEffectCount = 45;
 
     private void Awake()
     {
-        // Ensure only one musicSystem exists
+        // Ensure only one instance exists
         if (instance == null)
         {
             instance = this;
@@ -96,6 +96,12 @@ public class ParticleCollector : MonoBehaviour
 
     private void CreateNewEffect()
     {
+        if (effectPrefab == null)
+        {
+            Debug.LogError("effectPrefab is not set, cant CreateNewEffect()");
+            return;
+        }
+
         // Ensure the VFX Graph is only rendering a certain number of effects..
         if (effects.Count > maxEffectCount) DeleteOldestEffect();
 

@@ -11,6 +11,8 @@ TagManager:
   - Camera
   - Effects
   - statisticsMenu
+  - WristTimerText
+  - LevelParticleEffect
   layers:
   - Default
   - TransparentFX
