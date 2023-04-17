@@ -15842,8 +15842,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf017e61bb168d64e84dd33d7ef3f59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killPoints: 1000
-  specialKillPoints: 2000
+  testScoreSystem: 1
+  minRandKillTime: 0.5
+  maxRandKillTime: 0.5
+  killPoints: 500
+  specialKillPoints: 1000
   maxLevelTimePoints: 20000
   comboTimeFrame: 3
   minTimeInLevel: 1
