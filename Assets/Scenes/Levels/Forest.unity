@@ -510,7 +510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &95454597
 PrefabInstance:
@@ -620,7 +619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &120084030 stripped
 GameObject:
@@ -692,6 +690,10 @@ PrefabInstance:
     - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_Name
       value: Clifftile Connector 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
@@ -1397,6 +1399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8631696006529404998, guid: 9cd9663f0245f2746b4094f8cabfb82a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd9663f0245f2746b4094f8cabfb82a, type: 3}
 --- !u!4 &162591562 stripped
@@ -1717,7 +1724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &223577829
 GameObject:
@@ -2090,7 +2096,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &273986585
 Transform:
@@ -2522,7 +2528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &322540321
 PrefabInstance:
@@ -2619,6 +2624,10 @@ PrefabInstance:
     - target: {fileID: 110398, guid: f584b275cfb132f48a2ec91fd9d1b576, type: 3}
       propertyPath: m_Name
       value: Rock Type5 02
+      objectReference: {fileID: 0}
+    - target: {fileID: 110398, guid: f584b275cfb132f48a2ec91fd9d1b576, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 483248, guid: f584b275cfb132f48a2ec91fd9d1b576, type: 3}
       propertyPath: m_RootOrder
@@ -2802,6 +2811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigRock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511082446518392383, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4511082446518553119, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
         type: 3}
@@ -3180,7 +3194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &400477860
 MeshCollider:
@@ -3251,7 +3264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &400881566
 PrefabInstance:
@@ -3452,7 +3464,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &405501072
 Transform:
@@ -3777,7 +3789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &420463635
 PrefabInstance:
@@ -4175,7 +4186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &460816481 stripped
 GameObject:
@@ -4216,7 +4226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!4 &474067046 stripped
 Transform:
@@ -4295,6 +4304,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bridge_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631696006529404998, guid: 9cd9663f0245f2746b4094f8cabfb82a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd9663f0245f2746b4094f8cabfb82a, type: 3}
@@ -4590,6 +4604,10 @@ PrefabInstance:
     - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_Name
       value: Clifftile Connector 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
@@ -5108,7 +5126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &556816895
 PrefabInstance:
@@ -5117,6 +5134,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1492923980}
     m_Modifications:
+    - target: {fileID: 3443252409306970031, guid: 94b44b65078ea0a44a072e3d52c3eb1a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8566659439620414121, guid: 94b44b65078ea0a44a072e3d52c3eb1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -5176,6 +5198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpeedPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566659439620414122, guid: 94b44b65078ea0a44a072e3d52c3eb1a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b44b65078ea0a44a072e3d52c3eb1a, type: 3}
@@ -5380,7 +5407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &579610807
 GameObject:
@@ -5396,7 +5422,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &579610808
 Transform:
@@ -5951,6 +5977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8631696006529404998, guid: 9cd9663f0245f2746b4094f8cabfb82a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd9663f0245f2746b4094f8cabfb82a, type: 3}
 --- !u!4 &628463287 stripped
@@ -5964,6 +5995,87 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8862930910245695317, guid: c1428714edf6b3f45a1af67fa3e254db,
     type: 3}
   m_PrefabInstance: {fileID: 924242889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &657719977
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1547623585}
+    m_Modifications:
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.6335335
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.694293
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.55584
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589058425741210596, guid: 9dbbc55c59209ff4db29cf48b49008af,
+        type: 3}
+      propertyPath: m_Name
+      value: Points
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9dbbc55c59209ff4db29cf48b49008af, type: 3}
+--- !u!2083052967 &657719978 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 4589058425741210594, guid: 9dbbc55c59209ff4db29cf48b49008af,
+    type: 3}
+  m_PrefabInstance: {fileID: 657719977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &657719979 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4589058425741210595, guid: 9dbbc55c59209ff4db29cf48b49008af,
+    type: 3}
+  m_PrefabInstance: {fileID: 657719977}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &660551170
 GameObject:
@@ -6288,7 +6400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &676395171
 MeshCollider:
@@ -6322,7 +6433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &683038147
 PrefabInstance:
@@ -6432,7 +6542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &693999049
 PrefabInstance:
@@ -6615,6 +6724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Connector 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
       value: 130
@@ -6796,7 +6909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &725102156
 GameObject:
@@ -6812,7 +6924,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &725102157
 Transform:
@@ -6845,6 +6957,10 @@ PrefabInstance:
     - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_Name
       value: Clifftile Connector 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
@@ -7017,8 +7133,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
+--- !u!1001 &754907899
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.700003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.32298806
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.946403
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 217.687
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834003, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542222923834015, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: m_Name
+      value: VR Rig
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe03e8d2af57f6f48b54b55af3f590b7, type: 3}
 --- !u!1 &755660801
 GameObject:
   m_ObjectHideFlags: 0
@@ -7081,7 +7265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!114 &755660804
 MonoBehaviour:
@@ -7095,7 +7278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &755660805
 MeshCollider:
@@ -7248,7 +7430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &765418805 stripped
 GameObject:
@@ -7256,37 +7437,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1312243999}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &770881744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 770881745}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: SpawnPoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &770881745
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770881744}
-  m_LocalRotation: {x: -0, y: 0.72507435, z: -0, w: 0.6886706}
-  m_LocalPosition: {x: 22.875, y: 3.1427402, z: 5.415}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1241313609}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 92.95, z: 0}
 --- !u!1001 &783874546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7409,7 +7559,6 @@ GameObject:
   m_Component:
   - component: {fileID: 794875158}
   - component: {fileID: 794875160}
-  - component: {fileID: 794875159}
   m_Layer: 0
   m_Name: Level Music
   m_TagString: Untagged
@@ -7432,22 +7581,6 @@ Transform:
   m_Father: {fileID: 1734387916}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &794875159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794875157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateStep: 0.01
-  sampleDataLength: 512
-  songPlaying: {fileID: 0}
-  currentAvgLoudnessNormalized: 0
 --- !u!114 &794875160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7654,7 +7787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &820706775
 MeshCollider:
@@ -7782,7 +7914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &821616895
 GameObject:
@@ -7798,7 +7929,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &821616896
 Transform:
@@ -7850,7 +7981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &841716393
 PrefabInstance:
@@ -7965,7 +8095,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &847066812 stripped
 GameObject:
@@ -7989,6 +8118,10 @@ PrefabInstance:
     - target: {fileID: 110610, guid: 75283e9ef15245c4aab126ec6525dd2a, type: 3}
       propertyPath: m_Name
       value: Rock Type1 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 110610, guid: 75283e9ef15245c4aab126ec6525dd2a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 474244, guid: 75283e9ef15245c4aab126ec6525dd2a, type: 3}
       propertyPath: m_RootOrder
@@ -8068,7 +8201,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &863512222
 Transform:
@@ -8294,7 +8427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &891721491 stripped
 GameObject:
@@ -8500,7 +8632,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &908592018
 PrefabInstance:
@@ -8614,7 +8745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &909436536
 GameObject:
@@ -8962,7 +9092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &925925409
 PrefabInstance:
@@ -9269,7 +9398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &955918489
 MeshCollider:
@@ -9382,7 +9510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &969150683
 PrefabInstance:
@@ -9451,6 +9578,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthPickup
       objectReference: {fileID: 0}
+    - target: {fileID: 399985090837678695, guid: a236626b8aa9c2443a984e407bbef1a9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738985845334960104, guid: a236626b8aa9c2443a984e407bbef1a9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a236626b8aa9c2443a984e407bbef1a9, type: 3}
 --- !u!4 &969150684 stripped
@@ -9492,7 +9629,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &972935061
 PrefabInstance:
@@ -9618,7 +9754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &989055935 stripped
 GameObject:
@@ -9665,7 +9800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1004535369
 PrefabInstance:
@@ -9800,7 +9934,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1014548596
 PrefabInstance:
@@ -9917,7 +10050,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1027908755
 Transform:
@@ -10263,7 +10396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1068443640
 PrefabInstance:
@@ -10382,7 +10514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1072086984 stripped
 GameObject:
@@ -10402,7 +10533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1072086989
 MeshCollider:
@@ -10438,7 +10568,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1089899968
 Transform:
@@ -10738,7 +10868,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1110282227
 GameObject:
@@ -10755,7 +10884,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1110282228
 Transform:
@@ -10873,6 +11002,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 8350504536508284449, guid: 76cb182ad3a8cbb48a842273a4c8e674,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76cb182ad3a8cbb48a842273a4c8e674, type: 3}
 --- !u!4 &1110823958 stripped
@@ -10964,7 +11098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1112933876
 PrefabInstance:
@@ -11093,7 +11226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1117494212
 PrefabInstance:
@@ -11222,7 +11354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1118770654
 PrefabInstance:
@@ -11523,7 +11654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1153893106
 PrefabInstance:
@@ -11737,7 +11867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1161303398
 PrefabInstance:
@@ -11857,7 +11986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1173651360
 PrefabInstance:
@@ -11974,7 +12102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1178851716
 PrefabInstance:
@@ -11986,6 +12113,10 @@ PrefabInstance:
     - target: {fileID: 1197048385328406, guid: 797710b9cddb52647aa5e2345461502f, type: 3}
       propertyPath: m_Name
       value: Clifftile Connector 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197048385328406, guid: 797710b9cddb52647aa5e2345461502f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050830807347228, guid: 797710b9cddb52647aa5e2345461502f, type: 3}
       propertyPath: m_RootOrder
@@ -12151,7 +12282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1185728403
 PrefabInstance:
@@ -12265,7 +12395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1185820958
 PrefabInstance:
@@ -12418,7 +12547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1195172909
 PrefabInstance:
@@ -12547,7 +12675,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1205911348 stripped
 GameObject:
@@ -12567,7 +12694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1208824380 stripped
 GameObject:
@@ -12588,7 +12714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1221707616 stripped
 GameObject:
@@ -12614,7 +12739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1228562238
 PrefabInstance:
@@ -12713,7 +12837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!4 &1232946974 stripped
 Transform:
@@ -12836,7 +12959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1240866701
 PrefabInstance:
@@ -12950,40 +13072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
---- !u!1 &1241313608
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1241313609}
-  m_Layer: 0
-  m_Name: Setup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1241313609
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241313608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 770881745}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242118042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 159288, guid: d7be01913fd43c542a7c03fa290742fa,
@@ -13002,7 +13091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1250433255
 PrefabInstance:
@@ -13116,7 +13204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1252213855
 PrefabInstance:
@@ -13236,7 +13323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1261914240 stripped
 GameObject:
@@ -13256,7 +13342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1263256132
 PrefabInstance:
@@ -13370,7 +13455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1269116061
 PrefabInstance:
@@ -13487,7 +13571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1273814794 stripped
 GameObject:
@@ -13613,7 +13696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1297750594
 PrefabInstance:
@@ -13712,7 +13794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1312243999
 PrefabInstance:
@@ -13801,7 +13882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1312677721
 PrefabInstance:
@@ -13814,6 +13894,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigRock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511082446518392383, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4511082446518553119, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
         type: 3}
@@ -13985,7 +14070,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1324585625
 PrefabInstance:
@@ -14082,7 +14166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1326936622
 PrefabInstance:
@@ -14184,6 +14267,72 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1326936622}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328772872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1328772873}
+  - component: {fileID: 1328772875}
+  - component: {fileID: 1328772874}
+  m_Layer: 9
+  m_Name: Effects
+  m_TagString: Effects
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1328772873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328772872}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.723242, y: 8.676468, z: 20.705849}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1512801826}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1328772874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328772872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151e425a11a74584489bc964a69d4f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minEffectDuration: 0.25
+  maxEffectDuration: 1.5
+  loudnessToSizeScalar: 0.04
+  weight: 5
+--- !u!114 &1328772875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328772872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a8b68693b22aa49bd65def5b49ab7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numPoints: 300
+  weight: 5
+  lineMaterial: {fileID: 2100000, guid: e669bc14158081c42b15bb33995aab78, type: 2}
+  startingColor: {r: 0.7971698, g: 0.9972129, b: 1, a: 1}
+  endingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1329776252
 GameObject:
   m_ObjectHideFlags: 0
@@ -14198,7 +14347,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1329776253
 Transform:
@@ -14342,7 +14491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1344502319
 PrefabInstance:
@@ -14471,7 +14619,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1346034362 stripped
 GameObject:
@@ -14492,7 +14639,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1352263082
 PrefabInstance:
@@ -14591,7 +14737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1363515419
 PrefabInstance:
@@ -14708,7 +14853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1365870314
 PrefabInstance:
@@ -14818,7 +14962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1381572692
 GameObject:
@@ -14979,7 +15122,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1400373011
 Transform:
@@ -15111,7 +15254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1408166410 stripped
 GameObject:
@@ -15131,7 +15273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1414945844 stripped
 GameObject:
@@ -15166,7 +15307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1417703595
 GameObject:
@@ -15253,7 +15393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1439266633 stripped
 GameObject:
@@ -15376,7 +15515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1469116353
 GameObject:
@@ -15393,7 +15531,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1469116354
 MonoBehaviour:
@@ -15538,7 +15676,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1473891335
 MonoBehaviour:
@@ -15552,7 +15690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5214dbd7942d40b44922781223ec9e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
 --- !u!4 &1473891336
 Transform:
   m_ObjectHideFlags: 0
@@ -15586,7 +15723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1478704691
 GameObject:
@@ -15602,7 +15738,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1478704692
 Transform:
@@ -15739,7 +15875,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1492923980
 Transform:
@@ -15772,7 +15908,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1495881481
 Transform:
@@ -15807,7 +15943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1498109399
 MeshCollider:
@@ -15935,7 +16070,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1511712600 stripped
 GameObject:
@@ -15955,8 +16089,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
+--- !u!1 &1512801824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1512801826}
+  - component: {fileID: 1512801825}
+  m_Layer: 0
+  m_Name: EffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1512801825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512801824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060de8031dcfa3e47960218ee68f9906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loudnessTolerance: 0.65
+  allowMultipleEffectsAtOnce: 0
+--- !u!4 &1512801826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512801824}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1328772873}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1517647715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16148,7 +16328,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1523954653
 Transform:
@@ -16377,8 +16557,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
+--- !u!1 &1547623583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547623585}
+  - component: {fileID: 1547623584}
+  m_Layer: 0
+  m_Name: Set Level Particle Effect
+  m_TagString: LevelParticleEffect
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1547623584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547623583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2ab44f7f6cc994789d19c878d9b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSetEffectPrefab: {fileID: 657719978}
+--- !u!4 &1547623585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547623583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.6335335, y: 7.694293, z: 20.55584}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 657719979}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1549226156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16480,7 +16705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1549226161
 MeshCollider:
@@ -16514,7 +16738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1569860902
 PrefabInstance:
@@ -16527,6 +16750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigRock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511082446518392383, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4511082446518553119, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
         type: 3}
@@ -16702,7 +16930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1570574473
 MeshCollider:
@@ -16742,7 +16969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1591994765 stripped
 GameObject:
@@ -16777,7 +17003,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1598093526
 PrefabInstance:
@@ -16876,7 +17101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1608926711 stripped
 GameObject:
@@ -16897,7 +17121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1609921605 stripped
 GameObject:
@@ -16917,7 +17140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1610216178
 GameObject:
@@ -17000,7 +17222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1629065388
 PrefabInstance:
@@ -17129,7 +17350,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1637227015
 PrefabInstance:
@@ -17258,7 +17478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1637984463
 PrefabInstance:
@@ -17387,7 +17606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1638372201
 GameObject:
@@ -17403,7 +17621,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1638372202
 Transform:
@@ -17492,7 +17710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1655430046 stripped
 GameObject:
@@ -17512,7 +17729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1679237757
 PrefabInstance:
@@ -17585,6 +17801,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bridge_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631696006529404998, guid: 9cd9663f0245f2746b4094f8cabfb82a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd9663f0245f2746b4094f8cabfb82a, type: 3}
@@ -17691,7 +17912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1688025236
 PrefabInstance:
@@ -17910,6 +18130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Connector 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1643007119891088, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4027018345953920, guid: c0cec80884ebdff49ba16c422cd781ad, type: 3}
       propertyPath: m_RootOrder
       value: 129
@@ -17988,7 +18212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1720639444 stripped
 GameObject:
@@ -18008,7 +18231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1720948952
 PrefabInstance:
@@ -18136,7 +18358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1736880805
 PrefabInstance:
@@ -18256,7 +18477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1741279023
 PrefabInstance:
@@ -18376,7 +18596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1744157849
 PrefabInstance:
@@ -18481,7 +18700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1759786646
 PrefabInstance:
@@ -18586,7 +18804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1765671093 stripped
 GameObject:
@@ -18691,7 +18908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1777294661
 PrefabInstance:
@@ -18926,7 +19142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1795440655
 GameObject:
@@ -19000,7 +19215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1796321051 stripped
 GameObject:
@@ -19035,7 +19249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1805748974
 PrefabInstance:
@@ -19124,7 +19337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1816515203 stripped
 GameObject:
@@ -19226,7 +19438,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1831955704
 PrefabInstance:
@@ -19325,7 +19536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1859974863
 PrefabInstance:
@@ -19435,7 +19645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1862081036
 PrefabInstance:
@@ -19552,7 +19761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1862717620 stripped
 GameObject:
@@ -19572,7 +19780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1862721728
 PrefabInstance:
@@ -19689,7 +19896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1874955679 stripped
 GameObject:
@@ -19715,7 +19921,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1882333745
 GameObject:
@@ -19883,7 +20088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1884256630
 PrefabInstance:
@@ -19976,7 +20180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1884364292
 PrefabInstance:
@@ -20080,7 +20283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1893586810 stripped
 GameObject:
@@ -20101,7 +20303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1901044389 stripped
 GameObject:
@@ -20121,7 +20322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1903385634
 PrefabInstance:
@@ -20214,7 +20414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1903385640
 MeshCollider:
@@ -20248,7 +20447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1913524673 stripped
 GameObject:
@@ -20383,7 +20581,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1924646091
 PrefabInstance:
@@ -20512,7 +20709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1927349401
 GameObject:
@@ -20586,7 +20782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1937777833 stripped
 GameObject:
@@ -20621,7 +20816,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1941883343
 PrefabInstance:
@@ -20750,7 +20944,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1943872074
 GameObject:
@@ -20921,7 +21114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1960241938
 PrefabInstance:
@@ -20933,6 +21125,10 @@ PrefabInstance:
     - target: {fileID: 128044, guid: 85f4229977c9ee247bc4425710c5b0c4, type: 3}
       propertyPath: m_Name
       value: Rock Type1 03
+      objectReference: {fileID: 0}
+    - target: {fileID: 128044, guid: 85f4229977c9ee247bc4425710c5b0c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 441272, guid: 85f4229977c9ee247bc4425710c5b0c4, type: 3}
       propertyPath: m_RootOrder
@@ -21101,7 +21297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1980520338 stripped
 GameObject:
@@ -21121,7 +21316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1981230010 stripped
 GameObject:
@@ -21156,7 +21350,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1982131266
 PrefabInstance:
@@ -21255,7 +21448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1982131270
 MeshCollider:
@@ -21383,7 +21575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2002772204
 GameObject:
@@ -21472,7 +21663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2005715820 stripped
 GameObject:
@@ -21493,7 +21683,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.42352942, g: 0.6313726, b: 0.30980393, a: 1}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2015396920 stripped
 GameObject:
@@ -21528,7 +21717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2015613158 stripped
 GameObject:
@@ -21548,7 +21736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2033191490 stripped
 GameObject:
@@ -21583,7 +21770,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &2036959376
 PrefabInstance:
@@ -21596,6 +21782,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigRock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511082446518392383, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4511082446518553119, guid: 2a3b340e5f3874f4d82c9f8ad63f2066,
         type: 3}
@@ -21757,7 +21948,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2052396259 stripped
 GameObject:
@@ -21777,7 +21967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &2052420851
 PrefabInstance:
@@ -21892,7 +22081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2059864045 stripped
 GameObject:
@@ -21912,7 +22100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2066474208 stripped
 GameObject:
@@ -21932,7 +22119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2069730090 stripped
 GameObject:
@@ -21952,7 +22138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2074371390 stripped
 GameObject:
@@ -21972,7 +22157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &2074371395
 MeshCollider:
@@ -22115,7 +22299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &2084524438
 PrefabInstance:
@@ -22208,7 +22391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &2084524444
 MeshCollider:
@@ -22238,7 +22420,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2086127536
 Transform:
@@ -22367,7 +22549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2094445898 stripped
 GameObject:
@@ -22387,7 +22568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &2096331233
 PrefabInstance:
@@ -22501,7 +22681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2099696653 stripped
 GameObject:
@@ -22536,7 +22715,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.23718406, g: 0.42733192, b: 0.7735849, a: 0}
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2135089479 stripped
 GameObject:
@@ -22556,7 +22734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2138433257 stripped
 GameObject:
@@ -22576,7 +22753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2139437237
 GameObject:
@@ -22592,7 +22768,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2139437238
 Transform:
@@ -22700,7 +22876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &2142305940
 PrefabInstance:
@@ -22799,7 +22974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &2142851064
 PrefabInstance:
@@ -22913,7 +23087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2143006235 stripped
 GameObject:
@@ -22933,5 +23106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015

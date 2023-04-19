@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -10,54 +11,93 @@ namespace Detection
 	// Usage example: FindObjectOfType<MusicSystem>();
 	public class MusicSystem : MonoBehaviour
 	{
-		public static MusicSystem musicSystem;
+		public static MusicSystem instance;
 		public AudioMixerGroup audioMxrGroup;
 		public Queue<Sound> musicQueue;
+		public Sound songPlaying;
 
 		public static event Action<Sound> UpdatedSongPlaying;
 
 		void Awake()
 		{
 			// Ensure only one musicSystem exists
-			if (musicSystem == null)
+			if (instance == null)
 			{
-				musicSystem = this;
+				instance = this;
 				DontDestroyOnLoad(this.gameObject);
 			}
 			else Destroy(gameObject);
 
 			musicQueue = new Queue<Sound>();
+		}
 
+        private void Start()
+        {
 			StartCoroutine(PlaySongQueue());
 		}
 
-		private static IEnumerator PlaySongQueue()
+        private static IEnumerator PlaySongQueue()
 		{
 			float waitAmount = 0.25f;
 
 			while (true)
 			{
-				if (musicSystem.musicQueue.Count > 0)
+				if (instance.musicQueue.Count > 0)
 				{
 					// Start playing the next song
-					musicSystem.musicQueue.Peek().source.Play();
+					instance.songPlaying = instance.musicQueue.Peek();
+					instance.songPlaying.source.Play();
 
-					UpdatedSongPlaying?.Invoke(musicSystem.musicQueue.Peek());
+					UpdatedSongPlaying?.Invoke(instance.songPlaying);
 
-					float currentSongLength = musicSystem.TryGetCurrentSong().source.clip.length;
+					Sound songForDequeue = instance.songPlaying;
+
+					float currentSongLength = instance.songPlaying.source.clip.length;
 					yield return new WaitForSeconds(currentSongLength + waitAmount);
-					// remove it from the list since it has completed playing
 
-					musicSystem.musicQueue.Dequeue();
+					// Try to remove it from the front of the queue
+					instance.TryDequeue(songForDequeue);
 				}
 
 				yield return new WaitForSeconds(waitAmount);
 			}
 		}
 
+		public bool TryDequeue(Sound songToRemove)
+		{
+			if (musicQueue.Count == 0) return false;
+
+			Debug.Log("TryDequeue.. " + songToRemove.name);
+			Sound top = musicQueue.Peek();
+			if (songToRemove.name == top.name)
+			{
+				musicQueue.Dequeue();
+				return true;
+			}
+			else return false;
+		}
+
+		public void TryStopAndClearQueue()
+        {
+			if (songPlaying == null || songPlaying.source == null || songPlaying.source.isPlaying == false) return;
+
+			songPlaying.source.Stop();
+			musicQueue.Clear();
+		}
+
+		public void ResetQueue()
+		{
+			StopCoroutine(PlaySongQueue());
+
+			TryStopAndClearQueue();
+
+			StartCoroutine(PlaySongQueue());
+		}
 
 		public bool TryEnqueue(Sound songToAdd)
 		{
+			if (songToAdd == null || songToAdd.name == null) return false;
+
 			// If we arent able to find the current song in the queue, add it.
 			if (musicQueue.ToList().Find(item => item.name == songToAdd.name) == null)
 			{

@@ -14,22 +14,19 @@ namespace Detection
         [SerializeField] private float maxRayDistance;
         private float timeSinceLastSpawn;
         private float intervalPerSpawn;
-
-        private MusicAnalyzer musicAnalyzer;
         private LayerMask layerMask;
 
         public void Awake()
         {
             intervalPerSpawn = 1 / (float)numParticlesPerSecond;
-            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             layerMask = LayerMask.GetMask("Environment", "Weapons", "Enemies", "MiscVisible");
         }
 
         public void Scan(Vector3 direction)
         {
             timeSinceLastSpawn += Time.deltaTime;
-            float thisSprayAngleX = sprayAngleX + (musicAnalyzer.currentAvgLoudnessNormalized * sprayAngleLoudnessVariance);
-            float thisSprayAngleY = sprayAngleY + (musicAnalyzer.currentAvgLoudnessNormalized * sprayAngleLoudnessVariance);
+            float thisSprayAngleX = sprayAngleX + (MusicAnalyzer.instance.currentAvgLoudnessNormalized * sprayAngleLoudnessVariance);
+            float thisSprayAngleY = sprayAngleY + (MusicAnalyzer.instance.currentAvgLoudnessNormalized * sprayAngleLoudnessVariance);
 
             if (timeSinceLastSpawn > intervalPerSpawn)
             {

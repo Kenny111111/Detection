@@ -39,6 +39,12 @@ namespace Detection
             GameManager.PreGameStateChanged += HandleGameStateChange;
         }
 
+        private void OnDestroy()
+        {
+            EnemyManager.OnEnemyDeath -= HandleEnemyDeath;
+            GameManager.PreGameStateChanged -= HandleGameStateChange;
+        }
+
         private void HandleEnemyDeath(AttackerType attackerType, IDealsDamage.Weapons weapon)
         {
             CheckForSpecialScoring(attackerType, weapon);

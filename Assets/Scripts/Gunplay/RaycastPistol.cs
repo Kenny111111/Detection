@@ -7,7 +7,6 @@ namespace Detection
     public class RaycastPistol : TwoHandInteractable, IShootable, IShootsParticle, IDealsDamage
     {
         [SerializeField] private Color bulletColor = new Color(240, 208, 81);
-        [SerializeField] private float bulletLifetime = 0.5f;
         [SerializeField] private float bulletSize = 0.15f;
 
         [SerializeField] private GunData gunData;
@@ -89,7 +88,7 @@ namespace Detection
                 var scannableObject = hit.collider.GetComponent<IScannable>();
                 if (scannableObject == null) return;
 
-                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
+                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize);
                 scannableObject.EmitParticle(hit, overrideArgs);
 
                 SpawnBulletTrail(hit.point);

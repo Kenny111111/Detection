@@ -16,22 +16,26 @@ namespace Detection
             if (shootable != null) shootable.OnShot += DoEnemyCheckForSound;
         }
 
-        void Destroy()
+        void OnDestroy()
         {
             if (shootable != null) shootable.OnShot -= DoEnemyCheckForSound;
         }
 
         void DoEnemyCheckForSound()
         {
-            // find ai around player then call each enemies Alert() function in radius
-            foreach (KeyValuePair<Enemy, GameObject> entry in EnemyManager.instance.GetActiveEnemies())
+            if (gameObject != null)
             {
-                if (Vector3.Distance(transform.position, entry.Value.transform.position) <= maxWeaponHearingRadius)
+                // find ai around player then call each enemies Alert() function in radius
+                foreach (KeyValuePair<Enemy, GameObject> entry in EnemyManager.instance.GetActiveEnemies())
                 {
                     if (entry.Key != null && entry.Value != null)
                     {
-                        Vector3 soundPos = transform.position;
-                        entry.Key.Alerted(soundPos);
+                        if (Vector3.Distance(transform.position, entry.Value.transform.position) <= maxWeaponHearingRadius)
+                        {
+
+                            Vector3 soundPos = transform.position;
+                            entry.Key.Alerted(soundPos);
+                        }
                     }
                 }
             }

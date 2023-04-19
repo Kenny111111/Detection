@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 namespace Detection
@@ -13,8 +11,6 @@ namespace Detection
 
         [Range(0, 1)]
         [SerializeField] private float loudnessTolerance = 0.8f;
-        private MusicAnalyzer musicAnalyzer;
-        private GameObject playerObj;
 
         public bool allowMultipleEffectsAtOnce = false;
         private bool isApplyingEffect = false;
@@ -25,19 +21,13 @@ namespace Detection
 
         private void Awake()
         {
+            effectEmitArgs = new VFXEmitArgs(null, null);
             if (instance != null && instance != this) Destroy(this);
             else instance = this;
-
-            playerObj = GameObject.FindGameObjectWithTag("Player");
         }
 
         private void Start()
         {
-            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
-            effectEmitArgs = new VFXEmitArgs(null, null, null);
-
-            gameObject.AddComponent<ParticleSizeBeatEffect>().Initialize(musicAnalyzer);
-
             effectsFound = GameObject.FindGameObjectWithTag("Effects").GetComponents<IEffect>();
 
             // populate the weightedRandom effects bag we can pick from
@@ -54,14 +44,14 @@ namespace Detection
             if ((allowMultipleEffectsAtOnce || !isApplyingEffect) && !waitFlag)
             {
                 // if currentAvgLoudness is greater than a tolerance percentage of the maxLoudness
-                if (musicAnalyzer.currentAvgLoudnessNormalized > loudnessTolerance)
+                if (MusicAnalyzer.instance.currentAvgLoudnessNormalized > loudnessTolerance)
                 {
                     isApplyingEffect = true;
 
                     // randomly decide an event and some duration
                     var chosenEffect = weightedEffectsBag.GetRandomWeighted();
                     if (chosenEffect != null) chosenEffect.DoEffect(OnFinishedEffect);
-
+                    
                     if (!waitFlag) StartCoroutine(WaitBeforeNextEffect());
                 }
             }
@@ -70,7 +60,7 @@ namespace Detection
         public IEnumerator WaitBeforeNextEffect()
         {
             waitFlag = true;
-            const float WAIT_TIME = 3f;
+            const float WAIT_TIME = 0.25f;
 
             double currentTimeCount = 0;
             while (currentTimeCount < WAIT_TIME)
