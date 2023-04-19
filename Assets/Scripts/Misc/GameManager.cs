@@ -81,6 +81,8 @@ namespace Detection
 
             gameState = newState;
 
+            OnGameStateChanged?.Invoke(gameState);
+
             switch (gameState)
             {
                 case GameState.PLAYINGGAMEINTRO:
@@ -122,8 +124,6 @@ namespace Detection
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
             }
-
-            OnGameStateChanged?.Invoke(gameState);
         }
 
         // pre doesnt do levelended
