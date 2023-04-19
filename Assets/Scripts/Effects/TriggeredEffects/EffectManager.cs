@@ -21,13 +21,13 @@ namespace Detection
 
         private void Awake()
         {
+            effectEmitArgs = new VFXEmitArgs(null, null);
             if (instance != null && instance != this) Destroy(this);
             else instance = this;
         }
 
         private void Start()
         {
-            effectEmitArgs = new VFXEmitArgs(null, null);
             effectsFound = GameObject.FindGameObjectWithTag("Effects").GetComponents<IEffect>();
 
             // populate the weightedRandom effects bag we can pick from

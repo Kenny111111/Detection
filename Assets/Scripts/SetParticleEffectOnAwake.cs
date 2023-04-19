@@ -4,11 +4,11 @@ using UnityEngine.VFX;
 
 namespace Detection 
 {
-    public class SetParticleEffectOnStart : MonoBehaviour
+    public class SetParticleEffectOnAwake : MonoBehaviour
     {
         [SerializeField] private VisualEffect toSetEffectPrefab;
 
-        void Start()
+        void Awake()
         {
             if (toSetEffectPrefab == null)
             {
