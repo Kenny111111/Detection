@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,25 +7,14 @@ namespace Detection
 {
     public class ScoreManager : MonoBehaviour
     {
-        public struct ScoreValues
+        public enum ScoreType
         {
-            public int totalScore;
-            public int killScore;
-            public int comboScore;
-            public int timeScore;
-
-            public ScoreValues(int total, int kill, int combo, int time)
-            {
-                totalScore = total;
-                killScore = kill;
-                comboScore = combo;
-                timeScore = time;
-            }
+            TOTAL, KILL, COMBO, TIME
         }
 
         public static ScoreManager instance;
 
-        [Header("Testing(requires PREPARINGLEVEL)")]
+        [Header("TESTING ONLY(requires PREPARINGLEVEL)")]
         public bool testScoreSystem;
         public float minRandKillTime;
         public float maxRandKillTime;
@@ -51,8 +41,15 @@ namespace Detection
         private float comboScore = 0f;                              // Final combo score
         private float timeScore = 0f;                               // Score based on the time taken to beat level
 
-        // Cached values from the last level that was cleared
-        public ScoreValues Scores { get; private set; }
+        public int TotalScore { get; private set; } = 0;
+        public int KillScore { get; private set; } = 0;
+        public int ComboScore { get; private set; } = 0;
+        public int TimeScore { get; private set; } = 0;
+
+        GameState prevGameState = GameState.DEFAULT;
+        //private bool missionWasCleared = false;
+        //public bool ScoresUpdated { get; private set; } = false;
+        public static Action ScoreCalculated;
 
 
         private void Awake()
@@ -108,21 +105,46 @@ namespace Detection
             switch(gameState)
             {
                 case GameState.PREPARINGLEVEL:
-                    Reset();
+                    //Reset();
                     if(testScoreSystem) StartCoroutine(TestScoreSystem());
                     break;
                 case GameState.PLAYINGMISSION:
                     // Start/Restart level timer
                     levelStartTime = Time.time;
+                    //missionWasCleared = false;
                     break;
-                case GameState.LEVELENDED:
-                    CalculateTimeScore(Time.time - levelStartTime);
+                case GameState.MISSIONCLEARED:
+                    //missionWasCleared = true;
+                    //ScoresUpdated = false;
+                    break;
+                case GameState.MISSIONSTATISTICS:
                     CalculateFinalScore();
                     SaveScore();
+                    ScoreCalculated?.Invoke();
+                    //ScoresUpdated = true;
+                    break;
+                case GameState.LEVELENDED:
+                    //if (missionWasCleared && prevGameState == GameState.MISSIONCLEARED)// Dont recalulate score(this is to get around redirect scenes)
+                    //{
+                    //    //CalculateFinalScore();
+                    //    //SaveScore();
+                    //    //ScoresUpdated = true;
+                    //    //ScoreCalculated?.Invoke(); // Event since function execution order was messed up when changing scenes
+                    //}
+                    if(prevGameState == GameState.MISSIONCLEARED)
+                    {
+                        CalculateTimeScore(Time.time - levelStartTime);
+                    }
+                    else if(prevGameState == GameState.MISSIONSTATISTICS)
+                    {
+                        Reset();
+                    }
                     break;
                 default:
                     break;
             }
+
+            prevGameState = gameState;
         }
 
         private IEnumerator ComboTimer()
@@ -148,17 +170,30 @@ namespace Detection
 
         private void CalculateTimeScore(float secondsInLevel)
         {
+            //if (secondsInLevel <= minTimeInLevel)
+            //{
+            //    timeScore = maxLevelTimePoints;
+            //}
+            //else if (secondsInLevel >= maxTimeInLevel)
+            //{
+            //    timeScore = 0;
+            //}
+            //else
+            //{
+            //    timeScore = maxLevelTimePoints * Mathf.Pow(maxTimeInLevel - secondsInLevel, 2) / Mathf.Pow(maxTimeInLevel, 2);
+            //}
+
             if (secondsInLevel <= minTimeInLevel)
             {
-                timeScore = maxLevelTimePoints;
+                timeScore += maxLevelTimePoints;
             }
             else if (secondsInLevel >= maxTimeInLevel)
             {
-                timeScore = 0;
+                timeScore += 0;
             }
             else
             {
-                timeScore = maxLevelTimePoints * Mathf.Pow(maxTimeInLevel - secondsInLevel, 2) / Mathf.Pow(maxTimeInLevel, 2);
+                timeScore += maxLevelTimePoints * Mathf.Pow(maxTimeInLevel - secondsInLevel, 2) / Mathf.Pow(maxTimeInLevel, 2);
             }
         }
 
@@ -182,12 +217,19 @@ namespace Detection
 
         private void SaveScore()
         {
-            Scores = new ScoreValues((int)totalScore, (int)killScore, (int)comboScore, (int)timeScore);
-            Debug.Log("<color=green>Final Score values:</color>");
-            Debug.Log("<color=green>totalScore:</color> " + Scores.totalScore);
-            Debug.Log("<color=green>killScore:</color> " +  Scores.killScore);
-            Debug.Log("<color=green>comboScore:</color> " + Scores.comboScore);
-            Debug.Log("<color=green>timeScore:</color> " +  Scores.timeScore);
+            TotalScore = (int)totalScore;
+            KillScore = (int)killScore;
+            ComboScore = (int)comboScore;
+            TimeScore = (int)timeScore;
+
+            //if (testScoreSystem)
+            //{
+            //    Debug.Log("<color=green>Final Score values:</color>");
+            //    Debug.Log("<color=green>totalScore:</color> " + TotalScore);
+            //    Debug.Log("<color=green>killScore:</color> " + KillScore);
+            //    Debug.Log("<color=green>comboScore:</color> " + ComboScore);
+            //    Debug.Log("<color=green>timeScore:</color> " + TimeScore); 
+            //}
         }
 
         private IEnumerator TestScoreSystem()
@@ -196,12 +238,21 @@ namespace Detection
 
             foreach(var enemyKeyValue in enemies)
             {
-                enemyKeyValue.Key.Die(IDealsDamage.Weapons.Rifle, AttackerType.Player);
-                yield return new WaitForSeconds(Random.Range(minRandKillTime, maxRandKillTime));
+                // 0=none, 1=knife, 2=pistol, 3=dbshotgun, 4=rifle, 5=grenade
+                IDealsDamage.Weapons weapon = (IDealsDamage.Weapons)UnityEngine.Random.Range(2, 5);
+                AttackerType attackerType;
+                if (UnityEngine.Random.value < 0.5f) attackerType = AttackerType.Player;
+                else                                 attackerType = AttackerType.Enemy;
+
+                enemyKeyValue.Key.Die(weapon, attackerType);
+                yield return new WaitForSeconds(UnityEngine.Random.Range(minRandKillTime, maxRandKillTime));
             }
+
+            //yield return new WaitForSeconds(UnityEngine.Random.Range(3f, 10f)); // add some time after all dead for time score
 
             EndOfLevelCollision levelEndHitbox = FindObjectOfType<EndOfLevelCollision>();
             Player player = FindObjectOfType<Player>();
+
             if(levelEndHitbox != null && player != null)
                 player.transform.position = levelEndHitbox.transform.position;
         }
