@@ -9,12 +9,10 @@ namespace Detection
         [Header("Settings")]
         private Camera cam;
         public List<Color32> colors;
-        private MusicAnalyzer musicAnalyzer;
         // Start is called before the first frame update
         void Start()
         {
             cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             StartCoroutine(Cycle());
         }
 
@@ -31,7 +29,7 @@ namespace Detection
                 {
                     cam.backgroundColor = Color.Lerp(colors[startColorIndex], colors[endColorIndex], interpolant);
 
-                    float interpMultiplier = 1 + (musicAnalyzer.currentAvgLoudnessNormalized * loudnessMultiplier);
+                    float interpMultiplier = 1 + (MusicAnalyzer.instance.currentAvgLoudnessNormalized * loudnessMultiplier);
                     
                     interpolant += 0.005f * interpMultiplier;
                     yield return null;

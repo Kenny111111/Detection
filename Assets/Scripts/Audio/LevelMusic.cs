@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace Detection
@@ -9,15 +10,13 @@ namespace Detection
 	{
 		public static LevelMusic levelMusic;
 		public List<Sound> songList;
-		private MusicSystem musicSystem;
 
-		void Awake()
+		void Start()
 		{
 			// Ensure only one LevelMusic object exists at one time..
 			if (levelMusic == null) levelMusic = this;
 			else Destroy(gameObject);
 
-			musicSystem = FindObjectOfType<MusicSystem>();
 			AddSongsToQueue();
 		}
 
@@ -25,7 +24,21 @@ namespace Detection
 		{
 			foreach (Sound song in songList)
 			{
-				musicSystem.TryEnqueue(song);
+				if (!MusicSystem.instance.TryEnqueue(song))
+                {
+					Debug.Log("Failed to Enqueue song...");
+                }
+
+				int x = 0;
+				StringBuilder sb = new StringBuilder();
+				sb.Append("-LogMusicQueue-");
+				foreach (Sound sss in MusicSystem.instance.musicQueue.ToArray())
+				{
+					sb.Append("Song " + x + " " + sss.name);
+					x++;
+				}
+				sb.Append("------");
+				Debug.Log(sb.ToString());
 			}
 		}
 	}

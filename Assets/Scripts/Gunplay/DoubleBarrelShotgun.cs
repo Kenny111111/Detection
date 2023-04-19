@@ -8,7 +8,6 @@ namespace Detection
     public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDamage
     {
         [SerializeField] private Color bulletColor = new Color(240, 208, 81);
-        [SerializeField] private float bulletLifetime = 0.5f;
         [SerializeField] private float bulletSize = 0.2f;
 
         [SerializeField] private Transform bulletSpawn;
@@ -109,7 +108,7 @@ namespace Detection
                 var scannableObject = hit.collider.GetComponent<IScannable>();
                 if (scannableObject == null) return;
 
-                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
+                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize);
                 scannableObject.EmitParticle(hit, overrideArgs);
 
                 SpawnBulletTrail(hit.point);

@@ -6,8 +6,6 @@ namespace Detection
 {
 	public class ParticleSizeBeatEffect : MonoBehaviour, IEffect
 	{
-		private MusicAnalyzer musicAnalyzer;
-
 		[Range(0.01f, float.MaxValue)]
 		[SerializeField] double minEffectDuration = 0.5;
 		[Range(0.01f, 30)]
@@ -21,7 +19,6 @@ namespace Detection
 		public void Awake()
         {
 			Weight = weight;
-			musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
 		}
 
 		void IEffect.DoEffect(Action callback) => StartCoroutine(DoParticleSizeBeatEffect(callback));
@@ -34,7 +31,7 @@ namespace Detection
 
 			for (float t = 0f; t < randomDuration; t += Time.deltaTime)
 			{
-				EffectManager.instance.effectEmitArgs.size = musicAnalyzer.currentAvgLoudnessNormalized * loudnessToSizeScalar;
+				EffectManager.instance.effectEmitArgs.size = MusicAnalyzer.instance.currentAvgLoudnessNormalized * loudnessToSizeScalar;
 				yield return null;
 			}
 

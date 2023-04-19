@@ -8,7 +8,6 @@ namespace Detection
     {
         public static EffectManager instance;
         public VFXEmitArgs effectEmitArgs;
-        private MusicAnalyzer musicAnalyzer;
 
         [Range(0, 1)]
         [SerializeField] private float loudnessTolerance = 0.8f;
@@ -22,14 +21,13 @@ namespace Detection
 
         private void Awake()
         {
+            effectEmitArgs = new VFXEmitArgs(null, null);
             if (instance != null && instance != this) Destroy(this);
             else instance = this;
         }
 
         private void Start()
         {
-            effectEmitArgs = new VFXEmitArgs(null, null, null);
-            musicAnalyzer = FindObjectOfType<MusicAnalyzer>();
             effectsFound = GameObject.FindGameObjectWithTag("Effects").GetComponents<IEffect>();
 
             // populate the weightedRandom effects bag we can pick from
@@ -46,7 +44,7 @@ namespace Detection
             if ((allowMultipleEffectsAtOnce || !isApplyingEffect) && !waitFlag)
             {
                 // if currentAvgLoudness is greater than a tolerance percentage of the maxLoudness
-                if (musicAnalyzer.currentAvgLoudnessNormalized > loudnessTolerance)
+                if (MusicAnalyzer.instance.currentAvgLoudnessNormalized > loudnessTolerance)
                 {
                     isApplyingEffect = true;
 

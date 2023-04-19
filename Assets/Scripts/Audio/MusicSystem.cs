@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -13,7 +14,6 @@ namespace Detection
 		public static MusicSystem instance;
 		public AudioMixerGroup audioMxrGroup;
 		public Queue<Sound> musicQueue;
-
 		public Sound songPlaying;
 
 		public static event Action<Sound> UpdatedSongPlaying;
@@ -48,39 +48,56 @@ namespace Detection
 					instance.songPlaying = instance.musicQueue.Peek();
 					instance.songPlaying.source.Play();
 
-					UpdatedSongPlaying?.Invoke(instance.musicQueue.Peek());
+					UpdatedSongPlaying?.Invoke(instance.songPlaying);
+
+					Sound songForDequeue = instance.songPlaying;
 
 					float currentSongLength = instance.songPlaying.source.clip.length;
 					yield return new WaitForSeconds(currentSongLength + waitAmount);
-					// remove it from the list since it has completed playing
-					instance.musicQueue.Dequeue();
+
+					// Try to remove it from the front of the queue
+					instance.TryDequeue(songForDequeue);
 				}
 
 				yield return new WaitForSeconds(waitAmount);
 			}
 		}
 
-		public void TryStopAndDequeue()
-        {
-			if (instance.songPlaying != null && instance.songPlaying.source != null && instance.songPlaying.source.isPlaying)
+		public bool TryDequeue(Sound songToRemove)
+		{
+			if (musicQueue.Count == 0) return false;
+
+			Debug.Log("TryDequeue.. " + songToRemove.name);
+			Sound top = musicQueue.Peek();
+			if (songToRemove.name == top.name)
 			{
-				instance.songPlaying.source.Stop();
-				instance.musicQueue.Dequeue();
+				musicQueue.Dequeue();
+				return true;
 			}
+			else return false;
+		}
+
+		public void TryStopAndClearQueue()
+        {
+			if (songPlaying == null || songPlaying.source == null || songPlaying.source.isPlaying == false) return;
+
+			songPlaying.source.Stop();
+			musicQueue.Clear();
 		}
 
 		public void ResetQueue()
 		{
 			StopCoroutine(PlaySongQueue());
 
-			TryStopAndDequeue();
-			musicQueue.Clear();
+			TryStopAndClearQueue();
 
 			StartCoroutine(PlaySongQueue());
 		}
 
 		public bool TryEnqueue(Sound songToAdd)
 		{
+			if (songToAdd == null || songToAdd.name == null) return false;
+
 			// If we arent able to find the current song in the queue, add it.
 			if (musicQueue.ToList().Find(item => item.name == songToAdd.name) == null)
 			{

@@ -81,6 +81,8 @@ namespace Detection
 
             gameState = newState;
 
+            OnGameStateChanged?.Invoke(gameState);
+
             switch (gameState)
             {
                 case GameState.PLAYINGGAMEINTRO:
@@ -122,8 +124,6 @@ namespace Detection
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
             }
-
-            OnGameStateChanged?.Invoke(gameState);
         }
 
         // pre doesnt do levelended
@@ -315,6 +315,9 @@ namespace Detection
         private void OnLevelEnded()
         {
             // Do stuff before the next level is loaded
+            // Clear all points
+            ParticleCollector.instance.ClearAllPoints();
+            // Clear the music queue
             FindObjectOfType<MusicSystem>().ResetQueue();
             TrySwitchToNextScene();
         }
