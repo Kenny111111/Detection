@@ -32,7 +32,7 @@ namespace Detection
         private GameObject cameraObject;
 
         public static event Action<GameState> OnGameStateChanged;
-        public static event Action<GameState> PreGameStateChanged;
+        public static event Action<GameState> AfterGameStateChanged;
 
         private void Awake()
         {
@@ -53,7 +53,7 @@ namespace Detection
             cameraObject = GameObject.FindWithTag("MainCamera");
             if (cameraObject == null) Debug.LogError("Unable to find an object with tag 'MainCamera'. cameraObject is null.");
 
-            GameManager.PreGameStateChanged += GameManagerPreGameStateChanged;
+            GameManager.AfterGameStateChanged += GameManagerAfterGameStateChanged;
             EnemyManager.OnAllEnemiesDead += GameManagerOnAllEnemiesDead;
         }
 
@@ -64,7 +64,7 @@ namespace Detection
 
         private void OnDestroy()
         {
-            GameManager.PreGameStateChanged -= GameManagerPreGameStateChanged;
+            GameManager.AfterGameStateChanged -= GameManagerAfterGameStateChanged;
             EnemyManager.OnAllEnemiesDead -= GameManagerOnAllEnemiesDead;
         }
 
@@ -77,7 +77,7 @@ namespace Detection
         {
             if (gameState == newState) return;
 
-            PreGameStateChanged?.Invoke(gameState);
+            AfterGameStateChanged?.Invoke(gameState);
 
             gameState = newState;
 
@@ -129,7 +129,7 @@ namespace Detection
         // pre doesnt do levelended
         // on doesnt do preparing level
 
-        private void GameManagerPreGameStateChanged(GameState currentState)
+        private void GameManagerAfterGameStateChanged(GameState currentState)
         {
             switch (currentState)
             {
