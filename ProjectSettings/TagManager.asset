@@ -11,6 +11,7 @@ TagManager:
   - Camera
   - Effects
   - statisticsMenu
+  - MainMenuRig
   layers:
   - Default
   - TransparentFX

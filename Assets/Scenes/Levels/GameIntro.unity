@@ -880,7 +880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0aa705d9c3ae6c4fb2d44a883a9b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 344048061}
   tempOffsetX: 500
   tempOffsetY: 250
 --- !u!114 &344048057
