@@ -25,12 +25,13 @@ namespace Detection
             }
             else Destroy(gameObject);
 
-            GameManager.PreGameStateChanged += HandleGameStateChange;
+            GameManager.AfterGameStateChanged += HandleGameStateChange;
         }
 
         private void OnDestroy()
         {
             Reset();
+            GameManager.AfterGameStateChanged -= HandleGameStateChange;
         }
 
         private void HandleEnemyDeath(Enemy enemy, IDealsDamage.Weapons weapon, AttackerType attackerType)
