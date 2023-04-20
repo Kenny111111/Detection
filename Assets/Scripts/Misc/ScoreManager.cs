@@ -62,13 +62,13 @@ namespace Detection
             else Destroy(gameObject);
 
             EnemyManager.OnEnemyDeath += HandleEnemyDeath;
-            GameManager.PreGameStateChanged += HandleGameStateChange;
+            GameManager.OnGameStateChanged += HandleGameStateChange;
         }
 
         private void OnDestroy()
         {
             EnemyManager.OnEnemyDeath -= HandleEnemyDeath;
-            GameManager.PreGameStateChanged -= HandleGameStateChange;
+            GameManager.OnGameStateChanged -= HandleGameStateChange;
         }
 
         private void HandleEnemyDeath(AttackerType attackerType, IDealsDamage.Weapons weapon)
@@ -105,32 +105,18 @@ namespace Detection
             switch(gameState)
             {
                 case GameState.PREPARINGLEVEL:
-                    //Reset();
-                    if(testScoreSystem) StartCoroutine(TestScoreSystem());
+                    if (testScoreSystem) StartCoroutine(TestScoreSystem());
                     break;
                 case GameState.PLAYINGMISSION:
                     // Start/Restart level timer
                     levelStartTime = Time.time;
-                    //missionWasCleared = false;
-                    break;
-                case GameState.MISSIONCLEARED:
-                    //missionWasCleared = true;
-                    //ScoresUpdated = false;
                     break;
                 case GameState.MISSIONSTATISTICS:
                     CalculateFinalScore();
                     SaveScore();
                     ScoreCalculated?.Invoke();
-                    //ScoresUpdated = true;
                     break;
                 case GameState.LEVELENDED:
-                    //if (missionWasCleared && prevGameState == GameState.MISSIONCLEARED)// Dont recalulate score(this is to get around redirect scenes)
-                    //{
-                    //    //CalculateFinalScore();
-                    //    //SaveScore();
-                    //    //ScoresUpdated = true;
-                    //    //ScoreCalculated?.Invoke(); // Event since function execution order was messed up when changing scenes
-                    //}
                     if(prevGameState == GameState.MISSIONCLEARED)
                     {
                         CalculateTimeScore(Time.time - levelStartTime);
@@ -170,19 +156,6 @@ namespace Detection
 
         private void CalculateTimeScore(float secondsInLevel)
         {
-            //if (secondsInLevel <= minTimeInLevel)
-            //{
-            //    timeScore = maxLevelTimePoints;
-            //}
-            //else if (secondsInLevel >= maxTimeInLevel)
-            //{
-            //    timeScore = 0;
-            //}
-            //else
-            //{
-            //    timeScore = maxLevelTimePoints * Mathf.Pow(maxTimeInLevel - secondsInLevel, 2) / Mathf.Pow(maxTimeInLevel, 2);
-            //}
-
             if (secondsInLevel <= minTimeInLevel)
             {
                 timeScore += maxLevelTimePoints;
@@ -222,19 +195,24 @@ namespace Detection
             ComboScore = (int)comboScore;
             TimeScore = (int)timeScore;
 
-            //if (testScoreSystem)
-            //{
-            //    Debug.Log("<color=green>Final Score values:</color>");
-            //    Debug.Log("<color=green>totalScore:</color> " + TotalScore);
-            //    Debug.Log("<color=green>killScore:</color> " + KillScore);
-            //    Debug.Log("<color=green>comboScore:</color> " + ComboScore);
-            //    Debug.Log("<color=green>timeScore:</color> " + TimeScore); 
-            //}
+            if (testScoreSystem)
+            {
+                Debug.Log("<color=green>Final Score values:</color>");
+                Debug.Log("<color=green>totalScore:</color> " + TotalScore);
+                Debug.Log("<color=green>killScore:</color> " + KillScore);
+                Debug.Log("<color=green>comboScore:</color> " + ComboScore);
+                Debug.Log("<color=green>timeScore:</color> " + TimeScore);
+            }
         }
 
         private IEnumerator TestScoreSystem()
         {
             List<KeyValuePair<Enemy, GameObject>> enemies = EnemyManager.instance.GetActiveEnemies();
+            while(enemies.Count == 0)
+            {
+                yield return new WaitForSeconds(1);
+                enemies = EnemyManager.instance.GetActiveEnemies();
+            }
 
             foreach(var enemyKeyValue in enemies)
             {

@@ -27,11 +27,6 @@ namespace Detection
             waitTime = new WaitForSeconds(1f / fps);
         }
 
-        private void Start()
-        {
-            
-        }
-
         private void UpdateValue(int newVal)
         {
             if (incrementRoutine != null) StopCoroutine(incrementRoutine);
