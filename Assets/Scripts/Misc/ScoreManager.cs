@@ -47,8 +47,6 @@ namespace Detection
         public int TimeScore { get; private set; } = 0;
 
         GameState prevGameState = GameState.DEFAULT;
-        //private bool missionWasCleared = false;
-        //public bool ScoresUpdated { get; private set; } = false;
         public static Action ScoreCalculated;
 
 

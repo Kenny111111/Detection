@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -18,8 +19,10 @@ namespace Detection
         private Coroutine incrementRoutine = null;
         private WaitForSeconds waitTime;
         private float fps = 60.0f;                      // speed of number increment
-        private float duration = 3f;                    // duration of animation
+        private float duration = 1.5f;                  // duration of animation
 
+        [HideInInspector] public int displayOrderNum;
+        public Action<int> OnDoneIncrementing;
 
         private void Awake()
         {
@@ -64,6 +67,8 @@ namespace Detection
                     yield return waitTime;
                 }
             }
+
+            OnDoneIncrementing?.Invoke(displayOrderNum);
         }
     }
 }
