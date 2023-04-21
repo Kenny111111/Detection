@@ -9,9 +9,14 @@ namespace Detection
     public class VolumeSlider : MonoBehaviour
     {
         [SerializeField] private AudioMixer volumeSlider;
-        public void SetVolume(float sliderVolume)
+        public void SetMusicVolume(float MusicSliderVolume)
         {
-            volumeSlider.SetFloat("Volume", Mathf.Log10(sliderVolume) * 20);
+            volumeSlider.SetFloat("MusicVolume", Mathf.Log10(MusicSliderVolume) * 20);
+        }
+
+        public void SetGameVolume(float GameSliderVolume)
+        {
+            volumeSlider.SetFloat("GameVolume", Mathf.Log10(GameSliderVolume) * 20);
         }
     }
 }
