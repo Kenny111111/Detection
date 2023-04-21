@@ -1,36 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+namespace Detection
 {
-    public Text timerText;
-    private float startTime;
-    private bool finished = false;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Timer : MonoBehaviour
     {
-        startTime = Time.time;
-    }
+        private Text timerText;
+        private float startTime;
+        private bool finished = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (finished) return;
+        // Start is called before the first frame update
+        void Start()
+        {
+            timerText = GameObject.FindWithTag("WristTimerText").GetComponent<Text>();
+            if (timerText == null) Debug.LogError("Could not find WristTimerText component Text");
+            startTime = Time.time; 
+        }
 
-        float t = Time.time - startTime;
+        // Update is called once per frame
+        void Update()
+        {
+            if (finished) return;
 
-        string minutes = ((int)t / 60).ToString();
-        string seconds = (t % 60).ToString("f3");
+            float t = Time.time - startTime;
 
-        timerText.text = minutes + ":" + seconds;
-    }
+            string minutes = ((int)t / 60).ToString();
+            string seconds = (t % 60).ToString("f3");
 
-    public void Finished()
-    {
-        finished = true;
-        timerText.color = Color.yellow;
+            timerText.text = minutes + ":" + seconds;
+        }
+
+        public void Finished()
+        {
+            finished = true;
+            timerText.color = Color.yellow;
+        }
     }
 }

@@ -1,20 +1,22 @@
 using UnityEngine;
-using Detection;
 
-public class Combatant : MonoBehaviour, ITakeDamage
+namespace Detection
 {
-    protected float health;
-    protected float maxHealth;
-
-    public void TakeDamage(float damage)
+    public class Combatant : MonoBehaviour, ITakeDamage
     {
-        health -= damage;
-        if (health <= 0)
-            Die();
-    }
+        protected float health;
+        protected float maxHealth;
 
-    public virtual void Die()
-    {
+        public void TakeDamage(IDealsDamage.Weapons weapon, float damage, AttackerType attacker)
+        {
+            health -= damage;
+            if (health <= 0)
+                Die(weapon, attacker);
+        }
 
+        public virtual void Die(IDealsDamage.Weapons weapon, AttackerType attacker)
+        {
+
+        }
     }
 }

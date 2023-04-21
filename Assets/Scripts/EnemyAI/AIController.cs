@@ -1,271 +1,229 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class AIController : MonoBehaviour
+
+namespace Detection
 {
-   
-
-    public NavMeshAgent navMeshAgent;
-    public float waitingTime = 4.5f;
-    public float rotationTime = 2.5f;
-    public float walkingSpeed = 3;
-    public float RunningSpeed = 5.5f;
-
-    public float enemyRadius = 15.0f;
-    public float enemyViewAngle = 90.0f;
-    public LayerMask player;
-    public LayerMask obstacle;
-    public float meshResolution = 1.0f;
-    public int edgeIterations = 4;
-    public float edgeDistance = 0.5f;
-
-    public float firingrange = 10.0f;
-    public float firingrate = 2.0f;
-
-    public Transform[] waypoints;
-    private int curWaypoint;
-    private Animator animator;
-
-    private Vector3 playerLastPosition = Vector3.zero;
-    private Vector3 playerPosition;
-
-    [SerializeField] private AIWeaponManager weaponManager;
-    private readonly int speedHash = Animator.StringToHash("Speed");
-
-    private WeaponInverseKinematics weaponInverseKinematics;
-    [SerializeField] private Transform playerTransform;
-
-    private float delayTime;
-    private float rotate;
-    private bool playerIsInRange;
-    private bool playerIsNear;
-    private bool patrolling;
-    private bool playerCaught;
-    private bool tryAttack;
-
-    private bool startAttack;
-
-    void Start()
+    enum AIState 
     {
-        curWaypoint = 0;
-
-        patrolling = true;
-        playerIsInRange = false;
-        playerIsNear = false;
-        playerCaught = false;
-        playerPosition = Vector3.zero;
-
-        delayTime = waitingTime;
-        rotate = rotationTime;
-
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.isStopped = false;
-        navMeshAgent.speed = walkingSpeed;
-        navMeshAgent.SetDestination(waypoints[curWaypoint].position);
-
-        weaponInverseKinematics = GetComponent<WeaponInverseKinematics>();
-        animator = GetComponent<Animator>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        Default,        // Default state, should not occur.
+        Patrolling,     // Ai is walking around waypoints.
+        Chasing,        // Ai is running towards the player until it can attack.
+        Attacking,      // Ai is attacking the player using its weapon.
+        Alerted,        // Ai is walking towards a sound location.
+        Dead,           // Ai is dead and not doing anything.
+        Paused          // Game is paused, so the Ai is doing nothing.
     }
 
-    private void Update()
+    public class AIController : MonoBehaviour
     {
-        if (!navMeshAgent.isStopped)
+        [SerializeField] private NavMeshAgent navMeshAgent;
+        private Enemy enemyAI;
+        [SerializeField] private AIState aiState = AIState.Default;
+
+        [SerializeField] private float walkingSpeed = 2.50f;
+        [SerializeField] private float runningSpeed = 4.0f;
+        [SerializeField] private float hearingDistance = 15f;
+
+        [SerializeField] private float aiDetectRadius = 20.0f;
+        [SerializeField] private float aiViewAngle = 90.0f;
+
+        private LayerMask obstacleLayerMask;
+
+        [SerializeField] private List<Transform> waypoints;
+        private int curWaypoint;
+        private Animator animator;
+
+        private Vector3 playerLastPosition = Vector3.zero;
+
+        [SerializeField] private AIWeaponManager weaponManager;
+        private readonly int speedHash = Animator.StringToHash("Speed");
+
+        private WeaponInverseKinematics weaponInverseKinematics;
+        private Transform playerTransform;
+        private AIWeaponManager.NecessaryUseConditions aiWeaponUseConditions;
+        private bool startAttack;
+
+        void Start()
         {
-            float speedOffset = 1f;
-            animator.SetFloat(speedHash, navMeshAgent.velocity.magnitude + speedOffset);
-        }
-        else
-        {
-            animator.SetFloat(speedHash, 0);
+            curWaypoint = 0;
+
+            enemyAI = GetComponent<Enemy>();
+            obstacleLayerMask = LayerMask.GetMask("Environment");
+
+            navMeshAgent = GetComponent<NavMeshAgent>();
+            navMeshAgent.isStopped = false;
+            navMeshAgent.speed = walkingSpeed;
+
+            if (waypoints.Count != 0) navMeshAgent.SetDestination(waypoints[curWaypoint].position);
+
+            weaponInverseKinematics = GetComponent<WeaponInverseKinematics>();
+            animator = GetComponent<Animator>();
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+            aiWeaponUseConditions = weaponManager.GetWeaponNecessaryUseConditions();
         }
 
-        EnviromentView();
-        if(tryAttack)
+        void Update()
         {
-            TryAttack();
-        }
-        else
-        {
-            if (!patrolling) Chasing();
-            else Patrolling();
-        }
-        
-    }
-
-    private void Patrolling()
-    {
-        if (playerIsNear)
-        {
-            if (rotate <= 0)
+            // If the enemy is dead, dont do anything...
+            if (enemyAI.isAlive == false)
             {
-                Move(walkingSpeed);
-                LookingPlayer(playerLastPosition);
+                aiState = AIState.Dead;
+                return;
+            }
+
+            // If the game state is paused, dont do anything..
+            if (GameManager.instance.GetGameState() == GameState.LEVELPAUSED)
+            {
+                aiState = AIState.Paused;
+                return;
+            }
+
+            // Update the animator speedHash (how fast it looks like its moving)
+            if (!navMeshAgent.isStopped) animator.SetFloat(speedHash, navMeshAgent.velocity.magnitude);
+            else animator.SetFloat(speedHash, 0);
+
+            Vector3 aiPosition = transform.position;
+            Vector3 playerPosition = playerTransform.position;
+            // Magic number offsets :) TO FIX PLS
+            aiPosition.y += 1.1f;
+            playerPosition.y += 1.1f;
+
+            Vector3 dirToPlayer = playerPosition - aiPosition;
+            float distanceToPlayer = dirToPlayer.magnitude;
+            dirToPlayer.Normalize();
+
+            if (CanSeePlayerUnobstructed(aiPosition, playerPosition, distanceToPlayer, dirToPlayer))
+            {
+                if (CanAttackWithWeaponRequirements(distanceToPlayer)) aiState = AIState.Attacking;
+                else aiState = AIState.Chasing;
             }
             else
             {
-                Stop();
-                rotate -= Time.deltaTime;
+                if (aiState != AIState.Alerted) aiState = AIState.Patrolling;
+            }
+
+            switch (aiState)
+            {
+                case AIState.Patrolling:
+                    Patrolling();
+                    break;
+                case AIState.Attacking:
+                    Attack();
+                    break;
+                case AIState.Chasing:
+                    Chasing();
+                    break;
+                case AIState.Alerted:
+                    break;
+                default:
+                    Debug.Log("Unexpected aiState");
+                    break;
             }
         }
-        else
+
+        private bool CanSeePlayerUnobstructed(Vector3 aiPosition, Vector3 playerPosition, float distanceToPlayer, Vector3 dirToPlayer)
         {
-            playerIsNear = false;
-            playerLastPosition = Vector3.zero;
+            // Ensure the player is in range. If the player is out of range, do nothing
+            if (distanceToPlayer > aiDetectRadius) return false;
+
+            // Ensure the player is in the enemies viewangle. If the player is not within the ai's viewangle, do nothing
+            if (Vector3.Angle(transform.forward, dirToPlayer) > aiViewAngle / 2) return false;
+
+            // Ensure the player is viewable. If there are any objects between the ai and the player, do nothing
+            if (Physics.Raycast(aiPosition, dirToPlayer, (float)distanceToPlayer, obstacleLayerMask)) return false;
+
+            // All logical requirements are met to 'see' a player.
+            playerLastPosition = playerPosition;
+            return true;
+        }
+
+        private void Patrolling()
+        {
+            SetAiMoveSpeed(walkingSpeed);
+
+            // Only set the destination if its not already set
+            if (navMeshAgent.destination == null) navMeshAgent.SetDestination(waypoints[curWaypoint].position);
+
+            // If the agent gets to the waypoint, go to the next one
+            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) NextWaypoint();
+        }
+
+        private void Chasing()
+        {
+            SetAiMoveSpeed(runningSpeed);
+            navMeshAgent.SetDestination(playerLastPosition);
+        }
+
+        public void NextWaypoint()
+        {
+            if (waypoints.Count == 0) return;
+
+            curWaypoint++;
+            curWaypoint %= waypoints.Count;
 
             navMeshAgent.SetDestination(waypoints[curWaypoint].position);
-            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-            {
-                if (delayTime <= 0)
-                {
-                    NextPoint();
-                    Move(walkingSpeed);
-
-                    delayTime = waitingTime;
-                }
-                else
-                {
-                    Stop();
-                    delayTime -= Time.deltaTime;
-                }
-            }
         }
-    }
 
-    private void Chasing()
-    {
-        playerIsNear = false;
-        playerLastPosition = Vector3.zero;
 
-        if (!playerCaught)
+        private bool CanAttackWithWeaponRequirements(float distanceToPlayer)
         {
-            Move(RunningSpeed);
-            navMeshAgent.SetDestination(playerPosition);
-        }
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-        {
-            if (delayTime <= 0 && !playerCaught && Vector3.Distance(transform.position, playerTransform.position) >= 6f)
-            {
-                patrolling = true;
-                playerIsNear = false;
-
-                Move(walkingSpeed);
-                rotate = rotationTime;
-                delayTime = waitingTime;
-                navMeshAgent.SetDestination(waypoints[curWaypoint].position);
-            }
-            else
-            {
-                if (Vector3.Distance(transform.position, playerTransform.position) >= 2.5f) Stop();
-                if (Vector3.Distance(transform.position, playerTransform.position) >= 2.5f) Stop();
-                delayTime -= Time.deltaTime;
-            }
-        }
-    }
-
-    private void TryAttack()
-    {
-        AIWeaponManager.NecessaryUseConditions useConditions = weaponManager.GetWeaponNecessaryUseConditions();
-        float dist = Vector3.Distance(transform.position, playerPosition);
-
-        // Player is visible
-        if (playerIsInRange)
-        {
-            navMeshAgent.SetDestination(playerPosition);
-            if (dist < useConditions.maxRange)
-                weaponInverseKinematics.SetTargetTransform(playerTransform);
-
-            if (dist < useConditions.idealRange)
-            {
-                // enemy slows down to try attack
-                navMeshAgent.speed = 0.5f;
+            if (distanceToPlayer < aiWeaponUseConditions.idealRange)
                 startAttack = true;
-            }
 
             if (startAttack)
             {
-                // Player is in range to use the weapon -> stop the enemy and try an attack
-                if (dist < useConditions.maxRange && dist > useConditions.minRange)
-                {
-                    
-                    weaponManager.DoAttack();
-                }
+                // if the player is in the min/max ranges to use the weapon, then the enemy is attacking.
+                if (distanceToPlayer > aiWeaponUseConditions.minRange && distanceToPlayer < aiWeaponUseConditions.maxRange)
+                    return true;
                 else
                 {
                     startAttack = false;
-                    Move(RunningSpeed);
-                    navMeshAgent.SetDestination(playerPosition);
+                    return false;
                 }
             }
+
+            return false;
         }
-    }
 
-    public void NextPoint()
-    {
-        curWaypoint++;
-        curWaypoint %= waypoints.Length;
-
-        navMeshAgent.SetDestination(waypoints[curWaypoint].position);
-    }
-
-    void LookingPlayer(Vector3 player)
-    {
-        navMeshAgent.SetDestination(player);
-
-        if (Vector3.Distance(transform.position, player) <= 0.3)
+        private void Attack()
         {
-            if (delayTime <= 0)
-            {
-                playerIsNear = false;
+            // Make the ai aim the weapon towards the player
+            weaponInverseKinematics.SetTargetTransform(playerTransform);
 
-                Move(walkingSpeed);
-                navMeshAgent.SetDestination(waypoints[curWaypoint].position);
+            // Stop the enemy
+            StopAiFromMoving();
 
-                rotate = rotationTime;
-                delayTime = waitingTime;
-            }
-            else
-            {
-                Stop();
-                delayTime -= Time.deltaTime;
-            }
+            // Then attack
+            weaponManager.DoAttack();
         }
-    }
 
-    void Move(float speed)
-    {
-        navMeshAgent.speed = speed;
-        navMeshAgent.isStopped = false;
-    }
-
-    void Stop()
-    {
-        navMeshAgent.speed = 0;
-        navMeshAgent.isStopped = true;
-    }
-
-    void EnviromentView()
-    {
-        Collider[] playerInRange = Physics.OverlapSphere(transform.position, enemyRadius, player);
-
-        for (int i = 0; i < playerInRange.Length; i++)
+        void SetAiMoveSpeed(float speed)
         {
-            Transform player = playerInRange[i].transform;
-            Vector3 dirToPlayer = (player.position - transform.position).normalized;
+            navMeshAgent.speed = speed; // maybe use a coroutine to interpolate over time?
+            navMeshAgent.isStopped = false;
+        }
 
-            if (Vector3.Angle(transform.forward, dirToPlayer) < enemyViewAngle / 2)
+        void StopAiFromMoving()
+        {
+            navMeshAgent.speed = 0; // maybe use a coroutine to lower over time?
+            navMeshAgent.isStopped = true;
+        }
+
+        public void Alerted(Vector3 soundPos)
+        {
+            // Calculate distance between the AI and the sound position
+            float distance = Vector3.Distance(transform.position, soundPos);
+
+            // If the sound is within hearing range, respond to it
+            if (distance <= hearingDistance)
             {
-                float dstToPlayer = Vector3.Distance(transform.position, player.position);
-
-                if (!Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacle))
-                {
-                    playerIsInRange = true;
-                    patrolling = false;
-                    tryAttack = true;
-                }
-                else playerIsInRange = false;
+                aiState = AIState.Alerted;
+                SetAiMoveSpeed(runningSpeed);
+                navMeshAgent.SetDestination(soundPos);
             }
-            if (Vector3.Distance(transform.position, player.position) > enemyRadius) playerIsInRange = false;
-            if (playerIsInRange) playerPosition = player.position;
         }
     }
 }

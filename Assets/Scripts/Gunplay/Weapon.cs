@@ -1,31 +1,59 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-
-public class Weapon : MonoBehaviour
+namespace Detection
 {
-    [SerializeField] protected GunData gunData;
-    protected XRGrabInteractable weapon;
-
-    private void Awake()
+    public class Weapon : MonoBehaviour
     {
-        weapon = GetComponent<XRGrabInteractable>();
-        SetupInteractions();
-    }
+        [SerializeField] protected GunData gunData;
+        protected XRGrabInteractable weapon;
+        private float intensity = 0f;
+        private float duration = 0f;
+        private XRBaseControllerInteractor controller = null;
+        protected AttackerType attackerType { get; private set; } = AttackerType.Enemy;
 
-    protected void SetupInteractions()
-    {
-        weapon.activated.AddListener(StartAttacking);
-        weapon.deactivated.AddListener(StopAttacking);
-    }
+        private void Awake()
+        {
+            weapon = GetComponent<XRGrabInteractable>();
+            SetupInteractions();
+        }
 
-    protected virtual void StartAttacking(ActivateEventArgs args)
-    {
+        protected void SetupInteractions()
+        {
+            weapon.activated.AddListener(StartAttacking);
+            weapon.deactivated.AddListener(StopAttacking);
+            weapon.selectEntered.AddListener(Grab);
+        }
 
-    }
+        private void Grab(SelectEnterEventArgs args)
+        {
+            attackerType = AttackerType.Player;
+        }
 
-    protected virtual void StopAttacking(DeactivateEventArgs args)
-    {
+        protected virtual void StartAttacking(ActivateEventArgs args)
+        {
 
+        }
+
+        protected virtual void StopAttacking(DeactivateEventArgs args)
+        {
+
+        }
+
+        protected void SetHapticIntensityDuration(float intensity, float duration)
+        {
+            this.intensity = intensity;
+            this.duration = duration;
+        }
+
+        protected virtual void ActivateHapticFeedback()
+        {
+            if (weapon.isSelected)
+            {
+                controller = weapon.interactorsSelecting[0] as XRBaseControllerInteractor;
+                controller.SendHapticImpulse(intensity, duration);
+            }
+        }
     }
 }

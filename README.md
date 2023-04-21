@@ -1,6 +1,6 @@
-# Strafe Analyzer
+# Game: Detection
 [![Unity](https://img.shields.io/badge/Unity-2021.3.18f-red)](https://unity.com/releases/editor/whats-new/2021.3.18)
-[![C#](https://img.shields.io/badge/language-c%23-yellowgreen)](https://learn.microsoft.com/en-us/dotnet/csharp/)
+[![C#](https://img.shields.io/badge/language-C%23-yellowgreen)](https://learn.microsoft.com/en-us/dotnet/csharp/)
 [![Windows](https://img.shields.io/badge/platform-Windows-0078d7.svg?style=plastic)](https://en.wikipedia.org/wiki/Microsoft_Windows)
 [![Issues](https://img.shields.io/github/issues/spicy/Detection.svg?style=plastic)](https://github.com/spicy/Detection/issues)
 [![Jira](https://img.shields.io/badge/Tracking-Jira-blue)](https://detectiongame.atlassian.net/jira/software/projects/DET/boards/1)
@@ -14,7 +14,7 @@ Inspired by Hotline Miami and LIDAR.exe
 ## Contributors
 - **Lead Developer** - Daniel Currey
 - **Developer** - Cameron Batchelor
-- **Developer** - Jeric Baquiran
+- **Developer/UI Artist** - Jeric Baquiran
 - **Developer** - Kenny Dang
 - **Developer** - Michael Khuri
 
@@ -23,9 +23,6 @@ Inspired by Hotline Miami and LIDAR.exe
 *   A Virtual Reality headset
 
 ## License
-> Copyright (c) 2023-2024 Daniel Currey
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/mit-license.php) - see the [LICENSE](https://github.com/spicy/Detection/LICENSE) file for details.
-
+> Copyright (c) Daniel Currey
 
 

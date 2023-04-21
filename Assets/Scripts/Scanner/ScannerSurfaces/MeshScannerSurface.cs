@@ -5,14 +5,12 @@ namespace Detection
     [RequireComponent(typeof(MeshRenderer), typeof(MeshCollider))]
     public class MeshScannerSurface : MonoBehaviour, IScannable
     {
-        private Color defaultColor = new Color(255, 0, 0);
-        [SerializeField] private float defaultLifetime = 3f;
+        private Color defaultColor = new Color(200, 255, 200);
         [SerializeField] private float defaultSize = 0.015f;
 
         void IScannable.EmitParticle(RaycastHit hit, VFXEmitArgs overrideArgs)
         {
             Color color = defaultColor;
-            float lifetime = defaultLifetime;
             float size = defaultSize;
 
             if (overrideArgs.color != null) color = (Color)overrideArgs.color;
@@ -36,11 +34,9 @@ namespace Detection
                     color = texture2D.GetPixel(x, y);
                 }
             }
-
-            if (overrideArgs.lifetime != null) lifetime = (float)overrideArgs.lifetime;
             if (overrideArgs.size != null) size = (float)overrideArgs.size;
 
-            ParticleSpawner.spawner.Spawn(color, hit.point, lifetime, size);
+            ParticleCollector.instance.CachePoint(hit.point, color, size);
         }
     }
 }

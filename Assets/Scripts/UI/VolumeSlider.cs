@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-public class VolumeSlider : MonoBehaviour
-{
-    [SerializeField] Slider volumeSlider;
-    // Start is called before the first frame update
 
-    public AudioMixer audioMixer;
-    public void SetVolume (float volume)
+namespace Detection
+{
+    public class VolumeSlider : MonoBehaviour
     {
-        audioMixer.SetFloat("Volume", volume);
+        [SerializeField] private AudioMixer volumeSlider;
+        public void SetVolume(float sliderVolume)
+        {
+            volumeSlider.SetFloat("Volume", Mathf.Log10(sliderVolume) * 20);
+        }
     }
 }

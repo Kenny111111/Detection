@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Detection
 {
     public interface IEffect
     {
+        public int Weight { get; set; }
         public void DoEffect(Action callback);
     }
 }

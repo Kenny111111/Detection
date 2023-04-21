@@ -2,46 +2,49 @@ using UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent (typeof(Collider))]
-public class SpeedPickup : MonoBehaviour
+namespace Detection
 {
-    [SerializeField] private float speedMultiplier = 1.2f;
-    [SerializeField] private float duration = 5f;
-    private GameObject player;
-
-    private void Awake()
+    [RequireComponent(typeof(Collider))]
+    public class SpeedPickup : MonoBehaviour
     {
-        GetComponent<Collider>().isTrigger = true;
-    }
+        [SerializeField] private float speedMultiplier = 1.2f;
+        [SerializeField] private float duration = 5f;
+        private GameObject player;
 
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
+        private void Awake()
+        {
+            GetComponent<Collider>().isTrigger = true;
+        }
 
-    private void Update()
-    {
-        transform.LookAt(player.transform);
-    }
+        private void Start()
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        ActionBasedContinuousMoveProvider provider = other.transform.GetComponent<ActionBasedContinuousMoveProvider>();
-        if (provider == null) return;
+        private void Update()
+        {
+            transform.LookAt(player.transform);
+        }
 
-        StartCoroutine(SpeedBoost(provider));
-    }
+        private void OnTriggerEnter(Collider other)
+        {
+            ActionBasedContinuousMoveProvider provider = other.transform.GetComponent<ActionBasedContinuousMoveProvider>();
+            if (provider == null) return;
 
-    private IEnumerator SpeedBoost(ActionBasedContinuousMoveProvider provider)
-    {
-        provider.moveSpeed *= speedMultiplier;
+            StartCoroutine(SpeedBoost(provider));
+        }
 
-        GetComponent<Collider>().enabled = false;
-        GetComponent<MeshRenderer>().enabled = false;
+        private IEnumerator SpeedBoost(ActionBasedContinuousMoveProvider provider)
+        {
+            provider.moveSpeed *= speedMultiplier;
 
-        yield return new WaitForSeconds(duration);
+            GetComponent<Collider>().enabled = false;
+            GetComponent<MeshRenderer>().enabled = false;
 
-        provider.moveSpeed /= speedMultiplier;
-        Destroy(gameObject);
+            yield return new WaitForSeconds(duration);
+
+            provider.moveSpeed /= speedMultiplier;
+            Destroy(gameObject);
+        }
     }
 }

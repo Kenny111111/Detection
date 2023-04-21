@@ -1,5 +1,6 @@
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
+using Detection;
 
 /// <summary>
 /// 
@@ -9,6 +10,8 @@ using UnityEngine;
 /// You must also have GrabPistolHandPose on the main object
 ///
 /// </summary>
+/// 
+
 
 public class TwoHandInteractable : XRGrabInteractable
 {
@@ -24,7 +27,10 @@ public class TwoHandInteractable : XRGrabInteractable
     private GrabPistolHandPose handPoseInstance;
     public enum ZAxisRotationType { None, First, Second }
     public ZAxisRotationType rotationType;
-    
+    private float intensity = 0f;
+    private float duration = 0f;
+    protected AttackerType attackerType { get; private set; } = AttackerType.Enemy;
+
     protected override void Awake()
     {
         base.Awake();
@@ -58,6 +64,7 @@ public class TwoHandInteractable : XRGrabInteractable
     {
         PrimaryInteractor = args.interactorObject;
         initalAttachRotation = pHold.ObjectHeld.transform.localRotation;
+        attackerType = AttackerType.Player;
 
         ManualSelect(args);
 
@@ -171,5 +178,27 @@ public class TwoHandInteractable : XRGrabInteractable
     public virtual void StopObjectAction()
     {
 
+    }
+
+    protected void SetHapticIntensityDuration(float intensity, float duration)
+    {
+        this.intensity = intensity;
+        this.duration = duration;
+    }
+
+    protected void ActivateHapticFeedback()
+    {
+        if(PrimaryInteractor != null)
+        {
+            XRBaseControllerInteractor controller;
+            controller = PrimaryInteractor as XRBaseControllerInteractor;
+            controller.SendHapticImpulse(intensity, duration);
+
+            if(SecondaryInteractor != null)
+            {
+                controller = SecondaryInteractor as XRBaseControllerInteractor;
+                controller.SendHapticImpulse(intensity, duration);
+            }
+        }
     }
 }

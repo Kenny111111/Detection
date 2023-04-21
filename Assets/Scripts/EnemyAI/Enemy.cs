@@ -1,61 +1,64 @@
 using UnityEngine;
+using Detection;
+using System;
 
 public class Enemy : Combatant
 {
     private Animator animator;
     private Rigidbody[] rigidbodies;
-    private Collider[] colliders;
     private AIWeaponManager weaponManager;
+    private AIController aiController;
+    public Action<Enemy, IDealsDamage.Weapons, AttackerType> OnDeath;
+
+    public bool isAlive { get; private set; } = true;
 
     private void Awake()
     {
+        health = 100f;
+        maxHealth = health;
         animator = GetComponent<Animator>();
-        colliders = GetComponentsInChildren<Collider>();
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         weaponManager = GetComponent<AIWeaponManager>();
+        aiController = GetComponent<AIController>();
     }
 
     private void Start()
     {
-        health = 100f;
-        maxHealth = health;
-        EnableRagDoll(false);
+        ToggleRagdoll(false);
     }
 
-    public override void Die()
+    public override void Die(IDealsDamage.Weapons weapon, AttackerType attacker)
     {
+
+        // Check if already dead
+        if (!isAlive) return;
+
+        // Set isAlive to false
+        isAlive = false;
+
+        OnDeath?.Invoke(this, weapon, attacker);
+
         // Launch weapon towards player or drop on ground if not targeting player
         weaponManager.LaunchWeapon();
 
         animator.enabled = false;
-        EnableRagDoll(true);
+        ToggleRagdoll(true);
 
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 120f);
     }
 
-    private void EnableRagDoll(bool state)
+    private void ToggleRagdoll(bool state)
     {
-        SetRigidBodyKinematic(!state);
-        SetColliders(state);
+        // disable animator when ragdolling
+        if (state)
+            animator.enabled = false;
+
+        foreach(Rigidbody rb in rigidbodies)
+            rb.isKinematic = !state;
     }
 
-    private void SetRigidBodyKinematic(bool newState)
+    public void Alerted(Vector3 position)
     {
-        foreach(Rigidbody rigidbody in rigidbodies)
-        {
-            rigidbody.isKinematic = newState;
-        }
-        // main rigidbody opposite value
-        GetComponent<Rigidbody>().isKinematic = !newState;
-    }
-
-    private void SetColliders(bool newState)
-    {
-        foreach (Collider collider in colliders)
-        {
-            collider.enabled = newState;
-        }
-        // main collider opposite value
-        GetComponent<Collider>().enabled = !newState;
+        aiController.Alerted(position);
     }
 }

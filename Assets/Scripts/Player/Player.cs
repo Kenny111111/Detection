@@ -2,44 +2,43 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : Combatant
+namespace Detection
 {
-    private float difficultyModifier = 1f;
-    private float regenPerTick = 1f;
-    private WaitForSeconds healTick;
-    public int currentSceneIndex;
-    public int deathScene;
-
-    private void Start()
+    public class Player : Combatant
     {
-        health = 200 * difficultyModifier;
-        maxHealth = health;
-        healTick = new WaitForSeconds(1f);
+        private float difficultyModifier = 1f;
+        private float regenPerTick = 1f;
+        private WaitForSeconds healTick;
 
-        StartCoroutine(RegenOverTime());
-    }
-
-    public override void Die()
-    {
-        StopCoroutine(RegenOverTime());
-
-        SceneManager.LoadScene(deathScene);
-        SceneManager.UnloadSceneAsync(currentSceneIndex);
-    }
-
-    public void InstantHeal()
-    {
-        health = maxHealth;
-    }
-
-    private IEnumerator RegenOverTime()
-    {
-        while(true)
+        private void Start()
         {
-            if(health < maxHealth)
-                health = Mathf.Clamp(health + regenPerTick, health, maxHealth);
+            health = 200 * difficultyModifier;
+            maxHealth = health;
+            healTick = new WaitForSeconds(1f);
 
-            yield return healTick;
+            StartCoroutine(RegenOverTime());
+        }
+
+        public override void Die(IDealsDamage.Weapons weapon, AttackerType attacker)
+        {
+            StopCoroutine(RegenOverTime());
+            GameManager.instance.UpdateGameState(GameState.PLAYERDIED);
+        }
+
+        public void InstantHeal()
+        {
+            health = maxHealth;
+        }
+
+        private IEnumerator RegenOverTime()
+        {
+            while (true)
+            {
+                if (health < maxHealth)
+                    health = Mathf.Clamp(health + regenPerTick, health, maxHealth);
+
+                yield return healTick;
+            }
         }
     }
 }

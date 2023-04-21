@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class LevelSelectButton : MonoBehaviour
+namespace Detection
 {
-    public void clickTest()
+    public class LevelSelectButton : MonoBehaviour
     {
-        Debug.Log(message: "button clicked");
-    }
+        public void clickTest()
+        {
+            Debug.Log(message: "button clicked");
+        }
 
-    public void LevelSelected(string scene_name)
-    {
-        SceneManager.LoadScene(scene_name);
+        public void LevelSelected(string sceneName)
+        {
+            GameManager.instance.UpdateGameState(GameState.LEVELENDED);
+            GameManager.instance.SwitchToScene(sceneName, true);
+        }
     }
-
 }

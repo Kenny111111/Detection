@@ -1,10 +1,10 @@
-using UnityEngine;
 namespace Detection
 {
     public interface IDealsDamage
     {
         public enum Weapons
         {
+            None,
             Knife,
             Pistol,
             Shotgun,

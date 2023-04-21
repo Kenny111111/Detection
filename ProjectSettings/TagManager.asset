@@ -4,11 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
-  - Door
-  - Path
   - Enemy
+  - SpawnPoint
+  - LeftController
+  - RightController
   - Camera
+  - Effects
+  - statisticsMenu
+  - WristTimerText
+  - LevelParticleEffect
   layers:
   - Default
   - TransparentFX
@@ -18,7 +22,7 @@ TagManager:
   - UI
   - Environment
   - Enemies
-  - 
+  - Controllers
   - MiscVisible
   - Player
   - Weapons

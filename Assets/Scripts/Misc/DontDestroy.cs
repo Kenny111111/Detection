@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class DontDestroy : MonoBehaviour
+namespace Detection
 {
-    void Awake()
+    public class DontDestroy : MonoBehaviour
     {
-        DontDestroyOnLoad(this.gameObject);
+        void Awake()
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 }
