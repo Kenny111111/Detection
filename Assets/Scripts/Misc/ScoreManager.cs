@@ -36,13 +36,13 @@ namespace Detection
             else Destroy(gameObject);
 
             EnemyManager.OnEnemyDeath += HandleEnemyDeath;
-            GameManager.PreGameStateChanged += HandleGameStateChange;
+            GameManager.AfterGameStateChanged += HandleGameStateChange;
         }
 
         private void OnDestroy()
         {
             EnemyManager.OnEnemyDeath -= HandleEnemyDeath;
-            GameManager.PreGameStateChanged -= HandleGameStateChange;
+            GameManager.AfterGameStateChanged -= HandleGameStateChange;
         }
 
         private void HandleEnemyDeath(AttackerType attackerType, IDealsDamage.Weapons weapon)

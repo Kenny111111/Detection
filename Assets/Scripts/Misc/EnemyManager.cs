@@ -25,7 +25,7 @@ namespace Detection
             }
             else Destroy(gameObject);
 
-            GameManager.PreGameStateChanged += HandleGameStateChange;
+            GameManager.AfterGameStateChanged += HandleGameStateChange;
         }
 
         private void OnDestroy()
