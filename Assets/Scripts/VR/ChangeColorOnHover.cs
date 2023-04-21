@@ -8,9 +8,9 @@ namespace Detection
     {
         public Color desiredColorOnHover;
         private Color startingHandColor;
-        //private Color startingWeaponColor;
-        XRDirectInteractor directInteractor;
-        Outline handOutline;
+
+        private XRDirectInteractor directInteractor;
+        private Outline handOutline;
 
 
         void Start()

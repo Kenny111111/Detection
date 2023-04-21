@@ -375,6 +375,7 @@ namespace Detection
         {
             SceneManager.LoadScene(sceneName);
             //SceneManager.UnloadSceneAsync(currentSceneNum);
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             if (updateCurrentSceneNum) currentSceneNum = GetSceneIndexFromName(sceneName);
         }
 
@@ -382,6 +383,7 @@ namespace Detection
         {
             SceneManager.LoadScene(sceneNum);
             //SceneManager.UnloadSceneAsync(currentSceneNum);
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             if (updateCurrentSceneNum) currentSceneNum = sceneNum;
         }
 
