@@ -3018,8 +3018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d927317ea5b26bd499e305e57ab2d0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSceneIndex: 3
-  deathScene: 4
 --- !u!114 &302959404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9054,6 +9052,107 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 781805382}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &784735772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 784735774}
+  - component: {fileID: 784735773}
+  m_Layer: 0
+  m_Name: AudioSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!114 &784735773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784735772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e967ed7b52b6e7a409f39ddbdb9386d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMxrGroup: {fileID: 70928792523179974, guid: dac6ba88fab317546a14e9ca03a80997,
+    type: 2}
+  soundsList:
+  - name: beretta_shot
+    clip: {fileID: 8300000, guid: ec3453fe547cfa64d88b54a121b8bcc4, type: 3}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.125
+    pitch: 1
+    pitchDeviation: 0.3
+  - name: ak47_shot
+    clip: {fileID: 8300000, guid: fe079a0084e62be41bbae6761896a07b, type: 3}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.837
+    volumeDeviation: 0.125
+    pitch: 1
+    pitchDeviation: 0.3
+  - name: gun_empty
+    clip: {fileID: 8300000, guid: 1a8eb8da13ce75d47b6022b4f46d0b16, type: 3}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.125
+    pitch: 1
+    pitchDeviation: 0.125
+  - name: shotgun_shot
+    clip: {fileID: 8300000, guid: e377138752ee6eb4ab440cfe93601b60, type: 3}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.125
+    pitch: 1
+    pitchDeviation: 0.3
+  - name: small_explosion
+    clip: {fileID: 8300000, guid: 2b61f060b2db53744835485f600c7fcb, type: 3}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.125
+    pitch: 1
+    pitchDeviation: 0.3
+  - name: grenade_pin
+    clip: {fileID: 8300000, guid: db822a32381e91c4f8c71ebc2a90a78b, type: 3}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.125
+    pitch: 1
+    pitchDeviation: 0.3
+--- !u!4 &784735774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784735772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &786195958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15743,12 +15842,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf017e61bb168d64e84dd33d7ef3f59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killPoints: 1000
-  specialPoints: 2000
+  testScoreSystem: 1
+  minRandKillTime: 0.5
+  maxRandKillTime: 0.5
+  killPoints: 500
+  specialKillPoints: 1000
   maxLevelTimePoints: 20000
   comboTimeFrame: 3
   minTimeInLevel: 1
-  maxTimeInLevel: 300
+  maxTimeInLevel: 180
 --- !u!4 &1211277463
 Transform:
   m_ObjectHideFlags: 0
@@ -16853,7 +16955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0aa705d9c3ae6c4fb2d44a883a9b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1271486274}
   tempOffsetX: 500
   tempOffsetY: 250
 --- !u!114 &1271486270
@@ -16870,6 +16971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1271486274}
   numParticlesPerSecond: 25000
+  sprayAngleLoudnessVariance: 30
   sprayAngleX: 110
   sprayAngleY: 90
   maxRayDistance: 40
@@ -20807,107 +20909,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1486844096}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1487510967
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1487510969}
-  - component: {fileID: 1487510968}
-  m_Layer: 0
-  m_Name: AudioSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1487510968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487510967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e967ed7b52b6e7a409f39ddbdb9386d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMxrGroup: {fileID: 70928792523179974, guid: dac6ba88fab317546a14e9ca03a80997,
-    type: 2}
-  soundsList:
-  - name: beretta_shot
-    clip: {fileID: 8300000, guid: ec3453fe547cfa64d88b54a121b8bcc4, type: 3}
-    audioMxrGroup: {fileID: 0}
-    loop: 0
-    source: {fileID: 0}
-    volume: 0.5
-    volumeDeviation: 0.125
-    pitch: 1
-    pitchDeviation: 0.125
-  - name: ak47_shot
-    clip: {fileID: 8300000, guid: fe079a0084e62be41bbae6761896a07b, type: 3}
-    audioMxrGroup: {fileID: 0}
-    loop: 0
-    source: {fileID: 0}
-    volume: 0.5
-    volumeDeviation: 0.125
-    pitch: 1
-    pitchDeviation: 0.125
-  - name: gun_empty
-    clip: {fileID: 8300000, guid: 1a8eb8da13ce75d47b6022b4f46d0b16, type: 3}
-    audioMxrGroup: {fileID: 0}
-    loop: 0
-    source: {fileID: 0}
-    volume: 0.5
-    volumeDeviation: 0.125
-    pitch: 1
-    pitchDeviation: 0.125
-  - name: shotgun_shot
-    clip: {fileID: 8300000, guid: e377138752ee6eb4ab440cfe93601b60, type: 3}
-    audioMxrGroup: {fileID: 0}
-    loop: 0
-    source: {fileID: 0}
-    volume: 0.5
-    volumeDeviation: 0.125
-    pitch: 1
-    pitchDeviation: 0.125
-  - name: small_explosion
-    clip: {fileID: 8300000, guid: 2b61f060b2db53744835485f600c7fcb, type: 3}
-    audioMxrGroup: {fileID: 0}
-    loop: 0
-    source: {fileID: 0}
-    volume: 0.5
-    volumeDeviation: 0.125
-    pitch: 1
-    pitchDeviation: 0.125
-  - name: grenade_pin
-    clip: {fileID: 8300000, guid: db822a32381e91c4f8c71ebc2a90a78b, type: 3}
-    audioMxrGroup: {fileID: 0}
-    loop: 0
-    source: {fileID: 0}
-    volume: 0.75
-    volumeDeviation: 0.125
-    pitch: 1
-    pitchDeviation: 0.125
---- !u!4 &1487510969
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487510967}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1492276367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25631,69 +25632,6 @@ Transform:
   m_Father: {fileID: 1483128389}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1858101051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1858101052}
-  - component: {fileID: 1858101053}
-  - component: {fileID: 1858101054}
-  m_Layer: 0
-  m_Name: MusicSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1858101052
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858101051}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1858101053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858101051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f5d7e1873d1c704c8dfc3a97c4d486d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
-    type: 2}
---- !u!114 &1858101054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858101051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateStep: 0.01
-  sampleDataLength: 512
-  songPlaying: {fileID: 0}
-  currentAvgLoudnessNormalized: 0
 --- !u!1001 &1864201871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26179,6 +26117,78 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1899711054}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1901594364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901594367}
+  - component: {fileID: 1901594366}
+  - component: {fileID: 1901594365}
+  m_Layer: 0
+  m_Name: MusicSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!114 &1901594365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901594364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateStep: 0.01
+  defaultSampleDataLength: 512
+  currentAvgLoudnessNormalized: 0
+--- !u!114 &1901594366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901594364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5d7e1873d1c704c8dfc3a97c4d486d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
+    type: 2}
+  songPlaying:
+    name: 
+    clip: {fileID: 0}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.1
+    pitch: 1
+    pitchDeviation: 0.1
+--- !u!4 &1901594367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901594364}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1912441362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26902,10 +26912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151e425a11a74584489bc964a69d4f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicAnalyzer: {fileID: 1858101054}
   minEffectDuration: 0.5
   maxEffectDuration: 2
   loudnessToSizeScalar: 0.02
+  weight: 5
 --- !u!1 &1984551085
 GameObject:
   m_ObjectHideFlags: 0

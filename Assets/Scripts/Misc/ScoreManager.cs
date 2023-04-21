@@ -1,30 +1,54 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Detection
 {
     public class ScoreManager : MonoBehaviour
     {
+        public enum ScoreType
+        {
+            TOTAL, KILL, COMBO, TIME
+        }
+
         public static ScoreManager instance;
+
+        [Header("TESTING ONLY(requires PREPARINGLEVEL)")]
+        public bool testScoreSystem;
+        public float minRandKillTime;
+        public float maxRandKillTime;
 
         [Header("Point values")]
         [SerializeField] private int killPoints = 1000;             // How much kills are worth
-        [SerializeField] private int specialPoints = 2000;          // How much special kills are worth
+        [SerializeField] private int specialKillPoints = 2000;      // How much special kills are worth
         [SerializeField] private int maxLevelTimePoints = 20000;    // Amount of points to give player with fastest speed
         [Header("Time values (seconds)")]
         [SerializeField] private float comboTimeFrame = 3.0f;       // Combo timer timeout(seconds)
         [SerializeField] private float minTimeInLevel = 1f;         // The minimum amount of time(seconds) it takes to complete a level
         [SerializeField] private float maxTimeInLevel = 300f;       // The maximum amount of time(seconds) it takes to complete a level
-
         private float difficultyModifier = 1.0f;
-        private int currentComboCount = 0;                          // Number of kills in a combo
+
+        private int runningComboCount = 0;                          // Number of kills in a combo
         private float runningComboTimer = 0f;                       // Running combo timer
-        private float score = 0f;                                   // Final score at the end of the level
-        private float currentComboScore = 0f;                       // Score of the combo player is in (reset on combo timer)
-        private float killScore = 0f;                               // Running score for kills (reset on level fail)
-        private float timeScore = 0f;                               // Score based on the time taken to beat level
+        private float runningComboScore = 0f;                       // Score of the combo player is in (reset on combo timer)
+        private float levelStartTime = 0f;                          // Reset on GameState.PLAYINGMISSION; used when player finishes the level
         private bool comboTimerRunning = false;
+
+        // Final values at the end of the level
+        private float totalScore = 0f;                              // Final score at the end of the level
+        private float killScore = 0f;                               // Final kill score at the end of the level
+        private float comboScore = 0f;                              // Final combo score
+        private float timeScore = 0f;                               // Score based on the time taken to beat level
+
+        public int TotalScore { get; private set; } = 0;
+        public int KillScore { get; private set; } = 0;
+        public int ComboScore { get; private set; } = 0;
+        public int TimeScore { get; private set; } = 0;
+
+        GameState prevGameState = GameState.DEFAULT;
+        public static Action ScoreCalculated;
+
 
         private void Awake()
         {
@@ -36,13 +60,13 @@ namespace Detection
             else Destroy(gameObject);
 
             EnemyManager.OnEnemyDeath += HandleEnemyDeath;
-            GameManager.AfterGameStateChanged += HandleGameStateChange;
+            GameManager.OnGameStateChanged += HandleGameStateChange;
         }
 
         private void OnDestroy()
         {
             EnemyManager.OnEnemyDeath -= HandleEnemyDeath;
-            GameManager.AfterGameStateChanged -= HandleGameStateChange;
+            GameManager.OnGameStateChanged -= HandleGameStateChange;
         }
 
         private void HandleEnemyDeath(AttackerType attackerType, IDealsDamage.Weapons weapon)
@@ -51,7 +75,8 @@ namespace Detection
             if (comboTimerRunning)
             {
                 runningComboTimer = 0f; // Reset timer on each kill
-                ++currentComboCount;
+                ++runningComboCount;
+                CalculateComboScore();
             }
             else
             {
@@ -63,11 +88,13 @@ namespace Detection
         {
             if (attackerType == AttackerType.Enemy) // Enemy killed enemy
             {
-                currentComboScore += specialPoints;
+                runningComboScore += specialKillPoints;
+                killScore += specialKillPoints;
             }
             else // Player killed enemy
             {
-                currentComboScore += killPoints;
+                runningComboScore += killPoints;
+                killScore += killPoints;
             }
         }
 
@@ -76,15 +103,32 @@ namespace Detection
             switch(gameState)
             {
                 case GameState.PREPARINGLEVEL:
-                    Reset();
+                    if (testScoreSystem) StartCoroutine(TestScoreSystem());
+                    break;
+                case GameState.PLAYINGMISSION:
+                    // Start/Restart level timer
+                    levelStartTime = Time.time;
+                    break;
+                case GameState.MISSIONSTATISTICS:
+                    CalculateFinalScore();
+                    SaveScore();
+                    ScoreCalculated?.Invoke();
                     break;
                 case GameState.LEVELENDED:
-                    CalculateTimeScore(Time.timeSinceLevelLoad);
-                    CalculateFinalScore();
+                    if(prevGameState == GameState.MISSIONCLEARED)
+                    {
+                        CalculateTimeScore(Time.time - levelStartTime);
+                    }
+                    else if(prevGameState == GameState.MISSIONSTATISTICS)
+                    {
+                        Reset();
+                    }
                     break;
                 default:
                     break;
             }
+
+            prevGameState = gameState;
         }
 
         private IEnumerator ComboTimer()
@@ -97,58 +141,96 @@ namespace Detection
                 yield return null;
             }
 
-            CalculateComboScore();
-
-            currentComboCount = 0;
-            currentComboScore = 0;
+            runningComboCount = 0;
+            runningComboScore = 0;
             comboTimerRunning = false;
         }
 
         private void CalculateComboScore()
         {
-            float comboMultiplier = 1.0f + (currentComboCount * 0.1f);
-
-            if (currentComboCount >= 1)
-                killScore += currentComboScore + currentComboScore * comboMultiplier * difficultyModifier;
-            else
-                killScore += currentComboScore * comboMultiplier * difficultyModifier;
+            float comboMultiplier = 1.0f + (runningComboCount * 0.1f);
+            comboScore += (runningComboScore + runningComboScore) * comboMultiplier * difficultyModifier;
         }
 
         private void CalculateTimeScore(float secondsInLevel)
         {
             if (secondsInLevel <= minTimeInLevel)
             {
-                timeScore = maxLevelTimePoints;
+                timeScore += maxLevelTimePoints;
             }
             else if (secondsInLevel >= maxTimeInLevel)
             {
-                timeScore = 0;
+                timeScore += 0;
             }
             else
             {
-                timeScore = maxLevelTimePoints * Mathf.Pow(maxTimeInLevel - secondsInLevel, 2) / Mathf.Pow(maxTimeInLevel, 2);
+                timeScore += maxLevelTimePoints * Mathf.Pow(maxTimeInLevel - secondsInLevel, 2) / Mathf.Pow(maxTimeInLevel, 2);
             }
         }
 
         private void CalculateFinalScore()
         {
-            score = killScore + timeScore;
-            Debug.Log("Level Score: " + (int)score);
+            totalScore = killScore + comboScore + timeScore;
         }
 
         private void Reset()
         {
             comboTimerRunning = false;
-            currentComboCount = 0;
-            currentComboScore = 0f;
+            runningComboCount = 0;
+            runningComboScore = 0f;
+            runningComboTimer = 0f;
+          
+            totalScore = 0f;
             killScore = 0f;
+            comboScore = 0f;
             timeScore = 0f;
-            score = 0f;
         }
 
         private void SaveScore()
         {
-            throw new NotImplementedException();
+            TotalScore = (int)totalScore;
+            KillScore = (int)killScore;
+            ComboScore = (int)comboScore;
+            TimeScore = (int)timeScore;
+
+            if (testScoreSystem)
+            {
+                Debug.Log("<color=green>Final Score values:</color>");
+                Debug.Log("<color=green>totalScore:</color> " + TotalScore);
+                Debug.Log("<color=green>killScore:</color> " + KillScore);
+                Debug.Log("<color=green>comboScore:</color> " + ComboScore);
+                Debug.Log("<color=green>timeScore:</color> " + TimeScore);
+            }
+        }
+
+        private IEnumerator TestScoreSystem()
+        {
+            List<KeyValuePair<Enemy, GameObject>> enemies = EnemyManager.instance.GetActiveEnemies();
+            while(enemies.Count == 0)
+            {
+                yield return new WaitForSeconds(1);
+                enemies = EnemyManager.instance.GetActiveEnemies();
+            }
+
+            foreach(var enemyKeyValue in enemies)
+            {
+                // 0=none, 1=knife, 2=pistol, 3=dbshotgun, 4=rifle, 5=grenade
+                IDealsDamage.Weapons weapon = (IDealsDamage.Weapons)UnityEngine.Random.Range(2, 5);
+                AttackerType attackerType;
+                if (UnityEngine.Random.value < 0.5f) attackerType = AttackerType.Player;
+                else                                 attackerType = AttackerType.Enemy;
+
+                enemyKeyValue.Key.Die(weapon, attackerType);
+                yield return new WaitForSeconds(UnityEngine.Random.Range(minRandKillTime, maxRandKillTime));
+            }
+
+            //yield return new WaitForSeconds(UnityEngine.Random.Range(3f, 10f)); // add some time after all dead for time score
+
+            EndOfLevelCollision levelEndHitbox = FindObjectOfType<EndOfLevelCollision>();
+            Player player = FindObjectOfType<Player>();
+
+            if(levelEndHitbox != null && player != null)
+                player.transform.position = levelEndHitbox.transform.position;
         }
     }
 }
