@@ -2076,8 +2076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: c1368fb9cbd6ee74aa1b6f4967414374, type: 2}
   bulletColor: {r: 240, g: 208, b: 81, a: 1}
-  bulletLifetime: 0.5
-  bulletSize: 0.2
+  bulletSize: 0.075
   bulletSpawn: {fileID: 6493428810202859159}
   pelletsPerShot: 10
   spread: 2
