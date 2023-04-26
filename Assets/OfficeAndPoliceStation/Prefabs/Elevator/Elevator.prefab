@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7698712577704104670}
   - component: {fileID: 7698712577705234590}
   - component: {fileID: 7698712577702938654}
+  - component: {fileID: 2434321987637220625}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -100,6 +101,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1a61a105ca832ab4a8d0ed60add2ef2e, type: 3}
+--- !u!114 &2434321987637220625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7698712577702973110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1001 &3105258295700438664
 PrefabInstance:
   m_ObjectHideFlags: 0
