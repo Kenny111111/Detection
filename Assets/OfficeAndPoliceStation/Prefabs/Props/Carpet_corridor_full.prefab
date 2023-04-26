@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 86035893463197695}
   - component: {fileID: 3935709178265446490}
   - component: {fileID: 1259466298217290896}
-  - component: {fileID: 484999307996676118}
+  - component: {fileID: -1753520123688128719}
+  - component: {fileID: -4160309760565589271}
   m_Layer: 0
   m_Name: Carpet_corridor_full
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &484999307996676118
-BoxCollider:
+--- !u!64 &-1753520123688128719
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 0.013463399, z: 8}
-  m_Center: {x: 0, y: 0.006731612, z: -4}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3490858610825524777, guid: 5b8386c125957c84198637da81cc50cf, type: 3}
+--- !u!114 &-4160309760565589271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755049602377252165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

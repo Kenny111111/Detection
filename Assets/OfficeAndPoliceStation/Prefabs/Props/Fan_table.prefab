@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 492421626998202531}
   - component: {fileID: 3565361380607241990}
   - component: {fileID: 1629812686964218828}
-  - component: {fileID: 99034803890800458}
+  - component: {fileID: 477149924247184575}
+  - component: {fileID: -7049931514472745307}
   m_Layer: 0
   m_Name: Fan_table
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &99034803890800458
-BoxCollider:
+--- !u!64 &477149924247184575
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.32479948, y: 0.45215112, z: 0.23619461}
-  m_Center: {x: 0, y: 0.224433, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7564782165412889435, guid: 1167c14c2c7bcf641b6b5a33b239164d, type: 3}
+--- !u!114 &-7049931514472745307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981431160385239577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

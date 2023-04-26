@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1573553457264653420}
   - component: {fileID: 2484220203699272649}
   - component: {fileID: 404565668164734723}
-  - component: {fileID: 1323174236824900505}
+  - component: {fileID: -63298250651904578}
+  - component: {fileID: -2722124856329397178}
   m_Layer: 0
   m_Name: Elevator_panel_outside
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1323174236824900505
-BoxCollider:
+--- !u!64 &-63298250651904578
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.086432494, y: 0.23411638, z: 0.024302673}
-  m_Center: {x: 0, y: 0.000000007450581, z: -0.0000001527369}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1627851684629636336, guid: 977a81a15b31fda4b9c859175d8dd564, type: 3}
+--- !u!114 &-2722124856329397178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2206115263892991702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

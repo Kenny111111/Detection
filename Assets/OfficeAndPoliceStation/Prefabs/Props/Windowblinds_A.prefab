@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4757011332027952422}
   - component: {fileID: 8479036814270112387}
   - component: {fileID: 5931065091827390025}
-  - component: {fileID: 5012213808613411535}
+  - component: {fileID: -231139075046506741}
+  - component: {fileID: -3756580157466606894}
   m_Layer: 0
   m_Name: Windowblinds_A
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5012213808613411535
-BoxCollider:
+--- !u!64 &-231139075046506741
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2002589, y: 1.1787351, z: 0.020775098}
-  m_Center: {x: 0, y: -0.5850585, z: -0.0032877694}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6762477995765676015, guid: 78e9a932b91a00245bf8f80ca50f894c, type: 3}
+--- !u!114 &-3756580157466606894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282612647239939996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

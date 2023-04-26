@@ -17,7 +17,7 @@ namespace Detection
             else
             {
                 // Get the color at the specific point on the mesh texture
-                Renderer renderer = hit.collider.GetComponent<MeshRenderer>();
+                MeshRenderer renderer = hit.collider.GetComponent<MeshRenderer>();
                 Texture2D texture2D = renderer.material.mainTexture as Texture2D;
 
                 // sometimes not able to get texture2d from texture? in this case we use default color

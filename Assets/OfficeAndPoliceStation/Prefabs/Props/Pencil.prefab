@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6931034865561577263}
   - component: {fileID: 6305075666264664202}
   - component: {fileID: 8098835113250053184}
-  - component: {fileID: 7468448131560521922}
+  - component: {fileID: -6362082094776226384}
+  - component: {fileID: -945107534285725786}
   m_Layer: 0
   m_Name: Pencil
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7468448131560521922
-BoxCollider:
+--- !u!64 &-6362082094776226384
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.008234105, y: 0.008657858, z: 0.1858361}
-  m_Center: {x: 0.00000003585592, y: 0.004582554, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6561623048535504736, guid: d86b8caadf35f2b45aa7f15b07d75c70, type: 3}
+--- !u!114 &-945107534285725786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7738358234046889365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 901638218528272113}
   - component: {fileID: 3127666821400615483}
   - component: {fileID: 4370217626924304049}
+  - component: {fileID: 7780573898789233914}
   m_Layer: 0
   m_Name: Watersprinklerpipe_R
   m_TagString: Untagged
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1465558494552626487, guid: 79d0f68dcc4397841be6c452aa02a86f, type: 3}
+--- !u!114 &7780573898789233914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487835700579302382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

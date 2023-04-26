@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4196793409068258}
   - component: {fileID: 33312382242724256}
   - component: {fileID: 23835236251346148}
-  - component: {fileID: 65085834540502460}
+  - component: {fileID: 3801502613209386228}
+  - component: {fileID: 7118272977674252441}
   m_Layer: 0
   m_Name: Floor_4x3
   m_TagString: Untagged
@@ -85,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &65085834540502460
-BoxCollider:
+--- !u!64 &3801502613209386228
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,6 +96,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 0.005, z: 2.9999998}
-  m_Center: {x: -2, y: 0, z: -1.4999996}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: bbd0a977ebc5878479c9346f2fa82e64, type: 3}
+--- !u!114 &7118272977674252441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695903263478796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

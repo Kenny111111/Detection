@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6897178465402883278}
   - component: {fileID: 7500860422902186859}
   - component: {fileID: 5763657106143049633}
-  - component: {fileID: 6358249484558625571}
+  - component: {fileID: 283957772383903057}
+  - component: {fileID: -969299746041441019}
   m_Layer: 0
   m_Name: Lamp_ceiling_embeded
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6358249484558625571
-BoxCollider:
+--- !u!64 &283957772383903057
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0128248, y: 0.02258839, z: 1.021751}
-  m_Center: {x: -0.00086319447, y: -0.004226015, z: -0.00431931}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3966630386003053364, guid: 7c72a11df20e02c4493451e23005f2c2, type: 3}
+--- !u!114 &-969299746041441019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123879449527080564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

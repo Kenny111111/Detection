@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1872146284623852202}
   - component: {fileID: 3338549088690732303}
   - component: {fileID: 698093113101355461}
-  - component: {fileID: 2193686625680037187}
+  - component: {fileID: -6854283438328341408}
+  - component: {fileID: -1786520556274200724}
   m_Layer: 0
   m_Name: Whiteboard_mounted
   m_TagString: Untagged
@@ -85,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2193686625680037187
-BoxCollider:
+--- !u!64 &-6854283438328341408
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,6 +96,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.823495, y: 1.1501143, z: 0.022057457}
-  m_Center: {x: 0, y: 0.025085181, z: 0.011028728}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8483587477896071404, guid: 1028719a7212fe9468f684178f5034a6, type: 3}
+--- !u!114 &-1786520556274200724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346826482980366352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

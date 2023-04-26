@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7759171254620232211}
   - component: {fileID: 6629798586370528694}
   - component: {fileID: 8927596785121124732}
-  - component: {fileID: 7792533953418821114}
+  - component: {fileID: 8562892767420161705}
+  - component: {fileID: 5957244986113030018}
   m_Layer: 0
   m_Name: Tablescreen_E_glass
   m_TagString: Untagged
@@ -85,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7792533953418821114
-BoxCollider:
+--- !u!64 &8562892767420161705
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,6 +96,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9394103, y: 1.5526202, z: 0.05}
-  m_Center: {x: 0, y: 0.77698696, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -996277638181540745, guid: 2d5b19fab3517d0429575d2ebfcabd1d, type: 3}
+--- !u!114 &5957244986113030018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6982212789725020329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

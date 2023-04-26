@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 7546912142507924788}
   - component: {fileID: 2685845427903813124}
   - component: {fileID: 3728986236735607688}
+  - component: {fileID: -8219320914060931571}
+  - component: {fileID: 7283969380971380495}
   m_Layer: 0
   m_Name: Storage_cardboard_box_open
   m_TagString: Untagged
@@ -209,3 +211,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.02, z: 0.7}
   m_Center: {x: 0.010782704, y: 0.01, z: 0}
+--- !u!64 &-8219320914060931571
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115465020436997863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3584694870108730482, guid: 61e1b2b93e3bc6f4e92c6b35066e55e1, type: 3}
+--- !u!114 &7283969380971380495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115465020436997863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

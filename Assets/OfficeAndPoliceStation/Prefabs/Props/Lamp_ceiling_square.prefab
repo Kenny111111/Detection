@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3006329279448570303}
   - component: {fileID: 2168337090447431194}
   - component: {fileID: 4175835561295913680}
-  - component: {fileID: 3328751594603691606}
+  - component: {fileID: -3147543186901354253}
+  - component: {fileID: 1368170722985187340}
   m_Layer: 0
   m_Name: Lamp_ceiling_square
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3328751594603691606
-BoxCollider:
+--- !u!64 &-3147543186901354253
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.24256988, y: 0.021180008, z: 0.24256998}
-  m_Center: {x: 0, y: -0.009989599, z: 0.000000018626451}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3619889348753292095, guid: 485aa5442f0c6d14c8ad8f88572b3890, type: 3}
+--- !u!114 &1368170722985187340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518479906649867013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

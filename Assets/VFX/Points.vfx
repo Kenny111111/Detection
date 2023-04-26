@@ -161,8 +161,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: MaxParticleSize
-    path: MaxParticleSize
+  - name: ParticleSizeScalar
+    path: ParticleSizeScalar
     tooltip: 
     sheetType: m_Float
     realType: Single
@@ -170,7 +170,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.5
+      m_SerializableObject: 0.5
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -2438,7 +2438,7 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661615482}
-  m_ExposedName: MaxParticleSize
+  m_ExposedName: ParticleSizeScalar
   m_Exposed: 1
   m_Order: 4
   m_Category: 
@@ -2487,7 +2487,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.5
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: o

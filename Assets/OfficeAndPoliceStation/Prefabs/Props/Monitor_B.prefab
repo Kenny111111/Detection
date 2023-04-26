@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4834249740669221473}
   - component: {fileID: 8410875910547568068}
   - component: {fileID: 6007124990699438350}
-  - component: {fileID: 4943841866033503624}
+  - component: {fileID: -6866315386306769043}
+  - component: {fileID: -271823493795845918}
   m_Layer: 0
   m_Name: Monitor_B
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4943841866033503624
-BoxCollider:
+--- !u!64 &-6866315386306769043
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5799284, y: 0.46036306, z: 0.06}
-  m_Center: {x: 0.000000074505806, y: 0.2289236, z: -0.01}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4263921258295450489, guid: c740ba569e3028d4c8f7d3d03125ecbc, type: 3}
+--- !u!114 &-271823493795845918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214434075899371739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

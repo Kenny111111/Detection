@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4904138554990706742}
   - component: {fileID: 8331900778353250195}
   - component: {fileID: 6072027490935323481}
-  - component: {fileID: 4865498885364754399}
+  - component: {fileID: 7755019519003873348}
+  - component: {fileID: 2333060135688597840}
   m_Layer: 0
   m_Name: Paper_A
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4865498885364754399
-BoxCollider:
+--- !u!64 &7755019519003873348
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.21, y: 0, z: 0.297}
-  m_Center: {x: 0, y: 0.004390025, z: 0.000000007450581}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -969531469329883235, guid: 37f33d5abd7c07e48a641bc49a0bc9ff, type: 3}
+--- !u!114 &2333060135688597840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711919633581513356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

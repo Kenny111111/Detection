@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2288506228741207424}
   - component: {fileID: 2913182306358032933}
   - component: {fileID: 1119501395871698671}
-  - component: {fileID: 1749878490475139688}
+  - component: {fileID: -7947014730003240698}
+  - component: {fileID: 7708613432620349018}
   m_Layer: 0
   m_Name: Lamp_spot
   m_TagString: Untagged
@@ -85,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1749878490475139688
-BoxCollider:
+--- !u!64 &-7947014730003240698
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,9 +96,23 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.14235888, y: 0.082822785, z: 0.1423589}
-  m_Center: {x: 0, y: -0.03996083, z: -0.000000048428774}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5310680576166549857, guid: a0c228105472189418ec7a4b1267e9ab, type: 3}
+--- !u!114 &7708613432620349018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479917253315211066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &8193493430450630247
 GameObject:
   m_ObjectHideFlags: 0

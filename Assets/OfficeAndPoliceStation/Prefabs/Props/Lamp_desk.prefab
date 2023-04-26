@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5160797101061426226}
   - component: {fileID: 6951907282228689144}
   - component: {fileID: 8627691232720823422}
+  - component: {fileID: 7687197415614100362}
   m_Layer: 0
   m_Name: Lamp_desk
   m_TagString: Untagged
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7489408814014302181, guid: 9db144ce84856144a9ec9635d6659a5f, type: 3}
+--- !u!114 &7687197415614100362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8897668822968736045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

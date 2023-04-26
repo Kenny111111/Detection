@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1094141863016152581}
   - component: {fileID: 4071526396029645216}
   - component: {fileID: 2261933903288321386}
-  - component: {fileID: 623068256848796136}
+  - component: {fileID: -1312460075111384229}
+  - component: {fileID: 8877768583751481454}
   m_Layer: 0
   m_Name: Storage_paperbag
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &623068256848796136
-BoxCollider:
+--- !u!64 &-1312460075111384229
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13617142, y: 0.352359, z: 0.2423498}
-  m_Center: {x: 0, y: 0.17613277, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5760248703209485543, guid: 01852af13bfd0c04fb618a7f112630ec, type: 3}
+--- !u!114 &8877768583751481454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316655597888365759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

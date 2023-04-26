@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5471479645373776441}
   - component: {fileID: 7785156910723380979}
   - component: {fileID: 8920499840886680169}
+  - component: {fileID: -7113330766986872049}
+  - component: {fileID: 5436542053419263260}
   m_Layer: 0
   m_Name: Papers_pile
   m_TagString: Untagged
@@ -97,3 +99,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24096927, y: 0.035867404, z: 0.31951705}
   m_Center: {x: 0.000000033527613, y: 0.017922664, z: 0}
+--- !u!64 &-7113330766986872049
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8577829545828652838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8125724761140185643, guid: f132eecfe4bb145439479f07252eb791, type: 3}
+--- !u!114 &5436542053419263260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8577829545828652838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 3472195666176427357}
   - component: {fileID: 4259140802246323857}
   - component: {fileID: 2526162046296351878}
-  - component: {fileID: 5865267928724241728}
-  - component: {fileID: 5865267928724241731}
   m_Layer: 0
   m_Name: Lamp_fluorescent_B_ceilingpart
   m_TagString: Untagged
@@ -85,32 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5865267928724241728
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5535327392426645335}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.5093346, z: 0.043468177}
-  m_Center: {x: -0.45, y: 0.2476832, z: 0.001793351}
---- !u!65 &5865267928724241731
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5535327392426645335}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.5093346, z: 0.043468177}
-  m_Center: {x: 0.45, y: 0.2476832, z: 0.001793351}
 --- !u!1 &6747790592556941358
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +94,8 @@ GameObject:
   - component: {fileID: 6264268927659154068}
   - component: {fileID: 7007879141679371569}
   - component: {fileID: 5090206376064180731}
-  - component: {fileID: 5865267928724241730}
+  - component: {fileID: -7098637999533142858}
+  - component: {fileID: 5532261857866330030}
   m_Layer: 0
   m_Name: Lamp_fluorescent_B
   m_TagString: Untagged
@@ -196,8 +169,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5865267928724241730
-BoxCollider:
+--- !u!64 &-7098637999533142858
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,6 +179,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2031748, y: 0.20434557, z: 0.14520784}
-  m_Center: {x: -0.000000029802322, y: -0.09563055, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2332721636926896692, guid: cf3fe927d7bf0c64cada18f5a6f31bdd, type: 3}
+--- !u!114 &5532261857866330030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6747790592556941358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

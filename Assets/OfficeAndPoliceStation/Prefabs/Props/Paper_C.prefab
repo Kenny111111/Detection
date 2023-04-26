@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 162466866193201068}
   - component: {fileID: 3886300076548061193}
   - component: {fileID: 1299884555224255683}
-  - component: {fileID: 417581032071106629}
+  - component: {fileID: -9082128428662312716}
+  - component: {fileID: 8963478137470596532}
   m_Layer: 0
   m_Name: Paper_C
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &417581032071106629
-BoxCollider:
+--- !u!64 &-9082128428662312716
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.21, y: 0, z: 0.2929}
-  m_Center: {x: 0, y: 0.0007934709, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8802998051022028992, guid: 38350bbfef4765c4291e271b31c38627, type: 3}
+--- !u!114 &8963478137470596532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651582056530652438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

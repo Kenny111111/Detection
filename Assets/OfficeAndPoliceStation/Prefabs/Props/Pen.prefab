@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4432649436928609617}
   - component: {fileID: 733018805239284468}
   - component: {fileID: 3299102170425128510}
-  - component: {fileID: 4181968630642797236}
+  - component: {fileID: 3102287547414352362}
+  - component: {fileID: 2825918269721819777}
   m_Layer: 0
   m_Name: Pen
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4181968630642797236
-BoxCollider:
+--- !u!64 &3102287547414352362
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0145899765, y: 0.017205732, z: 0.17227137}
-  m_Center: {x: 0, y: 0.0078858575, z: 0.000000011175871}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1049237082592561434, guid: 0276190387da88240956cdeb4efa467e, type: 3}
+--- !u!114 &2825918269721819777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947474900553783275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

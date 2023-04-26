@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1984176120976327392}
   - component: {fileID: 3181492137251589445}
   - component: {fileID: 847267682859661711}
-  - component: {fileID: 2018611909282374926}
-  - component: {fileID: 2018611909282374925}
   m_Layer: 0
   m_Name: Toilet
   m_TagString: Untagged
@@ -87,32 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2018611909282374926
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207779471607404634}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.47, z: 0.67}
-  m_Center: {x: -0.0012585893, y: 0.25, z: 0.21924162}
---- !u!65 &2018611909282374925
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207779471607404634}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.47, z: 0.21}
-  m_Center: {x: -0.0012585893, y: 0.655, z: -0.05}
 --- !u!1 &3175875799293456875
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +96,6 @@ GameObject:
   - component: {fileID: 6392097467359311477}
   - component: {fileID: 2248840542752911028}
   - component: {fileID: 8601847760145661718}
-  - component: {fileID: 8791993352726324840}
   m_Layer: 0
   m_Name: Toilet_lid
   m_TagString: Untagged
@@ -197,19 +168,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8791993352726324840
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175875799293456875}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.43049932, y: 0.023069296, z: 0.51629317}
-  m_Center: {x: -0.0025483742, y: 0.018672528, z: 0.25220716}
 --- !u!1 &3837108437271580692
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +179,6 @@ GameObject:
   - component: {fileID: 6893741385370297158}
   - component: {fileID: 837016268401626323}
   - component: {fileID: 4015673281656293057}
-  - component: {fileID: 1396953900022065133}
   m_Layer: 0
   m_Name: Toilet_seat_high
   m_TagString: Untagged
@@ -294,16 +251,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1396953900022065133
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3837108437271580692}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.42930007, y: 0.018589642, z: 0.5093308}
-  m_Center: {x: -0.0025498345, y: -0.000335305, z: 0.25406072}

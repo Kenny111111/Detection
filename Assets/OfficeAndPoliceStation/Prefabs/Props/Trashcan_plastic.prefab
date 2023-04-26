@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7241988626628669058}
   - component: {fileID: 5994130420773544231}
   - component: {fileID: 8415990297330259437}
-  - component: {fileID: 7136533276526872939}
+  - component: {fileID: 4253473802127325007}
+  - component: {fileID: 7099790898557068331}
   m_Layer: 0
   m_Name: Trashcan_plastic
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7136533276526872939
-BoxCollider:
+--- !u!64 &4253473802127325007
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3426596, y: 0.38192052, z: 0.34016123}
-  m_Center: {x: 0, y: 0.19109681, z: 0.000000014901161}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8583615225585513570, guid: be1c67989b37c6645844a623140e3cd5, type: 3}
+--- !u!114 &7099790898557068331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055645495960187960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

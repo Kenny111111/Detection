@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7748189997401263005}
   - component: {fileID: 6640771322921698360}
   - component: {fileID: 8920563358760546546}
-  - component: {fileID: 7786056065508650096}
+  - component: {fileID: 8935918661319207834}
+  - component: {fileID: -8016796120639780107}
   m_Layer: 0
   m_Name: Painting_J
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7786056065508650096
-BoxCollider:
+--- !u!64 &8935918661319207834
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.9628348, z: 0.050000034}
-  m_Center: {x: 0, y: 0, z: 0.023508396}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5155135184776559608, guid: bb3e099a0f8fe7c48a079503c1094305, type: 3}
+--- !u!114 &-8016796120639780107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975171391367024935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

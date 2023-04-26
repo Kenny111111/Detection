@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8482485451281417325}
   - component: {fileID: 6035887821678753772}
   - component: {fileID: 7519329112032961573}
-  - component: {fileID: 6460309111338701171}
   m_Layer: 0
   m_Name: Storage_metalbox_cover
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6460309111338701171
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3375484301528503446}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.323389, y: 0.026778946, z: 0.45624447}
-  m_Center: {x: 0, y: 0.0004516123, z: 0}
 --- !u!1 &6493416955877369225
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +94,8 @@ GameObject:
   - component: {fileID: 5861031384644190003}
   - component: {fileID: 7420044773352730774}
   - component: {fileID: 4692113238576202844}
-  - component: {fileID: 9132382252505557267}
+  - component: {fileID: 9156652346738825989}
+  - component: {fileID: -8642236718373527843}
   m_Layer: 0
   m_Name: Storage_metalbox
   m_TagString: Untagged
@@ -183,8 +170,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9132382252505557267
-BoxCollider:
+--- !u!64 &9156652346738825989
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,9 +180,23 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3146428, y: 0.2055122, z: 0.44390514}
-  m_Center: {x: 0.00031735748, y: 0.102641165, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4576133854252847939, guid: 6c3b874d0a1cff0439dbe34fe6ccd313, type: 3}
+--- !u!114 &-8642236718373527843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493416955877369225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1001 &2065231647515190812
 PrefabInstance:
   m_ObjectHideFlags: 0

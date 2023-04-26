@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 5825029485692372972}
   - component: {fileID: 7456116969634383945}
   - component: {fileID: 4656024550008503427}
-  - component: {fileID: 6294924010172162057}
+  - component: {fileID: 1914323282790186338}
+  - component: {fileID: 8229239217498779491}
   m_Layer: 0
   m_Name: Water_dispenser
   m_TagString: Untagged
@@ -169,8 +170,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6294924010172162057
-BoxCollider:
+--- !u!64 &1914323282790186338
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -179,6 +180,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.33972782, y: 1.6932467, z: 0.35621879}
-  m_Center: {x: -0.0009200275, y: 0.84662336, z: -0.009165511}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5942268631455490536, guid: 91dca5184ff71f340b56d149bcf2f43d, type: 3}
+--- !u!114 &8229239217498779491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601566601415138646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

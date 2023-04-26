@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4615469995731743760}
   - component: {fileID: 8620639642185595829}
   - component: {fileID: 5784413427347722111}
-  - component: {fileID: 6781341679562132005}
+  - component: {fileID: 1904453442621855684}
+  - component: {fileID: -5046374814296785691}
   m_Layer: 0
   m_Name: Storage_metal_box_A
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6781341679562132005
-BoxCollider:
+--- !u!64 &1904453442621855684
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.39404884, y: 0.29455042, z: 0.51698434}
-  m_Center: {x: 0.0000008940697, y: 0.14727521, z: -0.000051155686}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5958174967583363044, guid: ef32e27de2d8d9048937920f33ee726b, type: 3}
+--- !u!114 &-5046374814296785691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424200017028066986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

@@ -122,7 +122,8 @@ GameObject:
   - component: {fileID: 3900518056771218954}
   - component: {fileID: 112228341483266479}
   - component: {fileID: 2768095689447019877}
-  - component: {fileID: 3579189610462644708}
+  - component: {fileID: -3528527031150477183}
+  - component: {fileID: 2139014617406307438}
   m_Layer: 0
   m_Name: Lamp_fluorescent_A
   m_TagString: Untagged
@@ -196,8 +197,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3579189610462644708
-BoxCollider:
+--- !u!64 &-3528527031150477183
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,6 +207,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4257, y: 0.11478363, z: 0.28513998}
-  m_Center: {x: -0.000000059604645, y: -0.063883744, z: -0.000000037252903}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4723662168892683401, guid: 0494f6a45e4b31c4eb571c191b76c2c3, type: 3}
+--- !u!114 &2139014617406307438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425556485965624496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

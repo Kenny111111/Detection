@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7479078134005106478}
   - component: {fileID: 5792999639071000715}
   - component: {fileID: 8610927787841944641}
-  - component: {fileID: 6936032239037276354}
-  - component: {fileID: 6936032239037276355}
   m_Layer: 0
   m_Name: Chair_spinning
   m_TagString: Untagged
@@ -85,29 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6936032239037276354
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7818483438909152660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.55, y: 0.57, z: 0.55}
-  m_Center: {x: -0.013609171, y: 0.24, z: 0}
---- !u!65 &6936032239037276355
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7818483438909152660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.49, y: 0.6, z: 0.12}
-  m_Center: {x: -0.013609171, y: 0.8, z: -0.29}

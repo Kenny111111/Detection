@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 5850125212944283392}
   - component: {fileID: 7385914897505630373}
   - component: {fileID: 4712169554561092719}
-  - component: {fileID: 6243511493609181423}
-  - component: {fileID: 6243511493609181416}
-  - component: {fileID: 6243511493609181417}
+  - component: {fileID: 2050313084234918696}
+  - component: {fileID: -859491492102683485}
   m_Layer: 0
   m_Name: Sign_hanging
   m_TagString: Untagged
@@ -86,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6243511493609181423
-BoxCollider:
+--- !u!64 &2050313084234918696
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,32 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9147831, y: 0.4, z: 0.049319312}
-  m_Center: {x: 0.00000008940697, y: -0.51, z: 0.0000000121071935}
---- !u!65 &6243511493609181416
-BoxCollider:
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4048326466393283983, guid: fe39e1b85ea68c04d9d819b34ed32a67, type: 3}
+--- !u!114 &-859491492102683485
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6513332397007302074}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.7183267, z: 0.049319312}
-  m_Center: {x: -0.36, y: -0.35583478, z: 0.0000000121071935}
---- !u!65 &6243511493609181417
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6513332397007302074}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.7183267, z: 0.049319312}
-  m_Center: {x: 0.36, y: -0.35583478, z: 0.0000000121071935}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

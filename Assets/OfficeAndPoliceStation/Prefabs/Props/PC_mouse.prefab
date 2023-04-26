@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7977508677975198457}
   - component: {fileID: 6420468912571401564}
   - component: {fileID: 9150999143149285782}
-  - component: {fileID: 7583908516280380700}
+  - component: {fileID: -8619350771140894971}
+  - component: {fileID: -3170915320566554244}
   m_Layer: 0
   m_Name: PC_mouse
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7583908516280380700
-BoxCollider:
+--- !u!64 &-8619350771140894971
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05886584, y: 0.03017296, z: 0.1072167}
-  m_Center: {x: 0.00034378096, y: 0.016903175, z: -0.00082847103}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5131460228012159177, guid: a41f945c2619d754abad0027520ede61, type: 3}
+--- !u!114 &-3170915320566554244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349343856954871875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

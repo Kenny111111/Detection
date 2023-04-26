@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8998099502858894032}
   - component: {fileID: 5435968203426297205}
   - component: {fileID: 7824026948016406975}
-  - component: {fileID: 7927379646915332996}
+  - component: {fileID: 540019523942429517}
+  - component: {fileID: 1924727971718642864}
   m_Layer: 0
   m_Name: Bulletinboard_props
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7927379646915332996
-BoxCollider:
+--- !u!64 &540019523942429517
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5287082, y: 0.93401533, z: 0.03635086}
-  m_Center: {x: 0.0035358071, y: 0.0051262677, z: 0.012196269}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5714458687383361539, guid: 7e438549565a457498b6e583dbb17f82, type: 3}
+--- !u!114 &1924727971718642864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616647770095591530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

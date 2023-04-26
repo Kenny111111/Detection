@@ -11,10 +11,6 @@ GameObject:
   - component: {fileID: 8695944722068670303}
   - component: {fileID: 5693086712253188346}
   - component: {fileID: 7558482160559717424}
-  - component: {fileID: 9161600218132340913}
-  - component: {fileID: 9161600218132340912}
-  - component: {fileID: 9161600218132340915}
-  - component: {fileID: 9161600218132340914}
   m_Layer: 0
   m_Name: Couch_3seat
   m_TagString: Untagged
@@ -87,55 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9161600218132340913
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8351330717391019493}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.01, y: 0.94435984, z: 0.2}
-  m_Center: {x: 0.0058402717, y: 0.4768375, z: -0.26}
---- !u!65 &9161600218132340912
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8351330717391019493}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.67, z: 0.86391187}
-  m_Center: {x: 1.07, y: 0.36, z: 0.08386965}
---- !u!65 &9161600218132340915
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8351330717391019493}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.67, z: 0.86391187}
-  m_Center: {x: -1.07, y: 0.36, z: 0.08386965}
---- !u!65 &9161600218132340914
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8351330717391019493}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.11, y: 0.44, z: 0.86391187}
-  m_Center: {x: 0.0058402717, y: 0.25, z: 0.08386965}

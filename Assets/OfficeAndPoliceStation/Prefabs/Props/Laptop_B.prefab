@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2279233263373495392}
   - component: {fileID: 2886434656661447621}
   - component: {fileID: 1146828350799369999}
-  - component: {fileID: 1741714305257884552}
-  - component: {fileID: 1741714305257884553}
+  - component: {fileID: 6244040467129800166}
+  - component: {fileID: -3606279222095424179}
   m_Layer: 0
   m_Name: Laptop_B
   m_TagString: Untagged
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1741714305257884552
-BoxCollider:
+--- !u!64 &6244040467129800166
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,19 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.41222072, y: 0.03, z: 0.37814474}
-  m_Center: {x: -0.000000014901161, y: 0.015, z: 0}
---- !u!65 &1741714305257884553
-BoxCollider:
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1789556658151830246, guid: dfaa64cb127a30e4697b4f070b7e3d34, type: 3}
+--- !u!114 &-3606279222095424179
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507199815443936986}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.41222072, y: 0.2987315, z: 0.07}
-  m_Center: {x: -0.000000014901161, y: 0.14839676, z: -0.14}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

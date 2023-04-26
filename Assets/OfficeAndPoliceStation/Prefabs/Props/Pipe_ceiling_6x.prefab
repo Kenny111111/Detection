@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3033681375485221416}
   - component: {fileID: 2140923644028441997}
   - component: {fileID: 4202669891508773191}
-  - component: {fileID: 3284096501252275649}
+  - component: {fileID: 3289740287595596055}
+  - component: {fileID: 2933744332323950818}
   m_Layer: 0
   m_Name: Pipe_ceiling_6x
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3284096501252275649
-BoxCollider:
+--- !u!64 &3289740287595596055
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.18643922, y: 0.21211606, z: 6.021792}
-  m_Center: {x: 0.00000059977174, y: -0.10341798, z: -2.9999998}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4733892425952536480, guid: 838d2bf5a0410c54f92e83ee7dc269df, type: 3}
+--- !u!114 &2933744332323950818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401014054869237906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

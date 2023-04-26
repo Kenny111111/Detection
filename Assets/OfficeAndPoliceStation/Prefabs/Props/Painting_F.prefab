@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4521158785699142105}
   - component: {fileID: 653508356999534204}
   - component: {fileID: 3383695540215882422}
-  - component: {fileID: 4122157652006846000}
+  - component: {fileID: 6650061274991203784}
+  - component: {fileID: 2266649142026138575}
   m_Layer: 0
   m_Name: Painting_F
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4122157652006846000
-BoxCollider:
+--- !u!64 &6650061274991203784
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.62888896, y: 0.9534714, z: 0.03004696}
-  m_Center: {x: 0, y: 0, z: 0.015023471}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5074918655707916279, guid: d232fd620c9714145a3a0d386495e252, type: 3}
+--- !u!114 &2266649142026138575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888208856497226595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

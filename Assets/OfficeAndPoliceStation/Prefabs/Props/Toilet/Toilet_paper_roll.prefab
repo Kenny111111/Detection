@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7088381923820829951}
   - component: {fileID: 6192773124420596570}
   - component: {fileID: 8220706567486179216}
-  - component: {fileID: 894973062302589223}
   m_Layer: 0
   m_Name: Toilet_paper_roll
   m_TagString: Untagged
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &894973062302589223
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7572008244522231365}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.17325595, y: 0.19142358, z: 0.12307696}
-  m_Center: {x: 0.0027687922, y: -0.053962357, z: 0.06153848}

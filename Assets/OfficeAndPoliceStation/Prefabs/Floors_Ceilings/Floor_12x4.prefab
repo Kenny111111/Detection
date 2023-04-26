@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 480918}
   - component: {fileID: 3346938}
   - component: {fileID: 2351544}
-  - component: {fileID: 6563362}
+  - component: {fileID: 152448631271437952}
+  - component: {fileID: 1151353098596424675}
   m_Layer: 0
   m_Name: Floor_12x4
   m_TagString: Untagged
@@ -85,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6563362
-BoxCollider:
+--- !u!64 &152448631271437952
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,6 +96,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 0.005, z: 4.0000014}
-  m_Center: {x: -6, y: 0, z: -2.0000002}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: a9d462d972833fa428fa6a76524a6f60, type: 3}
+--- !u!114 &1151353098596424675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

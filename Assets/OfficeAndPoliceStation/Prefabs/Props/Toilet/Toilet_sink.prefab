@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2147254365736788694}
   - component: {fileID: 3054372853058825587}
   - component: {fileID: 974950862021073337}
-  - component: {fileID: 1893250194709447999}
   m_Layer: 0
   m_Name: Toilet_sink
   m_TagString: Untagged
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1893250194709447999
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623341870339176556}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.2896342, y: 0.22, z: 0.57}
-  m_Center: {x: -0.00000029802322, y: -0.18, z: 0.35282367}

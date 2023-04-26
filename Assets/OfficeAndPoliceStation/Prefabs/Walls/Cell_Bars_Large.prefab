@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 4276940879583364}
   - component: {fileID: 33876537394744110}
   - component: {fileID: 23330672772429850}
-  - component: {fileID: 65147942857725608}
-  - component: {fileID: 5429397757526960657}
-  - component: {fileID: 1436151396785212570}
+  - component: {fileID: 7909061234192822317}
+  - component: {fileID: 6738451557056649197}
   m_Layer: 0
   m_Name: Cell_Bars_Large
   m_TagString: Untagged
@@ -86,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &65147942857725608
-BoxCollider:
+--- !u!64 &7909061234192822317
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,32 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 2.499394, z: 0.119028166}
-  m_Center: {x: 0.4, y: 1.249697, z: -0.015794754}
---- !u!65 &5429397757526960657
-BoxCollider:
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 46edb6412af969f4f92cb7fe83dac13c, type: 3}
+--- !u!114 &6738451557056649197
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108228323723988}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 2.499394, z: 0.119028166}
-  m_Center: {x: 2.8, y: 1.249697, z: -0.015794754}
---- !u!65 &1436151396785212570
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108228323723988}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.0185413, y: 0.3, z: 0.119028166}
-  m_Center: {x: 1.5961375, y: 2.35, z: -0.015794754}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

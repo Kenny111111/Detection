@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 2851741591110678716}
   - component: {fileID: 1170003841380579097}
   - component: {fileID: 4024044343609525203}
-  - component: {fileID: 2313111482493476683}
-  - component: {fileID: 2313111482493476682}
-  - component: {fileID: 2313111482493476681}
   m_Layer: 0
   m_Name: Toilet_partition_tile
   m_TagString: Untagged
@@ -86,42 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2313111482493476683
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3231538833823343110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.29999998, y: 2.7007701, z: 0.03}
-  m_Center: {x: -0.65, y: 1.3503851, z: 0.01}
---- !u!65 &2313111482493476682
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3231538833823343110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 2, z: 1.9477564}
-  m_Center: {x: -0.65, y: 1.3, z: -0.9438781}
---- !u!65 &2313111482493476681
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3231538833823343110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.25, y: 0.04, z: 0.03}
-  m_Center: {x: 0.08, y: 2.67, z: 0.01}
