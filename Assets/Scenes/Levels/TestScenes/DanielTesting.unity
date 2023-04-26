@@ -21041,6 +21041,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 2399542223963261541, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: numParticlesPerSecond
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399542223963261541, guid: fe03e8d2af57f6f48b54b55af3f590b7,
+        type: 3}
+      propertyPath: sprayAngleLoudnessVariance
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe03e8d2af57f6f48b54b55af3f590b7, type: 3}
 --- !u!1001 &1816136651
@@ -22684,7 +22694,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1994352207}
-  - component: {fileID: 1994352209}
   - component: {fileID: 1994352208}
   m_Layer: 9
   m_Name: Effects
@@ -22724,23 +22733,6 @@ MonoBehaviour:
   maxEffectDuration: 1.5
   loudnessToSizeScalar: 0.04
   weight: 5
---- !u!114 &1994352209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994352206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26a8b68693b22aa49bd65def5b49ab7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numPoints: 300
-  weight: 5
-  lineMaterial: {fileID: 2100000, guid: e669bc14158081c42b15bb33995aab78, type: 2}
-  startingColor: {r: 0.7971698, g: 0.9972129, b: 1, a: 1}
-  endingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1996255351 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 149448, guid: 16dd2e2d30bf97a4282b745980e24bd8,
