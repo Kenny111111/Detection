@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 475882}
   - component: {fileID: 3348996}
   - component: {fileID: 2305870}
-  - component: {fileID: 6508034}
+  - component: {fileID: -4808322233336595589}
+  - component: {fileID: 7188887114506461733}
   m_Layer: 0
   m_Name: W_6x_Window_Large_A
   m_TagString: Untagged
@@ -87,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6508034
-BoxCollider:
+--- !u!64 &-4808322233336595589
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,6 +98,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.1260996, y: 3.0000005, z: 0.11}
-  m_Center: {x: 0, y: 1.5000002, z: 0.056}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c910a300520b0b54ba32f1a3c2670b87, type: 3}
+--- !u!114 &7188887114506461733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

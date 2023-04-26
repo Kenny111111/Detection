@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4776313482940720760}
   - component: {fileID: 544147203790246215}
   - component: {fileID: 4017947851930323502}
+  - component: {fileID: 4174349412495322312}
+  - component: {fileID: -8080810165231845541}
   m_Layer: 0
   m_Name: W_4x_DoorDouble
   m_TagString: Untagged
@@ -127,3 +129,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 0.74, z: 0.078795254}
   m_Center: {x: 0, y: 2.65, z: 0.06}
+--- !u!64 &4174349412495322312
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034760415970536342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7550217816485162219, guid: 1cf3801006d527a44828c2a62fa61863, type: 3}
+--- !u!114 &-8080810165231845541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034760415970536342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

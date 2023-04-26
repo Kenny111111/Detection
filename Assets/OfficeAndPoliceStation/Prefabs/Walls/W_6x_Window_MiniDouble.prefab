@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3353474}
   - component: {fileID: 2363828}
   - component: {fileID: 2185570069303895325}
+  - component: {fileID: -1031901508822120055}
   m_Layer: 0
   m_Name: W_6x_Window_MiniDouble
   m_TagString: Untagged
@@ -100,3 +101,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSize: 0.015
+--- !u!64 &-1031901508822120055
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 940aacf20caddac40b5082713be799dc, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3374250}
   - component: {fileID: 2370854}
   - component: {fileID: 1886688286239782382}
-  - component: {fileID: 4020983816363953871}
+  - component: {fileID: -1198426663113573660}
   m_Layer: 0
   m_Name: W_3x_Door
   m_TagString: Untagged
@@ -101,7 +101,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: b0e62d28a70727044b6cdaa00fd8ce12, type: 3}
---- !u!114 &4020983816363953871
+--- !u!114 &-1198426663113573660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

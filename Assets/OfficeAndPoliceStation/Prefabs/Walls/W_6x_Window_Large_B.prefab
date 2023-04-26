@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3359710}
   - component: {fileID: 2384282}
   - component: {fileID: 6068468532317576620}
-  - component: {fileID: 6030510094920690947}
+  - component: {fileID: 4043185312412895420}
   m_Layer: 0
   m_Name: W_6x_Window_Large_B
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ade46bcbf8922ab4092ac7a545f7cdf7, type: 3}
---- !u!114 &6030510094920690947
+--- !u!114 &4043185312412895420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2078906338241228966}
   - component: {fileID: 3131719013133074179}
   - component: {fileID: 906048779314187209}
-  - component: {fileID: 1969052915336238912}
-  - component: {fileID: 1969052915336238915}
+  - component: {fileID: 2857587750577103324}
+  - component: {fileID: 4272248637764607413}
   m_Layer: 0
   m_Name: Dresser_A_doublesided
   m_TagString: Untagged
@@ -97,8 +97,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1969052915336238912
-BoxCollider:
+--- !u!64 &2857587750577103324
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -107,22 +107,23 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6622686, y: 0.05, z: 0.8311343}
-  m_Center: {x: 0, y: 0.84, z: -0.020642802}
---- !u!65 &1969052915336238915
-BoxCollider:
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7611296677823812586, guid: 3947baf0fb9957744808880b49321cc8, type: 3}
+--- !u!114 &4272248637764607413
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698440764073011740}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6622686, y: 0.8645146, z: 0.75}
-  m_Center: {x: 0, y: 0.43225724, z: -0.020642802}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1001 &434326707179419318
 PrefabInstance:
   m_ObjectHideFlags: 0

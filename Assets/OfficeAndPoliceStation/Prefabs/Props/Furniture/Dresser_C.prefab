@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2730083730934296603}
   - component: {fileID: 1318691733296807870}
   - component: {fileID: 3866367136015747956}
+  - component: {fileID: -1382936826341303688}
+  - component: {fileID: 2786468846203913617}
   m_Layer: 0
   m_Name: Dresser_C
   m_TagString: Untagged
@@ -85,6 +87,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1382936826341303688
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362187934363626145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4572183574206785881, guid: 6aa1805cd793fa14bb73dec702ece301, type: 3}
+--- !u!114 &2786468846203913617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362187934363626145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1001 &3051145530128041249
 PrefabInstance:
   m_ObjectHideFlags: 0

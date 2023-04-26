@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 449696}
   - component: {fileID: 3318814}
   - component: {fileID: 2342588}
-  - component: {fileID: 7447201716967261903}
-  - component: {fileID: 685235540687064910}
-  - component: {fileID: 3495792200795462328}
+  - component: {fileID: 5741985673606064163}
+  - component: {fileID: 891987211251501997}
   m_Layer: 0
   m_Name: W_6x_DoorDouble
   m_TagString: Untagged
@@ -88,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7447201716967261903
-BoxCollider:
+--- !u!64 &5741985673606064163
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,32 +97,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.05, y: 3.0000005, z: 0.078795254}
-  m_Center: {x: 2.02, y: 1.5000002, z: 0.06}
---- !u!65 &685235540687064910
-BoxCollider:
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 5cbf001a59d503a4b820b750d41486d2, type: 3}
+--- !u!114 &891987211251501997
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121742}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.05, y: 3.0000005, z: 0.078795254}
-  m_Center: {x: -2.02, y: 1.5000002, z: 0.06}
---- !u!65 &3495792200795462328
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121742}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6, y: 0.68, z: 0.078795254}
-  m_Center: {x: 0, y: 2.65, z: 0.06}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

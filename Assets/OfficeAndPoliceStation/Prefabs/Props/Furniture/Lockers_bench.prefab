@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6192514414478994880}
   - component: {fileID: 7088631289251537509}
   - component: {fileID: 5024635992886105775}
-  - component: {fileID: 3944590043978620898}
+  - component: {fileID: -5865886649456052811}
+  - component: {fileID: -6619284361792533649}
   m_Layer: 0
   m_Name: Lockers_bench
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3944590043978620898
-BoxCollider:
+--- !u!64 &-5865886649456052811
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4618227, y: 0.44756305, z: 0.363019}
-  m_Center: {x: -0.000000029802322, y: 0.22305411, z: 0.000000037252903}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9069343183200816368, guid: 0fb2180cf3a83a745a222f2273b269ca, type: 3}
+--- !u!114 &-6619284361792533649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826308734502958970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

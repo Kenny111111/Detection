@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 4618977455644611959}
   - component: {fileID: 8626148189704231634}
   - component: {fileID: 5787912061369708056}
-  - component: {fileID: 5157570432471233176}
-  - component: {fileID: 5157570432471233177}
-  - component: {fileID: 5157570432471233182}
+  - component: {fileID: 7266473818261457396}
+  - component: {fileID: -7866791694082626382}
   m_Layer: 0
   m_Name: W_3x_DoorDouble
   m_TagString: Untagged
@@ -88,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5157570432471233176
-BoxCollider:
+--- !u!64 &7266473818261457396
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,32 +97,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.57, y: 3.0000005, z: 0.078795254}
-  m_Center: {x: 1.28, y: 1.5000002, z: 0.06}
---- !u!65 &5157570432471233177
-BoxCollider:
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1404565308028840940, guid: 17af239f7499b6b408c813c62a2d07b8, type: 3}
+--- !u!114 &-7866791694082626382
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5427461157139795917}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.57, y: 3.0000005, z: 0.078795254}
-  m_Center: {x: -1.28, y: 1.5000002, z: 0.06}
---- !u!65 &5157570432471233182
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5427461157139795917}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 0.74, z: 0.078795254}
-  m_Center: {x: 0, y: 2.65, z: 0.06}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

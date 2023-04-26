@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 3589429206666657800}
   - component: {fileID: 468353804724096941}
   - component: {fileID: 2421557829758925671}
-  - component: {fileID: 3916600768936421272}
-  - component: {fileID: 3916600768936421351}
-  - component: {fileID: 3916600768936421350}
-  - component: {fileID: 3916600768936421349}
+  - component: {fileID: -2228959286821127370}
+  - component: {fileID: -1643430522293307324}
   m_Layer: 0
   m_Name: Couch_1seat
   m_TagString: Untagged
@@ -87,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3916600768936421272
-BoxCollider:
+--- !u!64 &-2228959286821127370
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,45 +95,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.67, y: 0.94435984, z: 0.2}
-  m_Center: {x: 0.0058402717, y: 0.4768375, z: -0.26}
---- !u!65 &3916600768936421351
-BoxCollider:
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1063984672176669735, guid: 86d73548b5233e245854155dbdc5967f, type: 3}
+--- !u!114 &-1643430522293307324
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4223222461807139506}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.67, z: 0.86391187}
-  m_Center: {x: 0.4, y: 0.36, z: 0.08386965}
---- !u!65 &3916600768936421350
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223222461807139506}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.67, z: 0.86391187}
-  m_Center: {x: -0.4, y: 0.36, z: 0.08386965}
---- !u!65 &3916600768936421349
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223222461807139506}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.76, y: 0.44, z: 0.86391187}
-  m_Center: {x: 0.0058402717, y: 0.25, z: 0.08386965}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

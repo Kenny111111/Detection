@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 5416864561303047907}
   - component: {fileID: 3498510106433472671}
   - component: {fileID: 1217021575976168346}
+  - component: {fileID: 5172953869817693612}
   m_Layer: 0
   m_Name: Cabinet_B
   m_TagString: Untagged
@@ -199,6 +200,19 @@ MeshCollider:
   m_CookingOptions: 30
   m_Mesh: {fileID: -802972414446302934, guid: 8cfe79d98f9cc4a41bc2b3e6b020ae98, type: 3}
 --- !u!114 &1217021575976168346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777113292362313526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015
+--- !u!114 &5172953869817693612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
