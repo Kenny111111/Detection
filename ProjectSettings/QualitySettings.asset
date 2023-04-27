@@ -122,6 +122,7 @@ QualitySettings:
     excludedTargetPlatforms:
     - Android
     - Server
+    - Standalone
   - serializedVersion: 2
     name: Quest2
     pixelLightCount: 2
