@@ -229,8 +229,8 @@ namespace Detection
             EndOfLevelCollision levelEndHitbox = FindObjectOfType<EndOfLevelCollision>();
             Player player = FindObjectOfType<Player>();
 
-            if(levelEndHitbox != null && player != null)
-                player.transform.position = levelEndHitbox.transform.position;
+            // if(levelEndHitbox != null && player != null)
+            //     player.transform.position = levelEndHitbox.transform.position; Debug.Log("SWITCHED");
         }
     }
 }

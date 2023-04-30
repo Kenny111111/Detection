@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace Detection
 {
@@ -22,7 +25,7 @@ namespace Detection
     }
 
     public class GameManager : MonoBehaviour
-    {
+    {    
         public static GameManager instance;
 
         public GameState gameState;
@@ -33,6 +36,49 @@ namespace Detection
 
         public static event Action<GameState> OnGameStateChanged;
         public static event Action<GameState> AfterGameStateChanged;
+        
+        private static GameManager _instance;
+        public static GameManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    Debug.Log("Game Manager is null");
+                return _instance;
+            }
+        }
+
+        //setup for subtitle
+        // public int index;
+        // public GameObject blackOverlay;
+        // public TMP_Text _messageText;
+
+        // //play subtitle
+        // public void PlayDialogue(Dialogue dialogue)
+        // {
+        //     Debug.Log("Test for dialogue function");
+        //     index = 0;
+        //     StartCoroutine(PlayDialogueRoutine(dialogue));
+        // }
+
+        // //displaying subtitle
+        // private IEnumerator PlayDialogueRoutine(Dialogue dialogue)
+        // {
+        //     _messageText.transform.localPosition = dialogue.textPos;
+        //     _messageText.transform.localEulerAngles = dialogue.textRotation;
+        //     _messageText.color = dialogue.textColor;
+        //     while(index != dialogue.subtitles.Length)
+        //     {
+        //         _messageText.text = dialogue.subtitles[index].message;
+        //         blackOverlay.transform.localScale = dialogue.subtitles[index].blackOverlaySize;
+        //         yield return new WaitForSeconds(dialogue.subtitles[index].secondsDisplayed);
+        //         index++;
+        //     }
+        //     blackOverlay.transform.localScale = Vector3.zero;
+        //     _messageText.text = "";
+        // }
+        
+        public Dialogue dialogue;
 
         private void Awake()
         {
@@ -276,13 +322,15 @@ namespace Detection
         // Player has killed all enemies in the level.
         private void OnLevelCleared()
         {
-            // trigger showing arrows
+            Debug.Log("OnLevelCleared: killed all enemies");
+            UIManager.Instance.PlayDialogue(dialogue);
+            // PlayDialogue(dialogue);
         }
 
         // The level is no longer levelCleared
         private void AfterMissionCleared()
         {
-            // trigger showing arrows
+            Debug.Log("AfterMissionCleared: killed all enemies");
         }
 
         // Level outro scene is playing.
