@@ -7,16 +7,15 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    public int index;
+    public TMP_Text _messageText;
+
     private void Awake()
     {
         if (instance != null && instance != this) Destroy(this);
         else instance = this;
     }
-    //setup for subtitle
-    public int index;
-    public TMP_Text _messageText;
 
-    //play subtitle
     public void PlayDialogue(Dialogue dialogue)
     {
         Debug.Log("Test for dialogue function");
@@ -24,7 +23,6 @@ public class UIManager : MonoBehaviour
         StartCoroutine(PlayDialogueRoutine(dialogue));
     }
 
-    //displaying subtitle
     private IEnumerator PlayDialogueRoutine(Dialogue dialogue)
     {
         _messageText.transform.localPosition = dialogue.textPos;
