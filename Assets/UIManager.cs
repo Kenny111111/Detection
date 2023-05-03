@@ -5,16 +5,15 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    private static UIManager _instance;
-    public static UIManager Instance{
-        get{
-            if (_instance == null)
-                Debug.Log("UI Manager is null");
-            return _instance;
-        }
+    public static UIManager instance;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this) Destroy(this);
+        else instance = this;
     }
-//setup for subtitle
-        public int index;
+    //setup for subtitle
+    public int index;
         public GameObject blackOverlay;
         public TMP_Text _messageText;
 

@@ -323,7 +323,7 @@ namespace Detection
         private void OnLevelCleared()
         {
             Debug.Log("OnLevelCleared: killed all enemies");
-            UIManager.Instance.PlayDialogue(dialogue);
+            UIManager.instance.PlayDialogue(dialogue);
             // PlayDialogue(dialogue);
         }
 
