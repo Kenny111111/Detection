@@ -36,49 +36,6 @@ namespace Detection
 
         public static event Action<GameState> OnGameStateChanged;
         public static event Action<GameState> AfterGameStateChanged;
-        
-        private static GameManager _instance;
-        public static GameManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    Debug.Log("Game Manager is null");
-                return _instance;
-            }
-        }
-
-        //setup for subtitle
-        // public int index;
-        // public GameObject blackOverlay;
-        // public TMP_Text _messageText;
-
-        // //play subtitle
-        // public void PlayDialogue(Dialogue dialogue)
-        // {
-        //     Debug.Log("Test for dialogue function");
-        //     index = 0;
-        //     StartCoroutine(PlayDialogueRoutine(dialogue));
-        // }
-
-        // //displaying subtitle
-        // private IEnumerator PlayDialogueRoutine(Dialogue dialogue)
-        // {
-        //     _messageText.transform.localPosition = dialogue.textPos;
-        //     _messageText.transform.localEulerAngles = dialogue.textRotation;
-        //     _messageText.color = dialogue.textColor;
-        //     while(index != dialogue.subtitles.Length)
-        //     {
-        //         _messageText.text = dialogue.subtitles[index].message;
-        //         blackOverlay.transform.localScale = dialogue.subtitles[index].blackOverlaySize;
-        //         yield return new WaitForSeconds(dialogue.subtitles[index].secondsDisplayed);
-        //         index++;
-        //     }
-        //     blackOverlay.transform.localScale = Vector3.zero;
-        //     _messageText.text = "";
-        // }
-        
-        public Dialogue dialogue;
 
         private void Awake()
         {
@@ -323,7 +280,33 @@ namespace Detection
         private void OnLevelCleared()
         {
             Debug.Log("OnLevelCleared: killed all enemies");
-            UIManager.instance.PlayDialogue(dialogue);
+            GameObject mainCam = GameObject.FindWithTag("MainCamera");
+
+            RaycastHit hit;
+            Vector3 dialoguePos = new Vector3(0, 0, 0);
+
+
+            const float MAX_RAY_DIST = 15f;
+
+            Ray eyePos = mainCam.GetComponent<Camera>().ScreenPointToRay(new Vector3((Screen.width / 2), (Screen.height / 2), 0));
+            Vector3 mainCamPos = mainCam.transform.position;
+            
+            // Get the dialogue position
+            if (Physics.Raycast(eyePos, out hit, MAX_RAY_DIST, LayerMask.GetMask("Environment")))
+                dialoguePos = hit.point;
+            else
+            {
+                dialoguePos = new Vector3(mainCamPos.x + eyePos.direction.x, mainCamPos.y + eyePos.direction.y, mainCamPos.z + eyePos.direction.z);
+            }
+
+            // Make the dialogue rotation always face the player
+
+            List<Subtitles> levelClearedDialogueSubtitles = new List<Subtitles>();
+            levelClearedDialogueSubtitles.Add(new Subtitles("Area Cleared", 60));
+
+            Dialogue levelCleared = new Dialogue(levelClearedDialogueSubtitles, dialoguePos, new Vector3(0, 0, 0), Color.white);
+
+            UIManager.instance.PlayDialogue(levelCleared);
             // PlayDialogue(dialogue);
         }
 

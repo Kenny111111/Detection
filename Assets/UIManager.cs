@@ -14,31 +14,28 @@ public class UIManager : MonoBehaviour
     }
     //setup for subtitle
     public int index;
-        public GameObject blackOverlay;
-        public TMP_Text _messageText;
+    public TMP_Text _messageText;
 
-        //play subtitle
-        public void PlayDialogue(Dialogue dialogue)
-        {
-            Debug.Log("Test for dialogue function");
-            index = 0;
-            StartCoroutine(PlayDialogueRoutine(dialogue));
-        }
+    //play subtitle
+    public void PlayDialogue(Dialogue dialogue)
+    {
+        Debug.Log("Test for dialogue function");
+        index = 0;
+        StartCoroutine(PlayDialogueRoutine(dialogue));
+    }
 
-        //displaying subtitle
-        private IEnumerator PlayDialogueRoutine(Dialogue dialogue)
+    //displaying subtitle
+    private IEnumerator PlayDialogueRoutine(Dialogue dialogue)
+    {
+        _messageText.transform.localPosition = dialogue.textPos;
+        _messageText.transform.localEulerAngles = dialogue.textRotation;
+        _messageText.color = dialogue.textColor;
+        while(index != dialogue.subtitles.Count)
         {
-            _messageText.transform.localPosition = dialogue.textPos;
-            _messageText.transform.localEulerAngles = dialogue.textRotation;
-            _messageText.color = dialogue.textColor;
-            while(index != dialogue.subtitles.Length)
-            {
-                _messageText.text = dialogue.subtitles[index].message;
-                blackOverlay.transform.localScale = dialogue.subtitles[index].blackOverlaySize;
-                yield return new WaitForSeconds(dialogue.subtitles[index].secondsDisplayed);
-                index++;
-            }
-            blackOverlay.transform.localScale = Vector3.zero;
-            _messageText.text = "";
+            _messageText.text = dialogue.subtitles[index].message;
+            yield return new WaitForSeconds(dialogue.subtitles[index].secondsDisplayed);
+            index++;
         }
+        _messageText.text = "";
+    }
 }
