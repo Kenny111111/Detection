@@ -1,20 +1,20 @@
-using System;
+using Detection;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
 public class ParticleCollector : MonoBehaviour
 {
     public static ParticleCollector instance;
-    private const int TEXTURE_2D_MAX_HEIGHT = 16384;
+    private const int Texture2DMaxHeight = 16384;
 
-    private const string POSITIONS_TEXTURE_NAME = "Positions";
-    private const string COLORS_TEXTURE_NAME = "Colors";
-    private const string CAPACITY_PARAM_NAME = "Capacity";
+    private const string PositionsTextureName = "Positions";
+    private const string ColorsTextureName = "Colors";
+    private const string CapacityParamName = "Capacity";
 
-    public VisualEffect effectPrefab;
+    [SerializeField] public VisualEffect effectPrefab;
     [SerializeField] private Transform effectContainer;
+    [SerializeField] private int maxEffectCount = 45;
 
     private VisualEffect currentEffect;
     private Queue<VisualEffect> effects;
@@ -26,7 +26,6 @@ public class ParticleCollector : MonoBehaviour
     private Color[] colorsAndSizes;
 
     private int particleCount;
-    [SerializeField] private int maxEffectCount = 45;
 
     private void Awake()
     {
@@ -34,12 +33,11 @@ public class ParticleCollector : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else Destroy(gameObject);
 
-        points = new Color[TEXTURE_2D_MAX_HEIGHT];
-        colorsAndSizes = new Color[TEXTURE_2D_MAX_HEIGHT];
+        points = new Color[Texture2DMaxHeight];
+        colorsAndSizes = new Color[Texture2DMaxHeight];
         effects = new Queue<VisualEffect>();
     }
 
@@ -61,7 +59,7 @@ public class ParticleCollector : MonoBehaviour
 
         particleCount++;
 
-        if (particleCount >= TEXTURE_2D_MAX_HEIGHT)
+        if (particleCount >= Texture2DMaxHeight)
         {
             CreateNewEffect();
         }
@@ -76,20 +74,15 @@ public class ParticleCollector : MonoBehaviour
         CreateNewEffect();
     }
 
-    // Apply a cached array of points (positions) to a texture 2D to be loaded into the VFX graph
     private void ApplyPoints()
     {
-        // Update the texture
         pointsTexture2D.SetPixels(points);
         pointsTexture2D.Apply();
-        // Update the current effect with the updated texture
-        currentEffect.SetTexture(POSITIONS_TEXTURE_NAME, pointsTexture2D);
+        currentEffect.SetTexture(PositionsTextureName, pointsTexture2D);
 
-        // Update the texture
         colorsTexture2D.SetPixels(colorsAndSizes);
         colorsTexture2D.Apply();
-        // Update the current effect with the updated texture
-        currentEffect.SetTexture(COLORS_TEXTURE_NAME, colorsTexture2D);
+        currentEffect.SetTexture(ColorsTextureName, colorsTexture2D);
 
         currentEffect.Reinit();
     }
@@ -98,43 +91,47 @@ public class ParticleCollector : MonoBehaviour
     {
         if (effectPrefab == null)
         {
-            Debug.LogError("effectPrefab is not set, cant CreateNewEffect()");
+            Debug.LogError("effectPrefab is not set, cannot CreateNewEffect()");
             return;
         }
 
-        // Ensure the VFX Graph is only rendering a certain number of effects..
-        if (effects.Count > maxEffectCount) DeleteOldestEffect();
-
-        currentEffect = Instantiate(effectPrefab, effectContainer);
-        currentEffect.SetUInt(CAPACITY_PARAM_NAME, TEXTURE_2D_MAX_HEIGHT);
-        effects.Enqueue(currentEffect);
-
-        pointsTexture2D = new Texture2D(TEXTURE_2D_MAX_HEIGHT, 1, TextureFormat.RGBAFloat, false);
-        Color defaultCol = new Color(0, 0, 0, 0);
-        for (int i = 0; i < points.Length; i++)
+        if (effects.Count > maxEffectCount)
         {
-            points[i] = defaultCol;
+            DeleteOldestEffect();
         }
 
-        colorsTexture2D = new Texture2D(TEXTURE_2D_MAX_HEIGHT, 1, TextureFormat.RGBAFloat, false);
+        currentEffect = Instantiate(effectPrefab, effectContainer);
+        currentEffect.SetUInt(CapacityParamName, Texture2DMaxHeight);
+        effects.Enqueue(currentEffect);
+
+        pointsTexture2D = new Texture2D(Texture2DMaxHeight, 1, TextureFormat.RGBAFloat, false);
+        Color defaultColor = new Color(0, 0, 0, 0);
+        for (int i = 0; i < points.Length; i++)
+        {
+            points[i] = defaultColor;
+        }
+
+        colorsTexture2D = new Texture2D(Texture2DMaxHeight, 1, TextureFormat.RGBAFloat, false);
         for (int i = 0; i < colorsAndSizes.Length; i++)
         {
-            colorsAndSizes[i] = defaultCol;
+            colorsAndSizes[i] = defaultColor;
         }
         particleCount = 0;
     }
 
     private void DeleteOldestEffect()
     {
-        var tempList = effects.ToList();
-
-        if (tempList.Count > 0)
+        if (effects.Count == 0)
         {
-            int removeIndex = 0;
-            Destroy(tempList[removeIndex].gameObject);
-            tempList.RemoveAt(removeIndex);
-
-            effects = new Queue<VisualEffect>(tempList);
+            return;
         }
+
+        var effectToDelete = effects.Dequeue();
+        Destroy(effectToDelete.gameObject);
+    }
+
+    public void SetEffectPrefab(VisualEffect newEffectPrefab)
+    {
+        effectPrefab = newEffectPrefab;
     }
 }
