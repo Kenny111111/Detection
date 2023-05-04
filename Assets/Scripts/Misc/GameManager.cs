@@ -55,6 +55,7 @@ namespace Detection
 
             GameManager.AfterGameStateChanged += GameManagerAfterGameStateChanged;
             EnemyManager.OnAllEnemiesDead += GameManagerOnAllEnemiesDead;
+            QualitySettings.vSyncCount = 0;
         }
 
         private void GameManagerOnAllEnemiesDead()

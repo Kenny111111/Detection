@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3565451604022324828}
   - component: {fileID: 3565451604022324827}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ParticleCollector
-  m_TagString: Untagged
+  m_TagString: ParticleCollector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,3 +47,4 @@ MonoBehaviour:
   effectPrefab: {fileID: 4589058425741210594, guid: 9dbbc55c59209ff4db29cf48b49008af,
     type: 3}
   effectContainer: {fileID: 3565451604022324828}
+  maxEffectCount: 45

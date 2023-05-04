@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &8369007
 PrefabInstance:
@@ -683,7 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &133232089
 PrefabInstance:
@@ -854,7 +852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &136584066
 PrefabInstance:
@@ -1593,8 +1590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf3e5ffec4321046943027ed8614338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSceneIndex: 3
-  sceneIndexToLoad: 0
 --- !u!65 &192615010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1705,7 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &194279578
 MeshCollider:
@@ -2890,7 +2884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &257829606
 GameObject:
@@ -3021,7 +3014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &261318648
 MeshCollider:
@@ -3138,12 +3130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f771fd3eb9747f4dbc52e4d45543614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLoudness: 0.019
-  maxLoudness: 0.045
   updateStep: 0.01
-  sampleDataLength: 512
-  sizeFactor: 0.08
-  currentLoudness: 0
+  defaultSampleDataLength: 512
+  currentAvgLoudnessNormalized: 0
 --- !u!114 &282002216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3157,8 +3146,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songList:
-  - song_bloodline
-  - song_boss_at_nova
+  - name: 
+    clip: {fileID: 0}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.1
+    pitch: 1
+    pitchDeviation: 0.1
+  - name: 
+    clip: {fileID: 0}
+    audioMxrGroup: {fileID: 0}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.75
+    volumeDeviation: 0.1
+    pitch: 1
+    pitchDeviation: 0.1
 --- !u!4 &282002217
 Transform:
   m_ObjectHideFlags: 0
@@ -3372,8 +3377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d927317ea5b26bd499e305e57ab2d0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSceneIndex: 3
-  deathScene: 4
 --- !u!114 &302959404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3886,7 +3889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &326477427
 PrefabInstance:
@@ -4096,7 +4098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &350383506
 GameObject:
@@ -4223,7 +4224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &369223088
 MeshCollider:
@@ -4561,7 +4561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &401101720
 PrefabInstance:
@@ -5231,7 +5230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &424727220
 PrefabInstance:
@@ -5676,7 +5674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &445031470
 MeshCollider:
@@ -5838,7 +5835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &455160951
 MeshCollider:
@@ -6039,7 +6035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &499324182
 PrefabInstance:
@@ -6438,7 +6433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &532786061
 PrefabInstance:
@@ -6822,7 +6816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &574241869
 MeshCollider:
@@ -7038,7 +7031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &605243087
 GameObject:
@@ -7562,7 +7554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &620399808
 PrefabInstance:
@@ -7717,7 +7708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &622178186
 PrefabInstance:
@@ -7813,7 +7803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &624144705
 PrefabInstance:
@@ -8485,7 +8474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &667395935
 MeshCollider:
@@ -8930,7 +8918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &743803624
 PrefabInstance:
@@ -9225,7 +9212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &760822926
 PrefabInstance:
@@ -9430,7 +9416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &775896217
 MeshCollider:
@@ -9685,7 +9670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &786442845
 MeshCollider:
@@ -9799,7 +9783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &790433304
 MeshCollider:
@@ -9909,7 +9892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &800441314
 GameObject:
@@ -9957,7 +9939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &800441317
 MeshCollider:
@@ -10172,7 +10153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &824738249
 PrefabInstance:
@@ -10981,7 +10961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &856463006
 GameObject:
@@ -12012,7 +11991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &924451094
 GameObject:
@@ -12294,7 +12272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &960144966
 GameObject:
@@ -12499,7 +12476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &965321910
 MeshCollider:
@@ -12866,7 +12842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &989174864
 PrefabInstance:
@@ -12970,7 +12945,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loudnessTolerance: 0.8
-  playerObj: {fileID: 302959402}
   allowMultipleEffectsAtOnce: 0
 --- !u!4 &989308575
 Transform:
@@ -13092,7 +13066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &990719835
 MeshCollider:
@@ -13416,7 +13389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1010482157
 PrefabInstance:
@@ -13512,7 +13484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1017084270
 PrefabInstance:
@@ -13683,7 +13654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1017119035
 MeshCollider:
@@ -14118,7 +14088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1041268751
 PrefabInstance:
@@ -14222,7 +14191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1047115392
 PrefabInstance:
@@ -14326,7 +14294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1059361786
 PrefabInstance:
@@ -14651,7 +14618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1109079995
 PrefabInstance:
@@ -15093,7 +15059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1174651199
 PrefabInstance:
@@ -15652,7 +15617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1191828319
 MeshCollider:
@@ -15965,7 +15929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1214121797
 GameObject:
@@ -16428,7 +16391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1238392589
 GameObject:
@@ -16643,7 +16605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1255100854
 PrefabInstance:
@@ -16753,7 +16714,6 @@ GameObject:
   - component: {fileID: 1271486270}
   - component: {fileID: 1271486269}
   - component: {fileID: 1271486268}
-  - component: {fileID: 1271486267}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: Camera
@@ -16776,66 +16736,6 @@ Transform:
   m_Father: {fileID: 1631209690}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1271486267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271486265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1271486266}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!114 &1271486268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16848,7 +16748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42940c0e54b66e94cbf8d1b57ea60f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1271486274}
   colors:
   - serializedVersion: 2
     rgba: 4278203652
@@ -16878,7 +16777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0aa705d9c3ae6c4fb2d44a883a9b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1271486274}
   tempOffsetX: 500
   tempOffsetY: 250
 --- !u!114 &1271486270
@@ -16895,6 +16793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1271486274}
   numParticlesPerSecond: 50000
+  sprayAngleLoudnessVariance: 30
   sprayAngleX: 100
   sprayAngleY: 80
   maxRayDistance: 30
@@ -16918,13 +16817,13 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
+    m_Bits: 8
+  m_VolumeTrigger: {fileID: 1271486266}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
-  m_StopNaN: 0
+  m_StopNaN: 1
   m_Dithering: 0
   m_ClearDepth: 1
   m_AllowXRRendering: 1
@@ -17605,7 +17504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1313599643
 PrefabInstance:
@@ -17954,7 +17852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1369510250
 PrefabInstance:
@@ -18558,7 +18455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1422938703
 PrefabInstance:
@@ -18948,7 +18844,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1429828956
 PrefabInstance:
@@ -20711,7 +20606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1492276371
 MeshCollider:
@@ -20860,7 +20754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1505025090
 PrefabInstance:
@@ -21142,7 +21035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1529897078
 PrefabInstance:
@@ -22108,7 +22000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1631209689
 GameObject:
@@ -22627,7 +22518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1666162200
 PrefabInstance:
@@ -22723,7 +22613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1667148745
 PrefabInstance:
@@ -23056,7 +22945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1684496159
 PrefabInstance:
@@ -23152,7 +23040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1685570651
 PrefabInstance:
@@ -23248,7 +23135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1686407251
 PrefabInstance:
@@ -23417,7 +23303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &1708988746
 GameObject:
@@ -23696,7 +23581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1779978886
 MeshCollider:
@@ -23979,7 +23863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1806455623
 MeshCollider:
@@ -24084,7 +23967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &1812387306
 MeshCollider:
@@ -24330,7 +24212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1826268882
 PrefabInstance:
@@ -24438,7 +24319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1864201871
 PrefabInstance:
@@ -24613,7 +24493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1876885732
 PrefabInstance:
@@ -24768,7 +24647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1892080510
 PrefabInstance:
@@ -25115,7 +24993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1937398287
 PrefabInstance:
@@ -25431,7 +25308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &1955343746
 PrefabInstance:
@@ -26074,7 +25950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &2018228567
 MeshCollider:
@@ -26578,7 +26453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &2068267928
 PrefabInstance:
@@ -26817,7 +26691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!64 &2089803721
 MeshCollider:
@@ -27405,7 +27278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1001 &2136492454
 PrefabInstance:
@@ -27560,7 +27432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 3
   defaultSize: 0.015
 --- !u!1 &2146119129
 GameObject:
