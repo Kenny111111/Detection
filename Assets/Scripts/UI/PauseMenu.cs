@@ -7,10 +7,15 @@ namespace Detection
     public class PauseMenu : MonoBehaviour
     {
         public GameObject pauseMenu;
+        public GameObject wristMenuSettings;
         public GameObject rightRayController;
         public GameObject leftController;
         public GameObject rightController;
         public static bool pauseActive;
+
+        public AudioClip pauseClip; 
+
+        private AudioSource audioSource; 
 
         private XRDirectInteractor leftDirectInteractor;
 
@@ -19,41 +24,53 @@ namespace Detection
             pauseMenu.SetActive(false);
             rightRayController.SetActive(false);
             leftDirectInteractor = leftController.GetComponent<XRDirectInteractor>();
+            audioSource = GetComponent<AudioSource>(); 
         }
         public void pauseButtonPressed(InputAction.CallbackContext menuButton)
         {
             if (menuButton.performed)
+            {
+                // Play pause audio clip
+                if (pauseClip != null)
+                {
+                    audioSource.PlayOneShot(pauseClip);
+                }
+
                 showPauseMenu();
+            }
         }
 
         public void showPauseMenu()
         {
             if (pauseActive)
             {
-                // Enable Ray Interactor
                 pauseMenu.SetActive(false);
+                wristMenuSettings.SetActive(false);
+                // Enable Ray Interactor
                 rightRayController.SetActive(false);
-                pauseActive = false;
-                Time.timeScale = 1;
+                // Set the rightController as active
+                rightController.SetActive(true);
 
                 // Enable the XR Direct Interactor in the left hand
                 leftDirectInteractor.enabled = true;
 
-                // Set the rightController as active
-                rightController.SetActive(true);
+                pauseActive = false;
+                Time.timeScale = 1;
+
             }
             else if (!pauseActive)
             {
                 pauseMenu.SetActive(true);
                 rightRayController.SetActive(true);
-                pauseActive = true;
-                Time.timeScale = 0;
+                // Set the rightController as inactive
+                rightController.SetActive(false);
 
                 // Disable the XR Direct Interactor in the left hand
                 leftDirectInteractor.enabled = false;
 
-                // Set the rightController as inactive
-                rightController.SetActive(false);
+                
+                pauseActive = true;
+                Time.timeScale = 0;
             }
         }
 
@@ -64,3 +81,4 @@ namespace Detection
         }
     }
 }
+
