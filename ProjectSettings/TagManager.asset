@@ -13,6 +13,7 @@ TagManager:
   - statisticsMenu
   - WristTimerText
   - LevelParticleEffect
+  - RightRayController
   layers:
   - Default
   - TransparentFX

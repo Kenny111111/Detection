@@ -246,18 +246,18 @@ namespace Detection
         }
 
         // Player is interacting with the wrist menu.
-        private void OnLevelPaused()
+        public void OnLevelPaused()
         {
             // Enable the controller ray interators
+     
             // Disable the controller direct interators
             throw new NotImplementedException();
         }
 
         // Player is done interacting with the wrist menu
-        private void AfterLevelPaused()
+        public void AfterLevelPaused()
         {
-            // Disable the controller ray interators
-            // Enable the controller direct interators
+    // Disable the controller ray interators
             throw new NotImplementedException();
         }
 
