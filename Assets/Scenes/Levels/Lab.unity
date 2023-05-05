@@ -31826,7 +31826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numPoints: 300
-  weight: 5
+  weight: 1
   lineMaterial: {fileID: 2100000, guid: e669bc14158081c42b15bb33995aab78, type: 2}
   startingColor: {r: 0.7971698, g: 0.9972129, b: 1, a: 1}
   endingColor: {r: 0, g: 0, b: 0, a: 0}
@@ -31845,7 +31845,7 @@ MonoBehaviour:
   minEffectDuration: 0.25
   maxEffectDuration: 1.5
   loudnessToSizeScalar: 0.04
-  weight: 5
+  weight: 9
 --- !u!1001 &1365192319
 PrefabInstance:
   m_ObjectHideFlags: 0
