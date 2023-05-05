@@ -93,7 +93,7 @@ namespace Detection
 
             }
         }
-
+        
         public void ShootAndEmitParticle(Ray ray)
         {
             RaycastHit hit;
@@ -112,6 +112,12 @@ namespace Detection
                 scannableObject.EmitParticle(hit, overrideArgs);
 
                 SpawnBulletTrail(hit.point);
+            }
+            else
+            {
+                Vector3 direction = transform.forward * 100;
+            
+                SpawnBulletTrail(bulletSpawn.position + direction);
             }
         }
     }
