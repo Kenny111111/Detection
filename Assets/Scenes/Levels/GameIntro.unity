@@ -1272,11 +1272,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Rig
       objectReference: {fileID: 0}
-    - target: {fileID: 2399542223963261541, guid: fe03e8d2af57f6f48b54b55af3f590b7,
-        type: 3}
-      propertyPath: maxRayDistance
-      value: 25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe03e8d2af57f6f48b54b55af3f590b7, type: 3}
 --- !u!4 &2399542223753464797 stripped

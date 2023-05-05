@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Levels/TestScenes/DanielTesting.unity
-    guid: 2bf32e3ab61cdf444931509ef165ae70
-  - enabled: 1
     path: Assets/Scenes/Levels/GameIntro.unity
     guid: 1e5c7bef429d5c74cb9c9c4b4fb8dcc8
   - enabled: 1

@@ -3668,11 +3668,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2399542223963261537}
-  numParticlesPerSecond: 15000
-  sprayAngleLoudnessVariance: 70
-  sprayAngleX: 40
-  sprayAngleY: 20
-  maxRayDistance: 30
+  numParticlesPerSecond: 16384
+  sprayAngleLoudnessVariance: 0
+  sprayAngleX: 200
+  sprayAngleY: 150
+  maxRayDistance: 40
 --- !u!114 &2399542223963261540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3685,8 +3685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0aa705d9c3ae6c4fb2d44a883a9b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempOffsetX: 500
-  tempOffsetY: 250
+  tempOffsetX: 1250
+  tempOffsetY: 650
 --- !u!114 &2399542223963261547
 MonoBehaviour:
   m_ObjectHideFlags: 0
