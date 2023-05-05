@@ -376,10 +376,10 @@ namespace Detection
         public void SwitchToScene(string sceneName, bool updateCurrentSceneNum)
         {
             // Start fade affect
-            FadeScreen fadeScreen = GameObject.FindWithTag("FadeScreen").GetComponent<FadeScreen>();
-            fadeScreen.FadeOut();
+            //FadeScreen fadeScreen = GameObject.FindWithTag("FadeScreen").GetComponent<FadeScreen>();
+            //fadeScreen.FadeOut();
             // Wait for the fade out to complete
-            StartCoroutine(FadeScreenRoutine(fadeScreen));
+            //StartCoroutine(FadeScreenRoutine(fadeScreen));
 
             SceneManager.LoadScene(sceneName);
             //SceneManager.UnloadSceneAsync(currentSceneNum);
