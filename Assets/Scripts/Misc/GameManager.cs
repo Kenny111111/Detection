@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace Detection
 {
@@ -374,6 +375,12 @@ namespace Detection
 
         public void SwitchToScene(string sceneName, bool updateCurrentSceneNum)
         {
+            // Start fade affect
+            FadeScreen fadeScreen = GameObject.FindWithTag("FadeScreen").GetComponent<FadeScreen>();
+            fadeScreen.FadeOut();
+            // Wait for the fade out to complete
+            StartCoroutine(FadeScreenRoutine(fadeScreen));
+
             SceneManager.LoadScene(sceneName);
             //SceneManager.UnloadSceneAsync(currentSceneNum);
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
@@ -387,6 +394,15 @@ namespace Detection
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             if (updateCurrentSceneNum) currentSceneNum = sceneNum;
         }
+
+        private IEnumerator FadeScreenRoutine(FadeScreen fadeScreen)
+        {
+            // Wait for the fade out to complete
+            yield return new WaitForSeconds(fadeScreen.fadeDuration);
+
+            // Start the fade in effect
+            fadeScreen.FadeIn();
+        } 
 
         private string GetSceneNameFromIndex(int BuildIndex)
         {

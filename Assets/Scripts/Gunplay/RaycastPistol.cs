@@ -94,6 +94,12 @@ namespace Detection
                 SpawnBulletTrail(hit.point);
 
             }
+            else
+            {
+                Vector3 direction = transform.forward * 100;
+            
+                SpawnBulletTrail(bulletSpawn.position + direction);
+            }
         }
     }
 }
