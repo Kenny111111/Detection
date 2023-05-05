@@ -804,9 +804,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 4537755543829784254}
   numParticlesPerSecond: 16384
-  sprayAngleLoudnessVariance: 0
-  sprayAngleX: 200
-  sprayAngleY: 150
+  sprayAngleLoudnessVariance: 90
+  sprayAngleX: 80
+  sprayAngleY: 70
   maxRayDistance: 40
 --- !u!114 &4537755543829784229
 MonoBehaviour:
@@ -820,8 +820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0aa705d9c3ae6c4fb2d44a883a9b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempOffsetX: 1200
-  tempOffsetY: 600
+  tempOffsetX: 950
+  tempOffsetY: 450
 --- !u!1 &4537755543850978868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1231,7 @@ MonoBehaviour:
   rightRayController: {fileID: 4537755544591456692}
   leftController: {fileID: 4537755543859087495}
   rightController: {fileID: 4537755545063264354}
+  pauseActive: 0
   pauseClip: {fileID: 8300000, guid: 5071f03239cdd4b4dbdec8cbab740662, type: 3}
 --- !u!82 &4537755543859087514
 AudioSource:
@@ -2525,6 +2526,7 @@ MonoBehaviour:
   rightRayController: {fileID: 4537755544591456692}
   leftController: {fileID: 4537755543859087495}
   rightController: {fileID: 4537755545063264354}
+  pauseActive: 0
   pauseClip: {fileID: 8300000, guid: 5071f03239cdd4b4dbdec8cbab740662, type: 3}
 --- !u!82 &4537755544410456595
 AudioSource:

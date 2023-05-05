@@ -322,7 +322,7 @@ namespace Detection
             {
                 pauseMenu = leftController.GetComponent<PauseMenu>();
                 // If currently paused, unpause
-                if (pauseMenu.pauseActive) pauseMenu.showPauseMenu();
+                if (pauseMenu != null && pauseMenu.pauseActive) pauseMenu.showPauseMenu();
             }        
 
             // Do stuff before the next level is loaded
