@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/MainMenu.unity
     guid: 6a79f460bfb34ae428f5955054b8a6d3
   - enabled: 1
-    path: Assets/Scenes/Levels/Lab.unity
-    guid: 7197743f71253324a99bb30a51b84d0a
-  - enabled: 1
     path: Assets/Scenes/Levels/Statistics.unity
     guid: 656f052c15902f14eb16be23f0607856
   - enabled: 1

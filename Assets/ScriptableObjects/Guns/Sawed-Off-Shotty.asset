@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sawed-Off-Shotty
   m_EditorClassIdentifier: 
   name: DoubleBarrelShotty
-  damage: 20
+  damage: 35
   range: 20
   fireRate: 0.25
   recoilForce: 0

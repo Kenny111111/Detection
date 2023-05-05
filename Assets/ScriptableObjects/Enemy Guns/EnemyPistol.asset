@@ -15,7 +15,7 @@ MonoBehaviour:
   name: EnemyPistol
   damage: 40
   range: 50
-  fireRate: 0.2
+  fireRate: 0.3
   recoilForce: 0
   hapticIntensity: 0
   hapticDuration: 0

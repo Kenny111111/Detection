@@ -15,7 +15,7 @@ MonoBehaviour:
   name: EnemyDBShotgun
   damage: 20
   range: 20
-  fireRate: 0.25
+  fireRate: 0.4
   recoilForce: 0
   hapticIntensity: 0
   hapticDuration: 0
