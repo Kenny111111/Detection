@@ -316,6 +316,15 @@ namespace Detection
         // The level ended
         private void OnLevelEnded()
         {
+            GameObject leftController = GameObject.FindGameObjectWithTag("LeftController");
+            PauseMenu pauseMenu;
+            if (leftController != null)
+            {
+                pauseMenu = leftController.GetComponent<PauseMenu>();
+                // If currently paused, unpause
+                if (pauseMenu.pauseActive) pauseMenu.showPauseMenu();
+            }        
+
             // Do stuff before the next level is loaded
             // Clear all points
             ParticleCollector.instance.ClearAllPoints();

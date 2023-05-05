@@ -11,7 +11,7 @@ namespace Detection
         public GameObject rightRayController;
         public GameObject leftController;
         public GameObject rightController;
-        public static bool pauseActive;
+        public bool pauseActive;
 
         public AudioClip pauseClip; 
 
