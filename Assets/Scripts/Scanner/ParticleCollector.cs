@@ -71,7 +71,6 @@ public class ParticleCollector : MonoBehaviour
         {
             Destroy(effects.Dequeue().gameObject);
         }
-        CreateNewEffect();
     }
 
     private void ApplyPoints()

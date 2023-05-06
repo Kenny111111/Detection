@@ -7,6 +7,12 @@ namespace Detection
     {
         private Color defaultColor = new Color(200, 255, 200);
         [SerializeField] private float defaultSize = 0.015f;
+        private MeshRenderer objectRenderer;
+
+        private void Awake()
+        {
+            objectRenderer = GetComponent<MeshRenderer>();
+        }
 
         void IScannable.EmitParticle(RaycastHit hit, VFXEmitArgs overrideArgs)
         {
@@ -17,8 +23,7 @@ namespace Detection
             else
             {
                 // Get the color at the specific point on the mesh texture
-                MeshRenderer renderer = hit.collider.GetComponent<MeshRenderer>();
-                Texture2D texture2D = renderer.material.mainTexture as Texture2D;
+                Texture2D texture2D = objectRenderer.material.mainTexture as Texture2D;
 
                 // sometimes not able to get texture2d from texture? in this case we use default color
                 if (texture2D)
@@ -27,7 +32,7 @@ namespace Detection
                     pCoord.x *= texture2D.width;
                     pCoord.y *= texture2D.height;
 
-                    Vector2 tiling = renderer.material.mainTextureScale;
+                    Vector2 tiling = objectRenderer.material.mainTextureScale;
                     int x = Mathf.FloorToInt(pCoord.x * tiling.x);
                     int y = Mathf.FloorToInt(pCoord.y * tiling.y);
 
