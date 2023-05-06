@@ -46,17 +46,20 @@ namespace Detection
 				{
 					// Start playing the next song
 					instance.songPlaying = instance.musicQueue.Peek();
-					instance.songPlaying.source.Play();
+					if (!instance.songPlaying.source.isPlaying)
+					{
+						instance.songPlaying.source.Play();
 
-					UpdatedSongPlaying?.Invoke(instance.songPlaying);
+						UpdatedSongPlaying?.Invoke(instance.songPlaying);
 
-					Sound songForDequeue = instance.songPlaying;
+						Sound songForDequeue = instance.songPlaying;
 
-					float currentSongLength = instance.songPlaying.source.clip.length;
-					yield return new WaitForSeconds(currentSongLength + waitAmount);
+						float currentSongLength = instance.songPlaying.source.clip.length;
+						yield return new WaitForSeconds(currentSongLength + waitAmount);
 
-					// Try to remove it from the front of the queue
-					instance.TryDequeue(songForDequeue);
+						// Try to remove it from the front of the queue
+						instance.TryDequeue(songForDequeue);
+					}
 				}
 
 				yield return new WaitForSeconds(waitAmount);

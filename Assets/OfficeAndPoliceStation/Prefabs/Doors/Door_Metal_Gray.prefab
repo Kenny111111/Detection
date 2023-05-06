@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 2409115492142936834}
   - component: {fileID: 991959009394926000}
   - component: {fileID: 8407412315322274944}
-  - component: {fileID: 8882282102403214458}
+  - component: {fileID: 7810516666709023757}
+  - component: {fileID: 1591856947332322668}
   m_Layer: 0
   m_Name: Door_Metal_Gray_mesh
   m_TagString: Untagged
@@ -116,8 +117,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8882282102403214458
-BoxCollider:
+--- !u!64 &7810516666709023757
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,6 +127,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0014123, y: 2.2925208, z: 0.06}
-  m_Center: {x: -0.50669247, y: 1.1505481, z: -0.026598142}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 4c1854d3e81e0854492ad68b4ad26613, type: 3}
+--- !u!114 &1591856947332322668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073335383527333307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSize: 0.015

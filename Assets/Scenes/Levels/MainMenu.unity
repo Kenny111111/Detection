@@ -1634,21 +1634,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colors:
   - serializedVersion: 2
-    rgba: 4278203652
+    rgba: 4278190080
   - serializedVersion: 2
     rgba: 4282777600
   - serializedVersion: 2
     rgba: 4281015324
   - serializedVersion: 2
-    rgba: 4278190152
+    rgba: 4281015324
   - serializedVersion: 2
-    rgba: 4282449987
+    rgba: 4281015324
   - serializedVersion: 2
-    rgba: 4283324160
-  - serializedVersion: 2
-    rgba: 4278201665
-  - serializedVersion: 2
-    rgba: 4278216037
+    rgba: 4281015324
 --- !u!1001 &328212919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10232,7 +10228,6 @@ GameObject:
   - component: {fileID: 4537755544151033912}
   - component: {fileID: 4537755544151033913}
   - component: {fileID: 4537755544151033894}
-  - component: {fileID: 4537755544151033895}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10254,35 +10249,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempOffsetX: 950
   tempOffsetY: 450
---- !u!114 &4537755544151033895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4537755544151033893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42940c0e54b66e94cbf8d1b57ea60f62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colors:
-  - serializedVersion: 2
-    rgba: 4278203652
-  - serializedVersion: 2
-    rgba: 4282777600
-  - serializedVersion: 2
-    rgba: 4281015324
-  - serializedVersion: 2
-    rgba: 4278190152
-  - serializedVersion: 2
-    rgba: 4282449987
-  - serializedVersion: 2
-    rgba: 4283324160
-  - serializedVersion: 2
-    rgba: 4278201665
-  - serializedVersion: 2
-    rgba: 4278216037
 --- !u!114 &4537755544151033912
 MonoBehaviour:
   m_ObjectHideFlags: 0

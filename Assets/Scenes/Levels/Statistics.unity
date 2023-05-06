@@ -154,6 +154,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &207722458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207722459}
+  - component: {fileID: 207722460}
+  m_Layer: 0
+  m_Name: Level Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207722459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207722458}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1795064692}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &207722460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207722458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150fedd9b47a2fd4699e657a8b629096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songList:
+  - name: Audityy
+    clip: {fileID: 8300000, guid: fb275bf15214e9c47b65a80559e31a08, type: 3}
+    audioMxrGroup: {fileID: 4843054254241750377, guid: dac6ba88fab317546a14e9ca03a80997,
+      type: 2}
+    loop: 0
+    source: {fileID: 0}
+    volume: 0.25
+    volumeDeviation: 0
+    pitch: 1
+    pitchDeviation: 0
 --- !u!1 &301271668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 340499363}
-  - {fileID: 2094517654}
+  - {fileID: 207722459}
   - {fileID: 1880545383}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1703,7 +1758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colors:
   - serializedVersion: 2
-    rgba: 4278203652
+    rgba: 4278190080
   - serializedVersion: 2
     rgba: 4282777600
   - serializedVersion: 2
@@ -1711,13 +1766,13 @@ MonoBehaviour:
   - serializedVersion: 2
     rgba: 4278190152
   - serializedVersion: 2
-    rgba: 4282449987
+    rgba: 4278190080
   - serializedVersion: 2
     rgba: 4283324160
   - serializedVersion: 2
-    rgba: 4278201665
+    rgba: 4278190080
   - serializedVersion: 2
-    rgba: 4278216037
+    rgba: 4278190080
 --- !u!1001 &1896152159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2011,48 +2066,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087482183}
   m_CullTransparentMesh: 1
---- !u!1 &2094517651
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2094517654}
-  - component: {fileID: 2094517653}
-  m_Layer: 0
-  m_Name: Level Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2094517653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094517651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150fedd9b47a2fd4699e657a8b629096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  songList: []
---- !u!4 &2094517654
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094517651}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1795064692}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
