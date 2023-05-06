@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &125362
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +123,6 @@ GameObject:
   - component: {fileID: 488788}
   - component: {fileID: 3339874}
   - component: {fileID: 2392894}
-  - component: {fileID: 135742517564527680}
   - component: {fileID: 5498469548419921759}
   - component: {fileID: 2185083218197356552}
   m_Layer: 0
@@ -197,19 +197,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135742517564527680
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3975832
-  m_Center: {x: 0.10251425, y: 0, z: -0.000000044703484}
 --- !u!64 &5498469548419921759
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -236,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &125518
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +235,6 @@ GameObject:
   - component: {fileID: 448186}
   - component: {fileID: 3337738}
   - component: {fileID: 2333616}
-  - component: {fileID: 135987676544849832}
   - component: {fileID: 4689375404881272225}
   - component: {fileID: 1604468260762965586}
   m_Layer: 0
@@ -322,19 +309,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135987676544849832
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125518}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3975829
-  m_Center: {x: -0.10251425, y: 0, z: 0}
 --- !u!64 &4689375404881272225
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -361,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &134248
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +347,6 @@ GameObject:
   - component: {fileID: 406608}
   - component: {fileID: 3358960}
   - component: {fileID: 2323252}
-  - component: {fileID: 135837839025309928}
   - component: {fileID: 2177987802146827832}
   - component: {fileID: 2518280140195166976}
   m_Layer: 0
@@ -447,19 +421,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135837839025309928
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134248}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.39758295
-  m_Center: {x: -0.10251425, y: 0, z: 0}
 --- !u!64 &2177987802146827832
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -486,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &142752
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +459,6 @@ GameObject:
   - component: {fileID: 456644}
   - component: {fileID: 3367310}
   - component: {fileID: 2372614}
-  - component: {fileID: 135472224701782512}
   - component: {fileID: 7309468765995783459}
   - component: {fileID: 7583443653043942045}
   m_Layer: 0
@@ -572,19 +533,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135472224701782512
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142752}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3975829
-  m_Center: {x: 0.10251425, y: 0, z: 0}
 --- !u!64 &7309468765995783459
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -611,6 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &148626
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &164098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &194262
 GameObject:
   m_ObjectHideFlags: 0

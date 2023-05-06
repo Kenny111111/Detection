@@ -7,12 +7,12 @@ namespace Detection
     public class BackgroundManager : MonoBehaviour
     {
         [Header("Settings")]
-        public Camera cam;
+        private Camera cam;
         public List<Color32> colors;
         // Start is called before the first frame update
         void Start()
         {
-            cam = transform.GetComponent<Camera>();
+            cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             StartCoroutine(Cycle());
         }
 
@@ -20,12 +20,18 @@ namespace Detection
         {
             int startColorIndex = Random.Range(0, colors.Count);
             int endColorIndex = Random.Range(0, colors.Count);
+            const float loudnessMultiplier = 0.5f;
 
             while (true)
             {
-                for (float interpolant = 0; interpolant < 1f; interpolant += 0.01f)
+                float interpolant = 0;
+                while (interpolant < 1f)
                 {
                     cam.backgroundColor = Color.Lerp(colors[startColorIndex], colors[endColorIndex], interpolant);
+
+                    float interpMultiplier = 1 + (MusicAnalyzer.instance.currentAvgLoudnessNormalized * loudnessMultiplier);
+                    
+                    interpolant += 0.005f * interpMultiplier;
                     yield return null;
                 }
 

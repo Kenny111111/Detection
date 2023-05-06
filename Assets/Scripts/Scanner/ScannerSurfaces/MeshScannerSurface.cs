@@ -6,20 +6,18 @@ namespace Detection
     public class MeshScannerSurface : MonoBehaviour, IScannable
     {
         private Color defaultColor = new Color(200, 255, 200);
-        [SerializeField] private float defaultLifetime = 6f;
         [SerializeField] private float defaultSize = 0.015f;
 
         void IScannable.EmitParticle(RaycastHit hit, VFXEmitArgs overrideArgs)
         {
             Color color = defaultColor;
-            float lifetime = defaultLifetime;
             float size = defaultSize;
 
             if (overrideArgs.color != null) color = (Color)overrideArgs.color;
             else
             {
                 // Get the color at the specific point on the mesh texture
-                Renderer renderer = hit.collider.GetComponent<MeshRenderer>();
+                MeshRenderer renderer = hit.collider.GetComponent<MeshRenderer>();
                 Texture2D texture2D = renderer.material.mainTexture as Texture2D;
 
                 // sometimes not able to get texture2d from texture? in this case we use default color
@@ -36,11 +34,9 @@ namespace Detection
                     color = texture2D.GetPixel(x, y);
                 }
             }
-
-            if (overrideArgs.lifetime != null) lifetime = (float)overrideArgs.lifetime;
             if (overrideArgs.size != null) size = (float)overrideArgs.size;
 
-            ParticleSpawner.spawner.Spawn(color, hit.point, lifetime, size);
+            ParticleCollector.instance.CachePoint(hit.point, color, size);
         }
     }
 }

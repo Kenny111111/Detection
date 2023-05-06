@@ -1088,6 +1088,7 @@ GameObject:
   - component: {fileID: 784367865622422531}
   - component: {fileID: 784367865622422530}
   - component: {fileID: 3269546306499262151}
+  - component: {fileID: -2978146877993507878}
   m_Layer: 11
   m_Name: Pistol
   m_TagString: Untagged
@@ -1162,7 +1163,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 0
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -1271,8 +1272,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   rotationType: 1
   bulletColor: {r: 240, g: 208, b: 81, a: 1}
-  bulletLifetime: 0.5
-  bulletSize: 0.1
+  bulletSize: 0.075
   gunData: {fileID: 11400000, guid: 39d6ca67c1d338646a6b3627047f3d76, type: 2}
   bulletSpawn: {fileID: 784367867030707682}
   bulletTrail: {fileID: 120648884187509030, guid: d2ec70c814159504cb3e12e99b00b151,
@@ -1307,6 +1307,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020519719, y: 0.12191498, z: 0.02776885}
   m_Center: {x: 0.0000067800283, y: -0.061262205, z: -0.17454821}
+--- !u!114 &-2978146877993507878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784367865622422529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29dcb50a2390867429da416bd4668665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWeaponHearingRadius: 15
 --- !u!1 &784367865964961329
 GameObject:
   m_ObjectHideFlags: 0

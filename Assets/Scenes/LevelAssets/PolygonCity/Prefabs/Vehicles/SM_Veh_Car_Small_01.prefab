@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &108520
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &125712
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +235,6 @@ GameObject:
   - component: {fileID: 495058}
   - component: {fileID: 3330668}
   - component: {fileID: 2309438}
-  - component: {fileID: 135325112218114458}
   - component: {fileID: 1791543083226473143}
   - component: {fileID: 7186498894333410947}
   m_Layer: 0
@@ -308,19 +309,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135325112218114458
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125712}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.332806
-  m_Center: {x: -0.06698947, y: 0, z: -0.00000032782555}
 --- !u!64 &1791543083226473143
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -347,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &127632
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +452,6 @@ GameObject:
   - component: {fileID: 492836}
   - component: {fileID: 3302766}
   - component: {fileID: 2365634}
-  - component: {fileID: 135734239759302560}
   - component: {fileID: 1204458109893550820}
   - component: {fileID: 6365619251928200951}
   m_Layer: 0
@@ -538,19 +526,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135734239759302560
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135354}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.33280572
-  m_Center: {x: 0.06698947, y: 0, z: -0.00000013411045}
 --- !u!64 &1204458109893550820
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -577,6 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &139350
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &175114
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +676,6 @@ GameObject:
   - component: {fileID: 458360}
   - component: {fileID: 3316568}
   - component: {fileID: 2388652}
-  - component: {fileID: 135849563264401628}
   - component: {fileID: 8716860203837298585}
   - component: {fileID: 3913074649486358021}
   m_Layer: 0
@@ -774,19 +750,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135849563264401628
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175114}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.33280572
-  m_Center: {x: -0.06698951, y: 0, z: -0.00000013411045}
 --- !u!64 &8716860203837298585
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -813,6 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015
 --- !u!1 &187636
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +788,6 @@ GameObject:
   - component: {fileID: 496012}
   - component: {fileID: 3330578}
   - component: {fileID: 2388460}
-  - component: {fileID: 135417269297940110}
   - component: {fileID: 7372987112371369801}
   - component: {fileID: 8848876759536369123}
   m_Layer: 0
@@ -899,19 +862,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &135417269297940110
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187636}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.332806
-  m_Center: {x: 0.06698951, y: 0, z: -0.00000032782555}
 --- !u!64 &7372987112371369801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -938,3 +888,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771f9f93fbd70744ab6b92e8e7f4613f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSize: 0.015

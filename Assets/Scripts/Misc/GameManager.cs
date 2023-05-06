@@ -1,24 +1,23 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
 namespace Detection
 {
     public enum GameState
     {
         DEFAULT,            // Fall-back state, should never happen.
-        INITIALSTART,       // The initial start of the game.
         PLAYINGGAMEINTRO,   // The game intro is playing.
         INMAINMENU,         // Player is in the main menu.
         LEVELINTRO,         // Level intro scene is playing.
         PREPARINGLEVEL,     // Prepare the level to start playing.
-        PLAYINGLEVEL,       // Player is in the level and playing.
+        PLAYINGMISSION,       // Player is in the level and playing.
         LEVELPAUSED,        // Player is interacting with the wrist menu.
         PLAYERDIED,         // Player died while playing the level.
-        LEVELCLEARED,       // Player has killed all enemies in the level.
+        MISSIONCLEARED,       // Player has killed all enemies in the level.
         LEVELOUTRO,         // Level outro scene is playing.
-        LEVELSTATISTICS,    // Show the player their statistics.
+        MISSIONSTATISTICS,    // Show the player their statistics.
         LEVELENDED,         // Prepare before the next level.
         PLAYINGCREDITS,     // Playing ending credits.
     }
@@ -27,18 +26,20 @@ namespace Detection
     {
         public static GameManager instance;
 
-        private GameState gameState;
+        public GameState gameState;
         private int currentSceneNum = 0;
-        private const int totalNumberOfScenes = 5;
+        private int totalNumberOfScenes;
         private GameObject playerObject;
         private GameObject cameraObject;
 
         public static event Action<GameState> OnGameStateChanged;
-
-        //private void Start() => UpdateGameState(GameState.INITIALSTART);
+        public static event Action<GameState> AfterGameStateChanged;
 
         private void Awake()
         {
+            currentSceneNum = 0;
+            totalNumberOfScenes = SceneManager.sceneCountInBuildSettings;
+
             // Ensure only one instance exists
             if (instance == null)
             {
@@ -52,6 +53,21 @@ namespace Detection
 
             cameraObject = GameObject.FindWithTag("MainCamera");
             if (cameraObject == null) Debug.LogError("Unable to find an object with tag 'MainCamera'. cameraObject is null.");
+
+            GameManager.AfterGameStateChanged += GameManagerAfterGameStateChanged;
+            EnemyManager.OnAllEnemiesDead += GameManagerOnAllEnemiesDead;
+            QualitySettings.vSyncCount = 0;
+        }
+
+        private void GameManagerOnAllEnemiesDead()
+        {
+            UpdateGameState(GameState.MISSIONCLEARED);
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.AfterGameStateChanged -= GameManagerAfterGameStateChanged;
+            EnemyManager.OnAllEnemiesDead -= GameManagerOnAllEnemiesDead;
         }
 
         public GameState GetGameState()
@@ -63,174 +79,293 @@ namespace Detection
         {
             if (gameState == newState) return;
 
+            AfterGameStateChanged?.Invoke(gameState);
+
             gameState = newState;
+
+            OnGameStateChanged?.Invoke(gameState);
 
             switch (gameState)
             {
-                case GameState.INITIALSTART:
-                    HandleInitialStart();
-                    break;
                 case GameState.PLAYINGGAMEINTRO:
-                    HandlePlayingGameIntro();
+                    OnPlayingGameIntro();
                     break;
                 case GameState.INMAINMENU:
-                    HandleInMainMenu();
+                    OnInMainMenu();
                     break;
                 case GameState.LEVELINTRO:
-                    HandleLevelIntro();
+                    OnLevelIntro();
                     break;
                 case GameState.PREPARINGLEVEL:
-                    HandlePreparingLevel();
+                    OnPreparingLevel();
                     break;
-                case GameState.PLAYINGLEVEL:
-                    HandlePlayingLevel();
+                case GameState.PLAYINGMISSION:
+                    OnPlayingMission();
                     break;
                 case GameState.LEVELPAUSED:
-                    HandleLevelPaused();
+                    OnLevelPaused();
                     break;
                 case GameState.PLAYERDIED:
-                    HandlePlayerDied();
+                    OnPlayerDied();
                     break;
-                case GameState.LEVELCLEARED:
-                    HandleLevelCleared();
+                case GameState.MISSIONCLEARED:
+                    OnLevelCleared();
                     break;
                 case GameState.LEVELOUTRO:
-                    HandleLevelOutro();
+                    OnLevelOutro();
                     break;
-                case GameState.LEVELSTATISTICS:
-                    HandleLevelStatistics();
+                case GameState.MISSIONSTATISTICS:
+                    OnLevelStatistics();
                     break;
                 case GameState.LEVELENDED:
-                    HandleLevelEnded();
+                    OnLevelEnded();
                     break;
                 case GameState.PLAYINGCREDITS:
-                    HandlePlayingCredits();
+                    OnPlayingCredits();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
             }
-
-            OnGameStateChanged?.Invoke(gameState);
         }
 
-        // The initial start of the game
-        private void HandleInitialStart()
-        {
-            // Prepare any pre game start stuff...
+        // pre doesnt do levelended
+        // on doesnt do preparing level
 
-            // Then continue the game by going to the next scene
-            TrySwitchToNextScene();
+        private void GameManagerAfterGameStateChanged(GameState currentState)
+        {
+            switch (currentState)
+            {
+                case GameState.DEFAULT:
+                    break;
+                case GameState.PLAYINGGAMEINTRO:
+                    AfterPlayingGameIntro();
+                    break;
+                case GameState.INMAINMENU:
+                    AfterInMainMenu();
+                    break;
+                case GameState.LEVELINTRO:
+                    AfterLevelIntro();
+                    break;
+                case GameState.PREPARINGLEVEL:
+                    AfterPreparingLevel();
+                    break;
+                case GameState.PLAYINGMISSION:
+                    AfterPlayingMission();
+                    break;
+                case GameState.LEVELPAUSED:
+                    AfterLevelPaused();
+                    break;
+                case GameState.PLAYERDIED:
+                    AfterPlayerDied();
+                    break;
+                case GameState.MISSIONCLEARED:
+                    AfterMissionCleared();
+                    break;
+                case GameState.LEVELOUTRO:
+                    AfterLevelOutro();
+                    break;
+                case GameState.MISSIONSTATISTICS:
+                    AfterMissionStatistics();
+                    break;
+                case GameState.LEVELENDED:
+                    AfterLevelEnded();
+                    break;
+                case GameState.PLAYINGCREDITS:
+                    AfterPlayingCredits();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(currentState), currentState, null);
+            }
         }
 
         // The game intro is playing
-        private void HandlePlayingGameIntro()
+        private void OnPlayingGameIntro()
         {
             DisablePlayerInput();
             DisableScanner();
         }
 
-        // Player is in the main menu
-        private void HandleInMainMenu()
-        {
-            // run any code we want to prepare playing in the main menu
-            throw new NotImplementedException();
-        }
-
-        // Level intro scene is playing.
-        private void HandleLevelIntro()
-        {
-            DisablePlayerInput();
-            DisableScanner();
-        }
-
-        // Prepare the level to start playing.
-        private void HandlePreparingLevel()
-        {
-            // Try to spawn the player in the level
-            Transform spawnPointTransform = GameObject.FindWithTag("SpawnPoint").transform;
-            if (spawnPointTransform == null) Debug.LogError("Unable to find an object with tag 'SpawnPoint'. spawnPointTransform is null.");
-            SpawnPlayerAtTransform(spawnPointTransform);
-
-            // Do other preparing stuff...
-
-            // Once we are finished preparing the level, switch gamestate to playinglevel
-            UpdateGameState(GameState.PLAYINGLEVEL);
-        }
-
-        // Player is now in the level and playing
-        private void HandlePlayingLevel()
+        // The game intro is finished playing
+        private void AfterPlayingGameIntro()
         {
             EnablePlayerInput();
             EnableScanner();
         }
 
-        // Player is interacting with the wrist menu.
-        private void HandleLevelPaused()
+        // Player is in the main menu
+        private void OnInMainMenu()
         {
-            throw new NotImplementedException();
+
+        }
+        
+        // Player is leaving the main menu
+        private void AfterInMainMenu()
+        {
+            // Enable the controller ray interators
+            // Disable the controller direct interators
         }
 
-        // Player died while playing the level.
-        private void HandlePlayerDied()
-        {
-            throw new NotImplementedException();
-        }
-
-        // Player has killed all enemies in the level.
-        private void HandleLevelCleared()
-        {
-            // trigger showing arrows
-
-            throw new NotImplementedException();
-        }
-
-        // Level outro scene is playing.
-        private void HandleLevelOutro()
+        // Level intro scene is playing.
+        private void OnLevelIntro()
         {
             DisablePlayerInput();
             DisableScanner();
         }
 
-        // Show the player their statistics.
-        private void HandleLevelStatistics()
+        // Level intro scene is done playing.
+        private void AfterLevelIntro()
         {
+            EnablePlayerInput();
+            EnableScanner();
+        }
+
+        // Prepare the level to start playing.
+        private void OnPreparingLevel()
+        {
+            // Do other preparing stuff...
+
+            // Once we are finished preparing the level, switch gamestate to playinglevel
+            UpdateGameState(GameState.PLAYINGMISSION);
+        }
+
+        // Done preparing the level
+        private void AfterPreparingLevel()
+        {
+
+        }
+
+        // Player is now in the level and playing
+        private void OnPlayingMission()
+        {
+            EnablePlayerInput();
+            EnableScanner();
+        }
+
+        // Player is done playing in the level
+        private void AfterPlayingMission()
+        {
+
+        }
+
+        // Player is interacting with the wrist menu.
+        private void OnLevelPaused()
+        {
+            // Enable the controller ray interators
+            // Disable the controller direct interators
             throw new NotImplementedException();
         }
 
-        // Prepare before the next level
-        private void HandleLevelEnded()
+        // Player is done interacting with the wrist menu
+        private void AfterLevelPaused()
         {
-            // Do stuff before the next level is loaded
+            // Disable the controller ray interators
+            // Enable the controller direct interators
+            throw new NotImplementedException();
+        }
 
+        // Player died while playing the level.
+        private void OnPlayerDied()
+        {
+            ReloadScene();
+        }
+
+        // Player is no longer dead
+        private void AfterPlayerDied()
+        {
+
+        }
+
+        // Player has killed all enemies in the level.
+        private void OnLevelCleared()
+        {
+            // trigger showing arrows
+        }
+
+        // The level is no longer levelCleared
+        private void AfterMissionCleared()
+        {
+            // trigger showing arrows
+        }
+
+        // Level outro scene is playing.
+        private void OnLevelOutro()
+        {
+            DisablePlayerInput();
+            DisableScanner();
+        }
+
+        // Level outro scene is done playing.
+        private void AfterLevelOutro()
+        {
+            EnablePlayerInput();
+            EnableScanner();
+        }
+
+        // Show the player their statistics.
+        private void OnLevelStatistics()
+        {
+
+        }
+
+        // Done with the current levels statistics.
+        private void AfterMissionStatistics()
+        {
+
+        }
+
+        // The level ended
+        private void OnLevelEnded()
+        {
+            GameObject leftController = GameObject.FindGameObjectWithTag("LeftController");
+            PauseMenu pauseMenu;
+            if (leftController != null)
+            {
+                pauseMenu = leftController.GetComponent<PauseMenu>();
+                // If currently paused, unpause
+                if (pauseMenu != null && pauseMenu.pauseActive) pauseMenu.showPauseMenu();
+            }        
+
+            // Do stuff before the next level is loaded
+            // Clear all points
+            ParticleCollector.instance.ClearAllPoints();
+            // Clear the music queue
+            FindObjectOfType<MusicSystem>().ResetQueue();
             TrySwitchToNextScene();
         }
 
+        // Do stuff before 
+        private void AfterLevelEnded()
+        {
+
+        }
+
         // Play ending credits, then go to main menu
-        private void HandlePlayingCredits()
+        private void OnPlayingCredits()
         {
             throw new NotImplementedException();
         }
-        
-        
+
+        // Done playing ending credits
+        private void AfterPlayingCredits()
+        {
+            throw new NotImplementedException();
+        }
+
+
         ////////////////////////////////////////////////////////////////////
-        
-        
+
+
         public bool TrySwitchToNextScene()
         {
             switch (gameState)
             {
                 case GameState.PLAYINGGAMEINTRO:
-                case GameState.INITIALSTART:
-                case GameState.LEVELCLEARED:
+                case GameState.MISSIONSTATISTICS:
+                case GameState.MISSIONCLEARED:
                     if (currentSceneNum + 1 < totalNumberOfScenes)
                     {
+                        GameManager.instance.UpdateGameState(GameState.LEVELENDED);
                         SwitchToScene(currentSceneNum + 1, true);
-                    }
-                    return true;
-                case GameState.LEVELSTATISTICS:
-                    if (currentSceneNum + 1 < totalNumberOfScenes)
-                    {
-                        SwitchToScene(currentSceneNum + 1, false);
                     }
                     return true;
                 case GameState.PLAYINGCREDITS:
@@ -241,19 +376,42 @@ namespace Detection
             }
         }
 
+        public void ReloadScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+
         public void SwitchToScene(string sceneName, bool updateCurrentSceneNum)
         {
-            SceneManager.LoadSceneAsync(sceneName);
-            SceneManager.UnloadSceneAsync(currentSceneNum);
+            // Start fade affect
+            //FadeScreen fadeScreen = GameObject.FindWithTag("FadeScreen").GetComponent<FadeScreen>();
+            //fadeScreen.FadeOut();
+            // Wait for the fade out to complete
+            //StartCoroutine(FadeScreenRoutine(fadeScreen));
+
+            SceneManager.LoadScene(sceneName);
+            //SceneManager.UnloadSceneAsync(currentSceneNum);
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             if (updateCurrentSceneNum) currentSceneNum = GetSceneIndexFromName(sceneName);
         }
 
         public void SwitchToScene(int sceneNum, bool updateCurrentSceneNum)
         {
-            SceneManager.LoadSceneAsync(sceneNum);
-            SceneManager.UnloadSceneAsync(currentSceneNum);
+            SceneManager.LoadScene(sceneNum);
+            //SceneManager.UnloadSceneAsync(currentSceneNum);
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             if (updateCurrentSceneNum) currentSceneNum = sceneNum;
         }
+
+        private IEnumerator FadeScreenRoutine(FadeScreen fadeScreen)
+        {
+            // Wait for the fade out to complete
+            yield return new WaitForSeconds(fadeScreen.fadeDuration);
+
+            // Start the fade in effect
+            fadeScreen.FadeIn();
+        } 
 
         private string GetSceneNameFromIndex(int BuildIndex)
         {
@@ -275,34 +433,28 @@ namespace Detection
             return -1;
         }
 
-        private void SpawnPlayerAtTransform(Transform spawnPoint)
-        {
-            playerObject.transform.position = spawnPoint.position;
-            playerObject.transform.rotation = spawnPoint.rotation;
-        }
-
         private void DisablePlayerInput()
         {
-            playerObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
-            playerObject.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+            //playerObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+            //playerObject.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
         }
 
         private void EnablePlayerInput()
         {
-            playerObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
-            playerObject.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
+            //playerObject.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
+            //playerObject.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
         }
 
         private void DisableScanner()
         {
-            cameraObject.GetComponent<InputController>().enabled = false;
-            cameraObject.GetComponent<LookScanner>().enabled = false;
+            //cameraObject.GetComponent<InputController>().enabled = false;
+            //cameraObject.GetComponent<LookScanner>().enabled = false;
         }
 
         private void EnableScanner()
         {
-            cameraObject.GetComponent<InputController>().enabled = true;
-            cameraObject.GetComponent<LookScanner>().enabled = true;
+            //cameraObject.GetComponent<InputController>().enabled = true;
+            //cameraObject.GetComponent<LookScanner>().enabled = true;
         }
     }
 }

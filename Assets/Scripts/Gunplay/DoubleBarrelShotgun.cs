@@ -1,25 +1,25 @@
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
 using static Detection.IDealsDamage;
+using System;
 
 namespace Detection
 {
     public class DoubleBarrelShotgun : Weapon, IShootable, IShootsParticle, IDealsDamage
     {
         [SerializeField] private Color bulletColor = new Color(240, 208, 81);
-        [SerializeField] private float bulletLifetime = 0.5f;
         [SerializeField] private float bulletSize = 0.2f;
 
         [SerializeField] private Transform bulletSpawn;
         [SerializeField] private int pelletsPerShot = 7;
         [SerializeField] private float spread;
         private int currentAmmo;
-
-        private float fireRate = 0.50f;
         private float nextShot = 0f;
 
         // bullet trail created
         public LineRenderer bulletTrail;
+
+        public event Action OnShot;
 
         private void SpawnBulletTrail(Vector3 hitPoint)
         {
@@ -61,12 +61,14 @@ namespace Detection
             {
                 if (Time.time > nextShot)
                 {
-                    nextShot = Time.time + fireRate;
+                    nextShot = Time.time + gunData.fireRate;
                     for (int i = 0; i < pelletsPerShot; ++i)
                     {
                         Ray ray = new(bulletSpawn.position, GetPelletDirection());
                         ShootAndEmitParticle(ray);
                     }
+
+                    OnShot?.Invoke();
 
                     AudioSystem.instance.Play("shotgun_shot");
                     ActivateHapticFeedback();
@@ -83,9 +85,9 @@ namespace Detection
         {
             Vector3 target = bulletSpawn.position + bulletSpawn.forward * gunData.range;
             target = new Vector3(
-                target.x + Random.Range(-spread, spread),
-                target.y + Random.Range(-spread, spread),
-                target.z + Random.Range(-spread, spread)
+                target.x + UnityEngine.Random.Range(-spread, spread),
+                target.y + UnityEngine.Random.Range(-spread, spread),
+                target.z + UnityEngine.Random.Range(-spread, spread)
             );
 
             Vector3 dir = target - bulletSpawn.position;
@@ -100,16 +102,22 @@ namespace Detection
                 Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
                 if (hitbox != null)
                 {
-                    hitbox.Damage(gunData.damage);
+                    hitbox.Damage(Weapons.Shotgun, gunData.damage, attackerType);
                 }
 
                 var scannableObject = hit.collider.GetComponent<IScannable>();
                 if (scannableObject == null) return;
 
-                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
+                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize);
                 scannableObject.EmitParticle(hit, overrideArgs);
 
                 SpawnBulletTrail(hit.point);
+            }
+            else
+            {
+                Vector3 direction = transform.forward * 100;
+            
+                SpawnBulletTrail(bulletSpawn.position + direction);
             }
         }
     }

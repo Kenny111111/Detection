@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using static Detection.IDealsDamage;
@@ -7,19 +8,18 @@ namespace Detection
     public class RaycastRifle : TwoHandInteractable, IShootable, IShootsParticle, IDealsDamage
     {
         [SerializeField] private Color bulletColor = new Color(240, 208, 81);
-        [SerializeField] private float bulletLifetime = 0.5f;
         [SerializeField] private float bulletSize = 0.15f;
 
         [SerializeField] protected GunData gunData;
         public Transform bulletSpawn;
         private int currentAmmo;
         private WaitForSeconds waitTime;
-
-        private float fireRate = 0.095f;
         private float nextShot = 0f;
 
         // bullet trail created
         public LineRenderer bulletTrail;
+
+        public event Action OnShot;
 
         private void SpawnBulletTrail(Vector3 hitPoint)
         {
@@ -36,7 +36,7 @@ namespace Detection
 
         private void Start()
         {
-            waitTime = new WaitForSeconds(1f / gunData.fireRate);
+            waitTime = new WaitForSeconds(gunData.fireRate);
             currentAmmo = gunData.startingAmmo;
             SetHapticIntensityDuration(gunData.hapticIntensity, gunData.hapticDuration);
         }
@@ -67,9 +67,10 @@ namespace Detection
             {
                 if (Time.time > nextShot)
                 {
-                    nextShot = Time.time + fireRate;
+                    nextShot = Time.time + gunData.fireRate;
                     Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                     ShootAndEmitParticle(ray);
+                    OnShot?.Invoke();
                     AudioSystem.instance.Play("ak47_shot");
                     ActivateHapticFeedback();
                     --currentAmmo;
@@ -101,16 +102,22 @@ namespace Detection
                 Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
                 if (hitbox != null)
                 {
-                    hitbox.Damage(gunData.damage);
+                    hitbox.Damage(Weapons.Rifle, gunData.damage, attackerType);
                 }
 
                 var scannableObject = hit.collider.GetComponent<IScannable>();
                 if (scannableObject == null) return;
 
-                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
+                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize);
                 scannableObject.EmitParticle(hit, overrideArgs);
 
                 SpawnBulletTrail(hit.point);
+            }
+            else
+            {
+                Vector3 direction = transform.forward * 100;
+            
+                SpawnBulletTrail(bulletSpawn.position + direction);
             }
         }
     }

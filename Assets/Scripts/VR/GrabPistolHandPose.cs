@@ -86,15 +86,20 @@ namespace Detection
             if (gun is XRGrabInteractable)
             {
                 HandBoneData handBoneData = hand.transform.GetComponentInChildren<HandBoneData>();
-                handBoneData.animator.enabled = true;
+                if(handBoneData != null)
+                {
+                    handBoneData.animator.enabled = true;
 
-                if (handBoneData.handSide == HandBoneData.HandModelSide.Left)
-                {
-                    StartCoroutine(SetHandBoneDataRoutine(handBoneData, leftStartAndEndHandData.endingPosition, leftStartAndEndHandData.endingRotation, leftStartAndEndHandData.endingFingersRotation, leftStartAndEndHandData.startingPosition, leftStartAndEndHandData.startingRotation, leftStartAndEndHandData.startingFingersRotation));
-                }
-                else
-                {
-                    StartCoroutine(SetHandBoneDataRoutine(handBoneData, rightStartAndEndHandData.endingPosition, rightStartAndEndHandData.endingRotation, rightStartAndEndHandData.endingFingersRotation, rightStartAndEndHandData.startingPosition, rightStartAndEndHandData.startingRotation, rightStartAndEndHandData.startingFingersRotation));
+                    if (handBoneData.handSide == HandBoneData.HandModelSide.Left)
+                    {
+                        if(gun.transform.gameObject.activeInHierarchy)
+                            StartCoroutine(SetHandBoneDataRoutine(handBoneData, leftStartAndEndHandData.endingPosition, leftStartAndEndHandData.endingRotation, leftStartAndEndHandData.endingFingersRotation, leftStartAndEndHandData.startingPosition, leftStartAndEndHandData.startingRotation, leftStartAndEndHandData.startingFingersRotation));
+                    }
+                    else
+                    {
+                        if (gun.transform.gameObject.activeInHierarchy)
+                            StartCoroutine(SetHandBoneDataRoutine(handBoneData, rightStartAndEndHandData.endingPosition, rightStartAndEndHandData.endingRotation, rightStartAndEndHandData.endingFingersRotation, rightStartAndEndHandData.startingPosition, rightStartAndEndHandData.startingRotation, rightStartAndEndHandData.startingFingersRotation));
+                    }
                 }
             }
         }

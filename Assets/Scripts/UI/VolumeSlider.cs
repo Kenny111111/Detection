@@ -8,13 +8,15 @@ namespace Detection
 {
     public class VolumeSlider : MonoBehaviour
     {
-        [SerializeField] Slider volumeSlider;
-        // Start is called before the first frame update
-
-        public AudioMixer audioMixer;
-        public void SetVolume(float volume)
+        [SerializeField] private AudioMixer volumeSlider;
+        public void SetMusicVolume(float MusicSliderVolume)
         {
-            audioMixer.SetFloat("Volume", volume);
+            volumeSlider.SetFloat("MusicVolume", Mathf.Log10(MusicSliderVolume) * 20);
+        }
+
+        public void SetGameVolume(float GameSliderVolume)
+        {
+            volumeSlider.SetFloat("GameVolume", Mathf.Log10(GameSliderVolume) * 20);
         }
     }
 }

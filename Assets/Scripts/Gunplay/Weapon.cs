@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -10,6 +11,7 @@ namespace Detection
         private float intensity = 0f;
         private float duration = 0f;
         private XRBaseControllerInteractor controller = null;
+        protected AttackerType attackerType { get; private set; } = AttackerType.Enemy;
 
         private void Awake()
         {
@@ -21,6 +23,12 @@ namespace Detection
         {
             weapon.activated.AddListener(StartAttacking);
             weapon.deactivated.AddListener(StopAttacking);
+            weapon.selectEntered.AddListener(Grab);
+        }
+
+        private void Grab(SelectEnterEventArgs args)
+        {
+            attackerType = AttackerType.Player;
         }
 
         protected virtual void StartAttacking(ActivateEventArgs args)

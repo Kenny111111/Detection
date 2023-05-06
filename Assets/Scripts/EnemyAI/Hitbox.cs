@@ -9,12 +9,16 @@ namespace Detection
 
         private void Start()
         {
-            damagable = GetComponentInParent<ITakeDamage>();
+
+            ITakeDamage inParent = GetComponentInParent<ITakeDamage>();
+            ITakeDamage inRoot = GetComponent<ITakeDamage>();
+            if (inParent != null) damagable = inParent;
+            else if (inRoot != null) damagable = inRoot;
         }
 
-        public void Damage(float damage)
+        public void Damage(IDealsDamage.Weapons weapon, float damage, AttackerType attacker)
         {
-            damagable.TakeDamage(damage * hitboxMultipler);
+            damagable.TakeDamage(weapon, damage * hitboxMultipler, attacker);
         }
     }
 }

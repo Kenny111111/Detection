@@ -9,6 +9,13 @@ TagManager:
   - LeftController
   - RightController
   - Camera
+  - Effects
+  - statisticsMenu
+  - WristTimerText
+  - LevelParticleEffect
+  - ParticleCollector
+  - RightRayController
+  - FadeScreen
   layers:
   - Default
   - TransparentFX

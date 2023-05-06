@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static Detection.IDealsDamage;
 
@@ -6,18 +7,17 @@ namespace Detection
     public class RaycastPistol : TwoHandInteractable, IShootable, IShootsParticle, IDealsDamage
     {
         [SerializeField] private Color bulletColor = new Color(240, 208, 81);
-        [SerializeField] private float bulletLifetime = 0.5f;
         [SerializeField] private float bulletSize = 0.15f;
 
         [SerializeField] private GunData gunData;
         [SerializeField] private Transform bulletSpawn;
         private int currentAmmo;
-
-        private float fireRate = 0.1f;
         private float nextShot = 0f;
 
         // bullet trail created
         public LineRenderer bulletTrail;
+
+        public event Action OnShot;
 
         private void SpawnBulletTrail(Vector3 hitPoint)
         {
@@ -59,9 +59,10 @@ namespace Detection
             {
                 if (Time.time > nextShot)
                 {
-                    nextShot = Time.time + fireRate;
+                    nextShot = Time.time + gunData.fireRate;
                     Ray ray = new(bulletSpawn.position, bulletSpawn.forward);
                     ShootAndEmitParticle(ray);
+                    OnShot?.Invoke();
                     AudioSystem.instance.Play("beretta_shot");
                     ActivateHapticFeedback();
                     --currentAmmo;
@@ -81,17 +82,23 @@ namespace Detection
                 Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
                 if (hitbox != null)
                 {
-                    hitbox.Damage(gunData.damage);
+                    hitbox.Damage(Weapons.Pistol, gunData.damage, attackerType);
                 }
 
                 var scannableObject = hit.collider.GetComponent<IScannable>();
                 if (scannableObject == null) return;
 
-                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize, bulletLifetime);
+                VFXEmitArgs overrideArgs = new VFXEmitArgs(bulletColor, bulletSize);
                 scannableObject.EmitParticle(hit, overrideArgs);
 
                 SpawnBulletTrail(hit.point);
 
+            }
+            else
+            {
+                Vector3 direction = transform.forward * 100;
+            
+                SpawnBulletTrail(bulletSpawn.position + direction);
             }
         }
     }

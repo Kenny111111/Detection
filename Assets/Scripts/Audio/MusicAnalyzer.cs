@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,65 +6,86 @@ namespace Detection
 {
     public class MusicAnalyzer : MonoBehaviour
     {
-        // dependency
-        private MusicSystem musicSystem;
-        [SerializeField] public float minLoudness = 0.0f;
-        [SerializeField] public float maxLoudness = 250;
+        public static MusicAnalyzer instance;
         [SerializeField] public float updateStep = 0.01f;
-        [SerializeField] public int sampleDataLength = 512;
-        [SerializeField] public float sizeFactor = 1.0f;
-        private float curTimeCount = 0.0f;
+        [SerializeField] public int defaultSampleDataLength = 512;
+        private int sampleDataLength;
         private float[] audioSamples;
 
-        public AudioSource songPlaying;
+        private float currentMaxLoudness = 0.0f;
+        private float currentAvgLoudness = 0.0f;
+        public float currentAvgLoudnessNormalized = 0.0f;
+        private bool analyzingCoroutineRunning = false;
 
-        // This represents the current song Loudness at any point in the game.
-        public float currentLoudness = 0.0f;
-
-        private void Start()
+        private void Awake()
         {
-            musicSystem = FindObjectOfType<MusicSystem>();
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
+            }
+            else Destroy(gameObject);
+
+            sampleDataLength = defaultSampleDataLength;
             audioSamples = new float[sampleDataLength];
 
-            StartCoroutine(UpdateSongPlaying(this, musicSystem));
+            MusicSystem.UpdatedSongPlaying += UpdateSongPlaying;
         }
 
-        private static IEnumerator UpdateSongPlaying(MusicAnalyzer analyzer, MusicSystem musicSystem)
+        private void OnDestroy()
         {
-            while (true)
-            {
-                Sound soundPlaying;
-                if (musicSystem.musicQueue.TryPeek(out soundPlaying))
-                {
-                    analyzer.songPlaying = soundPlaying.source;
-                }
+            MusicSystem.UpdatedSongPlaying -= UpdateSongPlaying;
+        }
 
-                yield return new WaitForSeconds(1);
+        private void UpdateSongPlaying(Sound newSong)
+        {
+            sampleDataLength = defaultSampleDataLength * newSong.clip.channels;
+            audioSamples = new float[sampleDataLength];
+
+            if (analyzingCoroutineRunning)
+            {
+                StopCoroutine("AnalyzeSongPlaying");
+                analyzingCoroutineRunning = false;
             }
+            StartCoroutine(AnalyzeSongPlaying(newSong.source));
         }
 
-        private void Update()
+        private static IEnumerator AnalyzeSongPlaying(AudioSource song)
         {
-            if (songPlaying == null || songPlaying.clip == null || songPlaying.clip.length == 0) return;
+            instance.analyzingCoroutineRunning = true;
 
-            curTimeCount += Time.deltaTime;
-            if (curTimeCount >= updateStep)
+            const float earlyStopAmount = 0.1f;
+            float songLength = song.clip.length - earlyStopAmount;
+
+            for (float t = 0f; t < songLength; t += Time.deltaTime)
             {
-                curTimeCount = 0f;
-                if (songPlaying.clip.GetData(audioSamples, songPlaying.timeSamples))
+                if (song.isPlaying)
                 {
-                    // reset and recalculate the current sound
-                    currentLoudness = 0;
-                    foreach (float sample in audioSamples)
+                    if (song.clip.GetData(instance.audioSamples, song.timeSamples))
                     {
-                        currentLoudness += Mathf.Abs(sample);
-                    }
-                    currentLoudness /= sampleDataLength;
+                        // reset and recalculate the current sound
+                        instance.currentAvgLoudness = 0;
+                        instance.currentAvgLoudnessNormalized = 0;
+                        foreach (float sample in instance.audioSamples)
+                        {
+                            instance.currentAvgLoudness += Mathf.Abs(sample);
+                        }
+                        instance.currentAvgLoudness /= instance.sampleDataLength;
 
-                    currentLoudness *= sizeFactor;
-                    currentLoudness = Mathf.Clamp(currentLoudness, minLoudness, maxLoudness);
+                        if (instance.currentMaxLoudness < instance.currentAvgLoudness) instance.currentMaxLoudness = instance.currentAvgLoudness;
+
+                        const float minLoudness = 0f;
+                        instance.currentAvgLoudness = Mathf.Clamp(instance.currentAvgLoudness, minLoudness, instance.currentMaxLoudness);
+
+                        // normalize it from 0 to 1 based on the min max range
+                        instance.currentAvgLoudnessNormalized = (instance.currentAvgLoudness - minLoudness) / (instance.currentMaxLoudness - minLoudness);
+                        if (double.IsNaN(instance.currentAvgLoudnessNormalized)) instance.currentAvgLoudnessNormalized = 0;
+                    }
                 }
+
+                yield return new WaitForSeconds(0.01f);
             }
         }
+
     }
 }
